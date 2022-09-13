@@ -9,6 +9,10 @@ export const RoutePaths = {
     COOKIE: 'cookie',
     POST: 'post',
     NEWS: 'news',
+    ADMIN: 'admin',
     POSTFORM: 'postForm',
+    HEALTH: 'health',
+    DOCTRINE: 'doctrine',
+    SABBATHSCHOOL: 'sabbathSchool',
 
 }

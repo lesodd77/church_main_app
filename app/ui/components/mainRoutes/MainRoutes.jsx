@@ -13,18 +13,29 @@ import { Testimonials } from '../../pages/testimonials/Testimonials';
 import { ContactList } from '../../pages/admin/ContactList';
 import { Cookie } from '../../components/cookie/Cookie'
 import { Privacy } from '../../components/privacy/Privacy'
+import { Admin } from '../../pages/admin/Admin'
+import { Health } from  '../../pages/health/Health';
+import { Doctrine } from  '../../pages/doctrine/Doctrine';
+import { SabbathSchool } from  '../../pages/sabbathschool/SabbathSchool';
+
+
 
 export const MainRoutes = () => {
    
   return (
     <Fragment>
     <BrowserRouter>
+   
       <ReactRoutes>
            <Route path={RoutePaths.ROOT} element={<App />}>
             <Route element={<Hero />} index /> 
             <Route element={<ContactList/>} path={RoutePaths.CONTACTLIST} />
             <Route element={<Testimonials/>} path={RoutePaths.TESTIMONIALS} />
             <Route element={<Post/>} path={RoutePaths.POST} />
+            <Route element={<Admin/>} path={RoutePaths.ADMIN} />
+            <Route element={<Health/>} path={RoutePaths.HEALTH} />
+            <Route element={<SabbathSchool/>} path={RoutePaths.SABBATHSCHOOL} />
+            <Route element={<Doctrine/>} path={RoutePaths.DOCTRINE} />
             <Route element={<News/>} path={RoutePaths.NEWS} />
             <Route element={<PostForm/>} path={RoutePaths.POSTFORM} />
             <Route element={<About/>} path={RoutePaths.ABOUT} />
@@ -35,6 +46,7 @@ export const MainRoutes = () => {
             <Route path="*" element={<NotFound />} />
             </Route>
          </ReactRoutes>
+    
     </BrowserRouter>
   </Fragment>
     );

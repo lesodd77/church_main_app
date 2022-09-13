@@ -64,24 +64,24 @@ export const Testimonials = () => {
               Testimonals
             </h2>
           </div>
-          <ul className="p-4 bg-transparent mx-auto shadow-lg mt-10 grid max-w-2xl grid-cols-1 gap-6 sm:gap-8 lg:mt-10 lg:max-w-none lg:grid-cols-3">
+          <ul className="p-4 bg-slate-200 mx-auto shadow-lg mt-10 grid max-w-2xl grid-cols-1 gap-6 sm:gap-8 lg:mt-10 lg:max-w-none lg:grid-cols-3">
             {testimonials.map((column, columnIndex) => (
               <li key={columnIndex}>
-                <ul className="space-y-6 sm:space-y-8 bg-transparent dark:slate-800">
+                <ul className="space-y-6 sm:space-y-8 bg-primary rounded-md dark:slate-800">
                   {column.map((testimonial, testimonialIndex) => (
                     <li key={testimonialIndex}>
                       <figure className="relative rounded-2xl bg-transparent dark:bg-slate-800 dark:text-slate-300 p-6 shadow-slate-900/10">
                         <blockquote className="relative">
-                          <p className="text-lg tracking-tight dark:text-slate-300">
+                          <p className="text-sky-100 tracking-tight dark:text-slate-300">
                             {testimonial.content}
                           </p>
                         </blockquote>
-                        <figcaption className="relative mt-6 flex items-center justify-between border-t border-slate-800 dark:border-slate-100 pt-6">
+                        <figcaption className="relative mt-6 flex items-center justify-between border-t border-slate-100 pt-6">
                           <div>
-                            <div className="font-display text-sky-00 dark:text-sky-400">
+                            <div className="font-display text-sky-100 dark:text-sky-400">
                               {testimonial.author.name}
                             </div>
-                            <div className="mt-1 text-sm dark:text-slate-300">
+                            <div className="mt-1 text-sky-100 dark:text-slate-300">
                               {testimonial.author.role}
                             </div>
                           </div>

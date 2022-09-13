@@ -14,7 +14,7 @@ function classNames(...classes) {
 }
 
 export const Contact = () => {
-  const [name, setName] = useState(''); // Formik
+  const [name, setName] = useState(''); 
   const [email, setEmail] = useState('');
   const [subject, setSubject] = useState('');
   const [message, setMessage] = useState('');

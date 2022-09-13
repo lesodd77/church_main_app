@@ -102,7 +102,7 @@ export const Footer = () => {
   return (
     <footer
       id="footer"
-      className="bg-transparent dark:bg-gradient-to-l from-sky-800 to-cyan-700 dark:text-slate-300" data-aos="fade-up"
+      className="bg-primary dark:bg-slate-900 dark:text-slate-300" data-aos="fade-up"
     >
       <h2 className="sr-only">Footer</h2>
       <div className="max-w-md mx-auto py-12 px-4 sm:max-w-3xl sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
@@ -113,7 +113,7 @@ export const Footer = () => {
               src="https://tailwindui.com/img/logos/workflow-mark.svg?color=emerald&shade=400"
               alt="Company name"
             />
-            <p className="text-warm-gray-500 text-base">
+            <p className="text-warm-gray-500 text-white">
               Amazing new approach to spiritual things.
             </p>
             <div className="flex space-x-6">
@@ -121,7 +121,7 @@ export const Footer = () => {
                 <a
                   key={item.name}
                   href={item.href}
-                  className="text-warm-gray-400 hover:text-warm-gray-500"
+                  className="text-tertiaryOne hover:text-warm-gray-500"
                 >
                   <span className="sr-only">{item.name}</span>
                   <item.icon className="h-6 w-6" aria-hidden="true" />
@@ -132,7 +132,7 @@ export const Footer = () => {
           <div className="mt-12 grid grid-cols-2 gap-8 xl:mt-0 xl:col-span-2">
             <div className="md:grid md:grid-cols-2 md:gap-8">
               <div>
-                <h3 className="text-sm font-semibold text-warm-gray-700 tracking-wider uppercase">
+                <h3 className="text-sm font-semibold text-tertiaryOne tracking-wider uppercase">
                   Services
                 </h3>
                 <ul role="list" className="mt-4 space-y-4">
@@ -140,7 +140,7 @@ export const Footer = () => {
                     <li key={item.name}>
                       <a
                         href={item.href}
-                        className="text-base text-warm-gray-500 hover:text-warm-sky-500"
+                        className="text-white text-warm-gray-500 hover:text-warm-sky-500"
                       >
                         {item.name}
                       </a>
@@ -149,7 +149,7 @@ export const Footer = () => {
                 </ul>
               </div>
               <div className="mt-12 md:mt-0">
-                <h3 className="text-sm font-semibold text-warm-gray-700 tracking-wider uppercase">
+                <h3 className="text-sm font-semibold text-tertiaryOne tracking-wider uppercase">
                  Publications
                 </h3>
                 <ul role="list" className="mt-4 space-y-4">
@@ -157,7 +157,7 @@ export const Footer = () => {
                     <li key={item.name}>
                       <a
                         href={item.href}
-                        className="text-base text-warm-gray-500 hover:text-warm-gray-900"
+                        className="text-white text-warm-gray-500 hover:text-warm-gray-900"
                       >
                         {item.name}
                       </a>
@@ -168,7 +168,7 @@ export const Footer = () => {
             </div>
             <div className="md:grid md:grid-cols-2 md:gap-8">
               <div>
-                <h3 className="text-sm font-semibold text-warm-gray-700 tracking-wider uppercase">
+                <h3 className="text-sm font-semibold text-tertiaryOne tracking-wider uppercase">
                   Company
                 </h3>
                 <ul role="list" className="mt-4 space-y-4">
@@ -176,7 +176,7 @@ export const Footer = () => {
                     <li key={item.name}>
                       <a
                         href={item.href}
-                        className="text-base text-warm-gray-500 hover:text-warm-gray-900"
+                        className="text-white text-warm-gray-500 hover:text-warm-gray-900"
                       >
                         {item.name}
                       </a>
@@ -185,7 +185,7 @@ export const Footer = () => {
                 </ul>
               </div>
               <div className="mt-12 md:mt-0">
-                <h3 className="text-sm font-semibold text-warm-gray-700 tracking-wider uppercase">
+                <h3 className="text-sm font-semibold text-tertiaryOne tracking-wider uppercase">
                   Legal
                 </h3>
                 <ul role="list" className="mt-4 space-y-4">
@@ -193,7 +193,7 @@ export const Footer = () => {
                     <li key={item.name}>
                       <a
                         href={item.href}
-                        className="text-base text-warm-gray-500 hover:text-warm-gray-900"
+                        className="text-white text-warm-gray-500 hover:text-warm-gray-900"
                       >
                         {item.name}
                       </a>
@@ -205,7 +205,7 @@ export const Footer = () => {
           </div>
         </div>
         <div className="mt-12 border-t border-warm-gray-200 pt-8">
-          <p className="text-base text-warm-gray-400 xl:text-center">
+          <p className="text-white text-warm-gray-400 xl:text-center">
             &copy; 2022 Ims Ghana Field. All rights reserved.
           </p>
         </div>
