@@ -8,7 +8,7 @@ import { Outlet } from 'react-router-dom';
 export const App = () => { 
    
       return (
-        <div className="flex flex-col min-h-screen dark:bg-slate-900">
+        <div id='home' className="flex flex-col w-full h-full dark:bg-transparent">
           <Header />
           <div className="grow">
             <Outlet />

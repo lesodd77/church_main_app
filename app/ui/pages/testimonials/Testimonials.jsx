@@ -9,8 +9,8 @@ const testimonials = [
       content:
         'There are so many things I had to do with my old software that I just don’t do at all with Swed. Suspicious but I can’t say I don’t love it.',
       author: {
-        name: 'Simon Agbey',
-        role: 'Founder of Swed Inc',
+        name: 'Elder Sampson Abugry',
+        role: 'Head of Mult. Dep.',
         imageSrc: './img/simon.png',
       },
     },
@@ -20,8 +20,8 @@ const testimonials = [
       content:
       'There are so many things I had to do with my old software that I just don’t do at all with Swed. Suspicious but I can’t say I don’t love it.',
       author: {
-        name: 'Simon Agbey',
-        role: 'Founder of Swed Inc',
+        name: 'Pastor Bernard Condua',
+        role: 'Head Of Mission, Ghana',
         imageSrc: './img/simon.png',
       },
     },
@@ -31,8 +31,41 @@ const testimonials = [
       content:
       'There are so many things I had to do with my old software that I just don’t do at all with Swed. Suspicious but I can’t say I don’t love it.',
       author: {
-        name: 'Simon Agbey',
-        role: 'Founder of Swed Inc',
+        name: 'Pastor Inusah Mohamed',
+        role: 'Head of Missioary Dep.',
+        imageSrc: './img/simon.png',
+      },
+    },
+  ],
+  [
+    {
+      content:
+      'There are so many things I had to do with my old software that I just don’t do at all with Swed. Suspicious but I can’t say I don’t love it.',
+      author: {
+        name: 'Pastor Animley Theo',
+        role: 'Head of Health Dep.',
+        imageSrc: './img/simon.png',
+      },
+    },
+  ],
+  [
+    {
+      content:
+      'There are so many things I had to do with my old software that I just don’t do at all with Swed. Suspicious but I can’t say I don’t love it.',
+      author: {
+        name: 'Pastor Inusah Mohamed',
+        role: 'Head of Dep.',
+        imageSrc: './img/simon.png',
+      },
+    },
+  ],
+  [
+    {
+      content:
+      'There are so many things I had to do with my old software that I just don’t do at all with Swed. Suspicious but I can’t say I don’t love it.',
+      author: {
+        name: 'Pastor Inusah Mohamed',
+        role: 'Head of Dep.',
         imageSrc: './img/simon.png',
       },
     },
@@ -55,28 +88,28 @@ export const Testimonials = () => {
     <>
       <section
         aria-labelledby="testimonials-title"
-        className="mt-16 bg-transparent dark:bg-slate-700  dark:text-slate-300"
+        className="mt-16 bg-transparent dark:bg-slate-700 dark:text-slate-300"
         data-aos="fade-up"
       >
-        <section className="py-10 bg-transparent shadow-sm shadow-cyan-900/50 rounded-lg dark:bg-slate-700" data-aos="fade-up">
-          <div className="mx-auto max-w-2xl md:text-center">
-            <h2 className="text-4xl font-bold text-center dark:text-white">
-              Testimonals
-            </h2>
-          </div>
-          <ul className="p-4 bg-slate-200 mx-auto shadow-lg mt-10 grid max-w-2xl grid-cols-1 gap-6 sm:gap-8 lg:mt-10 lg:max-w-none lg:grid-cols-3">
+        <section className="py-10 bg-transparent rounded-lg shadow-sm shadow-cyan-900/50 dark:bg-slate-700" data-aos="fade-up">
+       <div className="relative max-w-lg mx-auto divide-y-2 divide-gray-200 lg:max-w-7xl">
+      <h1 className="flex items-center justify-center mt-2 text-3xl font-bold text-primary dark:text-white">Our Team</h1>
+         </div>
+          <ul className="grid max-w-2xl grid-cols-1 gap-6 p-4 mx-auto shadow-lg bg-slate-200 sm:gap-8 lg:mt-10 lg:max-w-none lg:grid-cols-3">
+        
             {testimonials.map((column, columnIndex) => (
               <li key={columnIndex}>
-                <ul className="space-y-6 sm:space-y-8 bg-primary rounded-md dark:slate-800">
+                
+                <ul className="space-y-6 rounded-md sm:space-y-8 bg-primary dark:slate-800">
                   {column.map((testimonial, testimonialIndex) => (
                     <li key={testimonialIndex}>
-                      <figure className="relative rounded-2xl bg-transparent dark:bg-slate-800 dark:text-slate-300 p-6 shadow-slate-900/10">
+                      <figure className="relative p-6 bg-transparent rounded-2xl dark:bg-slate-800 dark:text-slate-300 shadow-slate-900/10">
                         <blockquote className="relative">
-                          <p className="text-sky-100 tracking-tight dark:text-slate-300">
+                          <p className="tracking-tight text-sky-100 dark:text-slate-300">
                             {testimonial.content}
                           </p>
                         </blockquote>
-                        <figcaption className="relative mt-6 flex items-center justify-between border-t border-slate-100 pt-6">
+                        <figcaption className="relative flex items-center justify-between pt-6 mt-6 border-t border-slate-100">
                           <div>
                             <div className="font-display text-sky-100 dark:text-sky-400">
                               {testimonial.author.name}
@@ -85,7 +118,7 @@ export const Testimonials = () => {
                               {testimonial.author.role}
                             </div>
                           </div>
-                          <div className="h-14 w-14 overflow-hidden rounded-full bg-transparent">
+                          <div className="overflow-hidden bg-transparent rounded-full h-14 w-14">
                             <img src={testimonial.author.imageSrc} alt="" />
                           </div>
                         </figcaption>
