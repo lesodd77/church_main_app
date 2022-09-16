@@ -66,14 +66,14 @@ export const Navbar = () => {
                     <a href='/'>
                     <img
                       className="block w-auto h-8 px-8 rounded-full lg:hidden"
-                      src="./log/Logo.svg"
-                      alt="Meteor-simon-agbey-logo"
+                      src="./img/images.jpg"
+                      alt="ims-church"
                     />
                       </a>
                      <a href='/'>
                     <img
                       className="hidden w-auto h-8 rounded-full lg:block"
-                      src="./log/Logo.svg"
+                      src="./img/images.jpg"
                       alt="Meteor-simon-agbey-logo"
                       />
                       </a>

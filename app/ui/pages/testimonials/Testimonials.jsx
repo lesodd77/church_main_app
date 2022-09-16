@@ -31,7 +31,7 @@ const testimonials = [
       content:
       'There are so many things I had to do with my old software that I just don’t do at all with Swed. Suspicious but I can’t say I don’t love it.',
       author: {
-        name: 'Pastor Inusah Mohamed',
+        name: 'Elder Theo Asesu',
         role: 'Head of Missioary Dep.',
         imageSrc: './img/simon.png',
       },
@@ -53,7 +53,7 @@ const testimonials = [
       content:
       'There are so many things I had to do with my old software that I just don’t do at all with Swed. Suspicious but I can’t say I don’t love it.',
       author: {
-        name: 'Pastor Inusah Mohamed',
+        name: 'Elder Boadu',
         role: 'Head of Dep.',
         imageSrc: './img/simon.png',
       },
@@ -64,8 +64,8 @@ const testimonials = [
       content:
       'There are so many things I had to do with my old software that I just don’t do at all with Swed. Suspicious but I can’t say I don’t love it.',
       author: {
-        name: 'Pastor Inusah Mohamed',
-        role: 'Head of Dep.',
+        name: 'Elder Oscar',
+        role: 'Head of Family Dep.',
         imageSrc: './img/simon.png',
       },
     },
@@ -90,7 +90,7 @@ export const Testimonials = () => {
         <div id='home' className="mt-20 py-10 bg-transparent" data-aos="fade-up">
         
        <div className="relative max-w-lg mx-auto divide-y-2 divide-gray-200 lg:max-w-7xl">
-      <h1 className="flex items-center justify-center mt-2 text-3xl font-bold text-primary dark:text-tertiaryOne">Testiminies</h1>
+      <h1 className="flex items-center justify-center mt-2 text-3xl font-bold text-primary dark:text-tertiaryOne">Testimonies</h1>
          </div>
           <ul className="grid max-w-2xl grid-cols-1 gap-6 p-4 mx-auto shadow-md  sm:gap-8 lg:mt-10 lg:max-w-none lg:grid-cols-3">
         

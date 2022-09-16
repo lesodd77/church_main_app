@@ -149,7 +149,7 @@ export const Footer = () => {
           <div className="space-y-8 xl:col-span-1">
             <img
               className="h-10"
-              src="./log/Logo.svg"
+              src="./img/images.jpg"
               alt="Company name"
             />
             <p className="text-warm-gray-500 text-white">

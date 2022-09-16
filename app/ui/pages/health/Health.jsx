@@ -1,12 +1,12 @@
 import React from 'react';
 
 const features = [
-    { name: 'Health', description: 'Written by Dr. Asamoah Gabriel.' },
-    { name: 'Do it yourself', description: 'Written by Dr. Asamoah Gabriel.' },
+    { name: 'Health', description: 'Written by Dr. Animley The.' },
+    { name: 'Do it yourself', description: 'Written by Dr. Animley Theo.' },
     { name: 'Dimensions in Spritual realms', description: 'Written by Dr. Asamoah Gabriel' },
-    { name: 'Health Laws', description: 'Written by Dr. Asamoah Gabriel' },
-    { name: 'Connect to Heaven', description: 'Written by Dr. Anane Godwin' },
-    { name: 'Heal the mind', description: 'Written by Pastor. Agbey Simon.' },
+    { name: 'Health Laws', description: 'Written by Dr. Animley Theo' },
+    { name: 'Connect to Heaven', description: 'Written by Dr. Animley The' },
+    { name: 'Heal the mind', description: 'Written by Pastor. Benard Condua.' },
   ]
   
   export const Health = () => {
