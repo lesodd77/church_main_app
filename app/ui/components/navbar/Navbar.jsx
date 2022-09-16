@@ -5,6 +5,7 @@ import { ChevronDownIcon,  MenuIcon, XIcon } from '@heroicons/react/outline';
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { Search } from '../../Search';
 
 
 function classNames(...classes) {
@@ -44,7 +45,7 @@ export const Navbar = () => {
    });
 
   return (
-      <Disclosure as="nav" className="fixed top-0 z-40 w-full h-20 text-white bg-opacity-95 bg-primary " data-aos="fade-down">
+      <Disclosure as="nav" className="fixed top-0 z-40 w-full h-20 text-white bg-opacity-85 bg-primary dark:bg-slate-900 " data-aos="fade-down">
         {({ open }) => (
           <>
             <div id='nav' className="z-10 px-4 mx-auto max-w-7xl :px-6 lg:px-8">
@@ -65,14 +66,14 @@ export const Navbar = () => {
                     <a href='/'>
                     <img
                       className="block w-auto h-8 px-8 rounded-full lg:hidden"
-                      src="./img/simon.png"
+                      src="./log/Logo.svg"
                       alt="Meteor-simon-agbey-logo"
                     />
                       </a>
                      <a href='/'>
                     <img
                       className="hidden w-auto h-8 rounded-full lg:block"
-                      src="./img/simon.png"
+                      src="./log/Logo.svg"
                       alt="Meteor-simon-agbey-logo"
                       />
                       </a>
@@ -316,21 +317,7 @@ export const Navbar = () => {
                 </div>
                 <div className="flex items-center m-2">
                   <div className="flex-shrink-0">
-                <form action="" className="relative mx-auto w-max">
-        <input type="search" 
-        className="relative z-20 w-12 h-8 px-2 py-3 bg-transparent border rounded-full outline-none cursor-pointer peer focus:w-full focus:cursor-text focus:pl-12 focus:pr-4" />
-        <svg xmlns="http://www.w3.org/2000/svg" 
-        className="absolute inset-y-0 my-auto h-8 w-12  border-r border-transparent stroke-gray-300 px-3.5 peer-focus:border-white peer-focus:stroke-white" 
-        fill="none"
-         viewBox="0 0 24 24" 
-         stroke="currentColor" 
-         strokeWidth="2">
-          <path strokeLinecap="round" 
-          strokeLinejoin="round" 
-          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-        </svg>
-      </form>    
-
+               <Search />
    
   </div>
 </div>
@@ -351,11 +338,11 @@ export const Navbar = () => {
                 <div className="flex items-center">
                   <div className="flex-shrink-0">
                     <a
-                      href="#"
+                      href="contact"
                       type="button"
                       className="inline-flex items-center px-3 py-2 font-serif font-medium text-white border border-transparent rounded-md shadow-lg text-md shadow-cyan-900/50 bg-tertiaryOne hover:bg-tertiaryThree" data-aos="fade-right"
                     >
-                      <span>Sign Up</span>
+                      <span>Contact Us</span>
                     </a>
                   </div>
                  

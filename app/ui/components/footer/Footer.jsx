@@ -1,4 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Meteor } from 'meteor/meteor';
+// eslint-disable-next-line import/no-unresolved
+import { ErrorAlert } from '../../components/alerts/ErrorAlert';
+// eslint-disable-next-line import/no-unresolved
+import { SuccessAlert } from '../../components/alerts/SuccessAlert';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -15,10 +20,8 @@ const footerNavigation = {
     
   ],
   company: [
-    { name: 'About', href: '#' },
-    { name: 'News', href: 'homePage' },
+    { name: 'News', href: 'news' },
     { name: 'testimonial', href: 'testimonials' },
-    { name: 'Gallery', href: '#' },
     { name: 'Contact', href: 'contact' },
   ],
   legal: [
@@ -91,6 +94,42 @@ const footerNavigation = {
 };
 
 export const Footer = () => {
+
+  const [email, setEmail] = useState('');
+  const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
+  // eslint-disable-next-line no-shadow
+  const showError = ({ message }) => {
+    setError(message);
+    setTimeout(() => {
+      setError('');
+    }, 5000);
+  };
+
+  // eslint-disable-next-line no-shadow
+  const showSuccess = ({ message }) => {
+    setSuccess(message);
+    setTimeout(() => {
+      setSuccess('');
+    }, 5000);
+  };
+
+  const saveEmail = () => {
+    Meteor.call(
+      'notifyemails.insert',
+      {  notifyemail },
+      errorResponse => {
+        if (errorResponse) {
+          showError({ message: errorResponse.error });
+        } else {
+       
+          setEmail('');
+        
+          showSuccess({ message: 'Email saved.' });
+        }
+      }
+    );
+  };
     useEffect(() => {
     AOS.init({
       delay: 200,
@@ -110,18 +149,48 @@ export const Footer = () => {
           <div className="space-y-8 xl:col-span-1">
             <img
               className="h-10"
-              src="https://tailwindui.com/img/logos/workflow-mark.svg?color=emerald&shade=400"
+              src="./log/Logo.svg"
               alt="Company name"
             />
             <p className="text-warm-gray-500 text-white">
               Amazing new approach to spiritual things.
             </p>
+            <div className="mt-1 max-w-xl font-serif text-sm text-cyan-400 ">
+          <p className='font-serif'>We dont share your data, only pray for all.</p>
+        </div>
+        <form className="mt-4 sm:flex sm:max-w-md lg:mt-0">
+            {error && <ErrorAlert message={error} />}
+              {success && <SuccessAlert message={success} />}
+            <label htmlFor="email-address" className="sr-only">
+              Email address
+            </label>
+            <input
+              type="email"
+              name="email-address"
+              id="email-address"
+              autoComplete="email"
+              required
+              value={email}
+              onChange={e => setEmail(e.target.value)}
+              className="w-full min-w-0 appearance-none rounded-md border border-transparent bg-white py-2 px-4 text-base text-gray-900 placeholder-gray-500 focus:border-white focus:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 sm:max-w-xs"
+              placeholder="Enter your email"
+            />
+            <div className="mt-3 rounded-md sm:mt-0 sm:ml-3 sm:flex-shrink-0">
+              <button
+                type="submit"
+                onClick={saveEmail}
+                className="flex w-full items-center justify-center rounded-md border border-transparent bg-tertiaryOne py-2 px-4 text-base font-medium text-white hover:bg-opacity-50 focus:outline-none focus:ring-2 focus:ring-tertiaryOne focus:ring-offset-2 focus:ring-offset-gray-800"
+              >
+                Notify me
+              </button>
+            </div>
+          </form>
             <div className="flex space-x-6">
               {footerNavigation.social.map(item => (
                 <a
                   key={item.name}
                   href={item.href}
-                  className="text-tertiaryOne hover:text-warm-gray-500"
+                  className="text-tertiaryOne hover:text-warm-gray-500 hover:underline decoration-tertiaryOne"
                 >
                   <span className="sr-only">{item.name}</span>
                   <item.icon className="h-6 w-6" aria-hidden="true" />
@@ -140,7 +209,7 @@ export const Footer = () => {
                     <li key={item.name}>
                       <a
                         href={item.href}
-                        className="text-white text-warm-gray-500 hover:text-warm-sky-500"
+                        className="text-white text-warm-gray-500 hover:text-warm-sky-500 hover:underline decoration-tertiaryOne"
                       >
                         {item.name}
                       </a>
@@ -157,7 +226,7 @@ export const Footer = () => {
                     <li key={item.name}>
                       <a
                         href={item.href}
-                        className="text-white text-warm-gray-500 hover:text-warm-gray-900"
+                        className="text-white text-warm-gray-500 hover:text-warm-gray-900 hover:underline decoration-tertiaryOne"
                       >
                         {item.name}
                       </a>
@@ -176,7 +245,7 @@ export const Footer = () => {
                     <li key={item.name}>
                       <a
                         href={item.href}
-                        className="text-white text-warm-gray-500 hover:text-warm-gray-900"
+                        className="text-white text-warm-gray-500 hover:text-warm-gray-900 hover:underline decoration-tertiaryOne"
                       >
                         {item.name}
                       </a>
@@ -193,7 +262,7 @@ export const Footer = () => {
                     <li key={item.name}>
                       <a
                         href={item.href}
-                        className="text-white text-warm-gray-500 hover:text-warm-gray-900"
+                        className="text-white text-warm-gray-500 hover:text-warm-gray-900 hover:underline decoration-tertiaryOne"
                       >
                         {item.name}
                       </a>
@@ -205,7 +274,7 @@ export const Footer = () => {
           </div>
         </div>
         <div className="mt-12 border-t border-warm-gray-200 pt-8">
-          <p className="text-white text-warm-gray-400 xl:text-center">
+          <p className="text-white text-warm-gray-400 xl:text-center hover:underline decoration-tertiaryOne">
             &copy; 2022 Ims Ghana Field. All rights reserved.
           </p>
         </div>

@@ -14,5 +14,8 @@ export const RoutePaths = {
     HEALTH: 'health',
     DOCTRINE: 'doctrine',
     SABBATHSCHOOL: 'sabbathSchool',
-
+    DASHBOARD: 'dashboard',
+    SIGNUP: 'signup',
+    NOTIFYEMAIL: 'notifyEmail',
+    SIGNUP: 'signup',
 }

@@ -86,24 +86,21 @@ export const Testimonials = () => {
   });
   return (
     <>
-      <section
-        aria-labelledby="testimonials-title"
-        className="mt-16 bg-transparent dark:bg-slate-700 dark:text-slate-300"
-        data-aos="fade-up"
-      >
-        <section className="py-10 bg-transparent rounded-lg shadow-sm shadow-cyan-900/50 dark:bg-slate-700" data-aos="fade-up">
+    
+        <div id='home' className="mt-20 py-10 bg-transparent" data-aos="fade-up">
+        
        <div className="relative max-w-lg mx-auto divide-y-2 divide-gray-200 lg:max-w-7xl">
-      <h1 className="flex items-center justify-center mt-2 text-3xl font-bold text-primary dark:text-white">Our Team</h1>
+      <h1 className="flex items-center justify-center mt-2 text-3xl font-bold text-primary dark:text-tertiaryOne">Testiminies</h1>
          </div>
-          <ul className="grid max-w-2xl grid-cols-1 gap-6 p-4 mx-auto shadow-lg bg-slate-200 sm:gap-8 lg:mt-10 lg:max-w-none lg:grid-cols-3">
+          <ul className="grid max-w-2xl grid-cols-1 gap-6 p-4 mx-auto shadow-md  sm:gap-8 lg:mt-10 lg:max-w-none lg:grid-cols-3">
         
             {testimonials.map((column, columnIndex) => (
               <li key={columnIndex}>
                 
-                <ul className="space-y-6 rounded-md sm:space-y-8 bg-primary dark:slate-800">
+                <ul className="space-y-6 rounded-md sm:space-y-8 bg-primary dark:slate-900">
                   {column.map((testimonial, testimonialIndex) => (
                     <li key={testimonialIndex}>
-                      <figure className="relative p-6 bg-transparent rounded-2xl dark:bg-slate-800 dark:text-slate-300 shadow-slate-900/10">
+                      <figure className="relative p-6 bg-transparent rounded-lg dark:bg-slate-900 dark:text-slate-300 shadow-slate-900/10">
                         <blockquote className="relative">
                           <p className="tracking-tight text-sky-100 dark:text-slate-300">
                             {testimonial.content}
@@ -129,8 +126,8 @@ export const Testimonials = () => {
               </li>
             ))}
           </ul>
-        </section>
-      </section>
+        </div>
+     
     </>
   );
 };

@@ -61,6 +61,22 @@ const posts = [
     readingTime: '4 min',
   },
   {
+    title: 'How to use search engine optimization to drive sales',
+    href: '#',
+    category: { name: 'Video', href: '#', color: 'bg-pink-100 text-pink-800' },
+    description:
+      'Nullam risus blandit ac aliquam justo ipsum. Quam mauris volutpat massa dictumst amet. Sapien tortor lacus arcu.',
+    date: 'Mar 10, 2020',
+    datetime: '2020-03-10',
+    author: {
+      name: 'Dessie Ryan',
+      href: '#',
+      imageUrl:
+        'https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+    },
+    readingTime: '4 min',
+  },
+  {
     title: 'Improve your customer experience',
     href: '#',
     category: {
@@ -90,14 +106,14 @@ export const News = () => {
   
   return (
     
-     <div className="relative px-4 pt-16 pb-20 bg-gray-500 sm:px-6 lg:px-8 lg:pt-24 lg:pb-28">
+     <div className="relative px-4 pt-16 pb-20  sm:px-6 lg:px-8 lg:pt-24 lg:pb-28">
       <div className="absolute inset-0">
         <div className="bg-white h-1/3 sm:h-2/3" />
       </div>
       <div className="relative mx-auto max-w-7xl">
         
  <Post />
-        <div className="grid max-w-lg gap-5 mx-auto mt-12 lg:max-w-none lg:grid-cols-3">
+        <div className="grid max-w-lg gap-5 mx-auto mt-12 lg:max-w-none lg:grid-cols-4">
           {posts.map((post) => (
             <div key={post.title} className="flex flex-col overflow-hidden rounded-lg shadow-lg">
               <div className="flex-shrink-0">
@@ -120,7 +136,7 @@ export const News = () => {
                   </p>
                   <a href={post.href} className="block mt-2">
                     <p className="text-xl font-semibold text-gray-900 line-clamp-1">{post.title}</p>
-                    <p className="mt-3 text-base text-gray-500 line-clamp-1">{post.description}</p>
+                    <p className="mt-3 text-base text-gray-500 line-clamp-2">{post.description}</p>
                   </a>
                 </div>
                 <div className="flex items-center mt-6">

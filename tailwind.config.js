@@ -34,19 +34,16 @@ module.exports = {
         sm: '0 2px 4px -0px rgba(11, .10, .55, 0.15)',
         lg: '0 8px 20px -0px rgba(18, .16, .99, 0.6)',
       },
-      extend: {
+     
         lineClamp: {
           7: '7',
           8: '8',
           9: '9',
           10: '10',
         },
-      },
-      variants: {
-        extend: {
+        variants: {
           lineClamp: ['responsive', 'hover']
         },
-      },
 
       fontFamily: {
         satoshi: 'Satoshi, sans-serif',

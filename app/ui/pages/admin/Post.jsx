@@ -70,12 +70,12 @@ export const Post = () => {
                 <a href="news">{post.category}</a>
               </p>
               <a href="#">
-                <p className="text-xl font-semibold text-gray-900 truncate line-clamp-3 hover:line-clamp-none">
+                <p className="text-xl font-semibold text-gray-900 truncate line-clamp-1 hover:line-clamp-none">
                   {post.title}
                 </p>
               </a>
 
-              <p className="mt-3 text-base text-gray-500 truncate line-clamp-3 hover:line-clamp-none">
+              <p className="mt-3 text-base text-gray-500  truncate line-clamp-2 hover:line-clamp-none">
                 {post.textarea}
               </p>
               <a href="#" className="text-cyan-500">
@@ -96,9 +96,7 @@ export const Post = () => {
                   {post.author}
                 </p>
                 <div className="flex space-x-1 text-sm text-gray-500">
-                  <time dateTime={post.datetime}>{post.date}</time>
-                  <span aria-hidden="true">&middot;</span>
-                  <span>Date :{post.date}</span>
+                  <span>{post.date}</span>
                 </div>
               </div>
             </div>
@@ -109,7 +107,7 @@ export const Post = () => {
   ))
 
   return (
-    <div className="w-full bg-transparent dark:bg-slate-700">
+    <div id='home' className="w-full bg-transparent dark:bg-slate-700">
       
         <div className="text-center">
         <h2 className="px-3 py-8 text-4xl font-bold text-center dark:text-white">

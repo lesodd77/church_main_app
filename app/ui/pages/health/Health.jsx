@@ -1,12 +1,12 @@
 import React from 'react';
 
 const features = [
-    { name: 'Origin', description: 'Designed by Good Goods, Inc.' },
-    { name: 'Material', description: 'Solid walnut base with rare earth magnets and polycarbonate add-ons.' },
-    { name: 'Dimensions', description: '15" x 3.75" x .75"' },
-    { name: 'Finish', description: 'Hand sanded and finished with natural oil' },
-    { name: 'Includes', description: 'Pen Tray, Phone Tray, Small Tray, Large Tray, Sticky Note Holder' },
-    { name: 'Considerations', description: 'Made from natural materials. Grain and color vary with each item.' },
+    { name: 'Health', description: 'Written by Dr. Asamoah Gabriel.' },
+    { name: 'Do it yourself', description: 'Written by Dr. Asamoah Gabriel.' },
+    { name: 'Dimensions in Spritual realms', description: 'Written by Dr. Asamoah Gabriel' },
+    { name: 'Health Laws', description: 'Written by Dr. Asamoah Gabriel' },
+    { name: 'Connect to Heaven', description: 'Written by Dr. Anane Godwin' },
+    { name: 'Heal the mind', description: 'Written by Pastor. Agbey Simon.' },
   ]
   
   export const Health = () => {

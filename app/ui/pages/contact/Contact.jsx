@@ -72,24 +72,24 @@ export const Contact = () => {
   return (
     <>
       <section
-        id="contact"
-        className="pt-10 pb-36 px-8 bg-slate-700 dark:bg-slate-900 rounded-lg py-8 ring-1 ring-slate-900/5 shadow-xl"
+      
+        className="pt-10 pb-36 px-8 bg-primary bg-opacity-20 dark:bg-slate-900 py-8 ring-1 ring-slate-900/5 shadow-xl"
       >
         <div className="max-w-6xl mx-auto">
           <h2
-            className="text-4xl font-bold text-center mt-20 text-gray-50 dark:text-gray-50"
+            className="text-4xl font-bold text-center mt-20 text-primary dark:text-tertiaryOne"
             data-aos="fade-left"
           >
             Contact Us
           </h2>
 
         </div>
-        <div className="relative max-w-4xl mx-auto shadow-sm shadow-cyan-900/50">
-          <div className="relative z-20 bg-slate-600 dark:bg-slate-900 rounded-lg p-8">
+        <div  className="relative max-w-4xl mx-auto shadow-sm shadow-cyan-900/50">
+          <div  className="relative z-20 bg-primary dark:bg-slate-900 rounded-lg p-8">
             <form action="" data-aos="fade-up">
               {error && <ErrorAlert message={error} />}
               {success && <SuccessAlert message={success} />}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+              <div  className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
                 <input
                   type="text"
                   // eslint-disable-next-line react/jsx-props-no-multi-spaces
@@ -98,7 +98,7 @@ export const Contact = () => {
                   onChange={e => setName(e.target.value)}
                   placeholder="Full Name"
                   autoComplete="name"
-                  className="bg-slate-300 dark:bg-slate-800 dark:text-gray-50 shadow-md px-4 py-2 rounded-md hover:border-gray-400 focus:border-gray-300"
+                  className="bg-slate-800 text-gray-50 shadow-md px-4 py-2 rounded-md hover:border-gray-400 focus:border-gray-300"
                 />
 
                 <input
@@ -107,7 +107,8 @@ export const Contact = () => {
                   value={email}
                   onChange={e => setEmail(e.target.value)}
                   placeholder="Email"
-                  className="bg-slate-300 dark:bg-slate-800 dark:text-gray-50 shadow-md px-4 py-2 rounded-md hover:border-gray-400 focus:border-gray-300"
+              
+                  className="bg-slate-800 text-gray-50 shadow-md px-4 py-2 rounded-md hover:border-gray-400 focus:border-gray-300"
                 />
 
                 <input
@@ -116,7 +117,7 @@ export const Contact = () => {
                   value={subject}
                   onChange={e => setSubject(e.target.value)}
                   placeholder="Subject"
-                  className="bg-slate-300 dark:bg-slate-800 dark:text-gray-50  shadow-md px-4 py-2 rounded-md hover:border-gray-400 focus:border-gray-400 md:col-span-2"
+                  className="bg-slate-800 text-gray-50  shadow-md px-4 py-2 rounded-md hover:border-gray-400 focus:border-gray-400 md:col-span-2"
                 />
 
                 <textarea
@@ -124,7 +125,7 @@ export const Contact = () => {
                   id="message"
                   value={message}
                   onChange={e => setMessage(e.target.value)}
-                  className="bg-slate-300 dark:bg-slate-800 dark:text-gray-50 shadow-md px-4 py-2 rounded-md hover:border-gray-400 focus:border-gray-400 md:col-span-2"
+                  className="bg-slate-800 text-gray-50 shadow-md px-4 py-2 rounded-md hover:border-gray-400 focus:border-gray-400 md:col-span-2"
                   // @ts-ignore
                   rows="5"
                   placeholder="Message"
@@ -171,7 +172,7 @@ export const Contact = () => {
             
               <button
                 onClick={saveContact}
-                className="mt-4 inline-flex items-center px-7 py-2 border border-transparent text-md font-medium rounded-r-full shadow-lg shadow-cyan-900/50 text-white bg-cyan-600 hover:bg-cyan-700"
+                className="mt-4 inline-flex items-center px-7 py-2 border border-transparent text-md font-medium rounded-r-full shadow-lg shadow-cyan-900/50 text-white bg-tertiaryOne hover:bg-cyan-700"
                                 data-aos="fade-left"
               >
                 <span>Send Message</span>

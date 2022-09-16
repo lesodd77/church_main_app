@@ -1,16 +1,20 @@
 // @ts-nocheck
 import { Meteor } from 'meteor/meteor';
 import { check } from 'meteor/check';
+import { searchPosts, popularPosts } from "../posts/postsRest";
 import { PostsCollection } from '../collections/posts.collection';
 
 Meteor.methods({
-  'posts.insert'({ title, url, textarea,  category, author, image1Url }) {
+  'posts.insert'({ title, url, textarea, date, category, author, image1Url }) {
     check(title, String);
     check(url, String);
     check(image1Url, String);
     check(author, String);
     check(textarea, String);
     check(category, String);
+    check(date, String);
+  
+  
   
   
   
@@ -21,10 +25,25 @@ Meteor.methods({
       throw new Meteor.Error('Title is required.');
     }
    
-
+    if (!date) {
+      throw new Meteor.Error('Date is required.');
+    }
+    if (!category) {
+      throw new Meteor.Error('Category is required.');
+    }
+    if (!author) {
+      throw new Meteor.Error('Author is required.');
+    }
+    if (!textarea) {
+      throw new Meteor.Error('Content is required.');
+    }
+   
+   
+   
     return PostsCollection.insert({
         title,
          url,
+         date,
          textarea,
          author,
          image1Url, 
@@ -47,4 +66,19 @@ Meteor.methods({
 
     PostsCollection.update(postId);
   },
+  postsSearch(query) {
+    return searchPosts({ query });
+  },
+  postsPopular() {
+    return popularPosts();
+  },
+  posts() {
+    return PostsCollection.find({}, { sort: { title: 1 } }).fetch();
+  },
+  postSave(post) {
+    return PostsCollection.save(post);
+  },
+  postRemove(post) {
+    return PostsCollection.remove({ id: post.id });
+  }
 });

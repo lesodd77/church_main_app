@@ -19,7 +19,7 @@ export const PostForm = () => {
   const [url, setUrl] = useState('');
   const [image1Url, setImage1Url] = useState('');
   const [author, setAuthor] = useState('');
-  const [createdAt, setCreatedAt] = useState('');
+  const [date, setDate] = useState('');
   const [category, setCategory] = useState('');
   const [error, setError] = useState('');
   const [textarea, setTextarea] =  useState('');
@@ -43,7 +43,7 @@ export const PostForm = () => {
   const savePost = () => {
     Meteor.call(
       'posts.insert',
-      { title, url, textarea, author, image1Url, createdAt, category },
+      { title, url, textarea, author, image1Url, date, category },
       errorResponse => {
         if (errorResponse) {
           showError({ message: errorResponse.error });
@@ -51,7 +51,7 @@ export const PostForm = () => {
           setTitle('');
           setUrl('');
           setImage1Url('');
-          setCreatedAt('');
+          setDate('');
           setAuthor('');
           setTextarea('');
           
@@ -170,9 +170,9 @@ export const PostForm = () => {
       </label>
                 <input
                   type="date"
-                  id="createdAt"
-                  value={createdAt}
-                  onChange={e => setCreatedAt(e.target.value)}
+                  id="date"
+                  value={date}
+                  onChange={e => setDate(e.target.value)}
                   className="bg-slate-300 dark:bg-slate-800 dark:text-gray-50  shadow-md px-4 py-2 rounded-md hover:border-gray-400 focus:border-gray-400 md:col-span-2"
                 />
                 </div>

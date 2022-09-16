@@ -60,6 +60,14 @@ function classNames(...classes) {
 export const Doctrine = () => {
   return (
     <div className="bg-white">
+       <div aria-hidden="true" className="relative">
+      <img
+        src="https://tailwindui.com/img/ecommerce-images/product-feature-02-full-width.jpg"
+        alt=""
+        className="h-96 w-full object-cover object-center"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-white" />
+    </div>
       <section aria-labelledby="features-heading" className="mx-auto max-w-7xl py-32 sm:px-2 lg:px-8">
         <div className="mx-auto max-w-2xl px-4 lg:max-w-none lg:px-0">
           <div className="max-w-3xl">

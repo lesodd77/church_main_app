@@ -19,6 +19,9 @@ const PostsSchema = new SimpleSchema({
   title: {
     type: String,
   },
+  date: {
+    type: String,
+  },
 
   category: {
     type: String,
