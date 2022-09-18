@@ -1,14 +1,26 @@
-// @ts-nocheck
 import React, { Fragment, useEffect, useState } from 'react';
-import { Disclosure, Menu, Transition } from '@headlessui/react';
-
+import { Disclosure, Menu, Transition } from '@headlessui/react'
+import { MagnifyingGlassIcon } from '@heroicons/react/20/solid'
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { Search } from '../../Search';
+
+const user = {
+  name: 'Tom Cook',
+  email: 'tom@example.com',
+  imageUrl:
+    'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+}
+
+const userNavigation = [
+  { name: 'Your Profile', href: '#' },
+  { name: 'Settings', href: '#' },
+  { name: 'Sign out', href: '#' },
+]
 
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(' ');
+  return classes.filter(Boolean).join(' ')
 }
 
 export const Navbar = () => {
@@ -42,62 +54,69 @@ export const Navbar = () => {
     // @ts-ignore
     }, []);
    });
-
   return (
-      <Disclosure as="nav" className="fixed top-0 z-40 w-full h-20 text-white bg-opacity-85 bg-primary dark:bg-slate-900 " data-aos="fade-down">
+    
+      <Disclosure as="header" className="fixed top-0 z-40 w-full bg-primary dark:bg-slate-900" data-aos="fade-down">
         {({ open }) => (
           <>
-            <div id='nav' className="z-10 px-4 mx-auto max-w-7xl :px-6 lg:px-8">
-              <div className="flex justify-between h-20">
-                <div className="flex">
-                  <div className="flex items-center mr-2 -ml-2 md:hidden">
-                    {/* Mobile menu button */}
-                    <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-dark hover:text-gray-200 hover:bg-tertiaryTwo focus:outline-none focus:ring-1 focus:ring-inset focus:ring-cyan-500" data-aos="fade-down">
-                      <span className="sr-only">Open main menu</span>
-                      {open ? (
-                        <img src='./log/XIcon.svg' className="block w-6 h-6 sm:text-4xl text-white dark:text-white" aria-hidden="true" />
-                      ) : (
-                        
-                        <img src='./log/MenuIcon.svg ' className="block w-6 h-6 sm:text-4xl text-white dark:text-white" aria-hidden="true" />
-                      )}
-                    </Disclosure.Button>
-                  </div>
-                  <div className="flex items-center flex-shrink-0">
-                    <a href='/'>
+            <div className="mx-auto max-w-7xl px-2 sm:px-4 lg:divide-y lg:divide-gray-700 lg:px-8">
+              <div className="relative flex h-16 justify-between">
+                <div className="relative z-10 flex px-2 lg:px-0">
+                  <div className="flex flex-shrink-0 items-center">
                     <img
-                      className="block w-auto h-8 px-8 rounded-md lg:hidden"
+                      className="block h-8 w-auto shadow-md shadow-slate-300"
                       src="./log/ims-logo.png"
-                      alt="ims-church"
+                      alt="ims-ghana-sda-reform-church"
                     />
-                      </a>
-                     <a href='/'>
-                    <img
-                      className="hidden w-auto h-8 rounded-md lg:block"
-                      src="./log/ims-logo.png"
-                      alt="Meteor-simon-agbey-logo"
-                      />
-                      </a>
                   </div>
-                  <div className="hidden md:ml-8 md:flex md:space-x-8">
-                    <div className="flex items-center">
-                  <div id='nav' className="flex-shrink-0">
-                    <a
-                      href="/"
-                      type="button"
-                      className="relative inline-flex items-center px-3 py-0 font-serif font-bold border border-transparent rounded-md text-md dark:text-white hover:bg-tertiaryOne hover:text-white"
-                    >
-                      <span>Home</span>
-                    </a>
-                  </div>
-                 
                 </div>
-                <div className="flex items-center">
-                  <div id='nav' className="flex-shrink-0">
-                <Menu as="div" className="relative inline-block py-5 text-left">
+                <div className="relative z-0 flex flex-1 items-center justify-center px-2 sm:absolute sm:inset-0">
+                  <div className="w-full sm:max-w-xs">
+                    <label htmlFor="search" className="sr-only">
+                      Search
+                    </label>
+                    <div className="relative">
+                      <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                        <MagnifyingGlassIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
+                      </div>
+                      <input
+                        id="search"
+                        name="search"
+                        className="block w-full rounded-md border border-transparent bg-cyan-900 py-2 pl-10 pr-3 text-sm placeholder-gray-600 focus:border-white focus:bg-white focus:text-gray-900 focus:placeholder-gray-500 focus:outline-none focus:ring-white sm:text-sm"
+                        placeholder="Search"
+                        type="search"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div className="relative z-10 flex items-center lg:hidden">
+                  {/* Mobile menu button */}
+                  <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                    <span className="sr-only">Open menu</span>
+                    {open ? (
+                      <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
+                    ) : (
+                      <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
+                    )}
+                  </Disclosure.Button>
+                </div>
+                <div className="hidden lg:relative lg:z-10 lg:ml-4 lg:flex lg:items-center">
+                <button
+                    type="button"
+                    onClick={handleThemeSwitch}
+                    className="relative inline-flex items-center px-3 py-1 font-bold border border-transparent text-md dark:text-white hover:text-white"
+                  >
+                    {theme === 'dark' ? '🌞' : '🌙'}
+                    <span className="sr-only">dark mode switch</span>
+                   
+                  </button>
+  
+                  {/* Profile dropdown */}
+                  <Menu as="div" className="relative ml-4 flex-shrink-0">
                     <div>
-                      <Menu.Button className="relative inline-flex items-center px-3 py-0 font-serif font-bold border border-transparent rounded-md text-md dark:text-white hover:bg-tertiaryOne hover:text-white">
-                       About Us
-                        <img src='./log/Chevron.svg' className="w-5 h-5 ml-2 -mr-1" aria-hidden="true" />
+                      <Menu.Button className="flex rounded-full bg-gray-800 text-sm text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                        <span className="sr-only">Open user menu</span>
+                        <img className="h-8 w-8 rounded-full" src={user.imageUrl} alt="" />
                       </Menu.Button>
                     </div>
                     <Transition
@@ -109,17 +128,51 @@ export const Navbar = () => {
                       leaveFrom="transform opacity-100 scale-100"
                       leaveTo="transform opacity-0 scale-95"
                     >
-                      <Menu.Items className="absolute right-0 w-full font-serif origin-top-right divide-y divide-gray-100 rounded-md shadow-lg mt-7 bg-primary ring-1 ring-primary ring-opacity-5 focus:outline-none">
-                        <div onClick={() => setNavbarOpen(!open)} className="py-1">
+                    
+                    </Transition>
+                  </Menu>
+                </div>
+              </div>
+              
+              <nav className="hidden lg:flex lg:space-x-8 lg:py-2" aria-label="Global">
+              <div id='nav' className="flex-shrink-0">
+            
+                    <a
+                      href="/"
+                      type="button"
+                      className="relative inline-flex text-white items-center mt-3 px-2 py-0 font-serif font-bold border border-transparent rounded-md backdrop:text-md dark:bg-primary dark:text-white hover:bg-tertiaryOne hover:text-white">
+                      <span>Home</span>
+                    </a>
+                  
+                  </div>
+                    <Menu as="div" className="relative z-40 inline-block py-3 text-left">
+                    <div>
+                      <Menu.Button className="relative inline-flex text-white items-center px-2 py-0 font-bold border border-transparent rounded-r-full  backdrop:text-md dark:bg-primary dark:text-white hover:bg-tertiaryOne hover:text-white">
+                       About Us
+                       <img src='./log/Chevron.svg' className="w-5 h-5 ml-2 -mr-1" aria-hidden="true" />
+                      </Menu.Button>
+                    </div>
+                    <Transition
+                      as={Fragment}
+                      enter="transition ease-out duration-100"
+                      enterFrom="transform opacity-0 scale-95"
+                      enterTo="transform opacity-100 scale-100"
+                      leave="transition ease-in duration-75"
+                      leaveFrom="transform opacity-100 scale-100"
+                      leaveTo="transform opacity-0 scale-95"
+                    >
+                      <Menu.Items className="absolute right-0 w-full mt-5 origin-top-right divide-y divide-gray-100 rounded-md bg-primary focus:outline-none">
+                        <div onClick={() => setNavbarOpen(!open)} className="py-3">
+                       
                           <Menu.Item>
                             {({ active }) => (
                               <a
                                 href="about"
                                 className={classNames(
                                   active
-                                    ? 'bg-tertiaryOne rounded-r-full text-white'
-                                    : 'text-white',
-                                  'block px-4 py-2 text-sm'
+                                  ? 'bg-tertiaryOne rounded-r-full text-white'
+                                  : 'text-white',
+                                'block px-4 py-2 text-sm'
                                 )}
                               >
                                About
@@ -143,8 +196,8 @@ export const Navbar = () => {
                               </a>
                             )}
                           </Menu.Item>
-                          </div>
-                        <div className="py-1">
+                       </div>
+                       <div className="py-1">
                           <Menu.Item>
                             {({ active }) => (
                               <a
@@ -160,17 +213,14 @@ export const Navbar = () => {
                               </a>
                             )}
                           </Menu.Item>
+                         
                         </div>
                       </Menu.Items>
                     </Transition>
                     </Menu>
-                    </div>
-                    </div>
-                    <div className="flex items-center">
-                  <div id='nav' className="flex-shrink-0">
-                    <Menu as="div" className="relative inline-block py-5 text-left">
+                    <Menu as="div" className="relative z-30 inline-block py-3 text-left">
                     <div>
-                      <Menu.Button className="relative inline-flex items-center px-3 py-0 font-bold border border-transparent divide-y divide-gray-100 rounded-md text-md dark:text-white hover:bg-tertiaryOne hover:text-white focus:outline-none">
+                      <Menu.Button className="relative inline-flex text-white items-center px-3 py-0 font-serif font-bold border border-transparent rounded-md text-md dark:bg-primary dark:text-white hover:bg-tertiaryOne hover:text-white">
                        Publications
                        <img src='./log/Chevron.svg' className="w-5 h-5 ml-2 -mr-1" aria-hidden="true" />
                       </Menu.Button>
@@ -184,8 +234,9 @@ export const Navbar = () => {
                       leaveFrom="transform opacity-100 scale-100"
                       leaveTo="transform opacity-0 scale-95"
                     >
-                      <Menu.Items className="absolute right-0 w-full origin-top-right divide-y divide-gray-100 rounded-md mt-7 bg-primary ring-1 ring-primary ring-opacity-5 focus:outline-none">
+                     <Menu.Items className="absolute right-0 w-full mt-5 origin-top-right divide-y divide-gray-100 rounded-md bg-primary ring-1 ring-primary ring-opacity-5 focus:outline-none">
                         <div onClick={() => setNavbarOpen(!open)} className="py-1">
+                      
                           <Menu.Item>
                             {({ active }) => (
                               <a
@@ -202,7 +253,7 @@ export const Navbar = () => {
                             )}
                           </Menu.Item>
                           </div>
-                          <div className='py-1'> 
+                          <div className="py-1">
                           <Menu.Item>
                             {({ active }) => (
                               <a
@@ -219,7 +270,7 @@ export const Navbar = () => {
                             )}
                           </Menu.Item>
                           </div>
-                      
+                       
                         <div className="py-1">
                           <Menu.Item>
                             {({ active }) => (
@@ -237,17 +288,13 @@ export const Navbar = () => {
                             )}
                           </Menu.Item>
                         </div>
-              
+                        
                       </Menu.Items>
                     </Transition>
                     </Menu>
-                    </div>
-                    </div>
-                    <div className="flex items-center">
-                  <div id='nav' className="flex-shrink-0">
-                    <Menu as="div" className="relative inline-block py-5 text-left">
+              <Menu as="div" className="relative z-30 inline-block py-3 text-left">
                     <div>
-                      <Menu.Button className="relative inline-flex items-center px-3 py-0 ml-4 font-serif font-bold border border-transparent rounded-md text-md dark:text-white hover:bg-tertiaryOne hover:text-white">
+                      <Menu.Button className="relative inline-flex text-white items-center px-3 py-0 font-serif font-bold border border-transparent rounded-md text-md dark:bg-primary dark:text-white hover:bg-tertiaryOne hover:text-white">
                        Services
                        <img src='./log/Chevron.svg' className="w-5 h-5 ml-2 -mr-1" aria-hidden="true" />
                       </Menu.Button>
@@ -261,13 +308,13 @@ export const Navbar = () => {
                       leaveFrom="transform opacity-100 scale-100"
                       leaveTo="transform opacity-0 scale-95"
                     >
-                      <Menu.Items className="absolute right-0 w-full origin-top-right divide-y divide-gray-100 rounded-md mt-7 bg-primary ring-1 ring-primary ring-opacity-5 focus:outline-none">
+                     <Menu.Items className="absolute right-0 w-full mt-5 origin-top-right divide-y divide-gray-100 rounded-md bg-primary ring-1 ring-primary ring-opacity-5 focus:outline-none">
                         <div onClick={() => setNavbarOpen(!open)} className="py-1">
-              
+                      
                           <Menu.Item>
                             {({ active }) => (
                               <a
-                                href="health"
+                                href="voluntary"
                                 className={classNames(
                                   active
                                   ? 'bg-tertiaryOne rounded-r-full text-white'
@@ -275,7 +322,7 @@ export const Navbar = () => {
                                 'block px-4 py-2 text-sm'
                                 )}
                               >
-                             Volutary
+                              Voluntary
                               </a>
                             )}
                           </Menu.Item>
@@ -292,7 +339,7 @@ export const Navbar = () => {
                                 'block px-4 py-2 text-sm'
                                 )}
                               >
-                               Health
+                         Health
                               </a>
                             )}
                           </Menu.Item>
@@ -300,71 +347,32 @@ export const Navbar = () => {
                       </Menu.Items>
                     </Transition>
                     </Menu>
-                    </div>
-                    </div>
-                    <div className="flex items-center">
                     <div id='nav' className="flex-shrink-0">
+            
                     <a
                       href="news"
                       type="button"
-                      className="relative inline-flex items-center px-3 py-0 font-bold border border-transparent rounded-md text-md dark:text-white hover:bg-tertiaryOne hover:text-white"
-                    >
+                      className="relative inline-flex text-white items-center mt-3 px-2 py-0 font-serif font-bold border border-transparent rounded-md backdrop:text-md dark:bg-primary dark:text-white hover:bg-tertiaryOne hover:text-white">
                       <span>News</span>
                     </a>
+                  
                   </div>
-                </div>
-                  </div>
-                </div>
-                <div className="flex items-center m-2">
-                  <div className="flex-shrink-0">
-               <Search />
-   
-  </div>
-</div>
-
-                <div className="flex items-center m-2">
-                  <div className="flex-shrink-0">
-                    <button
-                      type="button"
-                      onClick={handleThemeSwitch}
-                      className="relative inline-flex items-center px-3 py-1 font-bold border border-transparent text-md dark:text-white hover:text-white"
-                    >
-                      {theme === 'dark' ? '🌞' : '🌙'}
-                    </button>
-                    </div>
-                    
-                </div>
-               
-                <div className="flex items-center">
-                  <div className="flex-shrink-0">
-                    <a
-                      href="contact"
-                      type="button"
-                      className="inline-flex items-center px-3 py-2 font-serif font-medium text-white border border-transparent rounded-md shadow-lg text-md shadow-cyan-900/50 bg-tertiaryOne hover:bg-tertiaryThree" data-aos="fade-right"
-                    >
-                      <span>Contact Us</span>
-                    </a>
-                  </div>
-                 
-                </div>
-              </div>
+              </nav>
             </div>
-         {/*  Mobile */}
-          <Disclosure.Panel className="md:hidden bg-primary dark:bg-primary rounded-b-2xl">
-          <div onClick={() => setNavbarOpen(!open)} className="pt-2 pb-3 space-y-1">
-                  <div id='nav' className="flex-shrink-0">
+  
+            <Disclosure.Panel as="nav" className="lg:hidden" aria-label="Global">
+            <div id='nav' className="flex-shrink-0">
                     <a
                       href="/"
                       type="button"
-                      className="relative inline-flex items-center px-3 py-0 font-serif font-bold border border-transparent rounded-r-full bg-primary backdrop:text-md dark:bg-primary dark:text-white hover:bg-tertiaryOne hover:text-white"
+                      className="relative inline-flex text-white items-center px-3 py-0 font-serif font-bold border border-transparent rounded-r-full bg-primary backdrop:text-md dark:bg-primary dark:text-white hover:bg-tertiaryOne hover:text-white"
                     >
                       <span>Home</span>
                     </a>
                   </div>
-                  <div className='p-0'>
-                 <Menu as="div" className="relative z-40 inline-block py-3 text-left">
+            <Menu as="div" className="relative z-40 inline-block py-3 text-left">
                     <div>
-                      <Menu.Button className="relative inline-flex items-center px-3 py-0 font-bold border border-transparent rounded-r-full bg-primary backdrop:text-md dark:bg-primary dark:text-white hover:bg-tertiaryOne hover:text-white">
+                      <Menu.Button className="relative inline-flex text-white items-center px-3 py-0 font-bold border border-transparent rounded-r-full bg-primary backdrop:text-md dark:bg-primary dark:text-white hover:bg-tertiaryOne hover:text-white">
                        About Us
                        <img src='./log/Chevron.svg' className="w-5 h-5 ml-2 -mr-1" aria-hidden="true" />
                       </Menu.Button>
@@ -435,11 +443,10 @@ export const Navbar = () => {
                       </Menu.Items>
                     </Transition>
                     </Menu>
-                    </div>
                     <div>
                     <Menu as="div" className="relative z-30 inline-block py-3 text-left">
                     <div>
-                      <Menu.Button className="relative inline-flex items-center px-3 py-0 font-serif font-bold border border-transparent rounded-md bg-primary text-md dark:bg-primary dark:text-white hover:bg-tertiaryOne hover:text-white">
+                      <Menu.Button className="relative inline-flex text-white items-center px-3 py-0 font-serif font-bold border border-transparent rounded-md bg-primary text-md dark:bg-primary dark:text-white hover:bg-tertiaryOne hover:text-white">
                        Publications
                        <img src='./log/Chevron.svg' className="w-5 h-5 ml-2 -mr-1" aria-hidden="true" />
                       </Menu.Button>
@@ -511,10 +518,11 @@ export const Navbar = () => {
                     </Transition>
                     </Menu>
                     </div>
+              <div className="space-y-1 px-2 pt-2 pb-3">
+                
+              <Menu as="div" className="relative z-20 inline-block py-3 text-left">
                     <div>
-                    <Menu as="div" className="relative z-20 inline-block py-3 text-left">
-                    <div>
-                      <Menu.Button className="relative inline-flex items-center px-3 py-0 font-serif font-bold border border-transparent rounded-md bg-primary backdrop:text-md dark:bg-primary dark:text-white hover:bg-tertiaryOne hover:text-white">
+                      <Menu.Button className="relative inline-flex text-white items-center px-3 py-0 font-serif font-bold border border-transparent rounded-md bg-primary backdrop:text-md dark:bg-primary dark:text-white hover:bg-tertiaryOne hover:text-white">
                        Services
                        <img src='./log/Chevron.svg' className="w-5 h-5 ml-2 -mr-1" aria-hidden="true" />
                       </Menu.Button>
@@ -568,24 +576,55 @@ export const Navbar = () => {
                       </Menu.Items>
                     </Transition>
                     </Menu>
-                    </div>
-                    <div className="flex items-center">
+              </div>
+              <div className="flex items-center">
                     <div id='nav' className="flex-shrink-0">
                     <a
                       href="news"
                       type="button"
-                      className="relative inline-flex items-center px-3 py-0 font-bold border border-transparent rounded-md text-md dark:text-white hover:bg-tertiaryOne hover:text-white"
+                      className="relative inline-flex text-white items-center px-3 py-0 font-bold border border-transparent rounded-md text-md dark:text-white hover:bg-tertiaryOne hover:text-white"
                     >
                       <span>News</span>
                     </a>
                   </div>
                 </div>
-            </div>
-            <div>
-            </div>
-          </Disclosure.Panel>
+              <button
+                    type="button"
+                    onClick={handleThemeSwitch}
+                    className="relative inline-flex items-center px-3 py-1 font-bold border border-transparent text-md dark:text-white hover:text-white"
+                  >
+                    {theme === 'dark' ? '🌞' : '🌙'}
+                    <span className="sr-only">dark mode switch</span>
+                   
+                  </button>
+              <div className="border-t border-gray-700 pt-4 pb-3">
+                <div className="flex items-center px-4">
+                  <div className="flex-shrink-0">
+                    <img className="h-10 w-10 rounded-full" src={user.imageUrl} alt="" />
+                  </div>
+                  <div className="ml-3">
+                    <div className="text-base font-medium text-white">{user.name}</div>
+                    <div className="text-sm font-medium text-gray-400">{user.email}</div>
+                  </div>
+                 
+                </div>
+                
+                <div className="mt-3 space-y-1 px-2">
+                  {userNavigation.map((item) => (
+                    <Disclosure.Button
+                      key={item.name}
+                      as="a"
+                      href={item.href}
+                      className="block rounded-md py-2 px-3 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white"
+                    >
+                      {item.name}
+                    </Disclosure.Button>
+                  ))}
+                </div>
+              </div>
+            </Disclosure.Panel>
           </>
         )}
       </Disclosure>
-  );
-};
+    )
+  }

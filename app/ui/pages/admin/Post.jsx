@@ -71,8 +71,8 @@ export const Post = () => {
                     </a>
                   </p>
                   <a href="#" className="mt-2 block">
-                    <p className="text-xl font-semibold text-gray-900 line-clamp-1">{post.title}</p>
-                    <p className="mt-3 text-base text-gray-500 line-clamp-3">{post.textarea}</p>
+                    <p className="text-xl font-semibold text-gray-900 line-clamp-2">{post.title}</p>
+                    <p className="mt-3 text-base text-gray-500 line-clamp-3 hover:line-clamp-none">{post.textarea}</p>
                   </a>
                 </div>
             <div className="flex items-center mt-6">

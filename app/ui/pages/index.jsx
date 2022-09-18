@@ -3,7 +3,7 @@ import { Testimonials } from './testimonials/Testimonials'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 //import { PostHomePage } from '../post/PostHomePage';
-import { Gallery } from './gallery/Gallery'
+
 
 
 const posts = [
@@ -73,10 +73,10 @@ export const Hero = () => {
 
   return (
     <main>
-      <div className=" mt-20 ">
+           <div id='hero' className=" mt-16 ">
       <div class="aspect-w-16 aspect-h-9">
                   <video
-                    className="block object-cover w-100 h-full"
+                    className="block object-cover w-100  h-70"
                     src="./ghf_video/Banner-en.mp4"
                     type="video/mp4" 
                     background-size='cover' 
@@ -86,15 +86,12 @@ export const Hero = () => {
                   />
                   </div>
         </div>
-            
-            
   {/* <PostHomePage />
         */}
-        <> 
       <div  className="px-4 pt-14 pb-20 bg-primary bg-opacity-20 dark:bg-slate-900 sm:px-6 lg:px-8 lg:pt-24 lg:pb-28" data-aos="fade-right">
       <div  className="relative max-w-lg mx-auto lg:max-w-7xl">
       <div className="relative max-w-lg mx-auto  lg:max-w-7xl">
-       <h1 className="flex items-center justify-center mt-1 text-3xl font-bold text-primary dark:text-tertiaryOne">Latest News</h1> 
+      <h1 className="flex items-center justify-center mt-1 text-3xl font-bold text-primary dark:text-tertiaryOne">Latest News</h1>
          </div>
         <div  className="grid gap-16 pt-7 mt-5 lg:grid-cols-3 lg:gap-x-5 lg:gap-y-12" data-aos="fade-right">
           {posts.map((post) => (
@@ -138,9 +135,102 @@ export const Hero = () => {
         </div>
       </div>
     </div>
-    </>
-  <Gallery />
-   
+  
+    <div className="bg-white dark:bg-slate-900">
+      <div className="px-4 py-16 mx-auto max-w-7xl sm:py-24 sm:px-6 lg:px-8">
+        <div className="sm:flex sm:items-baseline sm:justify-between">
+        <div className="relative max-w-lg mx-auto divide-y-2 divide-gray-200 lg:max-w-7xl">
+      <h1 className="flex items-center justify-center mt-2 text-3xl font-bold text-primary dark:text-white">Album</h1>
+         </div>
+          <a href="#" className="hidden text-sm font-semibold text-indigo-600 hover:text-indigo-500 sm:block">
+          Some Albulm
+            <span aria-hidden="true"> &rarr;</span>
+          </a>
+        </div>
+
+        <div className="grid grid-cols-1 mt-6 gap-y-6 sm:grid-cols-2 sm:grid-rows-2 sm:gap-x-6 lg:gap-8"  data-aos="fade-right">
+          <div className="overflow-hidden rounded-lg group aspect-w-2 aspect-h-1 sm:aspect-h-1 sm:aspect-w-1 sm:row-span-2">
+          <img
+              src="./ghf_images/ghf_hohoe_cm.jpg"
+              alt="Walnut desk organizer set with white modular trays, next to porcelain mug on wooden desk."
+              className="object-cover object-center group-hover:opacity-75 sm:absolute sm:inset-0 sm:h-full sm:w-full"
+              data-aos="fade-up"
+            />
+            <div aria-hidden="true" className="opacity-50 bg-gradient-to-b from-transparent to-black" />
+            <div className="flex items-end p-6">
+              <div>
+                <h3 className="font-semibold text-white">
+                  <a href="contact">
+                    <span className="absolute inset-0" />
+                    Hohoe Camp Meeting
+                  </a>
+                </h3>
+                <p aria-hidden="true" className="mt-1 text-sm text-white">
+                  Join us
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="overflow-hidden rounded-lg group aspect-w-2 aspect-h-1 sm:aspect-none sm:relative sm:h-full">
+            <img
+              src="./ghf_images/ghf_teshie.jpg"
+              alt="Wooden shelf with gray and olive drab green baseball caps, next to wooden clothes hanger with sweaters."
+              className="object-cover object-center group-hover:opacity-75 sm:absolute sm:inset-0 sm:h-full sm:w-full"
+              data-aos="fade-up"
+           />
+            <div
+              aria-hidden="true"
+              className="opacity-50 bg-gradient-to-b from-transparent to-black sm:absolute sm:inset-0"
+            />
+            <div className="flex items-end p-6 sm:absolute sm:inset-0">
+              <div>
+                <h3 className="font-semibold text-white">
+                  <a href="contact">
+                    <span className="absolute inset-0" />
+                   Teshie church
+                  </a>
+                </h3>
+                <p aria-hidden="true" className="mt-1 text-sm text-white">
+                 Join us
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="overflow-hidden rounded-lg group aspect-w-2 aspect-h-1 sm:aspect-none sm:relative sm:h-full">
+            <img
+              src="./ghf_images/ghf_atadeka.jpg"
+              alt="Walnut desk organizer set with white modular trays, next to porcelain mug on wooden desk."
+              className="object-cover object-center group-hover:opacity-75 sm:absolute sm:inset-0 sm:h-full sm:w-full"
+              data-aos="fade-up"
+            />
+            <div
+              aria-hidden="true"
+              className="opacity-50 bg-gradient-to-b from-transparent to-black sm:absolute sm:inset-0"
+            />
+            <div className="flex items-end p-6 sm:absolute sm:inset-0">
+              <div>
+                <h3 className="font-semibold text-white">
+                  <a href="contact">
+                    <span className="absolute inset-0" />
+                    Atadeka Church
+                  </a>
+                </h3>
+                <p aria-hidden="true" className="mt-1 text-sm text-white">
+                  Join us
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-6 sm:hidden">
+          <a href="news" className="block text-sm font-semibold text-tertiaryOne hover:text-opacity-30">
+           Go to our news corner
+            <span aria-hidden="true"> &rarr;</span>
+          </a>
+        </div>
+      </div>
+    </div>
    
       <Testimonials className='mt-0 py-0'/>
 
@@ -153,7 +243,7 @@ export const Hero = () => {
          />
          <div
            aria-hidden="true"
-           className="absolute inset-0 bg-gradient-to-r from-teal-500 to-cyan-600 mix-blend-multiply"
+           className="absolute inset-0 bg-white mix-blend-multiply"
          />
        </div>
        <div className="relative mx-auto max-w-md px-4 py-12 sm:max-w-7xl sm:px-6 sm:py-20 md:py-28 lg:px-8 lg:py-32">
