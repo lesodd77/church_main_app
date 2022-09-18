@@ -11,7 +11,7 @@ const testimonials = [
       author: {
         name: 'Elder Sampson Abugry',
         role: 'Head of Mult. Dep.',
-        imageSrc: './img/simon.png',
+        imageSrc: 'https://res.cloudinary.com/dungxxzhh/image/upload/v1663458591/ghf_images/PHOTO-2022-09-17-09-00-33_ovt328.jpg',
       },
     },
   ],
@@ -22,7 +22,7 @@ const testimonials = [
       author: {
         name: 'Pastor Bernard Condua',
         role: 'Head Of Mission, Ghana',
-        imageSrc: './img/simon.png',
+        imageSrc: 'https://res.cloudinary.com/dungxxzhh/image/upload/v1663456542/ghf_images/ghf_p_sialj4.jpg',
       },
     },
   ],
@@ -31,7 +31,7 @@ const testimonials = [
       content:
       'There are so many things I had to do with my old software that I just don’t do at all with Swed. Suspicious but I can’t say I don’t love it.',
       author: {
-        name: 'Elder Theo Asesu',
+        name: 'Elder Theo Adesu',
         role: 'Head of Missioary Dep.',
         imageSrc: './img/simon.png',
       },
@@ -44,7 +44,7 @@ const testimonials = [
       author: {
         name: 'Pastor Animley Theo',
         role: 'Head of Health Dep.',
-        imageSrc: './img/simon.png',
+        imageSrc: 'https://res.cloudinary.com/dungxxzhh/image/upload/v1663456543/ghf_images/95391198-8e00-4d44-a4a8-d9393b9ae6ed_rakrsf.jpg',
       },
     },
   ],
@@ -53,9 +53,9 @@ const testimonials = [
       content:
       'There are so many things I had to do with my old software that I just don’t do at all with Swed. Suspicious but I can’t say I don’t love it.',
       author: {
-        name: 'Elder Boadu',
-        role: 'Head of Dep.',
-        imageSrc: './img/simon.png',
+        name: 'Elder Teye Benjamin',
+        role: 'Treasure.',
+        imageSrc: 'https://res.cloudinary.com/dungxxzhh/image/upload/v1663458581/ghf_images/PHOTO-2022-09-17-10-31-45_sgrba5.jpg',
       },
     },
   ],
@@ -66,7 +66,7 @@ const testimonials = [
       author: {
         name: 'Elder Oscar',
         role: 'Head of Family Dep.',
-        imageSrc: './img/simon.png',
+        imageSrc: 'https://res.cloudinary.com/dungxxzhh/image/upload/v1663456540/ghf_images/ghf_fl_p3uzla.jpg',
       },
     },
   ],
@@ -90,7 +90,7 @@ export const Testimonials = () => {
         <div id='home' className="mt-20 py-10 bg-transparent" data-aos="fade-up">
         
        <div className="relative max-w-lg mx-auto divide-y-2 divide-gray-200 lg:max-w-7xl">
-      <h1 className="flex items-center justify-center mt-2 text-3xl font-bold text-primary dark:text-tertiaryOne">Testimonies</h1>
+      <h1 className="flex items-center justify-center mt-2 text-3xl font-bold text-primary dark:text-tertiaryOne">Our Team</h1>
          </div>
           <ul className="grid max-w-2xl grid-cols-1 gap-6 p-4 mx-auto shadow-md  sm:gap-8 lg:mt-10 lg:max-w-none lg:grid-cols-3">
         

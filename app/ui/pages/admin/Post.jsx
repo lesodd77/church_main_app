@@ -28,10 +28,9 @@ export const Post = () => {
   }
 
   const PostItem = memo(({ post }) => (
-    <div className="flex flex-col p-1 bg-transparent rounded-lg shadow-2xl m-7">
-      <div className="flex flex-col justify-center flex-1 bg-white rounded-md">
-        <dl className="flex flex-col justify-between flex-grow mt-1"></dl>
-        <div className="flex items-center justify-between mt-5 ml-4">
+    <div className="flex flex-col bg-primary rounded-lg shadow-lg">
+      <div className="flex flex-col justify-center flex-1 rounded-lg">
+        <div className="lex flex-col overflow-hidden rounded-lg shadow-lg">
           {/* <div>
             <a
               href="#"
@@ -54,34 +53,28 @@ export const Post = () => {
               </a>
               </div> */}
         </div>
-        <div className="grid grid-cols-1 ml-4 divide-y">
+        <div className="grid grid-cols-1">
           <div className="flex-shrink-0">
             <a href="news">
               <img
-                className="object-cover w-full h-48 -ml-2 rounded-md"
+                className="object-cover w-full h-48 rounded-t-md"
                 src={post.url}
                 alt=""
               />
             </a>
           </div>
-          <div className="flex flex-col justify-center flex-1 p-5 -ml-2 bg-white rounded-md">
-            <div className="flex-1 overflow-hidden">
-              <p className="text-sm font-medium text-indigo-600">
-                <a href="news">{post.category}</a>
-              </p>
-              <a href="#">
-                <p className="text-xl font-semibold text-gray-900 truncate line-clamp-1 hover:line-clamp-none">
-                  {post.title}
-                </p>
-              </a>
-
-              <p className="mt-3 text-base text-gray-500  truncate line-clamp-2 hover:line-clamp-none">
-                {post.textarea}
-              </p>
-              <a href="#" className="text-cyan-500">
-                Read more
-              </a>
-            </div>
+          <div className="flex flex-1 flex-col justify-between rounded-b-md bg-white p-6">
+                <div className="flex-1">
+                  <p className="text-sm font-medium text-indigo-600">
+                    <a href="#" className="hover:underline">
+                      {post.category}
+                    </a>
+                  </p>
+                  <a href="#" className="mt-2 block">
+                    <p className="text-xl font-semibold text-gray-900 line-clamp-1">{post.title}</p>
+                    <p className="mt-3 text-base text-gray-500 line-clamp-3">{post.textarea}</p>
+                  </a>
+                </div>
             <div className="flex items-center mt-6">
               <div className="flex-shrink-0">
                 <span className="sr-only">{post.author}</span>
@@ -101,7 +94,7 @@ export const Post = () => {
               </div>
             </div>
           </div>
-        </div>{' '}
+        </div>
       </div>
     </div>
   ))
@@ -116,7 +109,7 @@ export const Post = () => {
           </div>
         <ul
           role="list"
-          className="grid max-w-lg gap-4 mx-auto mt-12 lg:max-w-none lg:grid-cols-4"
+          className="mx-auto mt-12 grid max-w-lg gap-5 lg:max-w-none lg:grid-cols-4"
         >
           {posts.map((post) => (
             <PostItem key={post._id} post={post} />

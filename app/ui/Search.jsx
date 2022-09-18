@@ -8,7 +8,9 @@ export const Search = () => {
     <div className="flex items-center m-2">
           <div className="flex-shrink-0">
       <form action="" className="relative mx-auto w-max"  onClick={() => toggleShowMyPosts()}>
-              <input type="search"
+              <input 
+                id="search"
+              type="search"
                   className="relative z-20 w-12 h-8 px-2 py-3 bg-transparent border rounded-full outline-none cursor-pointer peer focus:w-full focus:cursor-text focus:pl-12 focus:pr-4" />
               <svg xmlns="http://www.w3.org/2000/svg"
                   className="absolute inset-y-0 my-auto h-8 w-12  border-r border-transparent stroke-gray-300 px-3.5 peer-focus:border-white peer-focus:stroke-white"

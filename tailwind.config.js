@@ -5,14 +5,22 @@ module.exports = {
   content: ['./app/ui/**/*.{js,jsx,ts,tsx}', './client/*.html'],
   darkMode: 'class',
   theme: {
-    extend: {
-      screens: {
-        phone: '375px',
-        tablet: '640px',
-        laptop: '1024px',
-        desktop: '1280px',
-      },
+    screens: {
+      'sm': '300px',
+      // => @media (min-width: 576px) { ... }
 
+      'md': '960px',
+      // => @media (min-width: 960px) { ... }
+
+      'lg': '1440px',
+    },
+    lineClamp: {
+      7: '7',
+      8: '8',
+      9: '9',
+      10: '10',
+    },
+    extend: {
       colors: {
         white: '#FFFFFF',
         primary: '#182f3f',
@@ -36,19 +44,14 @@ module.exports = {
         lg: '0 8px 20px -0px rgba(18, .16, .99, 0.6)',
       },
      
-        lineClamp: {
-          7: '7',
-          8: '8',
-          9: '9',
-          10: '10',
-        },
-        variants: {
-          lineClamp: ['responsive', 'hover']
-        },
 
       fontFamily: {
         satoshi: 'Satoshi, sans-serif',
         inter: 'Inter, sans-serif',
+      },
+
+      variants: {
+        lineClamp: ['responsive', 'hover']
       },
     },
   },

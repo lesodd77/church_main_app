@@ -6,7 +6,7 @@ import 'aos/dist/aos.css'
 const about = [
   {
     name: 'IMS. SDA. RM',
-    imageUrl: './img/simon.png',
+    imageUrl:   './ghf_images/ghf_vp.jpg',
     bio: ' International Missionary Society 7th day Adventist church, reform movement. Ghana',
     twitterUrl: 'https://twitter.com/SimonAgbey3',
     linkedinUrl: 'https://www.linkedin.com/in/simon-webdev-95169b23b',
@@ -31,7 +31,7 @@ export const About = () => {
     <div className="bg-white">
       <div aria-hidden="true" className="relative">
         <img
-          src="https://tailwindui.com/img/ecommerce-images/product-feature-02-full-width.jpg"
+          src="./ghf_images/ghf_jericho.jpg"
           alt=""
           className="h-96 w-full object-cover object-center" />
         <div className="absolute inset-0 bg-gradient-to-t from-white" />
@@ -77,7 +77,7 @@ export const About = () => {
                       <div className="group aspect-w-3 aspect-h-2 flex items-center rounded-2xl bg-[#03050f27] shadow-lg sm:aspect-w-3 sm:aspect-h-4 sm:hover:bg-gray-300 sm:hover:ring-sky-400">
                         <a href="about">
                           <img
-                            className="rounded-full py-3 px-20 mt-0 md-10  flex-shrink-0 object-cover w-full-auto h-30 "
+                            className="flex items-center sm:aspect-w-3 sm:aspect-h-2  rounded-2xl shadow-lg  sm:hover:bg-gray-300 sm:hover:ring-sky-400 sm:object-cover "
                             data-aos="zoom-in"
                             src={about.imageUrl}
                             alt="" />
@@ -88,7 +88,7 @@ export const About = () => {
                           <div className="space-y-1 text-lg font-medium leading-6 text-gray-700 dark:text-slate-700">
                             <h3 className="dark:text-sky-400">{about.name}</h3>
                           </div>
-                          <div className="text-lg">
+                          <div className="text-lg md:mt-5">
                             <p className="text-gray-700 dark:text-slate-700">
                               {about.bio}
                             </p>

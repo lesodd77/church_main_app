@@ -4,7 +4,6 @@ import React, { memo } from 'react';
 import { ContactsCollection } from '../../../api/collections/contacts.collection';
 import { useSubscribe, useFind } from 'meteor/react-meteor-data';
 import { Loading } from '../../components/spinner/Loading';
-import { MailIcon } from '@heroicons/react/solid'
 
 
 export const ContactList = () => {
@@ -71,7 +70,7 @@ export const ContactList = () => {
                   href={`mailto:${contact.email}`}
                   className="relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-bl-lg hover:text-gray-500"
                 >
-                  <MailIcon className="w-5 h-5 text-gray-400" aria-hidden="true" />
+                  <img src='./log/MailIcon.svg' MailIcon className="w-5 h-5 text-gray-400" aria-hidden="true" />
                   <span className="ml-3 text-sky-500">Email</span>
                 </a>
               </div>

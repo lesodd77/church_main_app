@@ -148,9 +148,9 @@ export const Footer = () => {
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <div className="space-y-8 xl:col-span-1">
             <img
-              className="h-10"
-              src="./img/images.jpg"
-              alt="Company name"
+              className="h-10 rounded-lg shadow-sm"
+              src="./log/ims-logo.png"
+              alt="ims-ghana-field"
             />
             <p className="text-warm-gray-500 text-white">
               Amazing new approach to spiritual things.

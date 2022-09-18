@@ -18,4 +18,5 @@ export const RoutePaths = {
     SIGNUP: 'signup',
     NOTIFYEMAIL: 'notifyEmail',
     SIGNUP: 'signup',
+    GALLERY: 'gallery',
 }

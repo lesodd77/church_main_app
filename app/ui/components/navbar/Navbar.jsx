@@ -1,7 +1,6 @@
 // @ts-nocheck
 import React, { Fragment, useEffect, useState } from 'react';
-import { Disclosure, Menu, Dialog, Transition } from '@headlessui/react';
-import { ChevronDownIcon,  MenuIcon, XIcon } from '@heroicons/react/outline';
+import { Disclosure, Menu, Transition } from '@headlessui/react';
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -56,24 +55,25 @@ export const Navbar = () => {
                     <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-dark hover:text-gray-200 hover:bg-tertiaryTwo focus:outline-none focus:ring-1 focus:ring-inset focus:ring-cyan-500" data-aos="fade-down">
                       <span className="sr-only">Open main menu</span>
                       {open ? (
-                        <XIcon className="block w-6 h-6 text-white dark:text-white" aria-hidden="true" />
+                        <img src='./log/XIcon.svg' className="block w-6 h-6 sm:text-4xl text-white dark:text-white" aria-hidden="true" />
                       ) : (
-                        <MenuIcon className="block w-6 h-6 text-white dark:text-white" aria-hidden="true" />
+                        
+                        <img src='./log/MenuIcon.svg ' className="block w-6 h-6 sm:text-4xl text-white dark:text-white" aria-hidden="true" />
                       )}
                     </Disclosure.Button>
                   </div>
                   <div className="flex items-center flex-shrink-0">
                     <a href='/'>
                     <img
-                      className="block w-auto h-8 px-8 rounded-full lg:hidden"
-                      src="./img/images.jpg"
+                      className="block w-auto h-8 px-8 rounded-md lg:hidden"
+                      src="./log/ims-logo.png"
                       alt="ims-church"
                     />
                       </a>
                      <a href='/'>
                     <img
-                      className="hidden w-auto h-8 rounded-full lg:block"
-                      src="./img/images.jpg"
+                      className="hidden w-auto h-8 rounded-md lg:block"
+                      src="./log/ims-logo.png"
                       alt="Meteor-simon-agbey-logo"
                       />
                       </a>
@@ -97,7 +97,7 @@ export const Navbar = () => {
                     <div>
                       <Menu.Button className="relative inline-flex items-center px-3 py-0 font-serif font-bold border border-transparent rounded-md text-md dark:text-white hover:bg-tertiaryOne hover:text-white">
                        About Us
-                        <ChevronDownIcon className="w-5 h-5 ml-2 -mr-1" aria-hidden="true" />
+                        <img src='./log/Chevron.svg' className="w-5 h-5 ml-2 -mr-1" aria-hidden="true" />
                       </Menu.Button>
                     </div>
                     <Transition
@@ -172,7 +172,7 @@ export const Navbar = () => {
                     <div>
                       <Menu.Button className="relative inline-flex items-center px-3 py-0 font-bold border border-transparent divide-y divide-gray-100 rounded-md text-md dark:text-white hover:bg-tertiaryOne hover:text-white focus:outline-none">
                        Publications
-                        <ChevronDownIcon className="w-5 h-5 ml-2 -mr-1" aria-hidden="true" />
+                       <img src='./log/Chevron.svg' className="w-5 h-5 ml-2 -mr-1" aria-hidden="true" />
                       </Menu.Button>
                     </div>
                     <Transition
@@ -249,7 +249,7 @@ export const Navbar = () => {
                     <div>
                       <Menu.Button className="relative inline-flex items-center px-3 py-0 ml-4 font-serif font-bold border border-transparent rounded-md text-md dark:text-white hover:bg-tertiaryOne hover:text-white">
                        Services
-                        <ChevronDownIcon className="w-5 h-5 ml-2 -mr-1" aria-hidden="true" />
+                       <img src='./log/Chevron.svg' className="w-5 h-5 ml-2 -mr-1" aria-hidden="true" />
                       </Menu.Button>
                     </div>
                     <Transition
@@ -366,7 +366,7 @@ export const Navbar = () => {
                     <div>
                       <Menu.Button className="relative inline-flex items-center px-3 py-0 font-bold border border-transparent rounded-r-full bg-primary backdrop:text-md dark:bg-primary dark:text-white hover:bg-tertiaryOne hover:text-white">
                        About Us
-                        <ChevronDownIcon className="w-5 h-5 ml-2 -mr-1" aria-hidden="true" />
+                       <img src='./log/Chevron.svg' className="w-5 h-5 ml-2 -mr-1" aria-hidden="true" />
                       </Menu.Button>
                     </div>
                     <Transition
@@ -441,7 +441,7 @@ export const Navbar = () => {
                     <div>
                       <Menu.Button className="relative inline-flex items-center px-3 py-0 font-serif font-bold border border-transparent rounded-md bg-primary text-md dark:bg-primary dark:text-white hover:bg-tertiaryOne hover:text-white">
                        Publications
-                        <ChevronDownIcon className="w-5 h-5 ml-2 -mr-1" aria-hidden="true" />
+                       <img src='./log/Chevron.svg' className="w-5 h-5 ml-2 -mr-1" aria-hidden="true" />
                       </Menu.Button>
                     </div>
                     <Transition
@@ -516,7 +516,7 @@ export const Navbar = () => {
                     <div>
                       <Menu.Button className="relative inline-flex items-center px-3 py-0 font-serif font-bold border border-transparent rounded-md bg-primary backdrop:text-md dark:bg-primary dark:text-white hover:bg-tertiaryOne hover:text-white">
                        Services
-                        <ChevronDownIcon className="w-5 h-5 ml-2 -mr-1" aria-hidden="true" />
+                       <img src='./log/Chevron.svg' className="w-5 h-5 ml-2 -mr-1" aria-hidden="true" />
                       </Menu.Button>
                     </div>
                     <Transition

@@ -16,6 +16,7 @@ import { Privacy } from '../../components/privacy/Privacy'
 import { Admin } from '../../pages/admin/Admin'
 import { Health } from  '../../pages/health/Health';
 import { Doctrine } from  '../../pages/doctrine/Doctrine';
+import { Gallery } from  '../../pages/gallery/Gallery';
 import { SabbathSchool } from  '../../pages/sabbathschool/SabbathSchool';
 import { Dashboard } from '../../pages/admin/dashboard/Dashboard'
 import { NotifyEmail } from '../../pages/admin/notifyemail/NotifyEmail'
@@ -37,7 +38,7 @@ export const MainRoutes = () => {
             <Route element={<Post/>} path={RoutePaths.POST} />
             <Route element={<Dashboard/>} path={RoutePaths.DASHBOARD} />
             <Route element={<NotifyEmail/>} path={RoutePaths.NOTIFYEMAIL} />
-          
+            <Route element={<Gallery/>} path={RoutePaths.GALLERY} />
             <Route element={<SignUp/>} path={RoutePaths.SIGNUP} />
             <Route element={<Admin/>} path={RoutePaths.ADMIN} />
             <Route element={<Health/>} path={RoutePaths.HEALTH} />
