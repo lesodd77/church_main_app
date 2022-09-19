@@ -27,6 +27,13 @@ body {
     background-size: cover;
     opacity: 55;
 }
+#svg{
+  background-image: url('./img/abstract-background.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 55;
+}
+
 
 #line-clamp-1 {
   overflow: hidden;
@@ -72,12 +79,12 @@ display: -webkit-box;
 }
 
 
-#line-clamp-none {
+#hover:line-clamp-none {
   -webkit-line-clamp: unset;
 }
 
 /* .video-docker video {
-  top: 50%;
+  top: 16;
   left: 50%;
   transform: translate(-50%, -50%);
 }

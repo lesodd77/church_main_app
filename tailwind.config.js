@@ -24,7 +24,8 @@ module.exports = {
       colors: {
         white: '#FFFFFF',
         primary: '#182f3f',
-        secondry: '#1d3333',
+        primary_2: '#182d2d',
+        secondary: '#1d3333',
         tertiaryOne: '#eb8338',
         tertiaryTwo: '#abb8c3',
         tertiaryThree: '#cdbda1',

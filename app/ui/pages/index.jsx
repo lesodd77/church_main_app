@@ -73,10 +73,39 @@ export const Hero = () => {
 
   return (
     <main>
-           <div id='hero' className=" mt-16 ">
-      <div class="aspect-w-16 aspect-h-9">
+           <div className="relative w-full h-auto mt-16 ">
+           <div  className='aspect-w-16 aspect-h-9 rounded-md shadow-md bg-primary bg-opacity-95 dark:bg-slate-900'>
+           <div className="mt-7 py-12 max-w-sm  sm:flex sm:justify-center items-center sm:mt-4">
+              
+             
+              
+            </div>
+           
+            <div className='ml-auto  pl-10'>
+               
+          
+            </div>
+               
+                  <div class="overflow-hidden aspect-w-16 aspect-h-9 shadow-sm">
+                    
+                  <div className="z-20 flex flex-row gap-3 justify-center items-center mt-14 lg:mt-8 sm:10">
+          
+          <a
+            href="contact"
+            className="justify-center p-4 flex  items-center px-2 py-1 border border-transparent text-md font-medium rounded-l-full shadow-lg shadow-cyan-900/50 text-white bg-tertiaryOne hover:bg-opacity-30"
+          >
+            <span className="ml-2 text-center foont-serif font-sm ">Contact Us</span>
+          </a>
+          <a
+            href="news"
+            className="justify-center p-4 flex items-center px-2 py-1 border border-transparent text-md font-medium rounded-r-full shadow-lg shadow-cyan-900/50 text-white bg-tertiaryOne hover:bg-opacity-30"
+          >
+            <span className="text-center foont-serif font-sm">Our News</span>
+          </a>
+          
+        </div>
                   <video
-                    className="block object-cover w-100  h-70"
+                    className="block object-fit w-[100%]  h-auto"
                     src="./ghf_video/Banner-en.mp4"
                     type="video/mp4" 
                     background-size='cover' 
@@ -85,7 +114,12 @@ export const Hero = () => {
                     alt="church-sda-reform-ims-ghana-field"
                   />
                   </div>
+                 
+      
+          </div>
+        
         </div>
+   
   {/* <PostHomePage />
         */}
       <div  className="px-4 pt-14 pb-20 bg-primary bg-opacity-20 dark:bg-slate-900 sm:px-6 lg:px-8 lg:pt-24 lg:pb-28" data-aos="fade-right">

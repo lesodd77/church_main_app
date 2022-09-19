@@ -64,7 +64,7 @@ export const Navbar = () => {
                 <div className="relative z-10 flex px-2 lg:px-0">
                   <div className="flex flex-shrink-0 items-center">
                     <img
-                      className="block h-8 w-auto shadow-md shadow-slate-300"
+                      className="block h-10 w-auto"
                       src="./log/ims-logo.png"
                       alt="ims-ghana-sda-reform-church"
                     />
@@ -77,13 +77,13 @@ export const Navbar = () => {
                     </label>
                     <div className="relative">
                       <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                        <MagnifyingGlassIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
+                        <MagnifyingGlassIcon className="h-5 w-5 text-gray-300" aria-hidden="true" />
                       </div>
                       <input
                         id="search"
                         name="search"
-                        className="block w-full rounded-md border border-transparent bg-cyan-900 py-2 pl-10 pr-3 text-sm placeholder-gray-600 focus:border-white focus:bg-white focus:text-gray-900 focus:placeholder-gray-500 focus:outline-none focus:ring-white sm:text-sm"
-                        placeholder="Search"
+                        className="block w-full rounded-md border font-serif border-transparent bg-primary_2 dark:bg-slate-800 py-0 pl-10 pr-3 text-sm placeholder-gray-600 focus:border-white focus:bg-white focus:text-gray-900 focus:placeholder-primary focus:outline-none focus:ring-white sm:text-sm"
+                        placeholder="What are you searching?"
                         type="search"
                       />
                     </div>
@@ -140,14 +140,14 @@ export const Navbar = () => {
                     <a
                       href="/"
                       type="button"
-                      className="relative inline-flex text-white items-center mt-3 px-2 py-0 font-serif font-bold border border-transparent rounded-md backdrop:text-md dark:bg-primary dark:text-white hover:bg-tertiaryOne hover:text-white">
+                      className="relative inline-flex text-white items-center mt-3 px-2 py-0 font-serif font-bold border border-transparent rounded-md backdrop:text-md dark:bg-transparent dark:text-white hover:bg-tertiaryOne hover:text-white">
                       <span>Home</span>
                     </a>
                   
                   </div>
                     <Menu as="div" className="relative z-40 inline-block py-3 text-left">
                     <div>
-                      <Menu.Button className="relative inline-flex text-white items-center px-2 py-0 font-bold border border-transparent rounded-r-full  backdrop:text-md dark:bg-primary dark:text-white hover:bg-tertiaryOne hover:text-white">
+                      <Menu.Button className="relative inline-flex text-white items-center px-2 py-0 font-bold border border-transparent rounded-r-full  backdrop:text-md dark:bg-transparent dark:text-white hover:bg-tertiaryOne hover:text-white">
                        About Us
                        <img src='./log/Chevron.svg' className="w-5 h-5 ml-2 -mr-1" aria-hidden="true" />
                       </Menu.Button>
@@ -201,6 +201,24 @@ export const Navbar = () => {
                           <Menu.Item>
                             {({ active }) => (
                               <a
+                                href="gallery"
+                                className={classNames(
+                                  active
+                                  ? 'bg-tertiaryOne rounded-r-full text-white'
+                                  : 'text-white',
+                                'block px-4 py-2 text-sm'
+                                )}
+                              >
+                            Gallery
+                              </a>
+                            )}
+                          </Menu.Item>
+                         
+                        </div>
+                       <div className="py-1">
+                          <Menu.Item>
+                            {({ active }) => (
+                              <a
                                 href="/contact"
                                 className={classNames(
                                   active
@@ -213,14 +231,13 @@ export const Navbar = () => {
                               </a>
                             )}
                           </Menu.Item>
-                         
                         </div>
                       </Menu.Items>
                     </Transition>
                     </Menu>
                     <Menu as="div" className="relative z-30 inline-block py-3 text-left">
                     <div>
-                      <Menu.Button className="relative inline-flex text-white items-center px-3 py-0 font-serif font-bold border border-transparent rounded-md text-md dark:bg-primary dark:text-white hover:bg-tertiaryOne hover:text-white">
+                      <Menu.Button className="relative inline-flex text-white items-center px-3 py-0 font-serif font-bold border border-transparent rounded-md text-md dark:bg-transparent dark:text-white hover:bg-tertiaryOne hover:text-white">
                        Publications
                        <img src='./log/Chevron.svg' className="w-5 h-5 ml-2 -mr-1" aria-hidden="true" />
                       </Menu.Button>
@@ -270,7 +287,23 @@ export const Navbar = () => {
                             )}
                           </Menu.Item>
                           </div>
-                       
+                          <div className="py-1">
+                          <Menu.Item>
+                            {({ active }) => (
+                              <a
+                                href="videopost"
+                                className={classNames(
+                                  active
+                                  ? 'bg-tertiaryOne rounded-r-full text-white'
+                                  : 'text-white',
+                                'block px-4 py-2 text-sm'
+                                )}
+                              >
+                         Video 
+                              </a>
+                            )}
+                          </Menu.Item>
+                          </div>
                         <div className="py-1">
                           <Menu.Item>
                             {({ active }) => (
@@ -294,7 +327,7 @@ export const Navbar = () => {
                     </Menu>
               <Menu as="div" className="relative z-30 inline-block py-3 text-left">
                     <div>
-                      <Menu.Button className="relative inline-flex text-white items-center px-3 py-0 font-serif font-bold border border-transparent rounded-md text-md dark:bg-primary dark:text-white hover:bg-tertiaryOne hover:text-white">
+                      <Menu.Button className="relative inline-flex text-white items-center px-3 py-0 font-serif font-bold border border-transparent rounded-md text-md dark:bg-transparent dark:text-white hover:bg-tertiaryOne hover:text-white">
                        Services
                        <img src='./log/Chevron.svg' className="w-5 h-5 ml-2 -mr-1" aria-hidden="true" />
                       </Menu.Button>
@@ -352,27 +385,27 @@ export const Navbar = () => {
                     <a
                       href="news"
                       type="button"
-                      className="relative inline-flex text-white items-center mt-3 px-2 py-0 font-serif font-bold border border-transparent rounded-md backdrop:text-md dark:bg-primary dark:text-white hover:bg-tertiaryOne hover:text-white">
+                      className="relative inline-flex text-white items-center mt-3 px-2 py-0 font-serif font-bold border border-transparent rounded-md backdrop:text-md dark:bg-tertiaryOne dark:text-white hover:bg-tertiaryOne hover:text-white">
                       <span>News</span>
                     </a>
                   
                   </div>
               </nav>
             </div>
-  
-            <Disclosure.Panel as="nav" className="lg:hidden" aria-label="Global">
+   {/* mobile navbar */}
+            <Disclosure.Panel as="nav" className="lg:hidden border border-b-white " aria-label="Global">
             <div id='nav' className="flex-shrink-0">
                     <a
                       href="/"
                       type="button"
-                      className="relative inline-flex text-white items-center px-3 py-0 font-serif font-bold border border-transparent rounded-r-full bg-primary backdrop:text-md dark:bg-primary dark:text-white hover:bg-tertiaryOne hover:text-white"
+                      className="relative ml-3 mt-4 inline-flex text-white border border-b-white border-transparent items-center px-3 py-0 font-serif font-bold  rounded-r-full bg-transparent backdrop:text-md dark:bg-transparent dark:text-white hover:bg-tertiaryOne hover:text-white"
                     >
                       <span>Home</span>
                     </a>
                   </div>
-            <Menu as="div" className="relative z-40 inline-block py-3 text-left">
+            <Menu as="div" className="relative z-40 ml-3 inline-block py-3 text-left">
                     <div>
-                      <Menu.Button className="relative inline-flex text-white items-center px-3 py-0 font-bold border border-transparent rounded-r-full bg-primary backdrop:text-md dark:bg-primary dark:text-white hover:bg-tertiaryOne hover:text-white">
+                      <Menu.Button className="relative inline-flex text-white border border-b-white border-transparent items-center px-3 py-0 font-bold  rounded-r-full bg-primary backdrop:text-md dark:bg-transparent dark:text-white hover:bg-tertiaryOne hover:text-white">
                        About Us
                        <img src='./log/Chevron.svg' className="w-5 h-5 ml-2 -mr-1" aria-hidden="true" />
                       </Menu.Button>
@@ -426,6 +459,24 @@ export const Navbar = () => {
                           <Menu.Item>
                             {({ active }) => (
                               <a
+                                href="gallery"
+                                className={classNames(
+                                  active
+                                  ? 'bg-tertiaryOne rounded-r-full text-white'
+                                  : 'text-white',
+                                'block px-4 py-2 text-sm'
+                                )}
+                              >
+                            Gallery
+                              </a>
+                            )}
+                          </Menu.Item>
+                         
+                        </div>
+                       <div className="py-1">
+                          <Menu.Item>
+                            {({ active }) => (
+                              <a
                                 href="/contact"
                                 className={classNames(
                                   active
@@ -444,9 +495,9 @@ export const Navbar = () => {
                     </Transition>
                     </Menu>
                     <div>
-                    <Menu as="div" className="relative z-30 inline-block py-3 text-left">
+                    <Menu as="div" className="relative z-30 ml-3 inline-block py-3 text-left">
                     <div>
-                      <Menu.Button className="relative inline-flex text-white items-center px-3 py-0 font-serif font-bold border border-transparent rounded-md bg-primary text-md dark:bg-primary dark:text-white hover:bg-tertiaryOne hover:text-white">
+                      <Menu.Button className="relative inline-flex border border-b-white border-transparent text-white items-center px-3 py-0 font-serif font-bold  rounded-r-full bg-primary text-md dark:bg-transparent dark:text-white hover:bg-tertiaryOne hover:text-white">
                        Publications
                        <img src='./log/Chevron.svg' className="w-5 h-5 ml-2 -mr-1" aria-hidden="true" />
                       </Menu.Button>
@@ -496,7 +547,24 @@ export const Navbar = () => {
                             )}
                           </Menu.Item>
                           </div>
-                       
+                        
+                          <div className="py-1">
+                          <Menu.Item>
+                            {({ active }) => (
+                              <a
+                                href="videopost"
+                                className={classNames(
+                                  active
+                                  ? 'bg-tertiaryOne rounded-r-full text-white'
+                                  : 'text-white',
+                                'block px-4 py-2 text-sm'
+                                )}
+                              >
+                           Videos
+                              </a>
+                            )}
+                          </Menu.Item>
+                        </div>
                         <div className="py-1">
                           <Menu.Item>
                             {({ active }) => (
@@ -522,7 +590,7 @@ export const Navbar = () => {
                 
               <Menu as="div" className="relative z-20 inline-block py-3 text-left">
                     <div>
-                      <Menu.Button className="relative inline-flex text-white items-center px-3 py-0 font-serif font-bold border border-transparent rounded-md bg-primary backdrop:text-md dark:bg-primary dark:text-white hover:bg-tertiaryOne hover:text-white">
+                      <Menu.Button className="relative inline-flex border border-b-white border-transparent bg-primary text-white items-center px-3 py-0 font-serif font-bold  rounded-r-full backdrop:text-md dark:bg-transparent dark:text-white hover:bg-tertiaryOne hover:text-white">
                        Services
                        <img src='./log/Chevron.svg' className="w-5 h-5 ml-2 -mr-1" aria-hidden="true" />
                       </Menu.Button>
@@ -577,12 +645,12 @@ export const Navbar = () => {
                     </Transition>
                     </Menu>
               </div>
-              <div className="flex items-center">
+              <div className="ml-3 flex items-center">
                     <div id='nav' className="flex-shrink-0">
                     <a
                       href="news"
                       type="button"
-                      className="relative inline-flex text-white items-center px-3 py-0 font-bold border border-transparent rounded-md text-md dark:text-white hover:bg-tertiaryOne hover:text-white"
+                      className="relative inline-flex text-white border border-b-white items-center px-3 py-0 font-bold border-transparent rounded-md text-md dark:text-white hover:bg-tertiaryOne hover:text-white"
                     >
                       <span>News</span>
                     </a>
@@ -591,7 +659,7 @@ export const Navbar = () => {
               <button
                     type="button"
                     onClick={handleThemeSwitch}
-                    className="relative inline-flex items-center px-3 py-1 font-bold border border-transparent text-md dark:text-white hover:text-white"
+                    className="relative m-3 inline-flex items-center px-3 py-1 font-bold border border-transparent text-md dark:text-white hover:text-white"
                   >
                     {theme === 'dark' ? '🌞' : '🌙'}
                     <span className="sr-only">dark mode switch</span>

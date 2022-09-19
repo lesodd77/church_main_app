@@ -19,4 +19,6 @@ export const RoutePaths = {
     NOTIFYEMAIL: 'notifyEmail',
     SIGNUP: 'signup',
     GALLERY: 'gallery',
+    VIDEOPOST: 'videopost',
+    VIDEOPOSTFORM: 'videopostForm',
 }

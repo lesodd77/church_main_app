@@ -20,7 +20,8 @@ import { Gallery } from  '../../pages/gallery/Gallery';
 import { SabbathSchool } from  '../../pages/sabbathschool/SabbathSchool';
 import { Dashboard } from '../../pages/admin/dashboard/Dashboard'
 import { NotifyEmail } from '../../pages/admin/notifyemail/NotifyEmail'
-
+import { VideoPost } from '../../pages/admin/VideoPost';
+import { VideoPostForm } from '../../pages/videos/VideoPostForm';
 import { SignUp} from '../../pages/admin/signup/SignUp'
 
 
@@ -46,6 +47,8 @@ export const MainRoutes = () => {
             <Route element={<Doctrine/>} path={RoutePaths.DOCTRINE} />
             <Route element={<News/>} path={RoutePaths.NEWS} />
             <Route element={<PostForm/>} path={RoutePaths.POSTFORM} />
+            <Route element={<VideoPostForm/>} path={RoutePaths.VIDEOPOSTFORM} />
+            <Route element={<VideoPost/>} path={RoutePaths.VIDEOPOST} />
             <Route element={<About/>} path={RoutePaths.ABOUT} />
             <Route element={<Cookie/>} path={RoutePaths.COOKIE} />
             <Route element={<Privacy/>} path={RoutePaths.PRIVACY} /> 

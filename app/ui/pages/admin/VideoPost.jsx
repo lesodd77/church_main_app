@@ -2,45 +2,40 @@
 import { Meteor } from 'meteor/meteor'
 import React, { memo } from 'react'
 //import { Link } from 'react-router-dom';
-import { PostsCollection } from '../../../api/collections/posts.collection'
+import { VideoPostsCollection } from '../../../api/collections/videoposts.collection'
 import { useSubscribe, useFind } from 'meteor/react-meteor-data'
 import { Loading } from '../../components/spinner/Loading'
 //import { MailIcon } from '@heroicons/react/solid'
 
-export const Post = () => {
-  // const [truncate, setToggleTruncate] = React.useState(true);
-  const isLoading = useSubscribe('allPosts')
-  const posts = useFind(() =>
-    PostsCollection.find(
+export const VideoPost = () => {
+
+  const isLoading = useSubscribe('allVideoPosts')
+  const videoposts = useFind(() =>
+  VideoPostsCollection.find(
       { archived: { $ne: true } },
       { sort: { createdAt: -1 } }
     )
   )
-  const removePost = (event, _id) => {
+  const removeVideoPost = (event, _id) => {
     event.preventDefault()
-    Meteor.call('posts.remove', { postId: _id })
+    Meteor.call('videoposts.remove', { vidoepostId: _id })
   }
-  const updatePost = (event, _id) => {
+  const updateVideoPost = (event, _id) => {
     event.preventDefault()
-    Meteor.call('posts. update', { postId: _id })
+    Meteor.call('videoposts. update', { vidoepostId: _id })
   }
   if (isLoading()) {
     return <Loading />
   }
-  // function calculateTextStyle() {
-  //   return truncate ? textStyle : null;
-  // }
-  // function toggleTruncate() {
-  //   setToggleTruncate(!truncate);
-  // }
-  const PostItem = memo(({ post }) => (
+ 
+  const VideoPostItem = memo(({ videopost }) => (
     <div className="flex flex-col bg-transparent  rounded-lg shadow-lg">
       <div className="flex flex-col justify-center flex-1 rounded-lg">
         <div className="lex flex-col overflow-hidden rounded-lg shadow-lg">
           {/* <div>
             <a
               href="#"
-              onClick={(event) => removePost(event, post._id)}
+              onClick={(event) => removePost(event, videopost._id)}
               className="text-red-600 hover:text-red-900"
             >
               <span className="relative inline-flex items-center px-3 py-0 font-bold border border-transparent rounded-r-full shadow-lg text-md bg-sky-50 shadow-cyan-500/50 hover:bg-slate-500/70 dark:text-red-500/80 dark:hover:text-red-500">
@@ -51,7 +46,7 @@ export const Post = () => {
           {/* <div>
               <a
                 href="postForm"
-                onClick={(event) =>  updatePost(event, post._id)}
+                onClick={(event) =>  updatePost(event, videopost._id)}
                 className="inline-flex text-green-600 items-right hover:text-red-900"
                 
               >
@@ -64,7 +59,7 @@ export const Post = () => {
             <a href="news">
               <img
                 className="object-cover w-full h-48 rounded-t-md hover:bg-gray-300 hover:ring-sky-400"
-                src={post.url}
+                src={videopost.video}
                 alt=""
               />
             </a>
@@ -72,30 +67,29 @@ export const Post = () => {
           <div className="flex flex-1 flex-col justify-between rounded-b-md bg-white p-6">
                 <div  className="flex-1"> 
                   <p className="text-sm font-medium text-indigo-600">
-                    <a href={post.href} className="hover:underline">
-                      {post.category}
+                    <a href={videopost.href} className="hover:underline">
+                      {videopost.category}
                     </a>
                   </p>
-                  <a href={post.href} className="mt-2 block">
-                    <p className="text-xl font-serif font-semibold text-primary line-clamp-1">{post.title}</p>
-                    <p className="font-serif  text-sm font-medium text-gray-700 truncate line-clamp-1">{post.textarea}</p>
+                  <a href={videopost.href} className="mt-2 block">
+                    <p className="text-xl font-serif font-semibold text-primary line-clamp-1">{videopost.title}</p>
                   </a>
                 </div>
             <div className="flex items-center mt-6">
               <div className="flex-shrink-0">
-                <span className="sr-only">{post.author}</span>
+                <span className="sr-only">{videopost.author}</span>
                 <img
                   className="w-10 h-10 rounded-full"
-                  src={post.image1Url}
+                  src={videopost.image1Url}
                   alt=""
                 />
               </div>
               <div className="ml-3">
                 <p className="text-sm font-medium text-gray-900">
-                  {post.author}
+                  {videopost.author}
                 </p>
                 <div className="flex space-x-1 text-sm text-gray-500">
-                  <span>{post.date}</span>
+                  <span>{videopost.date}</span>
                 </div>
               </div>
             </div>
@@ -110,15 +104,15 @@ export const Post = () => {
       
         <div className="text-center">
         <h2 className="px-3 mt-10 py-8 text-3xl  font-serif font-medium text-center dark:text-white">
-             Our News
+             Video Posts
             </h2>
           </div>
         <ul
           role="list"
           className="mx-auto mt-10 grid max-w-lg gap-5 lg:max-w-none lg:grid-cols-4"
         >
-          {posts.map((post) => (
-            <PostItem key={post._id} post={post} />
+          {videoposts.map((videopost) => (
+            <VideoPostItem key={videopost._id} videopost={videopost} />
           ))}
         </ul>
       </div>
