@@ -8,6 +8,8 @@ import { SuccessAlert } from '../../components/alerts/SuccessAlert';
 import { Switch } from '@headlessui/react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { Textarea } from '../../components/Textarea';
+import { Input } from '../../components/Input';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
@@ -51,7 +53,7 @@ export const Contact = () => {
           setSubject('');
           setAgreed('');
           setMessage('');
-          showSuccess({ message: 'Contact saved.' });
+          showSuccess({ message: 'Thanks for Contacting Ims Sda Rm Ghana field.' });
         }
       }
     );
@@ -72,12 +74,11 @@ export const Contact = () => {
   return (
     <>
       <section
-      
-        className="pt-10 pb-36 px-8 bg-primary bg-opacity-20 dark:bg-slate-900 py-8 ring-1 ring-slate-900/5 shadow-xl"
+        className="pt-10 pb-36 px-8 bg-white dark:bg-slate-900 py-8 ring-1 ring-slate-900/5 shadow-xl"
       >
         <div className="max-w-6xl mx-auto">
           <h2
-            className="text-4xl font-bold text-center mt-20 text-primary dark:text-tertiaryOne"
+            className="mt-6 text-4xl font-bold text-center  text-primary dark:text-tertiaryOne"
             data-aos="fade-left"
           >
             Contact Us
@@ -85,53 +86,51 @@ export const Contact = () => {
 
         </div>
         <div  className="relative max-w-4xl mx-auto shadow-sm shadow-cyan-900/50">
-          <div  className="relative z-20 bg-primary dark:bg-slate-900 rounded-lg p-8">
-            <form action="" data-aos="fade-up">
-              {error && <ErrorAlert message={error} />}
+       <div  className="relative z-20 bg-primary dark:bg-slate-900 rounded-lg p-8">
+         <form action="" data-aos="fade-up">
+         {error && <ErrorAlert message={error} />}
               {success && <SuccessAlert message={success} />}
-              <div  className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
-                <input
-                  type="text"
-                  // eslint-disable-next-line react/jsx-props-no-multi-spaces
-                  id="name"
-                  value={name}
-                  onChange={e => setName(e.target.value)}
-                  placeholder="Full Name"
-                  autoComplete="name"
-                  className="bg-slate-800 text-gray-50 shadow-md px-4 py-2 rounded-md hover:border-gray-400 focus:border-gray-300"
-                />
-
-                <input
-                  type="email"
-                  id="email"
-                  value={email}
-                  onChange={e => setEmail(e.target.value)}
-                  placeholder="Email"
-              
-                  className="bg-slate-800 text-gray-50 shadow-md px-4 py-2 rounded-md hover:border-gray-400 focus:border-gray-300"
-                />
-
-                <input
-                  type="text"
-                  id="subject"
-                  value={subject}
-                  onChange={e => setSubject(e.target.value)}
-                  placeholder="Subject"
-                  className="bg-slate-800 text-gray-50  shadow-md px-4 py-2 rounded-md hover:border-gray-400 focus:border-gray-400 md:col-span-2"
-                />
-
-                <textarea
-                  type="text"
-                  id="message"
-                  value={message}
-                  onChange={e => setMessage(e.target.value)}
-                  className="bg-slate-800 text-gray-50 shadow-md px-4 py-2 rounded-md hover:border-gray-400 focus:border-gray-400 md:col-span-2"
-                  // @ts-ignore
-                  rows="5"
-                  placeholder="Message"
-                />
-              </div>
-              <div className="mt-4 sm:col-span-2">
+            <div  className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+                
+        <Input 
+        id='name'
+        label='Name'
+        type='text'
+        placeholder='Name'
+        containerClassName='mt-4'
+        value={name}
+        onChange={e => setName(e.target.value)}
+        />
+        <Input 
+        id='email'
+        label='Email'
+        type='email'
+        placeholder='Email'
+        containerClassName='mt-4'
+        value={email}
+        onChange={e => setEmail(e.target.value)}
+        />
+         <Input 
+        id='subject'
+        label='Subject'
+        type='subject'
+        placeholder='subject'
+        containerClassName='mt-4'
+        value={subject}
+        onChange={e => setSubject(e.target.value)}
+        />
+<Textarea
+        id='message'
+        label='Message'
+        type='message'
+        rows={2}
+        containerClassName='mt-4'
+        placeholder='Add your Message'         
+        value={message}
+        onChange={e => setMessage(e.target.value)}
+        />
+            
+         <div className="mt-2 sm:col-span-2">
               <div className="flex items-start">
                 <div className="flex-shrink-0">
                   <Switch
@@ -154,7 +153,7 @@ export const Contact = () => {
                     />
                   </Switch>
                 </div>
-                <div className="ml-3">
+                <div className="ml-2">
                   <p className="text-base text-gray-50 dark:text-gray-300">
                     By selecting this, you agree to the{' '}
                     <a href="privacy" className="font-medium text-gray-50 underline hover:underline decoration-3 decoration-pink-500 underline-offset-8 dark:text-gray-300">
@@ -170,16 +169,18 @@ export const Contact = () => {
               </div>
               </div>
             
-              <button
-                onClick={saveContact}
-                className="mt-4 inline-flex items-center px-7 py-2 border border-transparent text-md font-medium rounded-r-full shadow-lg shadow-cyan-900/50 text-white bg-tertiaryOne hover:bg-cyan-700"
-                                data-aos="fade-left"
-              >
-                <span>Send Message</span>
-              </button>
-            </form>
-          </div>
+        <button
+          type="button"
+          onClick={saveContact}
+          data-aos="fade-left"
+          className='mt-2 py-2 px-3 font-serif font-medium text-[18px] text-white bg-tertiaryOne rounded-[10px] outline-none hover:text-white hover:bg-opacity-40 transition ease-in-out duration-150'
+         ><span>Send Message</span>
+          
+        </button>
         </div>
+            </form>
+        </div>
+     </div>
       </section>
     </>
   );

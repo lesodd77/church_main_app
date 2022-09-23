@@ -1,6 +1,7 @@
 export const RoutePaths = {
     ROOT: '/',
-    HERO: '/',
+    HOME: '/',
+    HERO: 'hero',
     TESTIMONIALS:'testimonials',
     ABOUT: 'about',
     CONTACTLIST: 'contactList',
@@ -19,6 +20,8 @@ export const RoutePaths = {
     NOTIFYEMAIL: 'notifyEmail',
     SIGNUP: 'signup',
     GALLERY: 'gallery',
+    OFFICERS: 'officers',
     VIDEOPOST: 'videopost',
     VIDEOPOSTFORM: 'videopostForm',
+   
 }

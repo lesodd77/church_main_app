@@ -4,8 +4,7 @@ import React, { memo } from 'react';
 import { ContactsCollection } from '../../../api/collections/contacts.collection';
 import { useSubscribe, useFind } from 'meteor/react-meteor-data';
 import { Loading } from '../../components/spinner/Loading';
-
-
+import { MailIcon } from '../../components/logos/index'
 export const ContactList = () => {
     const isLoading = useSubscribe('allContacts');
     const contacts = useFind(() =>
@@ -63,14 +62,14 @@ export const ContactList = () => {
                             <div className="text-left text-slate-700 dark:text-slate-50 text-sm"><span className='text-sky-400'>Name :</span>&nbsp;{contact.name}</div>
                                    <div className="text-left text-slate-700 dark:text-slate-50 text-sm"><span className='text-sky-400'>Subject : </span>&nbsp;{contact.subject}</div>
                                    <div className="text-left text-slate-700 dark:text-slate-50 text-sm0"><span className='text-sky-400'>Message : </span>&nbsp;{contact.message}</div>
-                                   <div className="text-left text-slate-700 dark:text-slate-50 text-sm0"><span className='text-sky-400'>Agreed  </span>&nbsp;{contact.agreed}</div>
+                                   <div className="text-left text-slate-700 dark:text-slate-50 text-sm0"><span className='text-sky-400'>Agreed to Policy </span>&nbsp;{contact.agreed}</div>
                                     <div className="-mt-px flex divide-x divide-gray-200">
               <div className="w-0 flex-1 flex">
                 <a
-                  href={`mailto:${contact.email}`}
+                  href={contact.email}
                   className="relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-bl-lg hover:text-gray-500"
                 >
-                  <img src='./log/MailIcon.svg' MailIcon className="w-5 h-5 text-gray-400" aria-hidden="true" />
+                  <MailIcon  className="w-5 h-5 text-gray-400" aria-hidden="true" />
                   <span className="ml-3 text-sky-500">Email</span>
                 </a>
               </div>

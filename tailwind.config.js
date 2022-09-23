@@ -6,7 +6,7 @@ module.exports = {
   darkMode: 'class',
   theme: {
     screens: {
-      'sm': '650px',
+      'sm': '540px',
       // => @media (min-width: 576px) { ... }
 
       'md': '760px',
@@ -29,16 +29,22 @@ module.exports = {
         tertiaryOne: '#eb8338',
         tertiaryTwo: '#abb8c3',
         tertiaryThree: '#cdbda1',
+        danger:'#FF0000',
       },
       fontSize: {
-        xs: ['14px', { lineHeight: '24px', lettterSpacing: '-0.03em' }],
-        sm: ['16px', { lineHeight: '28px', lettterSpacing: '-0.03em' }],
-        lg: ['18px', { lineHeight: '28px', lettterSpacing: '-0.03em' }],
-        xl: ['24px', { lineHeight: '36px', lettterSpacing: '-0.03em' }],
-        '2xl': ['36x', { lineHeight: '48px', lettterSpacing: '-0.032em' }],
-        '3xl': ['48px', { lineHeight: '56px', lettterSpacing: '-0.032em' }],
-        '4xl': ['56px', { lineHeight: '64px', lettterSpacing: '-0.032em' }],
-        '5xl': ['80px', { lineHeight: '80px', lettterSpacing: '-0.032em' }],
+        xs: ['0.75rem', { lineHeight: '1rem' }],
+      sm: ['0.875rem', { lineHeight: '1.5rem' }],
+      base: ['1rem', { lineHeight: '1.75rem' }],
+      lg: ['1.125rem', { lineHeight: '2rem' }],
+      xl: ['1.25rem', { lineHeight: '2rem' }],
+      '2xl': ['1.5rem', { lineHeight: '2rem' }],
+      '3xl': ['2rem', { lineHeight: '2.5rem' }],
+      '4xl': ['2.5rem', { lineHeight: '3.5rem' }],
+      '5xl': ['3rem', { lineHeight: '3.5rem' }],
+      '6xl': ['3.75rem', { lineHeight: '1' }],
+      '7xl': ['4.5rem', { lineHeight: '1.1' }],
+      '8xl': ['6rem', { lineHeight: '1' }],
+      '9xl': ['8rem', { lineHeight: '1' }],
       },
       boxShadow: {
         sm: '0 2px 4px -0px rgba(11, .10, .55, 0.15)',
@@ -53,6 +59,14 @@ module.exports = {
 
       variants: {
         lineClamp: ['responsive', 'hover']
+      },
+      extend: {
+        borderRadius: {
+          '4xl': '2rem',
+        },
+        maxWidth: {
+          '2xl': '40rem',
+        },
       },
     },
   },

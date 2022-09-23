@@ -5,20 +5,25 @@ import { searchPosts, popularPosts } from "../posts/postsRest";
 import { PostsCollection } from '../collections/posts.collection';
 
 Meteor.methods({
-  'posts.insert'({ title, url, textarea, date, category, author, image1Url }) {
+
+
+  'posts.insert'({ title, authorUrl, message, date, category, author, url }) {
     check(title, String);
     check(url, String);
-    check(image1Url, String);
+    check(authorUrl, String);
     check(author, String);
-    check(textarea, String);
+    check(message, String);
     check(category, String);
     check(date, String);
-  
-  
-  
-  
-  
+
+    
+ 
+    
+
     if (!url) {
+      throw new Meteor.Error('Photo is required.');
+    }
+    if (!authorUrl) {
       throw new Meteor.Error('Photo is required.');
     }
     if (!title) {
@@ -34,7 +39,7 @@ Meteor.methods({
     if (!author) {
       throw new Meteor.Error('Author is required.');
     }
-    if (!textarea) {
+    if (!message) {
       throw new Meteor.Error('Content is required.');
     }
    
@@ -42,11 +47,11 @@ Meteor.methods({
    
     return PostsCollection.insert({
         title,
-         url,
+         authorUrl,
          date,
-         textarea,
+         message,
          author,
-         image1Url, 
+         url, 
           category,
       createdAt: new Date(),
     });

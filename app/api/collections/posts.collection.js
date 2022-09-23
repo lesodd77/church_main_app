@@ -8,7 +8,7 @@ const PostsSchema = new SimpleSchema({
   url: {
     type: String,
   },
-  image1Url: {
+  authorUrl: {
     type: String,
   },
   author: {
@@ -27,7 +27,7 @@ const PostsSchema = new SimpleSchema({
     type: String,
   },
 
-  textarea: {
+  message: {
     type: String,
     
   },

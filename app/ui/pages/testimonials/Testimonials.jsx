@@ -4,28 +4,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 const testimonials = [
-  [
-    {
-      content:
-        'There are so many things I had to do with my old software that I just don’t do at all with Swed. Suspicious but I can’t say I don’t love it.',
-      author: {
-        name: 'Elder Sampson Abugry',
-        role: 'Head of Mult. Dep.',
-        imageSrc: 'https://res.cloudinary.com/dungxxzhh/image/upload/v1663458591/ghf_images/PHOTO-2022-09-17-09-00-33_ovt328.jpg',
-      },
-    },
-  ],
-  [
-    {
-      content:
-      'There are so many things I had to do with my old software that I just don’t do at all with Swed. Suspicious but I can’t say I don’t love it.',
-      author: {
-        name: 'Pastor Bernard Condua',
-        role: 'Head Of Mission, Ghana',
-        imageSrc: 'https://res.cloudinary.com/dungxxzhh/image/upload/v1663456542/ghf_images/ghf_p_sialj4.jpg',
-      },
-    },
-  ],
+
   [
     {
       content:
@@ -90,9 +69,9 @@ export const Testimonials = () => {
         <div id='home' className="mt-20 py-10 bg-transparent" data-aos="fade-up">
         
        <div className="relative max-w-lg mx-auto divide-y-2 divide-gray-200 lg:max-w-7xl">
-      <h1 className="flex items-center justify-center mt-2 text-3xl font-bold text-primary dark:text-tertiaryOne">Our Team</h1>
+      <h1 className="flex items-center justify-center sm:ml-4 sm:text-md mt-2 text-3xl font-bold text-primary dark:text-tertiaryOne">What people say about us</h1>
          </div>
-          <ul className="grid max-w-2xl grid-cols-1 gap-6 p-4 mx-auto shadow-md  sm:gap-8 lg:mt-10 lg:max-w-none lg:grid-cols-3">
+          <ul className="grid max-w-2xl grid-cols-1 gap-6 p-4 mx-auto shadow-md  sm:gap-8 lg:mt-10 lg:max-w-none md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
         
             {testimonials.map((column, columnIndex) => (
               <li key={columnIndex}>

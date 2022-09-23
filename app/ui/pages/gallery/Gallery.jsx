@@ -1,117 +1,87 @@
 import React from 'react'
-const collections = [
+
+  const products = [
     {
-      name: "Teshie Branch",
+      id: 1,
+      name: 'Teshie branch',
       href: '#',
       imageSrc: 'https://res.cloudinary.com/dungxxzhh/image/upload/v1663456543/ghf_images/ghf_teshie_xy1zvq.jpg',
       imageAlt: 'Come and worship with us this and evry sabbath.',
+      branch: 'Joint Service at at Teshie',
     },
     {
-      name: "Jericho Branch",
+      id: 2,
+      name: 'Kakasunaka branch',
+      href: '#',
+      imageSrc: 'https://res.cloudinary.com/dungxxzhh/image/upload/v1663456543/ghf_images/ghf_kakasunanka_redvvd.jpg',
+      imageAlt: 'Front of zip tote bag with white canvas, black canvas straps and handle, and black zipper pulls.',
+      branch: 'Joint Service at Kakasunaka',
+    },
+    {
+      id: 3,
+      name: 'Jericho branch',
       href: '#',
       imageSrc: 'https://res.cloudinary.com/dungxxzhh/image/upload/v1663456542/ghf_images/ghf_jericho_npfheb.jpg',
       imageAlt: 'Come and worship with us this and evry sabbath.',
+      branch: 'Service at Jericho',
     },
     {
-      name: 'Kakasunanka Branch',
+      id: 1,
+      name: 'Jericho branch',
       href: '#',
-      imageSrc: 'https://res.cloudinary.com/dungxxzhh/image/upload/v1663456543/ghf_images/ghf_kakasunanka_redvvd.jpg',
-      imageAlt: 'Come and worship with us this and evry sabbath.',
+      imageSrc: 'https://res.cloudinary.com/dungxxzhh/image/upload/v1663456542/ghf_images/ghf_marriage_lo2fld.jpg',
+      imageAlt: 'Front of zip tote bag with white canvas, black canvas straps and handle, and black zipper pulls.',
+      branch: 'Marriage blessing at Jericho',
     },
-    {
-      name: 'Kakasunanka Branch',
-      href: '#',
-      imageSrc: 'https://res.cloudinary.com/dungxxzhh/image/upload/v1663456543/ghf_images/ghf_kakasunanka_redvvd.jpg',
-      imageAlt: 'Come and worship with us this and evry sabbath.',
-    },
+   
   ]
   
   export const Gallery = () =>{
     return (
-<div className="relative bg-white">
-{/* Background image and overlap */}
-<div aria-hidden="true" className="absolute inset-0 hidden sm:flex sm:flex-col">
-  <div className="relative w-full flex-1 bg-gray-800">
-    <div className="absolute inset-0 overflow-hidden">
-      <img
-        src="https://res.cloudinary.com/dungxxzhh/image/upload/v1663456541/ghf_images/ghf_hohoe_cm_uybaxl.jpg"
-        alt=""
-        className="h-full w-full object-cover object-center"
-      />
-    </div>
-    <div className="absolute inset-0 bg-gray-900 opacity-50" />
-  </div>
-  <div className="h-32 w-full bg-white md:h-40 lg:h-48" />
-</div>
+<div className="bg-white dark:bg-slate-900">
+      <div className="mt-32 mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
+        <h2 className="text-xl font-bold text-gray-900 dark:text-tertiaryOne">Our Album</h2>
 
-<div className="relative mx-auto max-w-3xl px-4 pb-96 text-center sm:px-6 sm:pb-0 lg:px-8">
-  {/* Background image and overlap */}
-  <div aria-hidden="true" className="absolute inset-0 flex flex-col sm:hidden">
-    <div className="relative w-full flex-1 bg-gray-800">
-      <div className="absolute inset-0 overflow-hidden">
-        <img
-          src="https://res.cloudinary.com/dungxxzhh/image/upload/v1663456542/ghf_images/ghf_p_sialj4.jpg"
-          alt=""
-          className="h-full w-full object-cover object-center"
-        />
-      </div>
-      <div className="absolute inset-0 bg-gray-900 opacity-50" />
-    </div>
-    <div className="h-48 w-full bg-white" />
-  </div>
-  <div className="relative py-32">
-    <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl">Our Album</h1>
-    <div className="mt-4 sm:mt-6">
-      <a
-        href="contact"
-        className="inline-block rounded-md border border-transparent bg-primary py-3 px-8 font-medium text-white hover:bg-primary"
-      >
-        Visit us this and every sabbath
-      </a>
-    </div>
-  </div>
-</div>
-
-<section aria-labelledby="collection-heading" className="relative -mt-96 sm:mt-0">
-  <h2 id="collection-heading" className="sr-only">
-    Collections
-  </h2>
-  <div className="mx-auto mt-12 grid max-w-lg gap-5 lg:max-w-none lg:grid-cols-4">
-    {collections.map((collection) => (
-      <div
-        key={collection.name}
-        className="group relative h-96 rounded-lg bg-white shadow-xl sm:aspect-w-4 sm:aspect-h-5 sm:h-auto"
-      >
-        <div>
-          <div aria-hidden="true" className="mx-auto mt-12 grid max-w-lg gap-5 lg:max-w-none lg:grid-cols-4">
-            <div className="absolute inset-0 overflow-hidden group-hover:opacity-75">
-              <img
-                src={collection.imageSrc}
-                alt={collection.imageAlt}
-                className="h-full w-full object-cover object-center"
-              />
+        <div className="mt-2 grid grid-cols-1 gap-y-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8">
+          {products.map((product) => (
+            <div key={product.id}>
+              <div className="relative">
+                <div className="relative h-72 w-full overflow-hidden rounded-lg bg-gray-300 transition-transform hover:scale-125">
+                  <img
+                    src={product.imageSrc}
+                    alt={product.imageAlt}
+                    className="h-full w-full object-cover object-center hover:opacity-75"
+                  />
+                </div>
+                <div className="relative mt-4">
+                  <h3 className="text-sm font-medium text-gray-900 dark:text-tertiaryOne">{product.name}</h3>
+                </div>
+                <div className="absolute inset-x-0 top-0 flex h-72 items-end justify-end overflow-hidden rounded-lg p-4">
+                  <div
+                    aria-hidden="true"
+                    className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-black opacity-50"
+                  />
+                  <p className="relative text-lg font-semibold text-white dark:text-white">{product.branch}</p>
+                </div>
+              </div>
             </div>
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-50" />
-          </div>
-          <div className="absolute inset-0 flex items-end rounded-lg p-6">
-            <div>
-              <p aria-hidden="true" className="text-sm text-white">
-                Worship with us this and every sabbath
-              </p>
-              <h3 className="mt-1 font-semibold text-white">
-                <a href={collection.href}>
-                  <span className="absolute inset-0" />
-                  {collection.name}
-                </a>
-              </h3>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
-    ))}
-  </div>
-</section>
-</div>
+      <div className="mb-4 flex justify-center items-center">  
+    <a
+     href="gallery">
+    <button
+    
+          type="button"
+          data-aos="fade-left"
+          className='py-1 px-2 font-serif font-medium text-[18px] text-white bg-tertiaryOne rounded-md outline-none hover:text-white hover:bg-opacity-40 transition ease-in-out duration-150'
+         ><span>See more</span>
+         
+        </button>
+        </a>
+        </div>
+    </div>
 
 )
 }

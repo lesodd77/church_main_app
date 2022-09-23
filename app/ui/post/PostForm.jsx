@@ -9,6 +9,11 @@ import { ErrorAlert } from '../components/alerts/ErrorAlert';
 import { SuccessAlert } from '../components/alerts/SuccessAlert';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { Input } from '../components/Input';
+import { Textarea } from '../components/Textarea'
+//import { Cloudinary } from 'meteor/socialize:cloudinary';
+
+
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
@@ -17,14 +22,30 @@ function classNames(...classes) {
 export const PostForm = () => {
   const [title, setTitle] = useState(''); 
   const [url, setUrl] = useState('');
-  const [image1Url, setImage1Url] = useState('');
+  const [authorUrl, setAuthorUrl] = useState('');
   const [author, setAuthor] = useState('');
   const [date, setDate] = useState('');
   const [category, setCategory] = useState('');
   const [error, setError] = useState('');
-  const [textarea, setTextarea] =  useState('');
+  const [message, setMessage] =  useState('');
   const [success, setSuccess] = useState('');
   // eslint-disable-next-line no-shadow
+
+
+  // Cloudinary.config({
+  //   cloud_name: 'dungxxzhh',
+  //   api_key: '148712448221992',
+  // });
+  
+  
+
+  // onChange = (e) => {
+  //   const uploads = Cloudinary.uploadFiles(e.currentTarget.files);
+  //   uploads.forEach(async (response) => {
+  //     const image = await response;
+  //     new Photo(image).save();
+  //   });
+
   const showError = ({ message }) => {
     setError(message);
     setTimeout(() => {
@@ -43,23 +64,24 @@ export const PostForm = () => {
   const savePost = () => {
     Meteor.call(
       'posts.insert',
-      { title, url, textarea, author, image1Url, date, category },
+      { title, authorUrl, message, author, url, date, category },
       errorResponse => {
         if (errorResponse) {
           showError({ message: errorResponse.error });
         } else {
           setTitle('');
           setUrl('');
-          setImage1Url('');
+          setAuthorUrl('');
           setDate('');
           setAuthor('');
-          setTextarea('');
+          setMessage('');
           
           showSuccess({ message: 'Post saved.' });
         }
       }
     );
   };
+
 
   useEffect(() => {
     AOS.init(
@@ -72,136 +94,107 @@ export const PostForm = () => {
       []
     );
   });
+
   return (
 <>
       <section
-        id="contact"
-        className="pt-10 pb-36 px-8 bg-slate-100 dark:bg-slate-900 rounded-lg py-8 ring-1 ring-slate-900/5 shadow-xl"
+        className="pt-10 pb-36 px-8 bg-transparent dark:bg-slate-900 rounded-lg py-8 ring-1 ring-slate-900/5 shadow-xl"
       >
         <div className="max-w-6xl mx-auto">
           <h2
-            className="text-4xl font-bold text-center mt-20 text-gray-50 dark:text-gray-50"
+            className="text-4xl font-bold text-center mt-20 text-primary dark:text-tertiaryOne"
             data-aos="fade-left"
           >
             Post Form
           </h2>
 
         </div>
+       
+
         <div className="relative max-w-4xl mx-auto shadow-sm shadow-cyan-900/50">
-          <div className="relative z-20 bg-slate-600 dark:bg-slate-900 rounded-lg p-8">
+          <div className="relative z-20 bg-primary dark:bg-slate-900 rounded-lg p-8">
             <form action="" data-aos="fade-up">
               {error && <ErrorAlert message={error} />}
               {success && <SuccessAlert message={success} />}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
-              <div>
-           
-           <label htmlFor="title" className="block text-sm font-medium text-gray-100">
-                Post Title
-              </label>
-                        <input
-                          type="text"
-                          id="title"
-                          value={title}
-                          onChange={e => setTitle(e.target.value)}
-                          placeholder="Post Title"
-                          className="bg-slate-300 dark:bg-slate-800 dark:text-gray-50  shadow-md px-4 py-2 rounded-md hover:border-gray-400 focus:border-gray-400 md:col-span-2"
-                        />
-               </div>
-               <div>
-           
-           <label htmlFor="author" className="block text-sm font-medium text-gray-100">
-                Author
-              </label>
-                        <input
-                          type="text"
-                          id="author"
-                          value={author}
-                          onChange={e => setAuthor(e.target.value)}
-                          placeholder="Post Author"
-                          className="bg-slate-300 dark:bg-slate-800 dark:text-gray-50  shadow-md px-4 py-2 rounded-md hover:border-gray-400 focus:border-gray-400 md:col-span-2"
-                        />
-               </div>
-
-               <div>
-           
-           <label htmlFor="category" className="block text-sm font-medium text-gray-100">
-                Category
-              </label>
-                        <input
-                          type="text"
-                          id="category"
-                          value={category}
-                          onChange={e => setCategory(e.target.value)}
-                          placeholder="Post Category"
-                          className="bg-slate-300 dark:bg-slate-800 dark:text-gray-50  shadow-md px-4 py-2 rounded-md hover:border-gray-400 focus:border-gray-400 md:col-span-2"
-                        />
-               </div>
-               <div>  
-           <label htmlFor="image1Url" className="block text-sm font-medium text-gray-100">
-                Author Photo
-              </label>
-                        <input
-                          type="image1Url"
-                          id="image1Url"
-                          value={image1Url}
-                          onChange={e => setImage1Url(e.target.value)}
-                          placeholder="Author Image"
-                          className="bg-slate-300 dark:bg-slate-800 dark:text-gray-50  shadow-md px-4 py-2 rounded-md hover:border-gray-400 focus:border-gray-400 md:col-span-2"
-                        />
-               </div>
-<div>
-           
-   <label htmlFor="textarea" className="block text-sm font-medium text-gray-100">
-        Image Url
-      </label>
-                <input
-                  type="url"
-                  id="url"
-                  value={url}
-                  onChange={e => setUrl(e.target.value)}
-                  placeholder="Image Url"
-                  className="bg-slate-300 dark:bg-slate-800 dark:text-gray-50  shadow-md px-4 py-2 rounded-md hover:border-gray-400 focus:border-gray-400 md:col-span-2"
-                />
-                </div>
-                <div>
-           
-   <label htmlFor="date" className="block text-sm font-medium text-gray-100">
-        Date
-      </label>
-                <input
-                  type="date"
-                  id="date"
-                  value={date}
-                  onChange={e => setDate(e.target.value)}
-                  className="bg-slate-300 dark:bg-slate-800 dark:text-gray-50  shadow-md px-4 py-2 rounded-md hover:border-gray-400 focus:border-gray-400 md:col-span-2"
-                />
-                </div>
-<div>
-      <label htmlFor="textarea" className="block text-sm font-medium text-gray-100">
-        Content
-      </label>
-      <div className="mt-1">
-        <textarea
-        type="textarea"
-        rows={5}
-          name="textarea"
-          id="textarea"
-          value={textarea}
-          onChange={e => setTextarea(e.target.value)}
-          className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-         
+      <Input 
+       type="url"
+       label='Image Url'
+       id="url"
+       value={url}
+       placeholder='Image Url'
+       containerClassName='mt-4'
+       onChange={e => setUrl(e.target.value)}
         />
-      </div>
-    </div>
-             
-    </div>
-              <button
-                onClick={savePost}
-                className="mt-4 inline-flex items-center rounded-md border border-transparent bg-cyan-600 px-3 py-2 text-sm font-medium leading-4 text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                                data-aos="fade-left"
-              >
-                <span>Save Post</span>
-              </button>
+       <Input 
+        id='category'
+        label='Category'
+        type='text'
+        placeholder='category'
+        containerClassName='mt-4'
+        value={category}
+        onChange={e => setCategory(e.target.value)}
+        />
+        
+       <Input 
+        id='title'
+        label='title'
+        type='text'
+        placeholder='Title'
+        containerClassName='mt-4'
+        value={title}
+        onChange={e => setTitle(e.target.value)}
+        />
+        
+<Textarea
+        id='message'
+        label='Message'
+        type='message'
+        rows={2}
+        containerClassName='mt-4'
+        placeholder='Add your Message'         
+        value={message}
+        onChange={e => setMessage(e.target.value)}
+       
+        />
+          
+        <Input 
+        id='author'
+        label='Author'
+        type='text'
+        placeholder='Author'
+        containerClassName='mt-4'
+        value={author}
+        onChange={e => setAuthor(e.target.value)}
+
+        />
+     
+     <Input 
+       type="url"
+       label='Image Url'
+       id="authorUrl"
+       value={authorUrl}
+       placeholder='Image Url'
+       containerClassName='mt-4'
+       onChange={e => setAuthorUrl(e.target.value)}
+        />
+  <Input 
+        id='date'
+        label='Date'
+        type='date'
+        placeholder='Date'
+        containerClassName='mt-4'
+        value={date}
+        onChange={e => setDate(e.target.value)}
+/>      
+    </div> <button
+          type="button"
+         
+          onClick={savePost}
+          data-aos="fade-left"
+          className='mt-4 py-2 px-3 font-serif font-medium text-[18px] text-white bg-tertiaryOne rounded-[10px] outline-none hover:text-white hover:bg-opacity-40 transition ease-in-out duration-150'
+         ><span>Publish</span>
+          </button>
              
             </form>
           </div>

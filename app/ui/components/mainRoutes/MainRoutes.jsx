@@ -2,7 +2,8 @@ import React, { Fragment } from 'react';
 import { BrowserRouter, Routes as ReactRoutes, Route } from 'react-router-dom';
 import { App } from '../../App'
 import { RoutePaths } from './RoutePaths';
-import { Hero } from '../../pages/index';
+import { Hero } from '../../pages/hero/Hero';
+import { Home } from '../../pages/index';
 import { NotFound } from '../../pages/notFound/NotFound';
 import { About } from '../../pages/about/About';
 import { Post } from '../../pages/admin/Post'
@@ -23,7 +24,7 @@ import { NotifyEmail } from '../../pages/admin/notifyemail/NotifyEmail'
 import { VideoPost } from '../../pages/admin/VideoPost';
 import { VideoPostForm } from '../../pages/videos/VideoPostForm';
 import { SignUp} from '../../pages/admin/signup/SignUp'
-
+import { Officers } from '../../pages/officers/Officers'
 
 export const MainRoutes = () => {
    
@@ -33,13 +34,15 @@ export const MainRoutes = () => {
    
       <ReactRoutes>
            <Route path={RoutePaths.ROOT} element={<App />}>
-            <Route element={<Hero />} index /> 
+            <Route element={<Home />} index /> 
+            <Route element={<Hero />} path={RoutePaths.HERO} /> 
             <Route element={<ContactList/>} path={RoutePaths.CONTACTLIST} />
             <Route element={<Testimonials/>} path={RoutePaths.TESTIMONIALS} />
             <Route element={<Post/>} path={RoutePaths.POST} />
             <Route element={<Dashboard/>} path={RoutePaths.DASHBOARD} />
             <Route element={<NotifyEmail/>} path={RoutePaths.NOTIFYEMAIL} />
             <Route element={<Gallery/>} path={RoutePaths.GALLERY} />
+            <Route element={<Officers/>} path={RoutePaths.OFFICERS} />
             <Route element={<SignUp/>} path={RoutePaths.SIGNUP} />
             <Route element={<Admin/>} path={RoutePaths.ADMIN} />
             <Route element={<Health/>} path={RoutePaths.HEALTH} />

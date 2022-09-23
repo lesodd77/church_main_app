@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 export const ErrorAlert = ({ message }) => (
         <div className="rounded-md bg-red-50 p-4">
             <div className="flex">

@@ -1,4 +1,4 @@
-// @ts-nocheck
+//@ts-nocheck
 import { Meteor } from 'meteor/meteor'
 import React, { memo } from 'react'
 //import { Link } from 'react-router-dom';
@@ -86,7 +86,7 @@ export const Post = () => {
                 <span className="sr-only">{post.author}</span>
                 <img
                   className="w-10 h-10 rounded-full"
-                  src={post.image1Url}
+                  src={post.authorUrl}
                   alt=""
                 />
               </div>
