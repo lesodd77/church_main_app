@@ -34,7 +34,7 @@ export const Textarea = (props) => {
         <textarea
         ref={textareaRef}
         type={type}
-        className={`block w-full px-2 pt-1.5 rounded-md border-0 border-b border-transparent p-0 pb-2 focus:border-primary focus:ring-0 sm:text-sm`}
+        className={`block w-full px-2 pt-1.5 dark:bg-slate-700 dark:text-white rounded-md border-0 border-b border-transparent p-0 pb-2 focus:border-primary focus:ring-0 sm:text-sm`}
          id={id} 
          placeholder={placeholder} {...rest} 
          />

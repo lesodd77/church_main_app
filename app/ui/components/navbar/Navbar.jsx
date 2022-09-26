@@ -6,10 +6,10 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 const user = {
-  name: 'Tom Cook',
-  email: 'tom@example.com',
+  name: 'Sampssson Abubakari',
+  email: 'abukarisampson1988@gmail.com',
   imageUrl:
-    'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+    'https://res.cloudinary.com/dungxxzhh/image/upload/v1663458591/ghf_images/PHOTO-2022-09-17-09-00-33_ovt328.jpg',
 }
 
 const userNavigation = [

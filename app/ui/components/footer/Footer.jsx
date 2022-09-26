@@ -172,7 +172,7 @@ export const Footer = () => {
               required
               value={email}
               onChange={e => setEmail(e.target.value)}
-              className="w-full min-w-0 appearance-none rounded-md border border-transparent bg-white py-2 px-4 text-base text-gray-900 placeholder-gray-500 focus:border-white focus:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 sm:max-w-xs"
+              className="w-full min-w-0 appearance-none rounded-md border border-transparent bg-white dark:bg-slate-700 dark:text-white py-2 px-4 text-base text-gray-900 placeholder-gray-500 focus:border-transparent focus:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 sm:max-w-xs"
               placeholder="Enter your email"
             />
             <div className="mt-3 rounded-md sm:mt-0 sm:ml-3 sm:flex-shrink-0">

@@ -66,7 +66,7 @@ export const Testimonials = () => {
   return (
     <>
     
-        <div id='home' className="mt-20 py-10 bg-transparent" data-aos="fade-up">
+        <div  className="mt-20 py-10 bg-transparent dark:bg-slate-900" data-aos="fade-up">
         
        <div className="ml-4 relative max-w-lg mx-auto divide-y-2 divide-gray-200 lg:max-w-7xl">
       <h1 className="flex items-center justify-center sm:ml-4 sm:text-md mt-2 text-3xl font-semibold text-primary dark:text-tertiaryOne">What people say about us</h1>

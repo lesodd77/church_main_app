@@ -27,12 +27,7 @@ export const Post = () => {
   if (isLoading()) {
     return <Loading />
   }
-  // function calculateTextStyle() {
-  //   return truncate ? textStyle : null;
-  // }
-  // function toggleTruncate() {
-  //   setToggleTruncate(!truncate);
-  // }
+
   const PostItem = memo(({ post }) => (
     <div className="flex flex-col bg-transparent  rounded-lg shadow-lg">
       <div className="flex flex-col justify-center flex-1 rounded-lg">

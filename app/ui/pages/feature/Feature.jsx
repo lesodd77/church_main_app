@@ -27,10 +27,10 @@
              <div className="inline-flex rounded-md shadow">
                <a
                  href="contact"
-                 className="inline-flex items-center justify-center rounded-md border border-transparent bg-white px-5 py-3 text-base font-medium text-gray-900 hover:bg-gray-50"
+                 className="inline-flex items-center justify-center rounded-md border border-transparent bg-white dark:bg-slate-700 px-5 py-3 text-base font-medium text-gray-800 dark:text-white hover:bg-gray-200"
                >
                    Visit our church service
-                 <div className="-mr-1 ml-3 h-5 w-5 text-gray-400" aria-hidden="true" />
+                 <div className="-mr-1 ml-3 h-5 w-5 text-gray-900" aria-hidden="true" />
                </a>
              </div>
            </div>

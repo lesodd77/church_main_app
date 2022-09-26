@@ -34,7 +34,7 @@ export const Input = (props) => {
         <input 
         ref={inputRef}
         type={type}
-        className={`w-full px-2 pb-1.5 text-primary outline-none font-serif rounded-md`}
+        className={`w-full px-2 pb-1.5 dark:bg-slate-700 dark:text-white text-primary outline-none font-serif rounded-md`}
          id={id} 
          placeholder={placeholder} {...rest} 
          />
