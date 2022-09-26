@@ -2,7 +2,7 @@
      export const Feature = () => {
         return (
             <>
-        <div className="ml-3 mr-3 relative bg-gray-900">
+        <div className="relative bg-gray-900">
        <div className="relative h-56 bg-primary sm:h-72 md:absolute md:left-0 md:h-full md:w-1/2 hover:opacity-75">
          <img
            className="h-full w-full object-cover hover:opacity-75"

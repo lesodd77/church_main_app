@@ -59,8 +59,8 @@ export const News = () => {
                 />
               </div>
               <div className="ml-3">
-                <p className="text-sm font-medium text-gray-900">
-                  {post.author}
+                <p className="text-sm font-medium text-gray-900"><span>By &nbsp;
+                  {post.author}</span>
                 </p>
                 <div className="flex space-x-1 text-sm text-gray-500">
                   <span>{post.date}</span>

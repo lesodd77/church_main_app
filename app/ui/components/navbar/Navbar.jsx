@@ -26,7 +26,7 @@ function classNames(...classes) {
 export const Navbar = () => {
   const [navbarOpen, setNavbarOpen] = React.useState(false);
   const [theme, setTheme] = useState(null);
-
+ const [query, setQuery] = useState('');
 	useEffect(() => {
 		if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
 			setTheme('dark');
@@ -82,6 +82,7 @@ export const Navbar = () => {
                       <input
                         id="search"
                         name="search"
+                        onChange={(e) => setQuery(e.target.value.toLowerCase())}
                         className="block w-full rounded-md border font-serif border-transparent bg-primary_2 dark:bg-slate-800 py-0 pl-10 pr-3 text-sm placeholder-gray-600 focus:border-white focus:bg-white focus:text-gray-900 focus:placeholder-primary focus:outline-none focus:ring-white sm:text-sm"
                         placeholder="What are you searching?"
                         type="search"

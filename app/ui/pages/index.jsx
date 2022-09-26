@@ -152,8 +152,8 @@ export const Home = () => {
       <div className="bg-white dark:bg-slate-900">
       <div className="bg-white dark:bg-slate-900 py-16 sm:py-24 xl:mx-auto xl:max-w-7xl xl:px-8">
         <div className="px-4 sm:flex sm:items-center sm:justify-between sm:px-6 lg:px-8 xl:px-0">
-          <h2 className="text-2xl font-bold tracking-tight text-gray-900">Our photo gallery</h2>
-          <a href="gallery" className="hidden text-sm font-semibold text-indigo-600 hover:text-indigo-500 sm:block">
+          <h2 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-tertiaryOne">Our photo gallery</h2>
+          <a href="gallery" className="hidden text-sm font-semibold text-indigo-600 dark:text-tertiaryOne hover:text-indigo-500 sm:block">
             Browse all images
             <span aria-hidden="true"> &rarr;</span>
           </a>

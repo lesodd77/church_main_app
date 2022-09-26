@@ -87,7 +87,8 @@ export const Post = () => {
               </div>
               <div className="ml-3">
                 <p className="text-sm font-medium text-gray-900">
-                  {post.author}
+                <span>By &nbsp;
+                  {post.author}</span>
                 </p>
                 <div className="flex space-x-1 text-sm text-gray-500">
                   <span>{post.date}</span>

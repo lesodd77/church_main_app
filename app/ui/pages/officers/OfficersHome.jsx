@@ -10,7 +10,7 @@ const perks = [
     },
     {
         name: 'Elder Richard Dalmeida',
-        title: 'President of the Mission field',
+        title: 'Vice President of the Mission field',
         imageSrc: 'https://res.cloudinary.com/dungxxzhh/image/upload/v1663456541/ghf_images/ghf_vp_n6xscc.jpg',
         description:
           "Preach the word of God is our priority.",
@@ -18,7 +18,7 @@ const perks = [
       },
       {
         name: 'Elder Martesin Budu',
-        title: 'President of the Mission field',
+        title: 'Secretary of the Mission field',
         imageSrc: 'https://res.cloudinary.com/dungxxzhh/image/upload/v1663938093/ghf_images/hakuna_bu8afl.jpg',
         description:
           "Preach the word of God is our priority.",
