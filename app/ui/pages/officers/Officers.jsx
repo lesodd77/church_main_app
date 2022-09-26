@@ -7,7 +7,7 @@ const perks = [
     imageSrc: 'https://res.cloudinary.com/dungxxzhh/image/upload/v1663456542/ghf_images/ghf_p_sialj4.jpg',
     description:
       "Preach the word of God is our priority.",
-      href: 'bencongh@gmail.com',
+     
   },
   {
       name: 'Elder Richard Dalmeida',
@@ -15,7 +15,7 @@ const perks = [
       imageSrc: 'https://res.cloudinary.com/dungxxzhh/image/upload/v1663456541/ghf_images/ghf_vp_n6xscc.jpg',
       description:
         "Preach the word of God is our priority.",
-        href: 'bencongh@gmail.com',
+       
     },
     {
       name: 'Elder Martesin Budu',
@@ -23,7 +23,7 @@ const perks = [
       imageSrc: 'https://res.cloudinary.com/dungxxzhh/image/upload/v1663938093/ghf_images/hakuna_bu8afl.jpg',
       description:
         "Preach the word of God is our priority.",
-        href: 'bumart70@gmail.com',
+       
     },
     {
       name: 'Elder Benjamin Teye',
@@ -31,7 +31,7 @@ const perks = [
       imageSrc: 'https://res.cloudinary.com/dungxxzhh/image/upload/v1663458581/ghf_images/PHOTO-2022-09-17-10-31-45_sgrba5.jpg',
       description:
         "Preach the word of God is our priority.",
-        href: 'bteye1174@gmail.com',
+       
     },
     {
         name: 'Elder Theophilus Adesu',
