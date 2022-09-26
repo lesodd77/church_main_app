@@ -27,7 +27,7 @@ const perks = [
     },
     {
       name: 'Elder Benjamin Teye',
-      title: 'Treasure of The Mission',
+      title: 'Treasure of The Mission Field',
       imageSrc: 'https://res.cloudinary.com/dungxxzhh/image/upload/v1663458581/ghf_images/PHOTO-2022-09-17-10-31-45_sgrba5.jpg',
       description:
         "Preach the word of God is our priority.",
@@ -35,7 +35,7 @@ const perks = [
     },
     {
         name: 'Elder Theophilus Adesu',
-        title: 'President of the Mission field',
+        title: 'Missionary Dep. Leader',
         imageSrc: 'https://res.cloudinary.com/dungxxzhh/image/upload/v1663938044/ghf_images/theo_bhvvxo.jpg',
         description:
           "Preach the word of God is our priority.",
@@ -65,6 +65,31 @@ const perks = [
           "Preach the word of God is our priority.",
          
       },
+      {
+        name: 'Elder John Bain',
+        title: 'Auditor of the Ghana field',
+        imageSrc: 'https://res.cloudinary.com/dungxxzhh/image/upload/v1664198337/ghf_images/bain_lvz8zr.jpg',
+        description:
+          "Preach the word of God and accuracy is in reporting is my priority.",
+         
+      },
+      {
+        name: 'Elder Adu Gyemfi',
+        title: 'Education Dep. Leader',
+        imageSrc: 'https://res.cloudinary.com/dungxxzhh/image/upload/v1664198398/ghf_images/wisdomman_qwvihg.jpg',
+        description:
+          "Preaching the word of God is our priority.",
+         
+      },
+      {
+        name: 'Elder Stephen Asiedu',
+        title: 'Music Dep. Leader',
+        imageSrc: 'https://res.cloudinary.com/dungxxzhh/image/upload/v1664198743/ghf_images/buadu-2_mzzoqm.jpg',
+        description:
+          "Preaching the word of God through music.",
+         
+      },
+    
     
 ]
 
@@ -91,7 +116,7 @@ export const Officers = () => {
             <div key={perk.name} className="sm:flex">
               <div className="sm:flex-shrink-0">
                 <div className="flow-root">
-                  <img className="h-28 w-28 rounded-lg shadow-md transition-transform hover:scale-125" src={perk.imageSrc} alt="" />
+                  <img className="h-28 w-28 rounded-full shadow-md transition-transform hover:scale-125" src={perk.imageSrc} alt="" />
                 </div>
               </div>
               <div className="mt-3 sm:mt-0 sm:ml-3">
