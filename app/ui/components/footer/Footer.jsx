@@ -28,10 +28,14 @@ const footerNavigation = {
     { name: 'Privacy', href: 'privacy' },
     { name: 'Terms', href: 'cookie' },
   ],
+  address: [
+    { name: '9 Southwest Mccarthy Hill Accra', href: 'https://www.facebook.com/Imsghmmdept/' },
+    { name: 'Post Box OD 1088 Odorkor - Accra', href: 'https://www.facebook.com/Imsghmmdept/' },
+  ],
   social: [
     {
       name: 'Facebook',
-      href: '#',
+      href: 'https://www.facebook.com/Imsghmmdept/',
       icon: props => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path
@@ -193,7 +197,7 @@ export const Footer = () => {
                   className="text-tertiaryOne hover:text-warm-gray-500 hover:underline decoration-tertiaryOne"
                 >
                   <span className="sr-only">{item.name}</span>
-                  <item.icon className="h-6 w-6" aria-hidden="true" />
+                  <item.icon className="h-6 w-6 transition-transform hover:text-sky-500 hover:scale-125" aria-hidden="true" />
                 </a>
               ))}
             </div>
@@ -270,9 +274,27 @@ export const Footer = () => {
                   ))}
                 </ul>
               </div>
+             
             </div>
           </div>
         </div>
+        <div className="mt-12 md:mt-0">
+                <h3 className="text-sm font-semibold text-tertiaryOne tracking-wider uppercase">
+                  Address
+                </h3>
+                <ul role="list" className="mt-4 space-y-4">
+                  {footerNavigation.address.map(item => (
+                    <li key={item.name}>
+                      <a
+                        href={item.href}
+                        className="text-white text-warm-gray-500 hover:text-warm-gray-900 hover:underline decoration-tertiaryOne"
+                      >
+                        {item.name}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
         <div className="mt-12 border-t border-warm-gray-200 pt-8">
           <p className="text-white text-warm-gray-400 xl:text-center hover:underline decoration-tertiaryOne">
             &copy; 2022 Ims Ghana Field. All rights reserved.

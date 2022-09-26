@@ -82,11 +82,11 @@ const perks = [
          
       },
       {
-        name: 'Elder Stephen Asiedu',
-        title: 'Music Dep. Leader',
-        imageSrc: 'https://res.cloudinary.com/dungxxzhh/image/upload/v1664198743/ghf_images/buadu-2_mzzoqm.jpg',
+        name: 'Mrs. Zipporah Boadu Budu',
+        title: 'Good Samaritan Dep. Leader',
+        imageSrc: 'https://res.cloudinary.com/dungxxzhh/image/upload/v1664221647/ghf_images/goodsamaritan_gusqtp.jpg',
         description:
-          "Preaching the word of God through music.",
+          "Preaching the word of God through humanitarian work.",
          
       },
     
@@ -116,7 +116,7 @@ export const Officers = () => {
             <div key={perk.name} className="sm:flex">
               <div className="sm:flex-shrink-0">
                 <div className="flow-root">
-                  <img className="h-28 w-28 rounded-full shadow-md transition-transform hover:scale-125" src={perk.imageSrc} alt="" />
+                  <img className="h-28 w-28 rounded-full shadow-md transition-transform hover:scale-125 hover:rounded-sm hover:h-32 hover:w-32" src={perk.imageSrc} alt="" />
                 </div>
               </div>
               <div className="mt-3 sm:mt-0 sm:ml-3">
