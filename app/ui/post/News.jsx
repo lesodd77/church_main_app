@@ -1,121 +1,97 @@
-import React from 'react';
-import { Post } from '../pages/admin/Post'
-const features = [
-  {
-    name: 'Durable',
-    description:
-      'The leather cover and machined steel disc binding stand up to daily use for years to come.',
-  },
-  {
-    name: 'Refillable',
-    description:
-      'Buy it once and refill as often as you need. Subscribe and save on routine refills.',
-  },
-  {
-    name: 'Thoughtfully designed',
-    description:
-      'The comfortable disc binding allows you to quickly rearrange pages or combine lined, graph, and blank refills.',
-  },
-  {
-    name: 'Locally made',
-    description:
-      'Responsibly and sustainably made real close to wherever you are, somehow.',
-  },
-]
-
-const posts = [
-  {
-    title: 'Boost your conversion rate',
-    href: '#',
-    category: {
-      name: 'Article',
-      href: '#',
-      color: 'bg-indigo-100 text-indigo-800',
-    },
-    description:
-      'Nullam risus blandit ac aliquam justo ipsum. Quam mauris volutpat massa dictumst amet. Sapien tortor lacus arcu.',
-    date: 'Mar 16, 2020',
-    datetime: '2020-03-16',
-    author: {
-      name: 'Paul York',
-      href: '#',
-      imageUrl:
-        'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    },
-    readingTime: '6 min',
-  },
-  {
-    title: 'How to use search engine optimization to drive sales',
-    href: '#',
-    category: { name: 'Video', href: '#', color: 'bg-pink-100 text-pink-800' },
-    description:
-      'Nullam risus blandit ac aliquam justo ipsum. Quam mauris volutpat massa dictumst amet. Sapien tortor lacus arcu.',
-    date: 'Mar 10, 2020',
-    datetime: '2020-03-10',
-    author: {
-      name: 'Dessie Ryan',
-      href: '#',
-      imageUrl:
-        'https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    },
-    readingTime: '4 min',
-  },
-  {
-    title: 'How to use search engine optimization to drive sales',
-    href: '#',
-    category: { name: 'Video', href: '#', color: 'bg-pink-100 text-pink-800' },
-    description:
-      'Nullam risus blandit ac aliquam justo ipsum. Quam mauris volutpat massa dictumst amet. Sapien tortor lacus arcu.',
-    date: 'Mar 10, 2020',
-    datetime: '2020-03-10',
-    author: {
-      name: 'Dessie Ryan',
-      href: '#',
-      imageUrl:
-        'https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    },
-    readingTime: '4 min',
-  },
-  {
-    title: 'Improve your customer experience',
-    href: '#',
-    category: {
-      name: 'Case Study',
-      href: '#',
-      color: 'bg-green-100 text-green-800',
-    },
-    description:
-      'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab iure iusto fugiat commodi sequi.',
-    date: 'Feb 12, 2020',
-    datetime: '2020-02-12',
-    author: {
-      name: 'Easer Collins',
-      href: '#',
-      imageUrl:
-        'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    },
-    readingTime: '11 min',
-  },
-]
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
+//@ts-nocheck
+import { Meteor } from 'meteor/meteor'
+import React, { memo } from 'react'
+//import { Link } from 'react-router-dom';
+import { PostsCollection } from '../../api/collections/posts.collection'
+import { useSubscribe, useFind } from 'meteor/react-meteor-data'
+import { Loading } from '../components/spinner/Loading'
 
 export const News = () => {
-  
-  return (
-    
-     <div className="relative px-4 pt-16 pb-20  sm:px-6 lg:px-8 lg:pt-24 lg:pb-28">
-      <div className="absolute inset-0">
-        <div className="bg-white h-1/3 sm:h-2/3" />
-      </div>
-      <div className="relative mx-auto max-w-7xl">
-        
- <Post />
-        
+  // const [truncate, setToggleTruncate] = React.useState(true);
+  const isLoading = useSubscribe('allPosts')
+  const posts = useFind(() =>
+    PostsCollection.find(
+      { archived: { $ne: true } },
+      { sort: { createdAt: -1 } }
+    )
+  )
+
+  if (isLoading()) {
+    return <Loading />
+  }
+ 
+  const PostItem = memo(({ post }) => (
+    <div className="flex flex-col bg-transparent ">
+      <div className="flex flex-col justify-center flex-1 ">
+        <div className="lex flex-col overflow-hidden ">
+          
+          
+        </div>
+        <div className="grid grid-cols-1">
+          <div className="flex-shrink-0">
+            <a href="news">
+              <img
+                className="object-cover w-100 h-auto rounded-t-md hover:bg-gray-300 hover:ring-sky-400"
+                src={post.url}
+                alt=""
+              />
+            </a>
+          </div>
+          <div className="flex flex-1 flex-col justify-between bg-white p-6">
+                <div  className="flex-1"> 
+                  <p className="text-sm font-medium text-indigo-600">
+                    <a href={post.href} className="hover:underline">
+                      {post.category}
+                    </a>
+                  </p>
+                  <a href={post.href} className="mt-2 block">
+                    <p className="text-xl font-serif font-semibold text-primary  line-clamp-1">{post.title}</p>
+                    <p className="font-serif  text-sm font-medium text-gray-700 line-clamp-3">{post.message}</p>
+                  </a>
+                </div>
+            <div className="flex items-center mt-6">
+              <div className="flex-shrink-0">
+                <span className="sr-only">{post.author}</span>
+                <img
+                  className="w-7 h-7 rounded-full"
+                  src={post.authorUrl}
+                  alt=""
+                />
+              </div>
+              <div className="ml-3">
+                <p className="text-sm font-medium text-gray-900">
+                  {post.author}
+                </p>
+                <div className="flex space-x-1 text-sm text-gray-500">
+                  <span>{post.date}</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-   
+    </div>
+  ))
+
+  return (
+    <div className="overflow-hidden bg-gray-50 py-16">
+      <div className="mx-auto max-w-7xl space-y-8 px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-prose text-base lg:max-w-none">
+        <h2 className="px-3 mt-10 py-8 text-3xl  font-serif font-medium text-center dark:text-white">
+             Our News
+            </h2>
+          
+        </div>
+  
+        <ul
+          role="list"
+          className="mx-auto mt-12 grid max-w-lg lg:max-w-none"
+        >
+          {posts.map((post) => (
+            <PostItem key={post._id} post={post} />
+          ))}
+        </ul>
+      </div>
+      </div>
   )
 }

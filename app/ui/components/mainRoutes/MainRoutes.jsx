@@ -6,7 +6,7 @@ import { Hero } from '../../pages/hero/Hero';
 import { Home } from '../../pages/index';
 import { NotFound } from '../../pages/notFound/NotFound';
 import { About } from '../../pages/about/About';
-import { Post } from '../../pages/admin/Post'
+import { Post } from '../../pages/admin/post/Post'
 import { PostForm } from '../../post/PostForm'
 import { News} from '../../post/News'
 import { Contact } from '../../pages/contact/Contact';
@@ -16,6 +16,7 @@ import { Cookie } from '../../components/cookie/Cookie'
 import { Privacy } from '../../components/privacy/Privacy'
 import { Admin } from '../../pages/admin/Admin'
 import { Health } from  '../../pages/health/Health';
+import { Voluntary } from  '../../pages/voluntary/Voluntary';
 import { Doctrine } from  '../../pages/doctrine/Doctrine';
 import { Gallery } from  '../../pages/gallery/Gallery';
 import { SabbathSchool } from  '../../pages/sabbathschool/SabbathSchool';
@@ -23,18 +24,20 @@ import { Dashboard } from '../../pages/admin/dashboard/Dashboard'
 import { NotifyEmail } from '../../pages/admin/notifyemail/NotifyEmail'
 import { VideoPost } from '../../pages/admin/VideoPost';
 import { VideoPostForm } from '../../pages/videos/VideoPostForm';
-import { SignUp} from '../../pages/admin/signup/SignUp'
 import { Officers } from '../../pages/officers/Officers'
+
 
 export const MainRoutes = () => {
    
   return (
-    <Fragment>
+    <>
     <BrowserRouter>
    
       <ReactRoutes>
            <Route path={RoutePaths.ROOT} element={<App />}>
-            <Route element={<Home />} index /> 
+       
+           <Route element={<Home />} path={RoutePaths.HOME} />
+          
             <Route element={<Hero />} path={RoutePaths.HERO} /> 
             <Route element={<ContactList/>} path={RoutePaths.CONTACTLIST} />
             <Route element={<Testimonials/>} path={RoutePaths.TESTIMONIALS} />
@@ -43,9 +46,9 @@ export const MainRoutes = () => {
             <Route element={<NotifyEmail/>} path={RoutePaths.NOTIFYEMAIL} />
             <Route element={<Gallery/>} path={RoutePaths.GALLERY} />
             <Route element={<Officers/>} path={RoutePaths.OFFICERS} />
-            <Route element={<SignUp/>} path={RoutePaths.SIGNUP} />
             <Route element={<Admin/>} path={RoutePaths.ADMIN} />
             <Route element={<Health/>} path={RoutePaths.HEALTH} />
+            <Route element={<Voluntary/>} path={RoutePaths.VOLUNTARY} />
             <Route element={<SabbathSchool/>} path={RoutePaths.SABBATHSCHOOL} />
             <Route element={<Doctrine/>} path={RoutePaths.DOCTRINE} />
             <Route element={<News/>} path={RoutePaths.NEWS} />
@@ -62,6 +65,6 @@ export const MainRoutes = () => {
          </ReactRoutes>
     
     </BrowserRouter>
-  </Fragment>
+  </>
     );
    }

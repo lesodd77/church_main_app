@@ -31,6 +31,9 @@ module.exports = {
         tertiaryThree: '#cdbda1',
         danger:'#FF0000',
       },
+      corePlugins: {
+        aspectRatio: false,
+      },
       fontSize: {
         xs: ['0.75rem', { lineHeight: '1rem' }],
       sm: ['0.875rem', { lineHeight: '1.5rem' }],

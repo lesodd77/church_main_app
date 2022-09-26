@@ -2,10 +2,11 @@
   "name": "church_main",
   "private": true,
   "scripts": {
-    "start": "meteor --exclude-archs web.browser.legacy,web.cordova --settings private/env/dev/settings.json",
-    "quave-eslint": "eslint . --fix",
-    "quave-prettier": "prettier --write \"**/*.js\"",
-    "quave-check": "npm run quave-eslint && npm run quave-prettier"
+    "start": "meteor run --exclude-archs web.browser.legacy,web.cordova",
+    "eslint": "eslint . --fix",
+    "prettier": "prettier --write \"**/*.js\" \"**/*.jsx\"",
+    "check": "npm run eslint && npm run prettier",
+    "visualize": "meteor --production --extra-packages bundle-visualizer"
   },
   "dependencies": {
     "@babel/runtime": "^7.15.4",

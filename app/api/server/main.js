@@ -1,6 +1,5 @@
 import { Meteor } from 'meteor/meteor';
 import { Migrations } from 'meteor/percolate:migrations';
-
 import '../db/migrations';
 
 import '../collections/contacts.collection';
@@ -19,12 +18,7 @@ import '../publications/videoposts.publication';
 import '../publications/contacts.publication';
 import '../publications/NotifyEmailsPublication';
 
-import '../infra/CustomError';
-
-
-
 
 Meteor.startup(() => {
   Migrations.migrateTo('latest');
-  
 });

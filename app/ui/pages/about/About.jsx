@@ -5,8 +5,9 @@ import 'aos/dist/aos.css'
 
 const about = [
   {
-    name: 'IMS. SDA. RM',
-    imageUrl:   './ghf_images/ghf_vp.jpg',
+    title: 'Pastor Bernard Condua',
+    name: 'Head of the work in Ghana',
+    imageUrl:   'https://res.cloudinary.com/dungxxzhh/image/upload/v1663456542/ghf_images/ghf_p_sialj4.jpg',
     bio: ' International Missionary Society 7th day Adventist church, reform movement. Ghana',
     twitterUrl: 'https://twitter.com/SimonAgbey3',
     linkedinUrl: 'https://www.linkedin.com/in/simon-webdev-95169b23b',
@@ -37,7 +38,7 @@ export const About = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-white" />
       </div>
     </div>
-    <div id='home' className="bg-primary bg-opacity-85 shadow-md dark:bg-slate-900">
+    <div className="bg-white bg-opacity-85 shadow-md dark:bg-slate-900">
         <div className="mx-auto max-w-7xl py-12 px-4 sm:px-6 lg:px-8 lg:py-24">
           <h2
             className=" text-3xl font-extrabold tracking-tight text-sky-400 dark:text-sky-400 sm:text-4xl"
@@ -48,16 +49,16 @@ export const About = () => {
           <div className="mt-7 space-y-12 lg:grid lg:grid-cols-3 lg:gap-8 lg:space-y-0">
             <div className="space-y-5 sm:space-y-4">
               <p
-                className="font-serif text-gray-700 dark:text-slate-700"
+                className="font-serif text-gray-700 dark:text-slate-200"
                 data-aos="flip-left"
               >
-                We part of the International Missionary Society is a Christian denomination
+                We are part of the International Missionary Society which is a Christian denomination
                 that takes the Bible as its foundation of faith and practice and believes in
                 Jesus as the Son of God and the Redeemer. His imminent second coming to earth,
                 faithfulness to the
 
                 <span className="relative inline-block before:absolute before:-inset-1 before:block before:-skew-y-3 before:bg-tertiaryOne">
-                  <span className="relative text-white">Ten Commandments of God</span>
+                  <span className="relative text-white dark:text-slate-100">Ten Commandments of God</span>
                 </span>
                 &nbsp; and the principle of nonviolence
                 are central to the movement's fundamental beliefs. Having its roots in the
@@ -74,10 +75,10 @@ export const About = () => {
                 {about.map((about) => (
                   <li key={about.name} className="sm:py-8">
                     <div className="space-y-4 sm:grid sm:grid-cols-3 sm:items-start sm:gap-6 sm:space-y-0">
-                      <div className="group aspect-w-3 aspect-h-2 flex items-center rounded-2xl bg-[#03050f27] shadow-lg sm:aspect-w-3 sm:aspect-h-4 sm:hover:bg-gray-300 sm:hover:ring-sky-400">
+                      <div className="group  flex items-center rounded-2xl bg-[#03050f27]  sm:hover:bg-gray-300 sm:hover:ring-sky-400">
                         <a href="about">
                           <img
-                            className="flex items-center sm:aspect-w-3 sm:aspect-h-2  rounded-2xl shadow-lg  sm:hover:bg-gray-300 sm:hover:ring-sky-400 sm:object-cover "
+                            className="flex items-center rounded-2xl sm:hover:ring-sky-400 sm:object-cover "
                             data-aos="zoom-in"
                             src={about.imageUrl}
                             alt="" />
@@ -86,10 +87,13 @@ export const About = () => {
                       <div className="sm:col-span-2">
                         <div className="space-y-4">
                           <div className="space-y-1 text-lg font-medium leading-6 text-gray-700 dark:text-slate-700">
-                            <h3 className="dark:text-sky-400">{about.name}</h3>
+                            <h3 className=" dark:text-tertiaryOne">{about.title}</h3>
+                          </div>
+                          <div className="space-y-1 text-lg font-medium leading-6 text-gray-700 dark:text-slate-700">
+                            <h3 className="text-sky-500 font-bold font-serif">{about.name}</h3>
                           </div>
                           <div className="text-lg md:mt-5">
-                            <p className="text-gray-700 dark:text-slate-700">
+                            <p className="text-gray-700 dark:text-slate-200">
                               {about.bio}
                             </p>
                           </div>

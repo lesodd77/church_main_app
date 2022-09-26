@@ -8,8 +8,9 @@ import { SuccessAlert } from '../../components/alerts/SuccessAlert';
 import { Switch } from '@headlessui/react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { Textarea } from '../../components/Textarea';
-import { Input } from '../../components/Input';
+import { Textarea  } from './Textarea';
+
+import { Input } from './Input';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');

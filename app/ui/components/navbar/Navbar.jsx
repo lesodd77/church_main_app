@@ -588,9 +588,9 @@ export const Navbar = () => {
                     </div>
               <div className="space-y-1 px-2 pt-2 pb-3">
                 
-              <Menu as="div" className="relative z-20 inline-block py-3 text-left">
+              <Menu as="div" className="relative z-30 inline-block py-3 text-left">
                     <div>
-                      <Menu.Button className="relative inline-flex border border-b-white border-transparent bg-primary text-white items-center px-3 py-0 font-serif font-bold  rounded-r-full backdrop:text-md dark:bg-transparent dark:text-white hover:bg-tertiaryOne hover:text-white">
+                      <Menu.Button className="relative inline-flex text-white items-center px-3 py-0 font-serif font-bold border border-transparent rounded-md text-md dark:bg-transparent dark:text-white hover:bg-tertiaryOne hover:text-white">
                        Services
                        <img src='./log/Chevron.svg' className="w-5 h-5 ml-2 -mr-1" aria-hidden="true" />
                       </Menu.Button>
@@ -604,13 +604,13 @@ export const Navbar = () => {
                       leaveFrom="transform opacity-100 scale-100"
                       leaveTo="transform opacity-0 scale-95"
                     >
-                      <Menu.Items className="absolute right-0 w-full mt-2 origin-top-right divide-y divide-gray-100 rounded-md bg-primary hover:bg-tertiaryOne focus:outline-none">
-                        <div onClick={() => setNavbarOpen(!open)} className="py-3">
-          
+                     <Menu.Items className="absolute right-0 w-full mt-5 origin-top-right divide-y divide-gray-100 rounded-md bg-primary ring-1 ring-primary ring-opacity-5 focus:outline-none">
+                        <div onClick={() => setNavbarOpen(!open)} className="py-1">
+                      
                           <Menu.Item>
                             {({ active }) => (
                               <a
-                                href="health"
+                                href="voluntary"
                                 className={classNames(
                                   active
                                   ? 'bg-tertiaryOne rounded-r-full text-white'
@@ -618,7 +618,7 @@ export const Navbar = () => {
                                 'block px-4 py-2 text-sm'
                                 )}
                               >
-                              Volutary
+                              Voluntary
                               </a>
                             )}
                           </Menu.Item>
@@ -635,12 +635,11 @@ export const Navbar = () => {
                                 'block px-4 py-2 text-sm'
                                 )}
                               >
-                              Health
+                         Health
                               </a>
                             )}
                           </Menu.Item>
                           </div>
-                        
                       </Menu.Items>
                     </Transition>
                     </Menu>

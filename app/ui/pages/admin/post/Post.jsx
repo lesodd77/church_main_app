@@ -2,9 +2,9 @@
 import { Meteor } from 'meteor/meteor'
 import React, { memo } from 'react'
 //import { Link } from 'react-router-dom';
-import { PostsCollection } from '../../../api/collections/posts.collection'
+import { PostsCollection } from '../../../../api/collections/posts.collection'
 import { useSubscribe, useFind } from 'meteor/react-meteor-data'
-import { Loading } from '../../components/spinner/Loading'
+import { Loading } from '../../../components/spinner/Loading'
 //import { MailIcon } from '@heroicons/react/solid'
 
 export const Post = () => {
@@ -37,7 +37,7 @@ export const Post = () => {
     <div className="flex flex-col bg-transparent  rounded-lg shadow-lg">
       <div className="flex flex-col justify-center flex-1 rounded-lg">
         <div className="lex flex-col overflow-hidden rounded-lg shadow-lg">
-          {/* <div>
+          <div>
             <a
               href="#"
               onClick={(event) => removePost(event, post._id)}
@@ -47,8 +47,8 @@ export const Post = () => {
                 Delete
               </span>
             </a>
-          </div> */}
-          {/* <div>
+          </div>
+          <div>
               <a
                 href="postForm"
                 onClick={(event) =>  updatePost(event, post._id)}
@@ -57,7 +57,7 @@ export const Post = () => {
               >
                 <span className="relative inline-flex items-center px-3 py-0 font-bold border border-transparent rounded-l-full shadow-lg bg-sky-50 text-md shadow-cyan-900/50 dark:text-sky-500/80 hover:bg-sky-500/70 dark:hover:text-white">Update</span>
               </a>
-              </div> */}
+              </div>
         </div>
         <div className="grid grid-cols-1">
           <div className="flex-shrink-0">
@@ -78,7 +78,7 @@ export const Post = () => {
                   </p>
                   <a href={post.href} className="mt-2 block">
                     <p className="text-xl font-serif font-semibold text-primary line-clamp-1">{post.title}</p>
-                    <p className="font-serif  text-sm font-medium text-gray-700 truncate line-clamp-1">{post.textarea}</p>
+                    <p className="font-serif  text-sm font-medium text-gray-700 truncate line-clamp-1">{post.message}</p>
                   </a>
                 </div>
             <div className="flex items-center mt-6">

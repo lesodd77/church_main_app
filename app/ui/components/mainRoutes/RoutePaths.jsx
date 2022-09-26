@@ -9,6 +9,7 @@ export const RoutePaths = {
     PRIVACY: 'privacy',
     COOKIE: 'cookie',
     POST: 'post',
+  
     NEWS: 'news',
     ADMIN: 'admin',
     POSTFORM: 'postForm',
@@ -16,12 +17,12 @@ export const RoutePaths = {
     DOCTRINE: 'doctrine',
     SABBATHSCHOOL: 'sabbathSchool',
     DASHBOARD: 'dashboard',
-    SIGNUP: 'signup',
+   VOLUNTARY: 'voluntary',
     NOTIFYEMAIL: 'notifyEmail',
-    SIGNUP: 'signup',
     GALLERY: 'gallery',
     OFFICERS: 'officers',
     VIDEOPOST: 'videopost',
+    POSTSPAGE: 'postsPage',
     VIDEOPOSTFORM: 'videopostForm',
    
 }

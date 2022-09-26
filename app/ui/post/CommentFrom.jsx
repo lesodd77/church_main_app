@@ -66,9 +66,6 @@ export const PostForm = () => {
         } else {
           setTitle('');
           setUrl('');
-          setAuthorUrl('');
-          setDate('');
-          setAuthor('');
           setMessage('');
           
           showSuccess({ message: 'Post saved.' });
@@ -112,35 +109,7 @@ export const PostForm = () => {
               {error && <ErrorAlert message={error} />}
               {success && <SuccessAlert message={success} />}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
-      <Input 
-       type="url"
-       label='Image Url'
-       id="url"
-       value={url}
-       placeholder='Image Url'
-       containerClassName='mt-4'
-       onChange={e => setUrl(e.target.value)}
-        />
-       <Input 
-        id='category'
-        label='Category'
-        type='text'
-        placeholder='category'
-        containerClassName='mt-4'
-        value={category}
-        onChange={e => setCategory(e.target.value)}
-        />
-        
-       <Input 
-        id='title'
-        label='title'
-        type='text'
-        placeholder='Title'
-        containerClassName='mt-4'
-        value={title}
-        onChange={e => setTitle(e.target.value)}
-        />
-        
+   
 <Textarea
         id='message'
         label='Message'
@@ -163,29 +132,11 @@ export const PostForm = () => {
         onChange={e => setAuthor(e.target.value)}
 
         />
-     
-     <Input 
-       type="url"
-       label='Image Url'
-       id="authorUrl"
-       value={authorUrl}
-       placeholder='Image Url'
-       containerClassName='mt-4'
-       onChange={e => setAuthorUrl(e.target.value)}
-        />
-  <Input 
-        id='date'
-        label='Date'
-        type='date'
-        placeholder='Date'
-        containerClassName='mt-4'
-        value={date}
-        onChange={e => setDate(e.target.value)}
-/>      
+      
     </div> <button
           type="button"
          
-          onClick={savePost}
+          onClick={saveComment}
           data-aos="fade-left"
           className='mt-4 py-2 px-3 font-serif font-medium text-[18px] text-white bg-tertiaryOne rounded-[10px] outline-none hover:text-white hover:bg-opacity-40 transition ease-in-out duration-150'
          ><span>Publish</span>

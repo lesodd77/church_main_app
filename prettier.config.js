@@ -1,3 +1,5 @@
+module.exports = require('@quave/eslint-config-quave/prettier.config');
+
 module.exports = {
     singleQuote: true,
     semi: false,
