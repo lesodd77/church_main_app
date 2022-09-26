@@ -24,14 +24,14 @@ export const PostHomePage = () => {
   <div className="flex-shrink-0">
             <a href="news">
               <img
-                className="object-cover w-full h-auto rounded-md transition-transform hover:scale-125"
+                className="object-cover w-full h-auto rounded-md hover:opacity-75"
                 src={post.url}
                 alt=""
               />
             </a>
           </div>
           <a href='news' className="block mt-4">
-          <span className="ml-2 inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium font-sm bg-green-600 bg-opacity-40  w-16 h-7 font-serif text-white">
+          <span className="ml-2 inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium font-sm bg-green-500 bg-opacity-75  w-16 h-7 font-serif text-white">
                     <a href={post.href} className="hover:underline">
                       {post.category}
                     </a>
@@ -69,7 +69,7 @@ export const PostHomePage = () => {
           </div>
         <ul
           role="list"
-          className="m-3 grid gap-5 pt-7 mt-5 md:grid-cols-4 lg:grid-cols-6 lg:gap-x-5 lg:gap-y-12"
+          className="ml-3 grid gap-5 pt-7 mt-5 md:grid-cols-4 lg:grid-cols-6 lg:gap-x-5 lg:gap-y-12"
         >
           {posts.map((post) => (
             <PostItem key={post._id} post={post} />

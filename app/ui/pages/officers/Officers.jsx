@@ -39,7 +39,7 @@ const perks = [
         imageSrc: 'https://res.cloudinary.com/dungxxzhh/image/upload/v1663938044/ghf_images/theo_bhvvxo.jpg',
         description:
           "Preach the word of God is our priority.",
-          href: 'ruthphilus28@gmail.com',
+          
       },
       {
         name: 'Elder Sampson Abukari',
@@ -47,7 +47,7 @@ const perks = [
         imageSrc: 'https://res.cloudinary.com/dungxxzhh/image/upload/v1663458591/ghf_images/PHOTO-2022-09-17-09-00-33_ovt328.jpg',
         description:
           "Preach the word of God is our priority.",
-          href: 'abukarisampson1988@gmail.com',
+         
       },
       {
         name: 'Elder Oscar Kroankye',
@@ -55,7 +55,15 @@ const perks = [
         imageSrc: 'https://res.cloudinary.com/dungxxzhh/image/upload/v1663456540/ghf_images/ghf_fl_p3uzla.jpg',
         description:
           "Preach the word of God is our priority.",
-          href: 'abukarisampson1988@gmail.com',
+         
+      },
+      {
+        name: 'Elder Dr. Buadu',
+        title: 'Health Dep. Leader',
+        imageSrc: 'https://res.cloudinary.com/dungxxzhh/image/upload/v1664195547/ghf_images/buadu_ue9abv.jpg',
+        description:
+          "Preach the word of God is our priority.",
+         
       },
     
 ]
@@ -90,7 +98,6 @@ export const Officers = () => {
                 <h1 className="text-md font-serif font-semibold text-primary">{perk.name}</h1>
                 <h3 className="text-sm ffont-serif  ont-medium text-gray-900">{perk.title}</h3>
                 <p className="mt-2 text-sm font-serif  text-gray-500">{perk.description}</p>
-                <p className="text-sm font-medium font-serif  text-gray-900">{perk.href}</p>
               </div>
             </div>
           ))}
