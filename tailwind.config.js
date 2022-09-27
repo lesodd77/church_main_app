@@ -6,13 +6,11 @@ module.exports = {
   darkMode: 'class',
   theme: {
     screens: {
-      'sm': '540px',
-      // => @media (min-width: 576px) { ... }
-
+      'sm': '300px',
+ 
       'md': '760px',
-      // => @media (min-width: 960px) { ... }
-
-      'lg': '1440px',
+      
+      'lg': '1220px',
     },
     lineClamp: {
       7: '7',

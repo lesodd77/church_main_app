@@ -5,9 +5,18 @@ import React, { memo } from 'react'
 import { PostsCollection } from '../../api/collections/posts.collection'
 import { useSubscribe, useFind } from 'meteor/react-meteor-data'
 import { Loading } from '../components/spinner/Loading'
+import {
+  FacebookShareButton,
+  WhatsappShareButton,
+} from 'react-share';
+import {
+  FacebookIcon,
+  WhatsappIcon,
+  
+} from 'react-share';
 
 export const News = () => {
-  // const [truncate, setToggleTruncate] = React.useState(true);
+const shareUrl = 'https://ims-ghanafield.meteorapp.com/news';
   const isLoading = useSubscribe('allPosts')
   const posts = useFind(() =>
     PostsCollection.find(
@@ -29,6 +38,7 @@ export const News = () => {
         </div>
         <div className="grid grid-cols-1">
           <div className="flex-shrink-0">
+           <div className="aspect-w-3 aspect-h-2 sm:aspect-w-3 sm:aspect-h-3 md:aspect-w-4 md:aspect-h-4 lg:aspect-w-16 lg:aspect-h-9">
             <a href="news">
               <img
                 className="object-cover w-100 h-auto rounded-t-md hover:bg-gray-300 hover:ring-sky-400"
@@ -36,6 +46,7 @@ export const News = () => {
                 alt=""
               />
             </a>
+          </div>
           </div>
           <div className="flex flex-1 flex-col justify-between bg-white p-6">
                 <div  className="flex-1"> 
@@ -66,8 +77,21 @@ export const News = () => {
                   <span>{post.date}</span>
                 </div>
               </div>
+              <div className="ml-4">
+            
+            <WhatsappShareButton url={shareUrl}>
+          <WhatsappIcon  className="w-7 h-7 rounded-full transition-transform hover:scale-125 hover:opacity-25"/>
+          </WhatsappShareButton>
+          </div>
+          <div className="ml-4">
+          
+          <FacebookShareButton url={shareUrl}>
+        <FacebookIcon  className="w-7 h-7 rounded-full transition-transform hover:scale-125 hover:opacity-25"/>
+        </FacebookShareButton>
+        </div>
             </div>
           </div>
+        
         </div>
       </div>
     </div>

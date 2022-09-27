@@ -210,7 +210,7 @@ display: -webkit-box;
 }
 
 
-#hover:line-clamp-none {
+hover:line-clamp-none {
   -webkit-line-clamp: unset;
 }
 

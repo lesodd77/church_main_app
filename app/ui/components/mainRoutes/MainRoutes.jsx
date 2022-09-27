@@ -22,7 +22,7 @@ import { Gallery } from  '../../pages/gallery/Gallery';
 import { SabbathSchool } from  '../../pages/sabbathschool/SabbathSchool';
 import { Dashboard } from '../../pages/admin/dashboard/Dashboard'
 import { NotifyEmail } from '../../pages/admin/notifyemail/NotifyEmail'
-import { VideoPost } from '../../pages/admin/VideoPost';
+import { VideoPost } from '../../pages/videos/VideoPost';
 import { VideoPostForm } from '../../pages/videos/VideoPostForm';
 import { Officers } from '../../pages/officers/Officers'
 

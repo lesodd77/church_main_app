@@ -39,7 +39,7 @@ export const PostHomePage = () => {
           
           </a>
           <div>
-          <p id='line-clamp-1' className="px-2 text-xl font-semibold text-gray-900 dark:text-tertiaryOne line-clamp-1">{post.title}</p>
+          <p id='line-clamp-2' className="px-2 text-xl font-semibold text-gray-900 dark:text-tertiaryOne line-clamp-2">{post.title}</p>
             <p id='line-clamp-2' className=" tracking-tight px-2 mt-3 text-base text-gray-600 dark:text-slate-300 line-clamp-2">{post.message}</p>
             <a href="news"> <button className='px-2 text-sm font-serif text-white bg-primary bg-opacity-15 hover:bg-tertiaryOne rounded-sm'>Read more</button></a>
           </div>

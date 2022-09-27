@@ -7,6 +7,7 @@ import { ErrorAlert } from '../../components/alerts/ErrorAlert';
 import { SuccessAlert } from '../../components/alerts/SuccessAlert';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { Textarea , Input } from '../../post/index'
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
@@ -14,10 +15,11 @@ function classNames(...classes) {
 
 export const VideoPostForm = () => {
   const [title, setTitle] = useState(''); 
-  const [video, setVideo] = useState('');
+  const [videoUrl, setVideoUrl] = useState('');
   const [image1Url, setImage1Url] = useState('');
   const [author, setAuthor] = useState('');
   const [date, setDate] = useState('');
+  const [message, setMessage] = useState('');
   const [category, setCategory] = useState('');
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
@@ -40,19 +42,20 @@ export const VideoPostForm = () => {
   const saveVideoPost = () => {
     Meteor.call(
       'videoposts.insert',
-      { title, video, author, image1Url, date, category },
+      { title, videoUrl, author, message, image1Url, date, category },
       errorResponse => {
         if (errorResponse) {
           showError({ message: errorResponse.error });
         } else {
           setTitle('');
-          setvideo('');
+          setVideoUrl('');
           setImage1Url('');
           setDate('');
           setAuthor('');
+          setMeesage('');
       
           
-          showSuccess({ message: 'Your video Post is published.' });
+          showSuccess({ message: 'Your videoUrl Post is published.' });
         }
       }
     );
@@ -72,117 +75,103 @@ export const VideoPostForm = () => {
   return (
 <>
       <section
-        id="contact"
-        className="pt-10 pb-36 px-8 bg-slate-100 dark:bg-slate-900 rounded-lg py-8 ring-1 ring-slate-900/5 shadow-xl"
+        className="pt-10 pb-36 px-8 bg-transparent dark:bg-slate-900 rounded-lg py-8 ring-1 ring-slate-900/5 shadow-xl"
       >
         <div className="max-w-6xl mx-auto">
           <h2
-            className="text-4xl font-bold text-center mt-20 text-gray-50 dark:text-gray-50"
+            className="text-4xl font-bold text-center mt-20 text-primary dark:text-tertiaryOne"
             data-aos="fade-left"
           >
-           Video Post Form
+            Post Form
           </h2>
 
         </div>
+       
+
         <div className="relative max-w-4xl mx-auto shadow-sm shadow-cyan-900/50">
-          <div className="relative z-20 bg-slate-600 dark:bg-slate-900 rounded-lg p-8">
+          <div className="relative z-20 bg-primary dark:bg-slate-900 rounded-lg p-8">
             <form action="" data-aos="fade-up">
               {error && <ErrorAlert message={error} />}
               {success && <SuccessAlert message={success} />}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
-              <div>
-           
-           <label htmlFor="title" className="block text-sm font-medium text-gray-100">
-                Post Title
-              </label>
-                        <input
-                          type="text"
-                          id="title"
-                          value={title}
-                          onChange={e => setTitle(e.target.value)}
-                          placeholder="Post Title"
-                          className="bg-slate-300 dark:bg-slate-800 dark:text-gray-50  shadow-md px-4 py-2 rounded-md hover:border-gray-400 focus:border-gray-400 md:col-span-2"
-                        />
-               </div>
-               <div>
-           
-           <label htmlFor="author" className="block text-sm font-medium text-gray-100">
-                Author
-              </label>
-                        <input
-                          type="text"
-                          id="author"
-                          value={author}
-                          onChange={e => setAuthor(e.target.value)}
-                          placeholder="Post Author"
-                          className="bg-slate-300 dark:bg-slate-800 dark:text-gray-50  shadow-md px-4 py-2 rounded-md hover:border-gray-400 focus:border-gray-400 md:col-span-2"
-                        />
-               </div>
-
-               <div>
-           
-           <label htmlFor="category" className="block text-sm font-medium text-gray-100">
-                Category
-              </label>
-                        <input
-                          type="text"
-                          id="category"
-                          value={category}
-                          onChange={e => setCategory(e.target.value)}
-                          placeholder="Post Category"
-                          className="bg-slate-300 dark:bg-slate-800 dark:text-gray-50  shadow-md px-4 py-2 rounded-md hover:border-gray-400 focus:border-gray-400 md:col-span-2"
-                        />
-               </div>
-               <div>  
-           <label htmlFor="image1Url" className="block text-sm font-medium text-gray-100">
-                Author Photo
-              </label>
-                        <input
-                          type="image1Url"
-                          id="image1Url"
-                          value={image1Url}
-                          onChange={e => setImage1Url(e.target.value)}
-                          placeholder="Author Image"
-                          className="bg-slate-300 dark:bg-slate-800 dark:text-gray-50  shadow-md px-4 py-2 rounded-md hover:border-gray-400 focus:border-gray-400 md:col-span-2"
-                        />
-               </div>
-<div>
-           
-   <label htmlFor="textarea" className="block text-sm font-medium text-gray-100">
-        Video
-      </label>
-                <input
-                  type="video"
-                  id="video"
-                  value={video}
-                  onChange={e => setVideo(e.target.value)}
-                  placeholder="Image Url"
-                  className="bg-slate-300 dark:bg-slate-800 dark:text-gray-50  shadow-md px-4 py-2 rounded-md hover:border-gray-400 focus:border-gray-400 md:col-span-2"
-                />
-                </div>
-                <div>
-           
-   <label htmlFor="date" className="block text-sm font-medium text-gray-100">
-        Date
-      </label>
-                <input
-                  type="date"
-                  id="date"
-                  value={date}
-                  onChange={e => setDate(e.target.value)}
-                  className="bg-slate-300 dark:bg-slate-800 dark:text-gray-50  shadow-md px-4 py-2 rounded-md hover:border-gray-400 focus:border-gray-400 md:col-span-2"
-                />
-                </div>
-
+      <Input 
+       type="videoUrl"
+       label='Video Url'
+       id="videoUrl"
+       value={videoUrl}
+       placeholder='video Url'
+       containerClassName='mt-4'
+       onChange={e => setVideoUrl(e.target.value)}
+        />
+       <Input 
+        id='category'
+        label='Category'
+        type='text'
+        placeholder='category'
+        containerClassName='mt-4'
+        value={category}
+        onChange={e => setCategory(e.target.value)}
+        />
         
-    </div>
-              <button
-                onClick={saveVideoPost}
-                className="mt-4 inline-flex items-center rounded-md border border-transparent bg-cyan-600 px-3 py-2 text-sm font-medium leading-4 text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                                data-aos="fade-left"
-              >
-                <span>Save Post</span>
-              </button>
+       <Input 
+        id='title'
+        label='title'
+        type='text'
+        placeholder='Title'
+        containerClassName='mt-4'
+        value={title}
+        onChange={e => setTitle(e.target.value)}
+        />
+        
+<Textarea
+        id='message'
+        label='Message'
+        type='message'
+        rows={2}
+        containerClassName='mt-4'
+        placeholder='Add your Message'         
+        value={message}
+        onChange={e => setMessage(e.target.value)}
+       
+        />
+          
+        <Input 
+        id='author'
+        label='Author'
+        type='text'
+        placeholder='Author'
+        containerClassName='mt-4'
+        value={author}
+        onChange={e => setAuthor(e.target.value)}
+
+        />
+     
+     <Input 
+       type="url"
+       label='image 1Url'
+       id="image1Url"
+       value={image1Url}
+       placeholder='image1Url'
+       containerClassName='mt-4'
+       onChange={e => setImage1Url(e.target.value)}
+        />
+  <Input 
+        id='date'
+        label='Date'
+        type='date'
+        placeholder='Date'
+        containerClassName='mt-4'
+        value={date}
+        onChange={e => setDate(e.target.value)}
+/>      
+    </div> <button
+          type="button"
+         
+          onClick={saveVideoPost}
+          data-aos="fade-left"
+          className='mt-4 py-2 px-3 font-serif font-medium text-[18px] text-white bg-tertiaryOne rounded-[10px] outline-none hover:text-white hover:bg-opacity-40 transition ease-in-out duration-150'
+         ><span>Publish</span>
+          </button>
              
             </form>
           </div>

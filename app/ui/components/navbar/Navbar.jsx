@@ -589,7 +589,7 @@ export const Navbar = () => {
                     </div>
               <div className="space-y-1 px-2 pt-2 pb-3">
                 
-              <Menu as="div" className="relative z-30 inline-block py-3 text-left">
+              <Menu as="div" className="relative z-20 inline-block py-3 text-left">
                     <div>
                       <Menu.Button className="relative inline-flex text-white items-center px-3 py-0 font-serif font-bold border border-transparent rounded-md text-md dark:bg-transparent dark:text-white hover:bg-tertiaryOne hover:text-white">
                        Services

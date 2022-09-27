@@ -6,6 +6,7 @@ import { Contact } from './contact/Contact'
 import { OfficersHome } from './officers/OfficersHome'
 import { Hero } from './hero/Hero'
 import { Feature } from './feature/Feature'
+import { VideoHomePage } from './videos/VideoHomePage'
 
 import {
   ArrowUturnLeftIcon,
@@ -17,12 +18,11 @@ import {
   InboxIcon,
   PencilSquareIcon,
   QuestionMarkCircleIcon,
-  SparklesIcon,
   TrashIcon,
   UsersIcon,
-  XMarkIcon,
 } from '@heroicons/react/24/outline'
 import { PostHomePage } from '../post/PostHomePage';
+import { LatestVideoPost } from './videos/LatestVideoPost';
 
 const solutions = [
   {
@@ -192,6 +192,8 @@ export const Home = () => {
         </div>
       </div>
     </div>
+    <LatestVideoPost />
+    <VideoHomePage />
         <Testimonials  />
        
         <Contact /> 

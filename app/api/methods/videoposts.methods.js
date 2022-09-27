@@ -1,23 +1,23 @@
 // @ts-nocheck
 import { Meteor } from 'meteor/meteor';
 import { check } from 'meteor/check';
-import { searchPosts, popularPosts } from "../posts/postsRest";
 import { VideoPostsCollection } from '../collections/videoposts.collection';
 
 Meteor.methods({
-  'videoposts.insert'({ title, video, date, category, author, image1Url }) {
+  'videoposts.insert'({ title, videoUrl,message, date, category, author, image1Url }) {
     check(title, String);
-    check(video, String);
+    check(videoUrl, String);
     check(image1Url, String);
     check(author, String);
     check(category, String);
     check(date, String);
+    check(message, String);
   
   
   
   
   
-    if (!video) {
+    if (!videoUrl) {
       throw new Meteor.Error('Photo is required.');
     }
     if (!title) {
@@ -33,17 +33,21 @@ Meteor.methods({
     if (!author) {
       throw new Meteor.Error('Author is required.');
     }
-    if (!video) {
-      throw new Meteor.Error('Video Content is required.');
+    if (!videoUrl) {
+      throw new Meteor.Error('VideoUrl Content is required.');
+    }
+    if (!message) {
+      throw new Meteor.Error('VideoUrl Content is required.');
     }
    
    
    
     return VideoPostsCollection.insert({
         title,
-         video,
+         videoUrl,
          date,
          author,
+         message,
          image1Url, 
           category,
       createdAt: new Date(),

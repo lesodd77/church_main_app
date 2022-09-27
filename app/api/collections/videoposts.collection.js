@@ -5,13 +5,17 @@ import SimpleSchema from 'simpl-schema';
 export const VideoPostsCollection = new Mongo.Collection('videoposts');
 
 const VideoPostsSchema = new SimpleSchema({
-  video: {
+  videoUrl: {
     type: String,
   },
   image1Url: {
     type: String,
   },
   author: {
+    type: String,
+     
+  },
+  message: {
     type: String,
      
   },

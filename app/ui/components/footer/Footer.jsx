@@ -6,15 +6,23 @@ import { ErrorAlert } from '../../components/alerts/ErrorAlert';
 import { SuccessAlert } from '../../components/alerts/SuccessAlert';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-
-const footerNavigation = {
+import {
+  FacebookShareButton,
+  WhatsappShareButton,
+} from 'react-share';
+import {
+  FacebookIcon,
+  WhatsappIcon,
+  
+} from 'react-share';
+const navigation = {
   solutions: [
-    { name: 'Volutary', href: '#' },
-    { name: 'Health Centers', href: '#' },
+    { name: 'Volutary', href: 'voluntary' },
+    { name: 'Health Centers', href: 'health' },
    
   ],
   support: [
-    { name: 'Doctrine', href: '#' },
+    { name: 'Doctrine', href: 'doctrine' },
     { name: 'Sabbath School', href: '#' },
     { name: 'Books', href: '#' },
     
@@ -24,14 +32,16 @@ const footerNavigation = {
     { name: 'testimonial', href: 'testimonials' },
     { name: 'Contact', href: 'contact' },
   ],
+   address: [
+    { name: 'News', href: 'news' },
+    { name: 'testimonial', href: 'testimonials' },
+    { name: 'Contact', href: 'contact' },
+  ],
   legal: [
     { name: 'Privacy', href: 'privacy' },
     { name: 'Terms', href: 'cookie' },
   ],
-  address: [
-    { name: '9 Southwest Mccarthy Hill Accra', href: 'https://www.facebook.com/Imsghmmdept/' },
-    { name: 'Post Box OD 1088 Odorkor - Accra', href: 'https://www.facebook.com/Imsghmmdept/' },
-  ],
+
   social: [
     {
       name: 'Facebook',
@@ -68,19 +78,7 @@ const footerNavigation = {
         </svg>
       ),
     },
-    {
-      name: 'GitHub',
-      href: '#',
-      icon: props => (
-        <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
-          <path
-            fillRule="evenodd"
-            d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
-            clipRule="evenodd"
-          />
-        </svg>
-      ),
-    },
+   
     {
       name: 'Dribbble',
       href: '#',
@@ -98,7 +96,7 @@ const footerNavigation = {
 };
 
 export const Footer = () => {
-
+  const shareUrl = 'https://ims-ghanafield.meteorapp.com/';
   const [email, setEmail] = useState('');
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
@@ -143,26 +141,77 @@ export const Footer = () => {
     }, []);
    });
   return (
-    <footer
-      id="footer"
-      className="bg-primary dark:bg-slate-900 dark:text-slate-300" data-aos="fade-up"
-    >
-      <h2 className="sr-only">Footer</h2>
-      <div className="max-w-md mx-auto py-12 px-4 sm:max-w-3xl sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
-        <div className="xl:grid xl:grid-cols-3 xl:gap-8">
-          <div className="space-y-8 xl:col-span-1">
-            <img
-              className="h-10 rounded-lg shadow-sm"
-              src="./log/ims-logo.png"
-              alt="ims-ghana-field"
-            />
-            <p className="text-warm-gray-500 text-white">
-              Amazing new approach to spiritual things.
-            </p>
-            <div className="mt-1 max-w-xl font-serif text-sm text-cyan-400 ">
-          <p className='font-serif'>We dont share your data, only pray for all.</p>
+ 
+         
+    <footer className="bg-primary dark:bg-slate-900" aria-labelledby="footer-heading">
+      <h2 id="footer-heading" className="sr-only">
+        Footer
+      </h2>
+      <div className="mx-auto max-w-7xl py-10 px-4 sm:px-6 lg:py-16 lg:px-6">
+        <div className="pb-8 grid lg:grid-cols-6 xl:gap-6">
+          <div className="grid grid-cols-2 gap-6 lg:col-span-6">
+            <div className="md:grid md:grid-cols-2 lg:gap-6">
+              <div>
+                <h3 className="text-tertiaryOne font-medium text-white">Solutions</h3>
+                <ul role="list" className="mt-4 space-y-4">
+                  {navigation.solutions.map((item) => (
+                    <li key={item.name}>
+                      <a href={item.href} className="text-base text-gray-300 hover:text-white">
+                        {item.name}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="mt-12 md:mt-0">
+                <h3 className="text-tertiaryOne font-medium text-white">Support</h3>
+                <ul role="list" className="mt-4 space-y-4">
+                  {navigation.support.map((item) => (
+                    <li key={item.name}>
+                      <a href={item.href} className="text-base text-gray-300 hover:text-white">
+                        {item.name}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+            <div className="md:grid md:grid-cols-2 md:gap-8">
+              <div>
+                <h3 className="text-tertiaryOne font-medium text-white">Company</h3>
+                <ul role="list" className="mt-4 space-y-4">
+                  {navigation.company.map((item) => (
+                    <li key={item.name}>
+                      <a href={item.href} className="text-base text-gray-300 hover:text-white">
+                        {item.name}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="mt-12 md:mt-0">
+                <h3 className="text-tertiaryOne font-medium text-white">Legal</h3>
+                <ul role="list" className="mt-4 space-y-4">
+                  {navigation.legal.map((item) => (
+                    <li key={item.name}>
+                      <a href={item.href} className="text-base text-gray-300 hover:text-white transition-transform hover:scale-125">
+                        {item.name}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
-        <form className="mt-4 sm:flex sm:max-w-md lg:mt-0">
+        <div className="border-t border-gray-700 pt-8 lg:flex lg:items-center lg:justify-between xl:mt-0">
+          <div>
+            <h3 className="text-base font-medium text-white">Subscribe to our newsletter</h3>
+            <p className="mt-2 text-base text-gray-300">
+              The latest news, articles, and resources, sent to your inbox weekly.
+            </p>
+          </div>
+          <form className="mt-4 sm:flex sm:max-w-md lg:mt-0">
             {error && <ErrorAlert message={error} />}
               {success && <SuccessAlert message={success} />}
             <label htmlFor="email-address" className="sr-only">
@@ -189,118 +238,36 @@ export const Footer = () => {
               </button>
             </div>
           </form>
-            <div className="flex space-x-6">
-              {footerNavigation.social.map(item => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="text-tertiaryOne hover:text-warm-gray-500 hover:underline decoration-tertiaryOne"
-                >
-                  <span className="sr-only">{item.name}</span>
-                  <item.icon className="h-6 w-6 transition-transform hover:text-sky-500 hover:scale-125" aria-hidden="true" />
-                </a>
-              ))}
-            </div>
-          </div>
-          <div className="mt-12 grid grid-cols-2 gap-8 xl:mt-0 xl:col-span-2">
-            <div className="md:grid md:grid-cols-2 md:gap-8">
-              <div>
-                <h3 className="text-sm font-semibold text-tertiaryOne tracking-wider uppercase">
-                  Services
-                </h3>
-                <ul role="list" className="mt-4 space-y-4">
-                  {footerNavigation.solutions.map(item => (
-                    <li key={item.name}>
-                      <a
-                        href={item.href}
-                        className="text-white text-warm-gray-500 hover:text-warm-sky-500 hover:underline decoration-tertiaryOne"
-                      >
-                        {item.name}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="mt-12 md:mt-0">
-                <h3 className="text-sm font-semibold text-tertiaryOne tracking-wider uppercase">
-                 Publications
-                </h3>
-                <ul role="list" className="mt-4 space-y-4">
-                  {footerNavigation.support.map(item => (
-                    <li key={item.name}>
-                      <a
-                        href={item.href}
-                        className="text-white text-warm-gray-500 hover:text-warm-gray-900 hover:underline decoration-tertiaryOne"
-                      >
-                        {item.name}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-            <div className="md:grid md:grid-cols-2 md:gap-8">
-              <div>
-                <h3 className="text-sm font-semibold text-tertiaryOne tracking-wider uppercase">
-                  Company
-                </h3>
-                <ul role="list" className="mt-4 space-y-4">
-                  {footerNavigation.company.map(item => (
-                    <li key={item.name}>
-                      <a
-                        href={item.href}
-                        className="text-white text-warm-gray-500 hover:text-warm-gray-900 hover:underline decoration-tertiaryOne"
-                      >
-                        {item.name}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="mt-12 md:mt-0">
-                <h3 className="text-sm font-semibold text-tertiaryOne tracking-wider uppercase">
-                  Legal
-                </h3>
-                <ul role="list" className="mt-4 space-y-4">
-                  {footerNavigation.legal.map(item => (
-                    <li key={item.name}>
-                      <a
-                        href={item.href}
-                        className="text-white text-warm-gray-500 hover:text-warm-gray-900 hover:underline decoration-tertiaryOne"
-                      >
-                        {item.name}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-             
-            </div>
-          </div>
         </div>
-        <div className="mt-12 md:mt-0">
-                <h3 className="text-sm font-semibold text-tertiaryOne tracking-wider uppercase">
-                  Address
-                </h3>
-                <ul role="list" className="mt-4 space-y-4">
-                  {footerNavigation.address.map(item => (
-                    <li key={item.name}>
-                      <a
-                        href={item.href}
-                        className="text-white text-warm-gray-500 hover:text-warm-gray-900 hover:underline decoration-tertiaryOne"
-                      >
-                        {item.name}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-        <div className="mt-12 border-t border-warm-gray-200 pt-8">
-          <p className="text-white text-warm-gray-400 xl:text-center hover:underline decoration-tertiaryOne">
-            &copy; 2022 Ims Ghana Field. All rights reserved.
-          </p>
+        
+         
+        
+    <div className="mt-8 border-t border-gray-700 pt-8 md:flex md:items-center md:justify-between">
+        <div className="flex space-x-6 md:order-2">
+        <div className="ml-4">
+
+<WhatsappShareButton url={shareUrl}>
+  <WhatsappIcon className="w-7 h-7 rounded-full transition-transform hover:scale-125 hover:text-tertiaryOne" />
+</WhatsappShareButton>
+</div>
+<div className="ml-4">
+
+<FacebookShareButton url={shareUrl}>
+  <FacebookIcon className="w-7 h-7 rounded-full transition-transform hover:scale-125 hover:text-tertiaryOne" />
+</FacebookShareButton>
+</div>
         </div>
+        <p className="mt-8 text-base text-tertiaryOne md:order-1 md:mt-0">
+        #9 Southwest Mccarthy Hill Accra
+        Post Box OD 1088 Odorkor - Accra
+        </p>
       </div>
-    </footer>
-  );
-};
+      <p className="mt-8 text-base text-gray-400 md:order-1 md:mt-0">
+     
+      &copy; 2022 Ims Ghana Field. All rights reserved.
+        </p>
+</div>
+
+</footer>
+)
+}
