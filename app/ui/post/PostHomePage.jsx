@@ -31,7 +31,7 @@ export const PostHomePage = () => {
           
           </div>
           <a href='news' className="block mt-4">
-          <span className="ml-2 inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium font-sm bg-green-600 bg-opacity-75  w-16 h-7 font-serif text-white">
+          <span className="ml-2 mt-2 inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium font-sm bg-green-600 bg-opacity-75  w-16 h-7 font-serif text-white">
                     <a href={post.href} className="hover:underline">
                       {post.category}
                     </a>
@@ -41,7 +41,7 @@ export const PostHomePage = () => {
           <div>
           <p id='line-clamp-2' className="px-2 text-xl font-semibold text-gray-900 dark:text-tertiaryOne line-clamp-2">{post.title}</p>
             <p id='line-clamp-2' className=" tracking-tight px-2 mt-3 text-base text-gray-600 dark:text-slate-300 line-clamp-2">{post.message}</p>
-            <a href="news"> <button className='px-2 text-sm font-serif text-white bg-primary bg-opacity-15 hover:bg-tertiaryOne rounded-sm'>Read more</button></a>
+            <a href="news"> <button className='mt-2 px-2 text-sm font-serif text-white bg-primary bg-opacity-15 hover:bg-tertiaryOne rounded-sm'>Read more</button></a>
           </div>
           <div className="px-2 flex items-center mt-6">
             <div className="flex-shrink-0">

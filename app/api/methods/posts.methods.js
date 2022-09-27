@@ -1,7 +1,6 @@
 // @ts-nocheck
 import { Meteor } from 'meteor/meteor';
 import { check } from 'meteor/check';
-import { searchPosts, popularPosts } from "../posts/postsRest";
 import { PostsCollection } from '../collections/posts.collection';
 
 Meteor.methods({
@@ -74,9 +73,7 @@ Meteor.methods({
   postsSearch(query) {
     return searchPosts({ query });
   },
-  postsPopular() {
-    return popularPosts();
-  },
+
   posts() {
     return PostsCollection.find({}, { sort: { title: 1 } }).fetch();
   },
