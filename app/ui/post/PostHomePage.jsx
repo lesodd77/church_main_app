@@ -22,13 +22,13 @@ export const PostHomePage = () => {
   <div  className=" bg-transparent dark:bg-slate-900" data-aos="fade-right">
   <div  className="px-3 relative max-w-lg mx-auto lg:max-w-7xl">
   <div className="flex-shrink-0">
-            
+  <div className="aspect-w-3 aspect-h-2 sm:aspect-w-1 sm:aspect-h-1 lg:aspect-w-16 lg:aspect-h-9">
               <img
                 className="object-cover w-[100%] h-48 rounded-md hover:opacity-75"
                 src={post.url}
                 alt=""
               />
-          
+          </div>
           </div>
           <a href='news' className="block mt-4">
           <span className="ml-2 mt-2 inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium font-sm bg-green-600 bg-opacity-75  w-16 h-7 font-serif text-white">
