@@ -4,9 +4,15 @@
 @tailwind components;
 @tailwind utilities;
 
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
 
 html {
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 body {
   box-sizing: border-box;
@@ -15,7 +21,24 @@ body {
   overflow-x: hidden;
 
 }
-.showcase
+
+#nav {
+  position: sticky;
+  top: 0;
+ 
+  transition: top .5000 ease-in-out;
+}
+
+
+nav.scroll-up,
+nav:focus-within {
+  top: 0;
+}
+
+nav.scroll-down {
+  top: 100%;
+}
+#showcase
 {
   position: absolute;
   right: 0;

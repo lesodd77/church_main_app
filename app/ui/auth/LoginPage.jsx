@@ -1,17 +1,43 @@
 import { Meteor } from 'meteor/meteor';
 import React, { useState } from 'react';
-import { useFormik } from 'formik';
 import { useNavigate } from 'react-router-dom';
 import { Accounts } from 'meteor/accounts-base';
 import { RoutePaths } from '../components/mainRoutes/RoutePaths';
 import { useTracker } from 'meteor/react-meteor-data';
 import { SignedIn } from './SignedIn';
-import { ErrorStatus } from '../components/alerts/ErrorStatus'
+import { ErrorAlert } from '../components/alerts/ErrorAlert';
+import { SuccessAlert } from '../components/alerts/SuccessAlert';
+
 import { object, string } from 'yup';
 import { Input  } from './Input';
 
-/* eslint-disable import/no-default-export */
 export const LoginPage = () =>{
+  const formik = useFormik({
+    initialValues: {
+      name: '',
+      email: '',
+      profession: professions[0],
+      age: '',
+    },
+    validationSchema: Yup.object({
+      name: Yup.string()
+              .label('Full Name')
+              .required()
+              .test('is-full-name', 'Please enter both your first and last name', function (value) {
+                const nameArr = value.split(" ");
+                return nameArr.length >= 2;
+              }),
+      email: Yup.string()
+              .email()
+              .required(),
+   
+    }),
+    onSubmit: function (values) {
+      alert(`You are registered! Name: ${values.name}. Email: ${values.email}`);
+    }
+  })
+
+
   const [isSignup, setIsSignup] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const userId = useTracker(() => Meteor.userId());
@@ -29,7 +55,7 @@ export const LoginPage = () =>{
       actions.setStatus(errorMessage);
     }
     actions.setSubmitting(false);
-    navigate(RoutePaths.POSTS);
+    navigate(RoutePaths.ADMIN);
   };
 
   const onSubmit = (values, actions) => {
@@ -44,12 +70,6 @@ export const LoginPage = () =>{
       });
     }
   };
-
-  const formik = useFormik({
-    initialValues: { username: 'simon', password: 'abc123' },
-    validationSchema,
-    onSubmit,
-  });
 
 
   if (userId) {
@@ -70,36 +90,31 @@ export const LoginPage = () =>{
         </div>
         <div className='rounded-lg bg-gray-500 shadow-lg p-8'
         >
-          <ErrorStatus status={formik.status} />
-          <form onSubmit={formik.handleSubmit}>
-            <div className='spacing-4'>
-              <div
-                isInvalid={formik.errors.username && formik.touched.username}
-              >
-                <Input
-                  id="username"
-                  name="username"
-                  containerClassName='mt-4'
-                  onChange={formik.handleChange}
-                  value={formik.values.username}
-                  placeholder="Enter your username"
-                />
-               
-              </div>
-              <div
-                isInvalid={formik.errors.password && formik.touched.password}
-              >
+            <form action="" data-aos="fade-up">
+         {error && <ErrorAlert message={error} />}
+              {success && <SuccessAlert message={success} />}
+            <div  className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-6">
+            <div className='size-md'>
+             <Input 
+        id='username'
+        label='Username'
+        type='username'
+        placeholder='Username'
+        containerClassName='mt-4'
+        value={username}
+        onChange={e => setUsername(e.target.value)}
+        />
                 <div className='size-md'>
-                  <Input
-                    name="password"
-                    id='email'
-                    label='Email'
-                   containerClassName='mt-4'
-                    onChange={formik.handleChange}
-                    value={formik.values.password}
-                    type={showPassword ? 'text' : 'password'}
-                    placeholder="Enter your password"
-                  />
+
+         <Input 
+        id='password'
+        label='Password'
+        type='Password'
+        placeholder='password'
+        containerClassName='mt-4'
+        value={password}
+        onChange={e => setPassword(e.target.value)}
+        />
                   <div className='width-4.5rem'>
                     <button
                                className='mt-4 py-2 px-3 font-serif font-medium text-[18px] text-white bg-tertiaryOne rounded-[10px] outline-none hover:text-white hover:bg-opacity-40 transition ease-in-out duration-150'
@@ -113,15 +128,15 @@ export const LoginPage = () =>{
               </div>
               {!isSignup && (
                 <>
-                  <div spacing={10}>
+                  <div>
                     <button
                         className='mt-4 py-2 px-3 font-serif font-medium text-[18px] text-white bg-tertiaryOne rounded-[10px] outline-none hover:text-white hover:bg-opacity-40 transition ease-in-out duration-150'
-                      isLoading={formik.isSubmitting}
+                        onClick={saveUser}
                     >
                       Sign in
                     </button>
                   </div>
-                  <div spacing={10}>
+                  <div>
                     <button onClick={() => setIsSignup(true)}>
                       Create a new account
                     </button>
@@ -134,7 +149,7 @@ export const LoginPage = () =>{
                   <div className='spacing-10'>
                     <button
                                className='mt-4 py-2 px-3 font-serif font-medium text-[18px] text-white bg-tertiaryOne rounded-[10px] outline-none hover:text-white hover:bg-opacity-40 transition ease-in-out duration-150'
-                      isLoading={formik.isSubmitting}
+                               isLoading={formik.isSubmitting}
                     >
                       Sign up
                     </button>

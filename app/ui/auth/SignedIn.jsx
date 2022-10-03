@@ -20,7 +20,7 @@ export const SignedIn = () => {
         </div>
         <div className='spacing-10'>
           <button
-            onClick={() => navigate(RoutePaths.POSTS)}
+            onClick={() => navigate(RoutePaths.ADMIN)}
             className='mt-4 py-2 px-3 font-serif font-medium text-[18px] text-white bg-tertiaryOne rounded-[10px] outline-none hover:text-white hover:bg-opacity-40 transition ease-in-out duration-150'
           >
             Go to your posts

@@ -24,22 +24,6 @@ export const PostForm = () => {
   const [error, setError] = useState('');
   const [message, setMessage] =  useState('');
   const [success, setSuccess] = useState('');
-  // eslint-disable-next-line no-shadow
-
-
-  // Cloudinary.config({
-  //   cloud_name: 'dungxxzhh',
-  //   api_key: '148712448221992',
-  // });
-  
-  
-
-  // onChange = (e) => {
-  //   const uploads = Cloudinary.uploadFiles(e.currentTarget.files);
-  //   uploads.forEach(async (response) => {
-  //     const image = await response;
-  //     new Photo(image).save();
-  //   });
 
   const showError = ({ message }) => {
     setError(message);
@@ -59,7 +43,16 @@ export const PostForm = () => {
   const savePost = () => {
     Meteor.call(
       'posts.insert',
-      { title, authorUrl, message, author, url, date, category },
+      { title, 
+        authorUrl, 
+        message, 
+        author,
+         url, 
+         date, 
+         category,
+         createdAt: new Date(),
+         userId: user._id
+         },
       errorResponse => {
         if (errorResponse) {
           showError({ message: errorResponse.error });
@@ -71,7 +64,7 @@ export const PostForm = () => {
           setAuthor('');
           setMessage('');
           
-          showSuccess({ message: 'Post saved.' });
+          showSuccess({ message: 'Your Post saved and publish.' });
         }
       }
     );

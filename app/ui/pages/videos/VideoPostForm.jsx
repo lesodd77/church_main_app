@@ -55,7 +55,7 @@ export const VideoPostForm = () => {
           setMeesage('');
       
           
-          showSuccess({ message: 'Your videoUrl Post is published.' });
+          showSuccess({ message: 'Your video Post is published.' });
         }
       }
     );

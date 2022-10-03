@@ -4,7 +4,7 @@ export const Hero = () => {
     return(
         <>
 
-    <div className="mt-16 dark:bg-slate-900 grid grid-cols-12 items-stretch lg:mt-32">
+    <div className=" dark:bg-slate-900 grid grid-cols-12 items-stretch">
       <div className="col-span-12 md:col-span-16 lg:col-span-5 xl:col-span-7">
        
       </div>

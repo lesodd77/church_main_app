@@ -8,6 +8,7 @@ export const RoutePaths = {
     CONTACT: 'contact',
     PRIVACY: 'privacy',
     COOKIE: 'cookie',
+    POSTS: 'posts',
     POST: 'post',
   
     NEWS: 'news',

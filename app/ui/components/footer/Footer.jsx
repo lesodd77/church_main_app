@@ -5,6 +5,7 @@ import { ErrorAlert } from '../../components/alerts/ErrorAlert';
 // eslint-disable-next-line import/no-unresolved
 import { SuccessAlert } from '../../components/alerts/SuccessAlert';
 import AOS from 'aos';
+import { Share } from '../logos/index'
 import 'aos/dist/aos.css';
 import {
   FacebookShareButton,
@@ -240,12 +241,16 @@ export const Footer = () => {
           </form>
         </div>
         
-         
+       
         
     <div className="mt-8 border-t border-gray-700 pt-8 md:flex md:items-center md:justify-between">
         <div className="flex space-x-6 md:order-2">
+          
         <div className="ml-4">
-
+          <Share />
+        </div>
+       
+        <div className="ml-4">
 <WhatsappShareButton url={shareUrl}>
   <WhatsappIcon className="w-7 h-7 rounded-full transition-transform hover:scale-125 hover:text-tertiaryOne" />
 </WhatsappShareButton>

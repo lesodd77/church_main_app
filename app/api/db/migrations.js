@@ -1,7 +1,18 @@
 // @ts-nocheck
 import { Migrations } from 'meteor/percolate:migrations';
-//import { Accounts } from 'meteor/accounts-base';
+import { Accounts } from 'meteor/accounts-base';
 import { PostsCollection } from '../collections/posts.collection';
+
+Migrations.add({
+  version: 1,
+  name: 'Add a seed username and password.',
+  up() {
+    Accounts.createUser({
+      username: 'simon',
+      password: 'abc123',
+    });
+  },
+});
 
 
 Migrations.add({
@@ -10,7 +21,7 @@ Migrations.add({
   up() {
     const createdAt = new Date();
     const { _id: userId } = Accounts.findUserByUsername('simon');
-    PostsCollection.insert({
+    new PostsCollection({
       title: 'Sampnson Abubakari',
       authorUrl: 'https://res.cloudinary.com/dungxxzhh/image/upload/v1663456540/ghf_images/ghf_fl_p3uzla.jpg',
        message: 'Give yourself Jesus for the kingdom of God is at hand', 
@@ -20,8 +31,8 @@ Migrations.add({
          url: 'https://res.cloudinary.com/dungxxzhh/image/upload/v1663456540/ghf_images/ghf_fl_p3uzla.jpg',
       userId,
       createdAt,
-    });
-    PostsCollection.insert({
+    }).save();
+    new PostsCollection({
       title: 'Sampnson Abubakari',
       authorUrl: 'https://res.cloudinary.com/dungxxzhh/image/upload/v1663456540/ghf_images/ghf_fl_p3uzla.jpg',
        message: 'Give yourself Jesus for the kingdom of God is at hand', 
@@ -31,8 +42,8 @@ Migrations.add({
          url: 'https://res.cloudinary.com/dungxxzhh/image/upload/v1663456540/ghf_images/ghf_fl_p3uzla.jpg',
       userId,
       createdAt,
-    });
-    PostsCollection.insert({
+    }).save();
+    new PostsCollection({
       title: 'Sampnson Abubakari',
       authorUrl: 'https://res.cloudinary.com/dungxxzhh/image/upload/v1663456540/ghf_images/ghf_fl_p3uzla.jpg',
        message: 'Give yourself Jesus for the kingdom of God is at hand', 
@@ -42,6 +53,6 @@ Migrations.add({
          url: 'https://res.cloudinary.com/dungxxzhh/image/upload/v1663456540/ghf_images/ghf_fl_p3uzla.jpg',
       userId,
       createdAt,
-    });
+    }).save();
   },
 });

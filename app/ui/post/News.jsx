@@ -35,7 +35,7 @@ const shareUrl = 'https://ims-ghanafield.meteorapp.com/news';
   <div className="flex-shrink-0">
   <div className="mt-5 aspect-w-3 aspect-h-2 sm:aspect-w-1 sm:aspect-h-1 lg:aspect-w-16 lg:aspect-h-9">
               <img
-                className="object-cover w-[100%] h-48 rounded-md hover:opacity-75"
+                className="object-cover w-auto h-auto rounded-md hover:opacity-75"
                 src={post.url}
                 alt=""
               />

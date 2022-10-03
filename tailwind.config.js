@@ -6,7 +6,7 @@ module.exports = {
   darkMode: 'class',
   theme: {
     screens: {
-      'sm': '440px',
+      'sm': '400px',
       // => @media (min-width: 576px) { ... }
 
       'md': '760px',
@@ -77,4 +77,5 @@ module.exports = {
   plugins: [require('@tailwindcss/typography')],
   plugins: [require('@tailwindcss/line-clamp')],
   plugins: [require('@tailwindcss/aspect-ratio')],
+  plugins:[require('tailwind-scrollbar-hide')],
 }

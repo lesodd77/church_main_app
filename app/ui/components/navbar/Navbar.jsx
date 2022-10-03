@@ -4,26 +4,23 @@ import { MagnifyingGlassIcon } from '@heroicons/react/20/solid'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-
-const user = {
-  name: 'Sampssson Abubakari',
-  email: 'abukarisampson1988@gmail.com',
-  imageUrl:
-    'https://res.cloudinary.com/dungxxzhh/image/upload/v1663458591/ghf_images/PHOTO-2022-09-17-09-00-33_ovt328.jpg',
-}
-
-const userNavigation = [
-  { name: 'Your Profile', href: '#' },
-  { name: 'Settings', href: '#' },
-  { name: 'Sign out', href: '#' },
-]
-
+import { useTracker } from 'meteor/react-meteor-data';
+import { useNavigate } from 'react-router-dom';
+import { Profile } from '../../auth/Profile'
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
 export const Navbar = () => {
+  const user = useTracker(() => Meteor.user());
+  const navigate = useNavigate();
+
+  const logout = () => {
+    Meteor.logout(() => {
+      navigate(RoutePaths.POSTFORM);
+    });
+  };
   const [navbarOpen, setNavbarOpen] = React.useState(false);
   const [theme, setTheme] = useState(null);
  const [query, setQuery] = useState('');
@@ -46,6 +43,8 @@ export const Navbar = () => {
 			document.documentElement.classList.remove('dark');
 		}
 	}, [theme]);
+
+
   useEffect(() => {
     AOS.init({
       delay: 200,
@@ -54,10 +53,15 @@ export const Navbar = () => {
     // @ts-ignore
     }, []);
    });
+
+  
   return (
     
-      <Disclosure as="header" className="fixed top-0 z-40 w-full bg-primary dark:bg-slate-900" data-aos="fade-down">
+      <Disclosure as="header" id='nav' className="fixed top-0 z-40 w-full croll-smooth bg-primary dark:bg-slate-900" data-aos="fade-down"
+      data-aos-easing="linear"
+      data-aos-duration="1500">
         {({ open }) => (
+          
           <>
             <div className="mx-auto max-w-7xl px-2 sm:px-4 lg:divide-y lg:divide-gray-700 lg:px-8">
               <div className="relative flex h-16 justify-between">
@@ -117,7 +121,7 @@ export const Navbar = () => {
                     <div>
                       <Menu.Button className="flex rounded-full bg-gray-800 text-sm text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                         <span className="sr-only">Open user menu</span>
-                        <img className="h-8 w-8 rounded-full" src={user.imageUrl} alt="" />
+                      <img className="h-8 w-8 rounded-full" src='https://res.cloudinary.com/dungxxzhh/image/upload/v1663458591/ghf_images/PHOTO-2022-09-17-09-00-33_ovt328.jpg' alt="" /> 
                       </Menu.Button>
                     </div>
                     <Transition
@@ -656,6 +660,7 @@ export const Navbar = () => {
                     </a>
                   </div>
                 </div>
+                <div>
               <button
                     type="button"
                     onClick={handleThemeSwitch}
@@ -665,29 +670,18 @@ export const Navbar = () => {
                     <span className="sr-only">dark mode switch</span>
                    
                   </button>
+                  {user && (
+            <button className="relative m-3 inline-flex items-center px-3 py-1 font-bold border border-sky-500 text-md dark:text-white hover:text-white"
+            onClick={logout}>
+              Sign Out
+            </button>
+          )}
+                  </div>
               <div className="border-t border-gray-700 pt-4 pb-3">
                 <div className="flex items-center px-4">
-                  <div className="flex-shrink-0">
-                    <img className="h-10 w-10 rounded-full" src={user.imageUrl} alt="" />
-                  </div>
-                  <div className="ml-3">
-                    <div className="text-base font-medium text-white">{user.name}</div>
-                    <div className="text-sm font-medium text-gray-400">{user.email}</div>
-                  </div>
+                  
+                  <Profile />
                  
-                </div>
-                
-                <div className="mt-3 space-y-1 px-2">
-                  {userNavigation.map((item) => (
-                    <Disclosure.Button
-                      key={item.name}
-                      as="a"
-                      href={item.href}
-                      className="block rounded-md py-2 px-3 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white"
-                    >
-                      {item.name}
-                    </Disclosure.Button>
-                  ))}
                 </div>
               </div>
             </Disclosure.Panel>

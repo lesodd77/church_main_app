@@ -1,8 +1,21 @@
-     import React from 'react'
-     export const Feature = () => {
+import React, { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
+
+export const Feature = () => {
+
+  useEffect(() => {
+    AOS.init({
+      delay: 200,
+      duration: 1200,
+      once: false,
+    // @ts-ignore
+    }, []);
+   });
         return (
             <>
-        <div className="relative bg-gray-900">
+        <div className="relative bg-gray-900" data-aos="fade-right">
        <div className="relative h-56 bg-primary sm:h-72 md:absolute md:left-0 md:h-full md:w-1/2 hover:opacity-75">
          <img
            className="h-full w-full object-cover hover:opacity-75"

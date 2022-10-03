@@ -1,4 +1,6 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 const perks = [
     {
       name: 'Pastor Bernard Condua',
@@ -28,9 +30,22 @@ const perks = [
   ]
   
 export const OfficersHome = () => {
+
+  
+  useEffect(() => {
+    AOS.init({
+      delay: 200,
+      duration: 1200,
+      once: false,
+    // @ts-ignore
+    }, []);
+   });
+
     return (
         <>
-       <div className="bg-transparent dark:bg-slate-900">
+       <div className="bg-transparent dark:bg-slate-900" data-aos="fade-up"
+     data-aos-easing="linear"
+     data-aos-duration="1500">
       <h2 className="sr-only">Our perks</h2>
       <div className="mx-auto dark:bg-slate-900 max-w-7xl py-16 px-4 sm:px-6 lg:px-8">
       <h3 className="flex items-center justify-center text-3xl font-bold text-primary dark:text-tertiaryOne">OUR TEAM </h3>

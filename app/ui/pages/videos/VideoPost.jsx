@@ -1,5 +1,4 @@
 // @ts-nocheck
-import { Meteor } from 'meteor/meteor'
 import React, { memo } from 'react'
 import { VideoPostsCollection } from '../../../api/collections/videoposts.collection'
 import { useSubscribe, useFind } from 'meteor/react-meteor-data'
@@ -30,17 +29,18 @@ export const VideoPost = () => {
   const VideoPostItem = memo(({ videopost }) => (
     <div  className=" bg-transparent dark:bg-slate-900" data-aos="fade-right">
   <div  className="px-3 relative max-w-lg mx-auto lg:max-w-7xl">
+  <div className="relative">
  
-            <div className="aspect-w-3 aspect-h-2 sm:aspect-w-1 sm:aspect-h-1 lg:aspect-w-16 lg:aspect-h-9">
-            
-            <video 
-            loop
-            controls={true}
-            className="object-cover w-[100%] h-auto p-4 px-2 rounded-md hover:opacity-75">
-              <source   src={videopost.videoUrl} 
-              type="video/mp4" />
-            </video>
-          
+  <div className="bg-transparent dark:bg-slate-900">
+  <div className="relative mx-auto max-w-lg px-3 lg:max-w-7xl">
+    <div className="lg:aspect-w-16 lg:aspect-h-9 border-2 border-primary bg-opacity-20 rounded-md">
+      <video loop controls={true}
+      className="h-auto w-[100%] rounded-md p-4 px-2 hover:opacity-75">
+        <source src={videopost.videoUrl}  type="video/mp4" />
+      </video>
+    </div>
+  </div>
+</div>
           </div>
          
           

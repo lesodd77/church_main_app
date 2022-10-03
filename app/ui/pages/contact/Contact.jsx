@@ -54,7 +54,7 @@ export const Contact = () => {
           setSubject('');
           setAgreed('');
           setMessage('');
-          showSuccess({ message: 'Thanks for Contacting Ims Sda Rm Ghana field.' });
+          showSuccess({ message: 'Thanks for contacting Ims sda rm Ghana field.' });
         }
       }
     );

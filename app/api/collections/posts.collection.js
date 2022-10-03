@@ -5,40 +5,46 @@ import SimpleSchema from 'simpl-schema';
 export const PostsCollection = new Mongo.Collection('posts');
 
 const PostsSchema = new SimpleSchema({
-  url: {
-    type: String,
-  },
-  authorUrl: {
-    type: String,
-  },
-  author: {
-    type: String,
-     
-  },
-  
-  title: {
-    type: String,
-  },
-  date: {
-    type: String,
-  },
 
-  category: {
-    type: String,
-  },
-
-  message: {
-    type: String,
-    
-  },
-
-  archived: {
+  message: String,
+  done: {
     type: Boolean,
     defaultValue: false,
   },
-  createdAt: {
-    type: Date,
-  },
-});
 
+  url: String,
+  done: {
+    type: Boolean,
+    defaultValue: false,
+  },
+title: String,
+  done: {
+    type: Boolean,
+    defaultValue: false,
+  },
+
+  author: String,
+  done: {
+    type: Boolean,
+    defaultValue: false,
+  },
+
+  category: String,
+  done: {
+    type: Boolean,
+    defaultValue: false,
+  },
+
+  authorUrl: String,
+  done: {
+    type: Boolean,
+    defaultValue: false,
+  },
+  userId: {
+    type: String,
+    regEx: SimpleSchema.RegEx.Id,
+  },
+  createdAt: Date,
+});
+ 
 PostsCollection.attachSchema(PostsSchema);

@@ -149,7 +149,9 @@ export const Home = () => {
       <OfficersHome />
         
    
-      <div className="bg-white dark:bg-slate-900">
+      <div className=" bg-white dark:bg-slate-900" data-aos="fade-up"
+     data-aos-easing="linear"
+     data-aos-duration="1500">
       <div className="bg-white dark:bg-slate-900 py-16 sm:py-24 xl:mx-auto xl:max-w-7xl xl:px-8">
         <div className="px-4 sm:flex sm:items-center sm:justify-between sm:px-6 lg:px-8 xl:px-0">
           <h2 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-tertiaryOne">Our photo gallery</h2>
