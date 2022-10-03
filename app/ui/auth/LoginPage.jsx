@@ -1,7 +1,7 @@
+// @ts-nocheck
 import { Meteor } from 'meteor/meteor';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Accounts } from 'meteor/accounts-base';
 import { RoutePaths } from '../components/mainRoutes/RoutePaths';
 import { useTracker } from 'meteor/react-meteor-data';
 import { SignedIn } from './SignedIn';
@@ -12,31 +12,7 @@ import { object, string } from 'yup';
 import { Input  } from './Input';
 
 export const LoginPage = () =>{
-  const formik = useFormik({
-    initialValues: {
-      name: '',
-      email: '',
-      profession: professions[0],
-      age: '',
-    },
-    validationSchema: Yup.object({
-      name: Yup.string()
-              .label('Full Name')
-              .required()
-              .test('is-full-name', 'Please enter both your first and last name', function (value) {
-                const nameArr = value.split(" ");
-                return nameArr.length >= 2;
-              }),
-      email: Yup.string()
-              .email()
-              .required(),
-   
-    }),
-    onSubmit: function (values) {
-      alert(`You are registered! Name: ${values.name}. Email: ${values.email}`);
-    }
-  })
-
+ 
 
   const [isSignup, setIsSignup] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
@@ -44,10 +20,6 @@ export const LoginPage = () =>{
   const navigate = useNavigate();
 
 
-  const validationSchema = object({
-    username: string('Enter your username').required('Username is required'),
-    password: string('Enter your password').required('Password is required'),
-  });
 
   const handleError = (error, actions) => {
     if (error) {
@@ -91,8 +63,10 @@ export const LoginPage = () =>{
         <div className='rounded-lg bg-gray-500 shadow-lg p-8'
         >
             <form action="" data-aos="fade-up">
-         {error && <ErrorAlert message={error} />}
-              {success && <SuccessAlert message={success} />}
+         {Error && <ErrorAlert message={Error} />}
+              {success && <SuccessAlert message={
+// @ts-ignore
+              success} />}
             <div  className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-6">
             <div className='size-md'>
              <Input 

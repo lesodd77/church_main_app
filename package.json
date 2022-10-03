@@ -25,6 +25,7 @@
     "cors": "^2.8.5",
     "formik": "^2.2.9",
     "isomorphic-unfetch": "^3.1.0",
+    "jquery": "^3.6.1",
     "meteor-node-stubs": "^1.2.1",
     "meteor-s3up": "^2.0.0",
     "postcss": "^8.4.12",

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { memo  } from 'react';
 import { UsersCollection } from '../../api/collections/users.collection'
 import { useSubscribe, useFind } from 'meteor/react-meteor-data'

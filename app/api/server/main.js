@@ -1,6 +1,4 @@
 import { Meteor } from 'meteor/meteor';
-import { Migrations } from 'meteor/percolate:migrations';
-import '../db/migrations';
 
 import '../collections/users.collection';
 import '../collections/comments.collection';
@@ -27,5 +25,4 @@ import '../publications/NotifyEmailsPublication';
 
 Meteor.startup(() => {
 
-  Migrations.migrateTo('latest');
 });
