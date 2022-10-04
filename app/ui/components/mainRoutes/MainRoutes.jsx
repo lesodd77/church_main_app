@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { BrowserRouter, Routes as ReactRoutes, Route } from 'react-router-dom';
 import { App } from '../../App'
 import { RoutePaths } from './RoutePaths';
@@ -25,8 +25,8 @@ import { NotifyEmail } from '../../pages/admin/notifyemail/NotifyEmail'
 import { VideoPost } from '../../pages/videos/VideoPost';
 import { VideoPostForm } from '../../pages/videos/VideoPostForm';
 import { Officers } from '../../pages/officers/Officers'
-import { PostsPage } from '../../post/PostsPage'
-import { LoginPage } from '../../auth/LoginPage';
+//import { PostsPage } from '../../post/PostsPage'
+//import { LoginPage } from '../../auth/LoginPage';
 
 export const MainRoutes = () => {
    
@@ -36,14 +36,13 @@ export const MainRoutes = () => {
    
       <ReactRoutes>
            <Route path={RoutePaths.ROOT} element={<App />}>
-           <Route element={<LoginPage />} path={RoutePaths.ADMIN} />
+          
            <Route element={<Home />} index />
           
             <Route element={<Hero />} path={RoutePaths.HERO} /> 
             <Route element={<ContactList/>} path={RoutePaths.CONTACTLIST} />
             <Route element={<Testimonials/>} path={RoutePaths.TESTIMONIALS} />
             <Route element={<Post/>} path={RoutePaths.POST} />
-            <Route element={<PostsPage />} path={RoutePaths.POSTS} />
             <Route element={<Dashboard/>} path={RoutePaths.DASHBOARD} />
             <Route element={<NotifyEmail/>} path={RoutePaths.NOTIFYEMAIL} />
             <Route element={<Gallery/>} path={RoutePaths.GALLERY} />

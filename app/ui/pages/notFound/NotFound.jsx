@@ -28,6 +28,54 @@ export const NotFound = () => (
               </a>
             </div>
           </div>
+      <div className="relative mt-10 [transform-style:preserve-3d] ml-[400px]">
+      <div className="absolute top-0 left-0 w-[400px] overflow-hidden rounded-md animate-slide [animation-delay:-8s]">
+        <figure className="relative overflow-hidden rounded-md">
+          <img src="https://res.cloudinary.com/dungxxzhh/image/upload/v1663456541/ghf_images/ghf_hohoe_cm_uybaxl.jpg" height="300" width="400" />
+          <figcaption className="absolute inset-0 flex flex-col justify-end bg-slate-800/50 bg-gradient-to-t p-2 text-white">
+           
+            
+          </figcaption>
+        </figure>
+        <img src="https://res.cloudinary.com/dungxxzhh/image/upload/v1663456541/ghf_images/ghf_atadeka_co0jsw.jpg" height="300" width="400" className="-scale-y-100 h-10 object-cover object-bottom opacity-50 [mask-image:linear-gradient(to_top,#000,#0000)] rounded-b-md" />
+      </div>
+      <div className="absolute top-0 left-0 w-[400px] overflow-hidden rounded-md animate-slide [animation-delay:-6s]">
+        <figure className="relative overflow-hidden rounded-md">
+          <img src="https://picsum.photos/400/300?0" height="300" width="400" />
+          <figcaption className="absolute inset-0 flex flex-col justify-end bg-slate-800/50 bg-gradient-to-t p-2 text-white">
+           
+          </figcaption>
+        </figure>
+        <img src="https://picsum.photos/400/300?0" height="300" width="400" className="-scale-y-100 h-10 object-cover object-bottom opacity-50 [mask-image:linear-gradient(to_top,#000,#0000)] rounded-b-md" />
+      </div>
+      <div className="relative w-[400px] overflow-hidden rounded-md animate-slide [animation-delay:-4s]">
+        <figure className="relative overflow-hidden rounded-md">
+          <img src="https://res.cloudinary.com/dungxxzhh/image/upload/v1663456543/ghf_images/ghf_teshie_xy1zvq.jpg" height="300" width="400" />
+          <figcaption className="absolute inset-0 flex flex-col justify-end bg-slate-800/50 bg-gradient-to-t p-2 text-white">
+           
+          </figcaption>
+        </figure>
+        <img src="https://res.cloudinary.com/dungxxzhh/image/upload/v1663456542/ghf_images/ghf_1_mkykpb.jpg" height="300" width="400" className="-scale-y-100 h-10 object-cover object-bottom opacity-50 [mask-image:linear-gradient(to_top,#000,#0000)] rounded-b-md" />
+      </div>
+      <div className="absolute top-0 left-0 w-[400px] overflow-hidden rounded-md animate-slide [animation-delay:-2s]">
+        <figure className="relative overflow-hidden rounded-md">
+          <img src="https://picsum.photos/400/300?2" height="300" width="400" />
+          <figcaption className="absolute inset-0 flex flex-col justify-end bg-slate-800/50 bg-gradient-to-t p-2 text-white">
+          
+          </figcaption>
+        </figure>
+        <img src="https://picsum.photos/400/300?2" height="300" width="400" className="-scale-y-100 h-10 object-cover object-bottom opacity-50 [mask-image:linear-gradient(to_top,#000,#0000)] rounded-b-md" />
+      </div>
+      <div className="absolute top-0 left-0 w-[400px] overflow-hidden rounded-md animate-slide">
+        <figure className="relative overflow-hidden rounded-md">
+          <img src="https://picsum.photos/400/300?3" height="300" width="400" />
+          <figcaption className="absolute inset-0 flex flex-col justify-end bg-slate-800/50 bg-gradient-to-t p-2 text-white">
+            
+          </figcaption>
+        </figure>
+        <img src="https://picsum.photos/400/300?3" height="300" width="400" className="-scale-y-100 h-10 object-cover object-bottom opacity-50 [mask-image:linear-gradient(to_top,#000,#0000)] rounded-b-md" />
+      </div>
+    </div>
         </main>
       </div>
       </div>

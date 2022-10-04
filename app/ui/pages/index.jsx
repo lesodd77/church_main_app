@@ -22,7 +22,6 @@ import {
   UsersIcon,
 } from '@heroicons/react/24/outline'
 import { PostHomePage } from '../post/PostHomePage';
-import { LatestVideoPost } from './videos/LatestVideoPost';
 
 const solutions = [
   {
@@ -103,11 +102,7 @@ const categories = [
     href: 'gallery',
     imageSrc: 'https://res.cloudinary.com/dungxxzhh/image/upload/v1663456543/ghf_images/ghf_teshie_xy1zvq.jpg',
   },
-  {
-    name: 'Teshie',
-    href: 'gallery',
-    imageSrc: 'https://res.cloudinary.com/dungxxzhh/image/upload/v1663456543/ghf_images/ghf_teshie_xy1zvq.jpg',
-  },
+
   {
     name: 'Atadeka',
     href: '#',
@@ -185,7 +180,7 @@ export const Home = () => {
             </div>
           </div>
         </div>
-
+      
         <div className="dark:slate-900 mt-6 px-4 sm:hidden">
           <a href="news" className="block text-sm font-semibold text-indigo-600 hover:text-indigo-500">
             Browse all post
@@ -194,7 +189,7 @@ export const Home = () => {
         </div>
       </div>
     </div>
-    <LatestVideoPost />
+   
     <VideoHomePage />
         <Testimonials  />
        

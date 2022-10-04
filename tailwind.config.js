@@ -1,3 +1,4 @@
+// @ts-nocheck
 /** @ {import('tailwindcss).config} */
 const plugin = require('tailwindcss/plugin')
 
@@ -5,6 +6,42 @@ module.exports = {
   content: ['./app/ui/**/*.{js,jsx,ts,tsx}', './client/*.html'],
   darkMode: 'class',
   theme: {
+    animation: {
+      slide: 'slide 10s infinite both',
+      marquee: 'marquee 1s linear infinite',
+    },
+    keyframes: {
+      slide: {
+        '0%': {
+          transform: 'translateX(100%) scale(0.75)',
+          zIndex: '0',
+        },
+        '25%': {
+          transform: 'translateX(50%) scale(0.9)',
+          zIndex: '10',
+        },
+        '50%': {
+          transform: 'translateX(0%) scale(1)',
+          zIndex: '20',
+        },
+        '75%': {
+          transform: 'translateX(-50%) scale(0.9)',
+          zIndex: '10',
+        },
+        '100%': {
+          transform: 'translateX(-100%) scale(0.75)',
+          zIndex: '0',
+        },
+      },
+      marquee: {
+        '0%': {
+          transform: 'translateX(120%)',
+        },
+        '100%': {
+          transform: 'translateX(-120%)',
+        },
+      },
+    },
     screens: {
       'sm': '400px',
       // => @media (min-width: 576px) { ... }
@@ -73,9 +110,11 @@ module.exports = {
       },
     },
   },
+
   plugins: [require('@tailwindcss/forms')],
   plugins: [require('@tailwindcss/typography')],
   plugins: [require('@tailwindcss/line-clamp')],
   plugins: [require('@tailwindcss/aspect-ratio')],
   plugins:[require('tailwind-scrollbar-hide')],
 }
+  

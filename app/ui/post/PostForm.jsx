@@ -48,10 +48,8 @@ export const PostForm = () => {
         message, 
         author,
          url, 
-         date, 
          category,
-         createdAt: new Date(),
-         userId: user._id
+         date,
          },
       errorResponse => {
         if (errorResponse) {

@@ -29,7 +29,7 @@ export const VideoPost = () => {
   const VideoPostItem = memo(({ videopost }) => (
     <div  className=" bg-transparent dark:bg-slate-900" data-aos="fade-right">
   <div  className="px-3 relative max-w-lg mx-auto lg:max-w-7xl">
-  <div className="relative">
+  <div className="relative shadow-xl">
  
   <div className="bg-transparent dark:bg-slate-900">
   <div className="relative mx-auto max-w-lg px-3 lg:max-w-7xl">
@@ -60,7 +60,7 @@ export const VideoPost = () => {
             <div className="flex-shrink-0">
             <a href='#'>
                 <span className="sr-only">{videopost.image1Url}</span>
-                <img className="w-8 h-8 rounded-full" src={videopost.image1Url} alt="" />
+                <img className="w-8 h-8 rounded-full shadow-xl" src={videopost.image1Url} alt="" />
               </a>
             </div>
             <div className="ml-3">
@@ -75,13 +75,13 @@ export const VideoPost = () => {
             <div className="ml-4">
             
               <WhatsappShareButton url={shareUrl}>
-            <WhatsappIcon  className="w-7 h-7 rounded-full transition-transform hover:scale-125 hover:opacity-25"/>
+            <WhatsappIcon  className="w-7 h-7 rounded-full shadow-xl transition-transform hover:scale-125 hover:opacity-25"/>
             </WhatsappShareButton>
             </div>
             <div className="ml-4">
             
             <FacebookShareButton url={shareUrl}>
-          <FacebookIcon  className="w-7 h-7 rounded-full transition-transform hover:scale-125 hover:opacity-25"/>
+          <FacebookIcon  className="w-7 h-7 rounded-full shadow-xl transition-transform hover:scale-125 hover:opacity-25"/>
           </FacebookShareButton>
           </div>
           </div>
@@ -100,7 +100,7 @@ export const VideoPost = () => {
           </div>
         <ul
           role="list"
-          className="mx-auto mt-10 grid max-w-lg gap-5 lg:max-w-none md:grid-cols-2 lg:grid-cols-4"
+          className="mx-auto shadow-xl mt-10 grid max-w-lg gap-5 lg:max-w-none md:grid-cols-2 lg:grid-cols-4"
         >
           {videoposts.map((videopost) => (
             <VideoPostItem key={videopost._id} videopost={videopost} />
