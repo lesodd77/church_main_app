@@ -21,6 +21,7 @@ export const RoutePaths = {
    VOLUNTARY: 'voluntary',
     NOTIFYEMAIL: 'notifyEmail',
     GALLERY: 'gallery',
+    GALLERYFORM: 'galleryForm',
     OFFICERS: 'officers',
     VIDEOPOST: 'videopost',
     POSTSPAGE: 'postsPage',

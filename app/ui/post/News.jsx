@@ -1,5 +1,4 @@
 //@ts-nocheck
-import { Meteor } from 'meteor/meteor'
 import React, { memo } from 'react'
 //import { Link } from 'react-router-dom';
 import { PostsCollection } from '../../api/collections/posts.collection'
@@ -32,7 +31,7 @@ const shareUrl = 'https://ims-ghanafield.meteorapp.com/news';
   }
  
   const PostItem = memo(({ post }) => (
-    <div  className=" bg-transparent dark:bg-slate-900" data-aos="fade-up">
+    <div  className=" bg-white dark:bg-slate-900" data-aos="fade-up">
     <div  className="px-3 relative max-w-lg mx-auto lg:max-w-7xl">
     <div className="lg:grid lg:grid-cols-2 lg:grid-rows-1">
     <div className="lg:aspect-w-16 lg:aspect-h-9">
@@ -91,7 +90,7 @@ const shareUrl = 'https://ims-ghanafield.meteorapp.com/news';
       ))
    
   return (
-    <div className="overflow-hidden bg-gray-50 py-16">
+    <div className="overflow-hidden bg-gray-50 dark:bg-slate-900 py-16">
       <div className="mx-auto max-w-7xl space-y-8 px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-prose text-base lg:max-w-none">
         <h2 className="px-3 mt-10 py-8 text-3xl  font-serif font-medium text-center dark:text-white">

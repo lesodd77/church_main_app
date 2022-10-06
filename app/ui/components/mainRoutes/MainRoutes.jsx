@@ -25,6 +25,7 @@ import { NotifyEmail } from '../../pages/admin/notifyemail/NotifyEmail'
 import { VideoPost } from '../../pages/videos/VideoPost';
 import { VideoPostForm } from '../../pages/videos/VideoPostForm';
 import { Officers } from '../../pages/officers/Officers'
+import { GalleryForm } from '../../pages/gallery/GalleryForm';
 //import { PostsPage } from '../../post/PostsPage'
 //import { LoginPage } from '../../auth/LoginPage';
 
@@ -46,6 +47,7 @@ export const MainRoutes = () => {
             <Route element={<Dashboard/>} path={RoutePaths.DASHBOARD} />
             <Route element={<NotifyEmail/>} path={RoutePaths.NOTIFYEMAIL} />
             <Route element={<Gallery/>} path={RoutePaths.GALLERY} />
+            <Route element={<GalleryForm/>} path={RoutePaths.GALLERYFORM} />
             <Route element={<Officers/>} path={RoutePaths.OFFICERS} />
             <Route element={<Admin/>} path={RoutePaths.ADMIN} />
             <Route element={<Health/>} path={RoutePaths.HEALTH} />

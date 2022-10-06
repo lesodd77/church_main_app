@@ -28,7 +28,7 @@ export const About = () => {
     )
   })
   return (
-    <>
+    <> 
     <div className="bg-white">
       <div aria-hidden="true" className="relative">
         <img

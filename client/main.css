@@ -237,36 +237,15 @@ hover:line-clamp-none {
   -webkit-line-clamp: unset;
 }
 
-@-webkit-keyframes dash {
-  to {
-    stroke-dashoffset: 136;
+#brighten{
+  -webkit-filter: brightness(50%);
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  transition: all 1s ease;
   }
-}
-
-@keyframes dash {
-  to {
-    stroke-dashoffset: 136;
+  
+  #brighten:hover {
+  -webkit-filter: brightness(100%);
   }
-}
-@-webkit-keyframes rotate {
-  100% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-@keyframes rotate {
-  100% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
-
-@keyframes logo {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
