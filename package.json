@@ -1,5 +1,5 @@
 {
-  "name": "church_main",
+  "name": "ims-ghana",
   "private": true,
   "scripts": {
     "start": "meteor run --exclude-archs web.browser.legacy,web.cordova",

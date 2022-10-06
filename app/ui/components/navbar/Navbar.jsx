@@ -7,6 +7,7 @@ import 'aos/dist/aos.css';
 import { useTracker } from 'meteor/react-meteor-data';
 import { useNavigate } from 'react-router-dom';
 import { Profile } from '../../auth/Profile'
+import { RoutePaths } from '../mainRoutes/RoutePaths';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -68,7 +69,7 @@ export const Navbar = () => {
                 <div className="relative z-10 flex px-2 lg:px-0">
                   <div className="flex flex-shrink-0 items-center">
                     <img
-                      className="block h-10 w-auto"
+                     id='logo' className="block h-10 w-auto"
                       src="./log/ims-logo.png"
                       alt="ims-ghana-sda-reform-church"
                     />
