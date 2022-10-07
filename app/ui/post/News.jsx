@@ -108,7 +108,7 @@ const shareUrl = 'https://ims-ghanafield.meteorapp.com/news';
           role="list"
           className="mx-auto mt-7 grid  max-w-lg lg:max-w-none"
         >
-          {posts.map((post) => (
+          {posts.map((post) => ( 
             <PostItem key={post._id} post={post} />
           ))}
         </ul>
