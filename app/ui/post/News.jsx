@@ -4,6 +4,7 @@ import React, { memo } from 'react'
 import { PostsCollection } from '../../api/collections/posts.collection'
 import { useSubscribe, useFind } from 'meteor/react-meteor-data'
 import { Loading } from '../components/spinner/Loading'
+//import { Widget } from './Widget'
 import {
   FacebookShareButton,
   WhatsappShareButton,
@@ -31,10 +32,10 @@ const shareUrl = 'https://ims-ghanafield.meteorapp.com/news';
   }
  
   const PostItem = memo(({ post }) => (
-    <div  className=" bg-white dark:bg-slate-900" data-aos="fade-up">
-    <div  className="px-3 relative max-w-lg mx-auto lg:max-w-7xl">
-    <div className="lg:grid lg:grid-cols-2 lg:grid-rows-1">
-    <div className="lg:aspect-w-16 lg:aspect-h-9">
+    <div class="flex-col md:flex-row flex max-h-screen justify-center dark:bg-slate-900 py-10 px-2">
+    <div className="" data-aos="fade-up">
+      <div className="w-[100%] h-auto">
+        <div className="lg:aspect-w-16 lg:aspect-h-9">
                 <img
                   className="object-cover w-[100%] h-auto rounded-md hover:opacity-75"
                   src={post.url}
@@ -86,14 +87,18 @@ const shareUrl = 'https://ims-ghanafield.meteorapp.com/news';
         </div>
           </div>
         </div>
-        </div>
+        
+   
+ 
+</div>
+
       ))
    
   return (
-    <div className="overflow-hidden bg-gray-50 dark:bg-slate-900 py-16">
+    <div className="overflow-hidden bg-gray-50 dark:bg-slate-900 py-12">
       <div className="mx-auto max-w-7xl space-y-8 px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-prose text-base lg:max-w-none">
-        <h2 className="px-3 mt-10 py-8 text-3xl  font-serif font-medium text-center dark:text-white">
+        <h2 className="px-3 mt-7 py-8 text-3xl  font-serif font-medium text-center dark:text-white">
              Our News
             </h2>
           
@@ -101,7 +106,7 @@ const shareUrl = 'https://ims-ghanafield.meteorapp.com/news';
        
         <ul
           role="list"
-          className="mx-auto mt-12 grid max-w-lg lg:max-w-none"
+          className="mx-auto mt-7 grid  max-w-lg lg:max-w-none"
         >
           {posts.map((post) => (
             <PostItem key={post._id} post={post} />

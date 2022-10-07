@@ -50,7 +50,7 @@ Meteor.methods({
          message,
          authorUrl, 
           category,
-      date: new Date(),
+          createdAt: new Date(),
     });
   },
   'posts.archive'({ postId }) {

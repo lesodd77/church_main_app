@@ -18,11 +18,11 @@ import { GallerysCollection } from '/app/api/collections/gallerys.collection'
     }
     const GalleryItem = memo(({ gallery }) => ( 
   
-<div className=" dark:bg-slate-900">
+<div className="dark:bg-slate-900">
       <div className="mx-auto max-w-2xl">
       
               <div  id='brighten'  className="flow root">
-                <div className="relative h-72 w-full overflow-hidden shadow-xl rounded-xl">
+                <div className="relative h-72 w-full overflow-y-hidden shadow-xl rounded-xl">
                   <img
                     src={gallery.url}
                     alt='sda-church-ims-reform-movement'
