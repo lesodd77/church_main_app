@@ -1,0 +1,10 @@
+{
+  "packages": {
+      "quave:email-postmark": {
+          "from": "example.com",
+          "apiToken": "piToken"
+      }
+  },
+  "googleClientId": "googleClientId",
+   "googleSecret": "googleSecret"
+}

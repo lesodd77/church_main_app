@@ -1,8 +1,0 @@
-{
-    "galaxy.meteor.com": {
-       "env": {
-         "MONGO_OPLOG_URL": "mongodb://ims_ghana:Revelation1412@cluster0.ail9yei:mongodb.net/ims_ghana"
-       }
-     }
-  }
-  

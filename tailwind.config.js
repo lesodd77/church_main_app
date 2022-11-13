@@ -1,9 +1,9 @@
+/* eslint-disable no-dupe-keys */
+/* eslint-disable global-require */
 // @ts-nocheck
-/** @ {import('tailwindcss).config} */
-const plugin = require('tailwindcss/plugin')
 
 module.exports = {
-  content: ['./app/ui/**/*.{js,jsx,ts,tsx}', './client/*.html'],
+  content: ['./ui/**/*.{js,jsx,ts,tsx}', './client/*.html'],
   darkMode: 'class',
   theme: {
     animation: {
@@ -43,13 +43,13 @@ module.exports = {
       },
     },
     screens: {
-      'sm': '400px',
+      sm: '400px',
       // => @media (min-width: 576px) { ... }
 
-      'md': '760px',
+      md: '760px',
       // => @media (min-width: 960px) { ... }
 
-      'lg': '1440px',
+      lg: '1440px',
     },
     lineClamp: {
       7: '7',
@@ -57,6 +57,70 @@ module.exports = {
       9: '9',
       10: '10',
     },
+    safelist: [
+      '-mx-1.5',
+      '-my-1.5',
+      'appearance-none',
+      'bg-green-100',
+      'bg-green-50',
+      'bg-indigo-600',
+      'bg-red-50',
+      'bg-white',
+      'block',
+      'border',
+      'border-gray-300',
+      'border-transparent',
+      'cursor-pointer',
+      'flex',
+      'focus:border-indigo-500',
+      'focus:outline-none',
+      'focus:ring-2',
+      'focus:ring-indigo-500',
+      'focus:ring-offset-2',
+      'focus:ring-offset-red-50',
+      'focus:ring-red-600',
+      'font-medium',
+      'hover:bg-indigo-700',
+      'hover:bg-red-100',
+      'hover:text-indigo-500',
+      'inline-flex',
+      'justify-center',
+      'justify-end',
+      'ml-auto',
+      'mt-0',
+      'mt-1',
+      'mt-8',
+      'p-1.5',
+      'p-4',
+      'pl-3',
+      'placeholder-gray-400',
+      'px-3',
+      'px-4',
+      'py-2',
+      'py-8',
+      'ring-green-600',
+      'ring-offset-green-50',
+      'rounded-md',
+      'shadow',
+      'shadow-sm',
+      'sm:max-w-md',
+      'sm:mx-auto',
+      'sm:px-10',
+      'sm:rounded-lg',
+      'sm:text-sm',
+      'sm:w-full',
+      'space-y-6',
+      'sr-only',
+      'text-gray-700',
+      'text-green-500',
+      'text-green-800',
+      'text-indigo-600',
+      'text-red-500',
+      'text-red-800',
+      'text-sm',
+      'text-white',
+      'w-full',
+    ],
     extend: {
       colors: {
         white: '#FFFFFF',
@@ -66,7 +130,7 @@ module.exports = {
         tertiaryOne: '#eb8338',
         tertiaryTwo: '#abb8c3',
         tertiaryThree: '#cdbda1',
-        danger:'#FF0000',
+        danger: '#FF0000',
       },
       corePlugins: {
         aspectRatio: false,
@@ -90,7 +154,7 @@ module.exports = {
         sm: '0 2px 4px -0px rgba(11, .10, .55, 0.15)',
         lg: '0 8px 20px -0px rgba(18, .16, .99, 0.6)',
       },
-     
+
 
       fontFamily: {
         satoshi: 'Satoshi, sans-serif',
@@ -98,7 +162,7 @@ module.exports = {
       },
 
       variants: {
-        lineClamp: ['responsive', 'hover']
+        lineClamp: ['responsive', 'hover'],
       },
       extend: {
         borderRadius: {
@@ -115,6 +179,5 @@ module.exports = {
   plugins: [require('@tailwindcss/typography')],
   plugins: [require('@tailwindcss/line-clamp')],
   plugins: [require('@tailwindcss/aspect-ratio')],
-  plugins:[require('tailwind-scrollbar-hide')],
-}
-  
+  plugins: [require('tailwind-scrollbar-hide')],
+};
