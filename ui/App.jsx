@@ -7,7 +7,6 @@ import { AlertProvider, Alert } from 'meteor/quave:alert-react-tailwind';
 import { Header } from './components/header/Header';
 import { Footer } from './components/footer/Footer';
 
-
 export const App = () => (
   <Router>
     <AlertProvider>

@@ -6,8 +6,7 @@ import { ErrorAlert } from '../alerts/ErrorAlert';
 // eslint-disable-next-line import/no-unresolved
 import { SuccessAlert } from '../alerts/SuccessAlert';
 import { Share } from '../logos/index';
-import { FacebookShareButton, WhatsappShareButton } from 'react-share';
-import { FacebookIcon, WhatsappIcon } from 'react-share';
+import { FacebookShareButton, WhatsappShareButton, FacebookIcon, WhatsappIcon } from 'react-share';
 const navigation = {
   solutions: [
     { name: 'Volutary', href: 'voluntary' },
@@ -253,7 +252,7 @@ export const Footer = () => {
             </div>
           </div>
           <p className="mt-8 text-base text-tertiaryOne md:order-1 md:mt-0">
-           
+
           </p>
         </div>
         <p className="mt-8 text-base text-gray-400 md:order-1 md:mt-0">

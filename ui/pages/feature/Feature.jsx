@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 export const Feature = () => (
             <>
         <div className="relative bg-gray-900">
@@ -39,4 +38,4 @@ export const Feature = () => (
        </div>
         </div>
             </>
-        );
+);

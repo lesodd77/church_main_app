@@ -35,9 +35,9 @@ const categories = [
   {
     name: 'Jericho',
     href: 'gallery',
-     imageSrc: 'https://res.cloudinary.com/swed-dev/image/upload/v1663456542/ghf_images/ghf_jericho_npfheb.jpg' },
+    imageSrc: 'https://res.cloudinary.com/swed-dev/image/upload/v1663456542/ghf_images/ghf_jericho_npfheb.jpg',
+  },
 ];
-
 
 export const Home = () => (
     <>
@@ -46,7 +46,6 @@ export const Home = () => (
       <PostHomePage />
       <Feature />
       <OfficersHome />
-
 
       <div
 className=" bg-white dark:bg-slate-900">
@@ -99,4 +98,4 @@ className=" bg-white dark:bg-slate-900">
         <ContactForm />
       </main>
     </>
-  );
+);

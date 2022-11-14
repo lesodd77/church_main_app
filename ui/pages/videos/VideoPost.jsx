@@ -3,16 +3,15 @@ import React, { memo } from 'react';
 import { VideoPostsCollection } from '../../../api/collections/videoposts.collection';
 import { useSubscribe, useFind } from 'meteor/react-meteor-data';
 import { Loading } from '../../components/spinner/Loading';
-import { FacebookShareButton, WhatsappShareButton } from 'react-share';
-import { FacebookIcon, WhatsappIcon } from 'react-share';
+import { FacebookShareButton, WhatsappShareButton, FacebookIcon, WhatsappIcon } from 'react-share';
 export const VideoPost = () => {
   const shareUrl = 'https://ims-ghanafield.meteorapp.com/videopost';
   const isLoading = useSubscribe('myVideoPosts');
   const videoposts = useFind(() =>
     VideoPostsCollection.find(
       { archived: { $ne: true } },
-      { sort: { createdAt: -1 } }
-    )
+      { sort: { createdAt: -1 } },
+    ),
   );
 
   if (isLoading()) {

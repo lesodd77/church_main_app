@@ -11,7 +11,7 @@ import { useLoggedUser } from 'meteor/quave:logged-user-react';
 import { useNavigate } from 'react-router-dom';
 import { RoutePaths } from '../general/RoutePaths';
 
-function classNames(...classes) {
+function classNames (...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
@@ -90,11 +90,13 @@ export const Navbar = () => {
                 {/* Mobile menu button */}
                 <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                   <span className="sr-only">Open menu</span>
-                  {open ? (
+                  {open
+                    ? (
                     <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
-                  ) : (
+                      )
+                    : (
                     <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
-                  )}
+                      )}
                 </Disclosure.Button>
               </div>
               <div className="hidden lg:relative lg:z-10 lg:ml-4 lg:flex lg:items-center">
@@ -194,7 +196,7 @@ export const Navbar = () => {
                               active
                                 ? 'bg-tertiaryOne rounded-r-full text-white'
                                 : 'text-white',
-                              'block px-4 py-2 text-sm'
+                              'block px-4 py-2 text-sm',
                             )}
                           >
                             About
@@ -212,7 +214,7 @@ export const Navbar = () => {
                               active
                                 ? 'bg-tertiaryOne rounded-r-full text-white'
                                 : 'text-white',
-                              'block px-4 py-2 text-sm'
+                              'block px-4 py-2 text-sm',
                             )}
                           >
                             Testimonials
@@ -230,7 +232,7 @@ export const Navbar = () => {
                               active
                                 ? 'bg-tertiaryOne rounded-r-full text-white'
                                 : 'text-white',
-                              'block px-4 py-2 text-sm'
+                              'block px-4 py-2 text-sm',
                             )}
                           >
                             Gallery
@@ -248,7 +250,7 @@ export const Navbar = () => {
                               active
                                 ? 'bg-tertiaryOne rounded-r-full text-white'
                                 : 'text-white',
-                              'block px-4 py-2 text-sm'
+                              'block px-4 py-2 text-sm',
                             )}
                           >
                             Contact
@@ -292,7 +294,7 @@ export const Navbar = () => {
                               active
                                 ? 'bg-tertiaryOne rounded-r-full text-white'
                                 : 'text-white',
-                              'block px-4 py-2 text-sm'
+                              'block px-4 py-2 text-sm',
                             )}
                           >
                             Doctrine
@@ -309,7 +311,7 @@ export const Navbar = () => {
                               active
                                 ? 'bg-tertiaryOne rounded-r-full text-white'
                                 : 'text-white',
-                              'block px-4 py-2 text-sm'
+                              'block px-4 py-2 text-sm',
                             )}
                           >
                             Sabbath Sch.
@@ -326,7 +328,7 @@ export const Navbar = () => {
                               active
                                 ? 'bg-tertiaryOne rounded-r-full text-white'
                                 : 'text-white',
-                              'block px-4 py-2 text-sm'
+                              'block px-4 py-2 text-sm',
                             )}
                           >
                             Video
@@ -343,7 +345,7 @@ export const Navbar = () => {
                               active
                                 ? 'bg-tertiaryOne rounded-r-full text-white'
                                 : 'text-white',
-                              'block px-4 py-2 text-sm'
+                              'block px-4 py-2 text-sm',
                             )}
                           >
                             Books
@@ -387,7 +389,7 @@ export const Navbar = () => {
                               active
                                 ? 'bg-tertiaryOne rounded-r-full text-white'
                                 : 'text-white',
-                              'block px-4 py-2 text-sm'
+                              'block px-4 py-2 text-sm',
                             )}
                           >
                             Voluntary
@@ -404,7 +406,7 @@ export const Navbar = () => {
                               active
                                 ? 'bg-tertiaryOne rounded-r-full text-white'
                                 : 'text-white',
-                              'block px-4 py-2 text-sm'
+                              'block px-4 py-2 text-sm',
                             )}
                           >
                             Health
@@ -474,7 +476,7 @@ export const Navbar = () => {
                             active
                               ? 'bg-tertiaryOne rounded-r-full text-white'
                               : 'text-white',
-                            'block px-4 py-2 text-sm'
+                            'block px-4 py-2 text-sm',
                           )}
                         >
                           About
@@ -491,7 +493,7 @@ export const Navbar = () => {
                             active
                               ? 'bg-tertiaryOne rounded-r-full text-white'
                               : 'text-white',
-                            'block px-4 py-2 text-sm'
+                            'block px-4 py-2 text-sm',
                           )}
                         >
                           Testimonials
@@ -508,7 +510,7 @@ export const Navbar = () => {
                             active
                               ? 'bg-tertiaryOne rounded-r-full text-white'
                               : 'text-white',
-                            'block px-4 py-2 text-sm'
+                            'block px-4 py-2 text-sm',
                           )}
                         >
                           Gallery
@@ -525,7 +527,7 @@ export const Navbar = () => {
                             active
                               ? 'bg-tertiaryOne rounded-r-full text-white'
                               : 'text-white',
-                            'block px-4 py-2 text-sm'
+                            'block px-4 py-2 text-sm',
                           )}
                         >
                           Contact
@@ -570,7 +572,7 @@ export const Navbar = () => {
                               active
                                 ? 'bg-tertiaryOne rounded-r-full text-white'
                                 : 'text-white',
-                              'block px-4 py-2 text-sm'
+                              'block px-4 py-2 text-sm',
                             )}
                           >
                             Doctrine
@@ -587,7 +589,7 @@ export const Navbar = () => {
                               active
                                 ? 'bg-tertiaryOne rounded-r-full text-white'
                                 : 'text-white',
-                              'block px-4 py-2 text-sm'
+                              'block px-4 py-2 text-sm',
                             )}
                           >
                             Sabbath Sch.
@@ -605,7 +607,7 @@ export const Navbar = () => {
                               active
                                 ? 'bg-tertiaryOne rounded-r-full text-white'
                                 : 'text-white',
-                              'block px-4 py-2 text-sm'
+                              'block px-4 py-2 text-sm',
                             )}
                           >
                             Videos
@@ -622,7 +624,7 @@ export const Navbar = () => {
                               active
                                 ? 'bg-tertiaryOne rounded-r-full text-white'
                                 : 'text-white',
-                              'block px-4 py-2 text-sm'
+                              'block px-4 py-2 text-sm',
                             )}
                           >
                             Books
@@ -668,7 +670,7 @@ export const Navbar = () => {
                               active
                                 ? 'bg-tertiaryOne rounded-r-full text-white'
                                 : 'text-white',
-                              'block px-4 py-2 text-sm'
+                              'block px-4 py-2 text-sm',
                             )}
                           >
                             Voluntary
@@ -685,7 +687,7 @@ export const Navbar = () => {
                               active
                                 ? 'bg-tertiaryOne rounded-r-full text-white'
                                 : 'text-white',
-                              'block px-4 py-2 text-sm'
+                              'block px-4 py-2 text-sm',
                             )}
                           >
                             Health

@@ -7,11 +7,11 @@ import { Cloudinary } from 'meteor/socialize:cloudinary';
 import { Meteor } from 'meteor/meteor';
 
 export const Profile = () => {
-    const user = Meteor.user();
+  const user = Meteor.user();
 
-    if (!user) { return null; }
+  if (!user) { return null; }
 
-    const UserItem = memo(({ user }) => (
+  const UserItem = memo(({ user }) => (
         <div className="border-t border-gray-700 pt-4 pb-3">
         <div className="flex items-center px-4">
           <div className="flex-shrink-0">
@@ -28,10 +28,9 @@ className="h-10 w-10 rounded-full"
 
         </div>
         </div>
-  )
-);
-return (
-
+  ),
+  );
+  return (
 
     <>
     <ul
@@ -44,6 +43,5 @@ return (
     </ul>
     </>
 
-
-);
+  );
 };

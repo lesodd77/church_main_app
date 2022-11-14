@@ -5,12 +5,12 @@ export const Input = (props) => {
   const {
     id,
     containerClassName = '',
-   placeholder = '',
-   label = '',
-   type = 'text',
-   required = false,
-   error = false,
-   ...rest
+    placeholder = '',
+    label = '',
+    type = 'text',
+    required = false,
+    error = false,
+    ...rest
   } = props;
 
   const inputRef = useRef();
@@ -20,8 +20,8 @@ export const Input = (props) => {
          <div
         className={`border border-tertiaryOne bg-opacity-75 transition duration-150 ease-in-out ${
           error
-          ? 'focus-widthin:border-danger border-danger' :
-          'focus-widthin:border-primary'
+          ? 'focus-widthin:border-danger border-danger'
+          : 'focus-widthin:border-primary'
         }`}
         onClick={() => inputRef.current.focus()}
         />

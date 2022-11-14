@@ -10,8 +10,8 @@ export const VideoHomePage = () => {
   const videoposts = useFind(() =>
     VideoPostsCollection.find(
       { archived: { $ne: true } },
-      { sort: { createdAt: -1 } }
-    )
+      { sort: { createdAt: -1 } },
+    ),
   );
 
   if (isLoading()) {

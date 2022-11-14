@@ -1,7 +1,6 @@
 /* This example requires Tailwind CSS v2.0+ */
 import React from 'react';
 
-
 export const NotFound = () => (
       <>
       <div className="mt-16 bg-white dark:bg-slate-800 rounded-lg ring-1 ring-slate-900/5 shadow-xl min-h-full px-4 py-16 sm:px-6 sm:py-24 md:grid md:place-items-center lg:px-8" data-aos="fade-up">
@@ -33,8 +32,7 @@ export const NotFound = () => (
         <figure className="relative overflow-hidden rounded-md">
           <img src="https://res.cloudinary.com/dungxxzhh/image/upload/v1663456541/ghf_images/ghf_hohoe_cm_uybaxl.jpg" height="300" width="400" />
           <figcaption className="absolute inset-0 flex flex-col justify-end bg-slate-800/50 bg-gradient-to-t p-2 text-white">
-           
-            
+
           </figcaption>
         </figure>
         <img src="https://res.cloudinary.com/dungxxzhh/image/upload/v1663456541/ghf_images/ghf_atadeka_co0jsw.jpg" height="300" width="400" className="-scale-y-100 h-10 object-cover object-bottom opacity-50 [mask-image:linear-gradient(to_top,#000,#0000)] rounded-b-md" />
@@ -43,7 +41,7 @@ export const NotFound = () => (
         <figure className="relative overflow-hidden rounded-md">
           <img src="https://picsum.photos/400/300?0" height="300" width="400" />
           <figcaption className="absolute inset-0 flex flex-col justify-end bg-slate-800/50 bg-gradient-to-t p-2 text-white">
-           
+
           </figcaption>
         </figure>
         <img src="https://picsum.photos/400/300?0" height="300" width="400" className="-scale-y-100 h-10 object-cover object-bottom opacity-50 [mask-image:linear-gradient(to_top,#000,#0000)] rounded-b-md" />
@@ -52,7 +50,7 @@ export const NotFound = () => (
         <figure className="relative overflow-hidden rounded-md">
           <img src="https://res.cloudinary.com/dungxxzhh/image/upload/v1663456543/ghf_images/ghf_teshie_xy1zvq.jpg" height="300" width="400" />
           <figcaption className="absolute inset-0 flex flex-col justify-end bg-slate-800/50 bg-gradient-to-t p-2 text-white">
-           
+
           </figcaption>
         </figure>
         <img src="https://res.cloudinary.com/dungxxzhh/image/upload/v1663456542/ghf_images/ghf_1_mkykpb.jpg" height="300" width="400" className="-scale-y-100 h-10 object-cover object-bottom opacity-50 [mask-image:linear-gradient(to_top,#000,#0000)] rounded-b-md" />
@@ -61,7 +59,7 @@ export const NotFound = () => (
         <figure className="relative overflow-hidden rounded-md">
           <img src="https://picsum.photos/400/300?2" height="300" width="400" />
           <figcaption className="absolute inset-0 flex flex-col justify-end bg-slate-800/50 bg-gradient-to-t p-2 text-white">
-          
+
           </figcaption>
         </figure>
         <img src="https://picsum.photos/400/300?2" height="300" width="400" className="-scale-y-100 h-10 object-cover object-bottom opacity-50 [mask-image:linear-gradient(to_top,#000,#0000)] rounded-b-md" />
@@ -70,7 +68,7 @@ export const NotFound = () => (
         <figure className="relative overflow-hidden rounded-md">
           <img src="https://picsum.photos/400/300?3" height="300" width="400" />
           <figcaption className="absolute inset-0 flex flex-col justify-end bg-slate-800/50 bg-gradient-to-t p-2 text-white">
-            
+
           </figcaption>
         </figure>
         <img src="https://picsum.photos/400/300?3" height="300" width="400" className="-scale-y-100 h-10 object-cover object-bottom opacity-50 [mask-image:linear-gradient(to_top,#000,#0000)] rounded-b-md" />
@@ -80,4 +78,4 @@ export const NotFound = () => (
       </div>
       </div>
       </>
-    );
+);

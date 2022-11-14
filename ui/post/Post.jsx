@@ -13,8 +13,8 @@ export const Post = () => {
   const posts = useFind(() =>
     PostsCollection.find(
       { archived: { $ne: true } },
-      { sort: { createdAt: -1 } }
-    )
+      { sort: { createdAt: -1 } },
+    ),
   );
   const removePost = (event, _id) => {
     event.preventDefault();

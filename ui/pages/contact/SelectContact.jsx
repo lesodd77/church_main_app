@@ -5,7 +5,7 @@ import React, { Fragment } from 'react';
 import { Listbox, Transition } from '@headlessui/react';
 import { Select, Check } from '../../components/logo/index';
 
-function classNames(...classes) {
+function classNames (...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
@@ -38,7 +38,7 @@ export const SelectContact = ({ title, contact, setContact, contacts }) => (
                 className={
                   classNames(
                     'text-gray-900',
-                    'cursor-default select-none relative py-2 pl-3 pr-9'
+                    'cursor-default select-none relative py-2 pl-3 pr-9',
                   )}
                 // eslint-disable-next-line react/jsx-boolean-value
                 disabled={true}
@@ -47,8 +47,8 @@ export const SelectContact = ({ title, contact, setContact, contacts }) => (
 
                       <span
                         className={classNames(
-                           'font-normal', 'ml-3 block truncate'
-                         )}
+                          'font-normal', 'ml-3 block truncate',
+                        )}
                       >
                         No contacts found
                       </span>
@@ -61,7 +61,7 @@ export const SelectContact = ({ title, contact, setContact, contacts }) => (
                     className={({ active }) =>
                       classNames(
                         active ? 'text-white bg-cyan-600' : 'text-gray-900',
-                        'cursor-default select-none relative py-2 pl-3 pr-9'
+                        'cursor-default select-none relative py-2 pl-3 pr-9',
                       )
                     }
                     value={contact}
@@ -75,7 +75,7 @@ src={contact.imageUrl}
 alt=""
 className="flex-shrink-0 h-6 w-6 rounded-full"
                           />
-                          )}
+                        )}
                           <span
                             className={classNames(
                               'font-normal', 'ml-3 block truncate')}
@@ -84,16 +84,18 @@ className="flex-shrink-0 h-6 w-6 rounded-full"
                           </span>
                         </div>
 
-                        {selected ? (
+                        {selected
+                          ? (
                           <span
                             className={classNames(
                               active ? 'text-white' : 'text-cyan-600',
-                              'absolute inset-y-0 right-0 flex items-center pr-4'
+                              'absolute inset-y-0 right-0 flex items-center pr-4',
                             )}
                           >
                             <Check className="h-5 w-5" aria-hidden="true" />
                           </span>
-                        ) : null}
+                            )
+                          : null}
                       </>
                     )}
                   </Listbox.Option>
@@ -104,4 +106,4 @@ className="flex-shrink-0 h-6 w-6 rounded-full"
         </>
       )}
     </Listbox>
-  );
+);

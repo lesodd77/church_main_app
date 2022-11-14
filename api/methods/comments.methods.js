@@ -4,7 +4,7 @@ import { check } from 'meteor/check';
 import { CommentsCollection } from '../collections/comments.collection';
 
 Meteor.methods({
-  'comments.insert'({ date, comment, author }) {
+  'comments.insert' ({ date, comment, author }) {
     const { userId } = this;
     if (!userId) {
       throw Meteor.Error('Access denied');
@@ -32,17 +32,17 @@ Meteor.methods({
       userId,
     });
   },
-  'comments.archive'({ commentId }) {
+  'comments.archive' ({ commentId }) {
     check(commentId, String);
 
     CommentsCollection.update({ _id: commentId }, { $set: { archived: true } });
   },
-  'comments.remove'({ commentId }) {
+  'comments.remove' ({ commentId }) {
     check(commentId, String);
 
     CommentsCollection.remove(commentId);
   },
-  'comments.update'({ commentId }) {
+  'comments.update' ({ commentId }) {
     check(commentId, String);
 
     CommentsCollection.update(commentId);

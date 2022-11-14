@@ -1,8 +1,7 @@
-import React from 'react'
-import { LockClosedIcon } from '@heroicons/react/20/solid'
+import React from 'react';
+import { LockClosedIcon } from '@heroicons/react/20/solid';
 
 export const Admin = () => {
-
   return (
     <>
 <div className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
@@ -16,7 +15,7 @@ export const Admin = () => {
             <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
               Create your account
             </h2>
-           
+
           </div>
           <form className="mt-8 space-y-6" action="#" method="POST">
             <input type="hidden" name="remember" defaultValue="true" />
@@ -77,9 +76,8 @@ export const Admin = () => {
                   placeholder="Password Confirm"
                 />
               </div>
-              
+
             </div>
-            
 
             <div className="flex items-center justify-between">
               <div className="flex items-center">
@@ -116,5 +114,5 @@ export const Admin = () => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};

@@ -24,4 +24,4 @@ src="./ghf_video/Banner-en.mp4"
       </div>
     </div>
         </>
-  );
+);

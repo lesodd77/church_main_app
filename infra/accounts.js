@@ -4,7 +4,7 @@ import { Accounts } from 'meteor/accounts-base';
 import { Meteor } from 'meteor/meteor';
 import { ServiceConfiguration } from 'meteor/service-configuration';
 
-function getEmailFromUser(user) {
+function getEmailFromUser (user) {
   if (user.services?.google) {
     return user.services.google.email;
   }

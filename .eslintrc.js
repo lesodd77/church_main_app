@@ -4,16 +4,24 @@ module.exports = {
     es2021: true,
   },
   extends: ['plugin:react/recommended', 'standard'],
-  overrides: [],
+  overrides: [
+    {
+      files: ['*.jsx', '*.js'],
+    },
+  ],
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
+    ecmaFeatures: {
+      jsx: true,
+    },
   },
   plugins: ['react'],
   ignorePatterns: ['node_modules/', 'tests/'],
   rules: {
     semi: ['error', 'always'],
     'comma-dangle': ['error', 'always-multiline'],
-    'space-before-function-paren': ['error', 'never'],
+    'react/prop-types': 'off',
+    'react/display-name': 'off',
   },
 };

@@ -11,8 +11,8 @@ export const CommentList = () => {
   const comments = useFind(() =>
     CommentsCollection.find(
       { archived: { $ne: true } },
-      { sort: { createdAt: -1 } }
-    )
+      { sort: { createdAt: -1 } },
+    ),
   );
   if (isLoading()) {
     return <Loading />;

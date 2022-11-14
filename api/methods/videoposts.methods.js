@@ -4,7 +4,7 @@ import { check } from 'meteor/check';
 import { VideoPostsCollection } from '../collections/videoposts.collection';
 
 Meteor.methods({
-  'videoposts.insert'({
+  'videoposts.insert' ({
     title,
     video,
     message,
@@ -60,7 +60,7 @@ Meteor.methods({
       userId,
     });
   },
-  'videoposts.archive'({ videopostId }) {
+  'videoposts.archive' ({ videopostId }) {
     check(videopostId, String);
 
     VideoPostsCollection.update(
@@ -68,10 +68,10 @@ Meteor.methods({
       { $set: { archived: true } },
     );
   },
-  'videoposts.remove'({ videopostId }) {
+  'videoposts.remove' ({ videopostId }) {
     check(videopostId, String);
   },
-  'videoposts.update'({ videopostId }) {
+  'videoposts.update' ({ videopostId }) {
     check(videopostId, String);
   },
 });

@@ -4,7 +4,7 @@ import { check } from 'meteor/check';
 import { NotifyEmailsCollection } from '../collections/NotifyEmailsCollection';
 
 Meteor.methods({
-  'notifyemails.insert'({ email }) {
+  'notifyemails.insert' ({ email }) {
     check(email, String);
 
     if (!email) {
@@ -17,7 +17,7 @@ Meteor.methods({
       createdAt: new Date(),
     });
   },
-  'notifyemails.archive'({ notifyemailId }) {
+  'notifyemails.archive' ({ notifyemailId }) {
     check(notifyemailId, String);
 
     NotifyEmailsCollection.update(
@@ -25,12 +25,12 @@ Meteor.methods({
       { $set: { archived: true } },
     );
   },
-  'notifyemails.remove'({ notifyemailId }) {
+  'notifyemails.remove' ({ notifyemailId }) {
     check(notifyemailId, String);
 
     NotifyEmailsCollection.remove(notifyemailId);
   },
-  'notifyemails.update'({ notifyemailId }) {
+  'notifyemails.update' ({ notifyemailId }) {
     check(notifyemailId, String);
 
     NotifyEmailsCollection.update(notifyemailId);

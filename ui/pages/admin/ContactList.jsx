@@ -11,8 +11,8 @@ export const ContactList = () => {
   const contacts = useFind(() =>
     ContactsCollection.find(
       { archived: { $ne: true } },
-      { sort: { createdAt: -1 } }
-    )
+      { sort: { createdAt: -1 } },
+    ),
   );
   const removeContact = (event, _id) => {
     event.preventDefault();
