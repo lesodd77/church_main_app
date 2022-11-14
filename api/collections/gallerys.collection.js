@@ -8,7 +8,7 @@ const GallerysSchema = new SimpleSchema({
   branch: {
     type: String,
   },
- 
+
   url: {
     type: String,
     optional: false,

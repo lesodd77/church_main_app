@@ -7,12 +7,12 @@ Meteor.methods({
   'comments.insert'({ date, comment, author }) {
     const { userId } = this;
     if (!userId) {
-        throw Meteor.Error('Access denied');
+      throw Meteor.Error('Access denied');
     }
     check(date, String);
     check(comment, String);
     check(author, String);
-  
+
     if (!author) {
       throw new Meteor.Error('Name is required.');
     }
@@ -22,12 +22,12 @@ Meteor.methods({
     if (!date) {
       throw new Meteor.Error('Subject is required.');
     }
-  
+
     return CommentsCollection.insert({
       author,
       comment,
       date,
-    
+
       createdAt: new Date(),
       userId,
     });

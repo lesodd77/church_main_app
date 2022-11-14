@@ -4,10 +4,18 @@ import { check } from 'meteor/check';
 import { VideoPostsCollection } from '../collections/videoposts.collection';
 
 Meteor.methods({
-  'videoposts.insert'({ title, video, message, date, category, author, authorImage }) {
+  'videoposts.insert'({
+    title,
+    video,
+    message,
+    date,
+    category,
+    author,
+    authorImage,
+  }) {
     const { userId } = this;
     if (!userId) {
-        throw Meteor.Error('Access denied');
+      throw Meteor.Error('Access denied');
     }
     check(title, String);
     check(video, String);
@@ -41,13 +49,13 @@ Meteor.methods({
     }
 
     return VideoPostsCollection.insert({
-        title,
-         video,
-         date,
-         author,
-         message,
-         authorImage,
-          category,
+      title,
+      video,
+      date,
+      author,
+      message,
+      authorImage,
+      category,
       createdAt: new Date(),
       userId,
     });
@@ -55,7 +63,10 @@ Meteor.methods({
   'videoposts.archive'({ videopostId }) {
     check(videopostId, String);
 
-    VideoPostsCollection.update({ _id: videopostId }, { $set: { archived: true } });
+    VideoPostsCollection.update(
+      { _id: videopostId },
+      { $set: { archived: true } },
+    );
   },
   'videoposts.remove'({ videopostId }) {
     check(videopostId, String);

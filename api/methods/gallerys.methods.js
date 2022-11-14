@@ -7,11 +7,10 @@ Meteor.methods({
   'gallerys.insert'({ branch, url }) {
     const { userId } = this;
     if (!userId) {
-        throw Meteor.Error('Access denied');
+      throw Meteor.Error('Access denied');
     }
     check(branch, String);
     check(url, String);
-    
 
     if (!branch) {
       throw new Meteor.Error('Branch is required.');
@@ -19,14 +18,13 @@ Meteor.methods({
     if (!url) {
       throw new Meteor.Error('url is required.');
     }
-    
 
     return GallerysCollection.insert({
       branch,
       url,
-    
+
       createdAt: new Date(),
-      userid,
+      userId,
     });
   },
   'gallerys.archive'({ galleryId }) {

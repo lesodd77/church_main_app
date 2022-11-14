@@ -1,3 +1,3 @@
 export const PostRoles = {
-    ADMIN: 'admin',
+  ADMIN: 'admin',
 };

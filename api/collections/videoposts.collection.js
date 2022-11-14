@@ -13,11 +13,9 @@ const VideoPostsSchema = new SimpleSchema({
   },
   author: {
     type: String,
-
   },
   message: {
     type: String,
-
   },
 
   title: {
@@ -30,7 +28,6 @@ const VideoPostsSchema = new SimpleSchema({
   category: {
     type: String,
   },
-
 
   archived: {
     type: Boolean,

@@ -7,7 +7,7 @@ Meteor.methods({
   'contacts.insert'({ name, email, agreed, subject, message }) {
     const { userId } = this;
     if (!userId) {
-        throw Meteor.Error('Access denied');
+      throw Meteor.Error('Access denied');
     }
     check(name, String);
     check(email, String);
