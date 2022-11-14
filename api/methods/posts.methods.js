@@ -6,7 +6,7 @@ import { PostsCollection } from '../collections/posts.collection';
 import { PostRoles } from '../../infra/PostRoles';
 
 Meteor.methods({
-  'posts.insert'({ title, url, description, date, category, author, image }) {
+  'posts.insert' ({ title, url, image, author, description, category, date }) {
     const { userId } = this;
     if (!userId) {
       throw new Meteor.Error('Access denied');
@@ -51,7 +51,7 @@ Meteor.methods({
       userId,
     });
   },
-  'posts.remove'(postId) {
+  'posts.remove' (postId) {
     const { userId } = this;
     if (!userId) {
       throw new Meteor.Error('Access denied');
