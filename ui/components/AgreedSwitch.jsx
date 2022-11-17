@@ -15,7 +15,7 @@ export const AgreedSwitch = () => (
                     onClick={() => setAgreed((Agreed) => !Agreed)}
                     className={classNames(
                       agreed ? 'bg-sky-600' : 'bg-gray-600',
-                      'relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200'
+                      'relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200',
                     )}
                   >
                     <span className="sr-only">Agree to policies</span>
@@ -23,7 +23,7 @@ export const AgreedSwitch = () => (
                       aria-hidden="true"
                       className={classNames(
                         !agreed ? 'translate-x-5' : 'translate-x-0',
-                        'inline-block h-5 w-5 rounded-full bg-sky-50 shadow transform ring-0 transition ease-in-out duration-200'
+                        'inline-block h-5 w-5 rounded-full bg-sky-50 shadow transform ring-0 transition ease-in-out duration-200',
                       )}
                     />
                   </Switch>
@@ -45,4 +45,4 @@ export const AgreedSwitch = () => (
   </div>
 
     </>
-  );
+);

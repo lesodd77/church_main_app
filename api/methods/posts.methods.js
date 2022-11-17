@@ -6,10 +6,10 @@ import { PostsCollection } from '../collections/posts.collection';
 import { PostRoles } from '../../infra/PostRoles';
 
 Meteor.methods({
-  'posts.insert'({ title, url, description, date, category, author, image }) {
+  'posts.insert' ({ title, url, image, author, description, category, date }) {
     const { userId } = this;
     if (!userId) {
-        throw new Meteor.Error('Access denied');
+      throw new Meteor.Error('Access denied');
     }
     check(title, String);
     check(url, String);
@@ -40,27 +40,27 @@ Meteor.methods({
       throw new Meteor.Error('Content is required.');
     }
     return PostsCollection.insert({
-        title,
-         url,
-         date,
-         description,
-         author,
-         image,
-          category,
+      title,
+      url,
+      date,
+      description,
+      author,
+      image,
+      category,
       createdAt: new Date(),
       userId,
     });
   },
-  'posts.remove'(postId) {
+  'posts.remove' (postId) {
     const { userId } = this;
     if (!userId) {
-        throw new Meteor.Error('Access denied');
+      throw new Meteor.Error('Access denied');
     }
-   check(postId, String);
+    check(postId, String);
 
-   if (!Roles.userIsInRole(userId, PostRoles.ADMIN)) {
-   throw new Error('Permision denied');
-   }
-      return PostsCollection.remove(postId);
-    },
+    if (!Roles.userIsInRole(userId, PostRoles.ADMIN)) {
+      throw new Error('Permision denied');
+    }
+    return PostsCollection.remove(postId);
+  },
 });

@@ -1,6 +1,5 @@
 /* eslint-disable no-console */
 /* eslint-disable no-shadow */
-/* eslint-disable jsx-a11y/alt-text */
 // @ts-nocheck
 import React, { useState } from 'react';
 import { Meteor } from 'meteor/meteor';
@@ -8,7 +7,6 @@ import { ErrorAlert } from '../components/alerts/ErrorAlert';
 import { SuccessAlert } from '../components/alerts/SuccessAlert';
 import { Cloudinary } from 'meteor/socialize:cloudinary';
 import { useFind } from 'meteor/react-meteor-data';
-
 
 export const PostForm = () => {
   const [title, setTitle] = useState('');
@@ -41,14 +39,15 @@ export const PostForm = () => {
   const savePost = () => {
     Meteor.call(
       'posts.insert',
-      [{ title: 'My post',
+      {
+        title: 'My post',
         image: './img/simon.png',
         description: 'This is my first post',
         author: 'Simon Agbey',
-         url: 'https://res.cloudinary.com/swed-dev/image/upload/v1664221647/ghf_images/goodsamaritan_gusqtp.jpg',
-         category: 'article',
-         date: 13/11/22,
-         }],
+        url: 'https://res.cloudinary.com/swed-dev/image/upload/v1664221647/ghf_images/goodsamaritan_gusqtp.jpg',
+        category: 'article',
+        date: '13/11/22',
+      },
       errorResponse => {
         if (errorResponse) {
           showError({ message: errorResponse.error });
@@ -62,10 +61,9 @@ export const PostForm = () => {
 
           showSuccess({ message: 'Your Post saved and publish.' });
         }
-      }
+      },
     );
   };
-
 
   const handleImage = (files) => {
     const uploads = Cloudinary.uploadFiles(files);
@@ -74,7 +72,7 @@ export const PostForm = () => {
       console.log(photoData);
       setImage(photoData.public_id);
     });
-};
+  };
   return (
 <>
       <section
@@ -89,7 +87,6 @@ export const PostForm = () => {
           </h2>
 
         </div>
-
 
         <div className="relative max-w-4xl mx-auto shadow-sm shadow-cyan-900/50">
           <div className="relative z-20 bg-primary dark:bg-slate-900 rounded-lg p-8">
@@ -114,7 +111,7 @@ export const PostForm = () => {
         onChange={e => setCategory(e.target.value)}
         />
 
-       <input
+      <input
         id="title"
         label="title"
         type="text"
@@ -144,7 +141,7 @@ export const PostForm = () => {
 
         />
 
-     <input
+    <input
           type="file"
           id="image/*"
           accept="image/*, video/*"
@@ -173,7 +170,7 @@ export const PostForm = () => {
           onClick={savePost}
           data-aos="fade-left"
           className="mt-4 py-2 px-3 font-serif font-medium text-[18px] text-white bg-tertiaryOne rounded-[10px] outline-none hover:text-white hover:bg-opacity-40 transition ease-in-out duration-150"
-         >
+        >
           <span>Publish</span>
     </button>
 

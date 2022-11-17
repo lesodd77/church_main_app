@@ -1,6 +1,3 @@
-/* eslint-disable no-tabs */
-/* eslint-disable import/no-unresolved */
-/* eslint-disable jsx-a11y/alt-text */
 // @ts-nocheck
 import { Meteor } from 'meteor/meteor';
 import React, { Fragment, useEffect, useState } from 'react';
@@ -11,7 +8,7 @@ import { useLoggedUser } from 'meteor/quave:logged-user-react';
 import { useNavigate } from 'react-router-dom';
 import { RoutePaths } from '../general/RoutePaths';
 
-function classNames(...classes) {
+function classNames (...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
@@ -90,11 +87,13 @@ export const Navbar = () => {
                 {/* Mobile menu button */}
                 <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                   <span className="sr-only">Open menu</span>
-                  {open ? (
+                  {open
+                    ? (
                     <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
-                  ) : (
+                      )
+                    : (
                     <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
-                  )}
+                      )}
                 </Disclosure.Button>
               </div>
               <div className="hidden lg:relative lg:z-10 lg:ml-4 lg:flex lg:items-center">
@@ -106,7 +105,74 @@ export const Navbar = () => {
                   {theme === 'dark' ? '🌞' : '🌙'}
                   <span className="sr-only">dark mode switch</span>
                 </button>
-
+               {/* user */}
+               {!isLoadingLoggedUser && loggedUser && (
+                 <div className="space-y-1 px-2 pt-2 pb-3">
+              <Menu
+                as="div"
+                className="relative z-20 inline-block py-3 text-left"
+              >
+                <div>
+                  <Menu.Button className="relative inline-flex text-white items-center px-3 py-0 font-serif font-bold border border-transparent rounded-full text-md dark:bg-transparent dark:text-white">
+                   <img
+                      src="./img/simon.png"
+                      className="w-6 h-6 ml-2 -mr-1"
+                      aria-hidden="true"
+                    />
+                  </Menu.Button>
+                </div>
+                <Transition
+                  as={Fragment}
+                  enter="transition ease-out duration-100"
+                  enterFrom="transform opacity-0 scale-95"
+                  enterTo="transform opacity-100 scale-100"
+                  leave="transition ease-in duration-75"
+                  leaveFrom="transform opacity-100 scale-100"
+                  leaveTo="transform opacity-0 scale-95"
+                >
+                  <Menu.Items className="absolute right-0 w-full mt-5 origin-top-right divide-y divide-gray-100 rounded-md bg-primary ring-1 ring-primary ring-opacity-5 focus:outline-none">
+                    <div onClick={() => setNavbarOpen(!open)} className="py-1">
+                      <Menu.Item>
+                        {({ active }) => (
+                          <a
+                            href="#"
+                            className={classNames(
+                              active
+                                ? 'bg-tertiaryOne rounded-sm text-white'
+                                : 'text-white',
+                              'block px-4 py-2 text-sm',
+                            )}
+                          >
+                          Settings
+                          </a>
+                        )}
+                      </Menu.Item>
+                    </div>
+                    <div className="py-1">
+                      <Menu.Item>
+                        {({ active }) => (
+                         <a
+                             onClick={() => Meteor.logout()}
+                            className={classNames(
+                              active
+                                ? 'bg-tertiaryOne rounded-sm text-white'
+                                : 'text-white',
+                              'block px-4 py-2 text-sm',
+                            )}
+                          >
+                           Sign Out
+                          </a>
+                        )}
+                      </Menu.Item>
+                    </div>
+                  </Menu.Items>
+                </Transition>
+              </Menu>
+            </div>
+               )}
+      <div className="flex-auto text-sm font-medium text-white mt-2">
+    {loggedUser?.email}
+     </div>
                 {/* Profile dropdown */}
                 <Menu as="div" className="relative ml-4 flex-shrink-0">
                   <div>
@@ -121,15 +187,6 @@ export const Navbar = () => {
                           <span className="text-lg font-serif font-medium">
                             Sign-up
                           </span>
-                        </button>
-                      )}
-                      {!isLoadingLoggedUser && loggedUser && (
-                        <button
-                          onClick={() => Meteor.logout()}
-                          type="button"
-                          className="inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-2 py-1 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                        >
-                          Log Out
                         </button>
                       )}
                     </Menu.Button>
@@ -194,7 +251,7 @@ export const Navbar = () => {
                               active
                                 ? 'bg-tertiaryOne rounded-r-full text-white'
                                 : 'text-white',
-                              'block px-4 py-2 text-sm'
+                              'block px-4 py-2 text-sm',
                             )}
                           >
                             About
@@ -212,7 +269,7 @@ export const Navbar = () => {
                               active
                                 ? 'bg-tertiaryOne rounded-r-full text-white'
                                 : 'text-white',
-                              'block px-4 py-2 text-sm'
+                              'block px-4 py-2 text-sm',
                             )}
                           >
                             Testimonials
@@ -230,7 +287,7 @@ export const Navbar = () => {
                               active
                                 ? 'bg-tertiaryOne rounded-r-full text-white'
                                 : 'text-white',
-                              'block px-4 py-2 text-sm'
+                              'block px-4 py-2 text-sm',
                             )}
                           >
                             Gallery
@@ -248,7 +305,7 @@ export const Navbar = () => {
                               active
                                 ? 'bg-tertiaryOne rounded-r-full text-white'
                                 : 'text-white',
-                              'block px-4 py-2 text-sm'
+                              'block px-4 py-2 text-sm',
                             )}
                           >
                             Contact
@@ -292,7 +349,7 @@ export const Navbar = () => {
                               active
                                 ? 'bg-tertiaryOne rounded-r-full text-white'
                                 : 'text-white',
-                              'block px-4 py-2 text-sm'
+                              'block px-4 py-2 text-sm',
                             )}
                           >
                             Doctrine
@@ -309,7 +366,7 @@ export const Navbar = () => {
                               active
                                 ? 'bg-tertiaryOne rounded-r-full text-white'
                                 : 'text-white',
-                              'block px-4 py-2 text-sm'
+                              'block px-4 py-2 text-sm',
                             )}
                           >
                             Sabbath Sch.
@@ -326,7 +383,7 @@ export const Navbar = () => {
                               active
                                 ? 'bg-tertiaryOne rounded-r-full text-white'
                                 : 'text-white',
-                              'block px-4 py-2 text-sm'
+                              'block px-4 py-2 text-sm',
                             )}
                           >
                             Video
@@ -343,7 +400,7 @@ export const Navbar = () => {
                               active
                                 ? 'bg-tertiaryOne rounded-r-full text-white'
                                 : 'text-white',
-                              'block px-4 py-2 text-sm'
+                              'block px-4 py-2 text-sm',
                             )}
                           >
                             Books
@@ -387,7 +444,7 @@ export const Navbar = () => {
                               active
                                 ? 'bg-tertiaryOne rounded-r-full text-white'
                                 : 'text-white',
-                              'block px-4 py-2 text-sm'
+                              'block px-4 py-2 text-sm',
                             )}
                           >
                             Voluntary
@@ -404,7 +461,7 @@ export const Navbar = () => {
                               active
                                 ? 'bg-tertiaryOne rounded-r-full text-white'
                                 : 'text-white',
-                              'block px-4 py-2 text-sm'
+                              'block px-4 py-2 text-sm',
                             )}
                           >
                             Health
@@ -474,7 +531,7 @@ export const Navbar = () => {
                             active
                               ? 'bg-tertiaryOne rounded-r-full text-white'
                               : 'text-white',
-                            'block px-4 py-2 text-sm'
+                            'block px-4 py-2 text-sm',
                           )}
                         >
                           About
@@ -491,7 +548,7 @@ export const Navbar = () => {
                             active
                               ? 'bg-tertiaryOne rounded-r-full text-white'
                               : 'text-white',
-                            'block px-4 py-2 text-sm'
+                            'block px-4 py-2 text-sm',
                           )}
                         >
                           Testimonials
@@ -508,7 +565,7 @@ export const Navbar = () => {
                             active
                               ? 'bg-tertiaryOne rounded-r-full text-white'
                               : 'text-white',
-                            'block px-4 py-2 text-sm'
+                            'block px-4 py-2 text-sm',
                           )}
                         >
                           Gallery
@@ -525,7 +582,7 @@ export const Navbar = () => {
                             active
                               ? 'bg-tertiaryOne rounded-r-full text-white'
                               : 'text-white',
-                            'block px-4 py-2 text-sm'
+                            'block px-4 py-2 text-sm',
                           )}
                         >
                           Contact
@@ -570,7 +627,7 @@ export const Navbar = () => {
                               active
                                 ? 'bg-tertiaryOne rounded-r-full text-white'
                                 : 'text-white',
-                              'block px-4 py-2 text-sm'
+                              'block px-4 py-2 text-sm',
                             )}
                           >
                             Doctrine
@@ -587,7 +644,7 @@ export const Navbar = () => {
                               active
                                 ? 'bg-tertiaryOne rounded-r-full text-white'
                                 : 'text-white',
-                              'block px-4 py-2 text-sm'
+                              'block px-4 py-2 text-sm',
                             )}
                           >
                             Sabbath Sch.
@@ -605,7 +662,7 @@ export const Navbar = () => {
                               active
                                 ? 'bg-tertiaryOne rounded-r-full text-white'
                                 : 'text-white',
-                              'block px-4 py-2 text-sm'
+                              'block px-4 py-2 text-sm',
                             )}
                           >
                             Videos
@@ -622,7 +679,7 @@ export const Navbar = () => {
                               active
                                 ? 'bg-tertiaryOne rounded-r-full text-white'
                                 : 'text-white',
-                              'block px-4 py-2 text-sm'
+                              'block px-4 py-2 text-sm',
                             )}
                           >
                             Books
@@ -668,7 +725,7 @@ export const Navbar = () => {
                               active
                                 ? 'bg-tertiaryOne rounded-r-full text-white'
                                 : 'text-white',
-                              'block px-4 py-2 text-sm'
+                              'block px-4 py-2 text-sm',
                             )}
                           >
                             Voluntary
@@ -685,7 +742,7 @@ export const Navbar = () => {
                               active
                                 ? 'bg-tertiaryOne rounded-r-full text-white'
                                 : 'text-white',
-                              'block px-4 py-2 text-sm'
+                              'block px-4 py-2 text-sm',
                             )}
                           >
                             Health
@@ -731,15 +788,74 @@ export const Navbar = () => {
                     </span>
                   </button>
                 )}
+                {/* user */}
                 {!isLoadingLoggedUser && loggedUser && (
-                  <button
-                    onClick={() => Meteor.logout()}
-                    type="button"
-                    className="inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-2 py-1 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                  >
-                    Log Out
-                  </button>
+                 <div className="space-y-1 px-2 pt-2 pb-3">
+              <Menu
+                as="div"
+                className="relative z-20 inline-block py-3 text-left"
+              >
+                <div>
+                  <Menu.Button className="relative inline-flex text-white items-center px-3 py-0 font-serif font-bold border border-transparent rounded-full text-md dark:bg-transparent dark:text-white">
+                   <img
+                      src="./img/simon.png"
+                      className="w-6 h-6 ml-2 -mr-1"
+                      aria-hidden="true"
+                    />
+                  </Menu.Button>
+                </div>
+                <Transition
+                  as={Fragment}
+                  enter="transition ease-out duration-100"
+                  enterFrom="transform opacity-0 scale-95"
+                  enterTo="transform opacity-100 scale-100"
+                  leave="transition ease-in duration-75"
+                  leaveFrom="transform opacity-100 scale-100"
+                  leaveTo="transform opacity-0 scale-95"
+                >
+                  <Menu.Items className="absolute right-0 w-full mt-5 origin-top-right divide-y divide-gray-100 rounded-md bg-primary dark:slate-900 ring-1 ring-primary ring-opacity-5 focus:outline-none">
+                    <div onClick={() => setNavbarOpen(!open)} className="py-1">
+                      <Menu.Item>
+                        {({ active }) => (
+                          <a
+                            href="#"
+                            className={classNames(
+                              active
+                                ? 'bg-tertiaryOne rounded-sm text-white'
+                                : 'text-white',
+                              'block px-5 py-4 text-sm',
+                            )}
+                          >
+                          Settings
+                          </a>
+                        )}
+                      </Menu.Item>
+                    </div>
+                    <div className="py-1">
+                      <Menu.Item>
+                        {({ active }) => (
+                         <a
+                             onClick={() => Meteor.logout()}
+                             className={classNames(
+                               active
+                                 ? 'bg-tertiaryOne rounded-sm text-white'
+                                 : 'text-white',
+                               'block w-full px-4 py-2 text-left text-sm',
+                             )}
+                          >
+                           Sign Out
+                          </a>
+                        )}
+                      </Menu.Item>
+                    </div>
+                  </Menu.Items>
+                </Transition>
+              </Menu>
+            </div>
                 )}
+      <div className="flex-auto text-sm font-medium text-white mt-2">
+    {loggedUser?.email}
+     </div>
               </div>
             </div>
           </Disclosure.Panel>

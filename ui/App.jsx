@@ -1,5 +1,4 @@
 // @ts-nocheck
-/* eslint-disable import/no-unresolved */
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Main } from './components/general/Main';
@@ -7,14 +6,13 @@ import { AlertProvider, Alert } from 'meteor/quave:alert-react-tailwind';
 import { Header } from './components/header/Header';
 import { Footer } from './components/footer/Footer';
 
-
 export const App = () => (
   <Router>
     <AlertProvider>
       <Header />
-    <div className="bg-indigo-50 h-full">
+    <div className="bg-slate-50 h-full">
         <Alert />
-        <div className="grmax-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-24 lg:px-8 lg:flex lg:items-center lg:justify-between">
+        <div className="flex flex-col min-h-screen">
           <Main />
         </div>
       </div>

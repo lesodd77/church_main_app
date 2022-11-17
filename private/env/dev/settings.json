@@ -1,10 +1,10 @@
 {
   "packages": {
       "quave:email-postmark": {
-          "from": "example.com",
-          "apiToken": "piToken"
+          "from": "support@simonwebdev.com",
+          "apiToken": "83562c14-a00e-4ab0-afad-f6ed649b1895"
       }
   },
-  "googleClientId": "googleClientId",
-   "googleSecret": "googleSecret"
+  "googleClientId": "734266201542-qr01su4iudao4ooidt4oaiis6b6hoo9i.apps.googleusercontent.com",
+   "googleSecret": "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"
 }

@@ -4,31 +4,33 @@ import { check } from 'meteor/check';
 import { NotifyEmailsCollection } from '../collections/NotifyEmailsCollection';
 
 Meteor.methods({
-  'notifyemails.insert'({ email }) {
-    check(email, String);
-    
-    if (!email) {
+  'notifyemails.insert' ({ notifyemail }) {
+    check(notifyemail, String);
+
+    if (!notifyemail) {
       throw new Meteor.Error('Email is required.');
     }
-   
+
     return NotifyEmailsCollection.insert({
-   
-      email,
-      
+      notifyemail,
+
       createdAt: new Date(),
     });
   },
-  'notifyemails.archive'({ notifyemailId }) {
+  'notifyemails.archive' ({ notifyemailId }) {
     check(notifyemailId, String);
 
-    NotifyEmailsCollection.update({ _id: notifyemailId }, { $set: { archived: true } });
+    NotifyEmailsCollection.update(
+      { _id: notifyemailId },
+      { $set: { archived: true } },
+    );
   },
-  'notifyemails.remove'({ notifyemailId }) {
+  'notifyemails.remove' ({ notifyemailId }) {
     check(notifyemailId, String);
 
     NotifyEmailsCollection.remove(notifyemailId);
   },
-  'notifyemails.update'({ notifyemailId }) {
+  'notifyemails.update' ({ notifyemailId }) {
     check(notifyemailId, String);
 
     NotifyEmailsCollection.update(notifyemailId);

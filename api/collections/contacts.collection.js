@@ -10,7 +10,6 @@ const ContactsSchema = new SimpleSchema({
   },
   email: {
     type: String,
-   
   },
   subject: {
     type: String,

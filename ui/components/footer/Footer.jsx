@@ -121,7 +121,7 @@ export const Footer = () => {
 
   return (
     <footer
-      className="bg-primary dark:bg-slate-900"
+      className="bg-primary dark:bg-slate-900 mt-auto"
       aria-labelledby="footer-heading"
     >
       <h2 id="footer-heading" className="sr-only">

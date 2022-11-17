@@ -19,5 +19,5 @@ module.exports = ctx => {
 
     return config;
   }
-    return {};
+  return {};
 };

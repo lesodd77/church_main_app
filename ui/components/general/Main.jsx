@@ -112,9 +112,9 @@ export const Main = () => (
       />
       <Route
         element={
-          <AdminOnly>
+          <LoggedUserOnly>
             <Post />
-          </AdminOnly>
+          </LoggedUserOnly>
         }
         path={RoutePaths.POST}
       />

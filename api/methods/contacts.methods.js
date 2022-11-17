@@ -4,10 +4,10 @@ import { check } from 'meteor/check';
 import { ContactsCollection } from '../collections/contacts.collection';
 
 Meteor.methods({
-  'contacts.insert'({ name, email, agreed, subject, message }) {
+  'contacts.insert' ({ name, email, agreed, subject, message }) {
     const { userId } = this;
     if (!userId) {
-        throw Meteor.Error('Access denied');
+      throw Meteor.Error('Access denied');
     }
     check(name, String);
     check(email, String);
@@ -40,17 +40,17 @@ Meteor.methods({
       userId,
     });
   },
-  'contacts.archive'({ contactId }) {
+  'contacts.archive' ({ contactId }) {
     check(contactId, String);
 
     ContactsCollection.update({ _id: contactId }, { $set: { archived: true } });
   },
-  'contacts.remove'({ contactId }) {
+  'contacts.remove' ({ contactId }) {
     check(contactId, String);
 
     ContactsCollection.remove(contactId);
   },
-  'contacts.update'({ contactId }) {
+  'contacts.update' ({ contactId }) {
     check(contactId, String);
 
     ContactsCollection.update(contactId);

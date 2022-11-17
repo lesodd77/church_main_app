@@ -1,10 +1,10 @@
 // @ts-nocheck
 import { Accounts } from 'meteor/accounts-base';
-import { PostsCollection } from '../api/collections/posts.collection';
+// import { PostsCollection } from '../api/collections/posts.collection';
 import { Meteor } from 'meteor/meteor';
 import { ServiceConfiguration } from 'meteor/service-configuration';
 
-function getEmailFromUser(user) {
+function getEmailFromUser (user) {
   if (user.services?.google) {
     return user.services.google.email;
   }
@@ -14,9 +14,8 @@ function getEmailFromUser(user) {
 Accounts.onCreateUser((options, user) => {
   const customizedUser = { ...user };
 
-  PostsCollection.insert({ userId: user._id, createdAt: new Date() });
-  console.log(user);
-  console.log(option);
+  // TODO: Figurue out what we want to insert in the posts collection when a user is created
+  // PostsCollection.insert({ userId: user._id, createdAt: new Date() });
   customizedUser.email = getEmailFromUser(user);
   return customizedUser;
 });
@@ -33,7 +32,7 @@ Meteor.startup(() => {
     throw new Error('googleClientId and googleSecret are required');
   }
 
-  // Accounts.config({ restrictedCreateionByEmailDomain: 'swed.com' });
+  // Accounts.config({ restrictedCreateionByEmailDomain: 'simonwebdev.com' });
 
   ServiceConfiguration.configurations.upsert(
     {
@@ -46,6 +45,6 @@ Meteor.startup(() => {
         clientId: settings.googleClientId,
         secret: settings.googleSecret,
       },
-    }
+    },
   );
 });

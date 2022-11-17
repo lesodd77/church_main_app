@@ -2,7 +2,7 @@
 // @ts-nocheck
 import React, { Suspense } from 'react';
 import { Loading } from '../ui/components/spinner/Loading';
-import { createRoot} from 'react-dom/client';
+import { createRoot } from 'react-dom/client';
 import { Meteor } from 'meteor/meteor';
 import { App } from '../ui/App';
 import { Cloudinary } from 'meteor/socialize:cloudinary';
@@ -21,6 +21,6 @@ Meteor.startup(() => {
         <App />
       </Suspense>
       ;
-    </>
+    </>,
   );
 });
