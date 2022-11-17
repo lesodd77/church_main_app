@@ -1,14 +1,8 @@
 
-  {
-    "public": {
-      "cloudinary_cloud_name": "local-school",
-      "cloudinary_api_key": "731856422674521"
-    },
-    "cloudinary_api_secret": "76aKbkrPKLjEILcKi5gpR3VoXa0"
-  }
-
-
-
-//swed-upload-s3-bucket
-  //Access key ID: AKIAXEKZWRNJCVY6LVHT
-  //secret key: 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
+    {
+      "public": {
+        "cloudinary_cloud_name": "cloud_name",
+        "cloudinary_api_key": "api_key"
+      },
+      "cloudinary_api_secret": "api_secret"
+    }
