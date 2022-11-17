@@ -826,7 +826,7 @@ export const Navbar = () => {
                               'block px-5 py-4 text-sm',
                             )}
                           >
-            gs
+                          Settings
                           </a>
                         )}
                       </Menu.Item>
