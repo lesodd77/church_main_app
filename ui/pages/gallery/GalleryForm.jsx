@@ -1,13 +1,9 @@
 // @ts-nocheck
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Meteor } from 'meteor/meteor';
 import { ErrorAlert } from '../../components/alerts/ErrorAlert';
 import { SuccessAlert } from '../../components/alerts/SuccessAlert';
 import { Input } from '../../post/index';
-
-function classNames (...classes) {
-  return classes.filter(Boolean).join(' ');
-}
 
 export const GalleryForm = () => {
   const [branch, setBranch] = useState('');

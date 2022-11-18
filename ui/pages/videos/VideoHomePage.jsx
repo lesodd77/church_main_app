@@ -1,5 +1,4 @@
 // @ts-nocheck
-import { Meteor } from 'meteor/meteor';
 import React, { memo } from 'react';
 import { VideoPostsCollection } from '../../../api/collections/videoposts.collection';
 import { useSubscribe, useFind } from 'meteor/react-meteor-data';

@@ -2,13 +2,18 @@ import React, { useEffect, useState } from 'react';
 import moment from 'moment';
 
 export const Comments = () => {
-  const [comments, setComments] = useState([]);
+  const [
+    comments,
+    // re-enable this once getComments is defined and working
+    // setComments,
+  ] = useState([]);
 
   useEffect(() => {
-    // @ts-ignore
-    getComments(slug).then((result) => {
-      setComments(result);
-    });
+    // getComments() was not defined so it has been
+    // commented out so the application doesn't throw errors
+    // getComments(slug).then((result) => {
+    //   setComments(result);
+    // });
   }, []);
 
   return (
@@ -26,8 +31,9 @@ export const Comments = () => {
               </p>
               <p className="whitespace-pre-line text-gray-600 w-full">
                 {
-                  // @ts-ignore
-                  parse(comment.comment)
+                  // parse was not defined so it has been
+                  // commented out to disable it for now
+                  // parse(comment.comment)
                 }
               </p>
             </div>

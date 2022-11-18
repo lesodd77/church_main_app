@@ -24,4 +24,9 @@ module.exports = {
     'react/prop-types': 'off',
     'react/display-name': 'off',
   },
+  settings: {
+    react: {
+      version: 'detect',
+    },
+  },
 };

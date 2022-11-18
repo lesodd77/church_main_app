@@ -1,9 +1,6 @@
-/* eslint-disable jsx-a11y/no-redundant-roles */
-// @ts-nocheck
 import React, { memo } from 'react';
 import { CommentsCollection } from '../../api/collections/comments.collection';
 import { useSubscribe, useFind } from 'meteor/react-meteor-data';
-// eslint-disable-next-line import/no-unresolved
 import { Loading } from '../components/spinner/Loading';
 
 export const CommentList = () => {
