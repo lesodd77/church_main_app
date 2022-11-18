@@ -1,8 +1,11 @@
 
-    {
-      "public": {
-        "cloudinary_cloud_name": "cloud_name",
-        "cloudinary_api_key": "api_key"
-      },
-      "cloudinary_api_secret": "api_secret"
-    }
+  {
+    "public": {
+      "cloudinary_cloud_name": "swed-dev",
+      "cloudinary_api_key": "148712448221992"
+    },
+    "cloudinary_api_secret": "G3Bf7dTD0JCpapjVTY7b-kURGhU"
+    
+  }
+
+ 

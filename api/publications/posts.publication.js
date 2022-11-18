@@ -15,6 +15,4 @@ Meteor.publish('myPosts', function publishAllPosts () {
       },
     },
   );
-  // console.log(posts);
-  // return posts;
 });

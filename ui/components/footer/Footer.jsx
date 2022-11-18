@@ -1,32 +1,43 @@
 // @ts-nocheck
+/* eslint-disable no-undef */
 import React, { useState, useEffect } from 'react';
 import { Meteor } from 'meteor/meteor';
 // eslint-disable-next-line import/no-unresolved
-import { ErrorAlert } from '../alerts/ErrorAlert';
+import { ErrorAlert } from '../../components/alerts/ErrorAlert';
 // eslint-disable-next-line import/no-unresolved
-import { SuccessAlert } from '../alerts/SuccessAlert';
+import { SuccessAlert } from '../../components/alerts/SuccessAlert';
+import AOS from 'aos';
 import { Share } from '../logos/index';
-import { FacebookShareButton, WhatsappShareButton } from 'react-share';
-import { FacebookIcon, WhatsappIcon } from 'react-share';
+import 'aos/dist/aos.css';
+import {
+  FacebookShareButton,
+  WhatsappShareButton,
+
+  FacebookIcon,
+  WhatsappIcon,
+
+} from 'react-share';
 const navigation = {
   solutions: [
     { name: 'Volutary', href: 'voluntary' },
     { name: 'Health Centers', href: 'health' },
+
   ],
   support: [
     { name: 'Doctrine', href: 'doctrine' },
     { name: 'Sabbath School', href: '#' },
     { name: 'Books', href: '#' },
+
   ],
   company: [
     { name: 'News', href: 'news' },
     { name: 'testimonial', href: 'testimonials' },
-    { name: 'Contact', href: 'contact' },
+    { name: 'About', href: 'about' },
   ],
   address: [
     { name: 'News', href: 'news' },
     { name: 'testimonial', href: 'testimonials' },
-    { name: 'Contact', href: 'contact' },
+    { name: 'Contact', href: 'contact-form' },
   ],
   legal: [
     { name: 'Privacy', href: 'privacy' },
@@ -37,7 +48,7 @@ const navigation = {
     {
       name: 'Facebook',
       href: 'https://www.facebook.com/Imsghmmdept/',
-      icon: (props) => (
+      icon: props => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path
             fillRule="evenodd"
@@ -50,7 +61,7 @@ const navigation = {
     {
       name: 'Instagram',
       href: '#',
-      icon: (props) => (
+      icon: props => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path
             fillRule="evenodd"
@@ -63,7 +74,7 @@ const navigation = {
     {
       name: 'Twitter',
       href: '#',
-      icon: (props) => (
+      icon: props => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
         </svg>
@@ -73,7 +84,7 @@ const navigation = {
     {
       name: 'Dribbble',
       href: '#',
-      icon: (props) => (
+      icon: props => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path
             fillRule="evenodd"
@@ -108,22 +119,31 @@ export const Footer = () => {
   };
 
   const saveEmail = () => {
-    Meteor.call('notifyemails.insert', { notifyemail }, (errorResponse) => {
-      if (errorResponse) {
-        showError({ message: errorResponse.error });
-      } else {
-        setEmail('');
+    Meteor.call(
+      'notifyemails.insert',
+      { notifyemail },
+      errorResponse => {
+        if (errorResponse) {
+          showError({ message: errorResponse.error });
+        } else {
+          setEmail('');
 
-        showSuccess({ message: 'Email saved.' });
-      }
-    });
+          showSuccess({ message: 'Email saved.' });
+        }
+      },
+    );
   };
-
+  useEffect(() => {
+    AOS.init({
+      delay: 200,
+      duration: 1200,
+      once: false,
+    // @ts-ignore
+    }, []);
+  });
   return (
-    <footer
-      className="bg-primary dark:bg-slate-900 mt-auto"
-      aria-labelledby="footer-heading"
-    >
+
+    <footer className="bg-primary dark:bg-slate-900" aria-labelledby="footer-heading">
       <h2 id="footer-heading" className="sr-only">
         Footer
       </h2>
@@ -136,10 +156,7 @@ export const Footer = () => {
                 <ul role="list" className="mt-4 space-y-4">
                   {navigation.solutions.map((item) => (
                     <li key={item.name}>
-                      <a
-                        href={item.href}
-                        className="text-base text-gray-300 hover:text-white"
-                      >
+                      <a href={item.href} className="text-base text-gray-300 hover:text-white">
                         {item.name}
                       </a>
                     </li>
@@ -147,14 +164,11 @@ export const Footer = () => {
                 </ul>
               </div>
               <div className="mt-12 md:mt-0">
-                <h3 className="font-medium text-tertiaryOne">Support</h3>
+                <h3 className="text-tertiaryOne font-medium">Support</h3>
                 <ul role="list" className="mt-4 space-y-4">
                   {navigation.support.map((item) => (
                     <li key={item.name}>
-                      <a
-                        href={item.href}
-                        className="text-base text-gray-300 hover:text-white"
-                      >
+                      <a href={item.href} className="text-base text-gray-300 hover:text-white">
                         {item.name}
                       </a>
                     </li>
@@ -168,10 +182,7 @@ export const Footer = () => {
                 <ul role="list" className="mt-4 space-y-4">
                   {navigation.company.map((item) => (
                     <li key={item.name}>
-                      <a
-                        href={item.href}
-                        className="text-base text-gray-300 hover:text-white"
-                      >
+                      <a href={item.href} className="text-base text-gray-300 hover:text-white">
                         {item.name}
                       </a>
                     </li>
@@ -183,10 +194,7 @@ export const Footer = () => {
                 <ul role="list" className="mt-4 space-y-4">
                   {navigation.legal.map((item) => (
                     <li key={item.name}>
-                      <a
-                        href={item.href}
-                        className="text-base text-gray-300 hover:text-white transition-transform hover:scale-125"
-                      >
+                      <a href={item.href} className="text-base text-gray-300 hover:text-white transition-transform hover:scale-125">
                         {item.name}
                       </a>
                     </li>
@@ -198,17 +206,14 @@ export const Footer = () => {
         </div>
         <div className="border-t border-gray-700 pt-8 lg:flex lg:items-center lg:justify-between xl:mt-0">
           <div>
-            <h3 className="text-base font-medium text-white">
-              Subscribe to our newsletter
-            </h3>
+            <h3 className="text-base font-medium text-white">Subscribe to our newsletter</h3>
             <p className="mt-2 text-base text-gray-300">
-              The latest news, articles, and resources, sent to your inbox
-              weekly.
+              The latest news, articles, and resources, sent to your inbox weekly.
             </p>
           </div>
           <form className="mt-4 sm:flex sm:max-w-md lg:mt-0">
             {error && <ErrorAlert message={error} />}
-            {success && <SuccessAlert message={success} />}
+              {success && <SuccessAlert message={success} />}
             <label htmlFor="email-address" className="sr-only">
               Email address
             </label>
@@ -219,7 +224,7 @@ export const Footer = () => {
               autoComplete="email"
               required
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={e => setEmail(e.target.value)}
               className="w-full min-w-0 appearance-none rounded-md border border-transparent bg-white dark:bg-slate-700 dark:text-white py-2 px-4 text-base text-gray-900 placeholder-gray-500 focus:border-transparent focus:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 sm:max-w-xs"
               placeholder="Enter your email"
             />
@@ -235,31 +240,36 @@ export const Footer = () => {
           </form>
         </div>
 
-        <div className="mt-8 border-t border-gray-700 pt-8 md:flex md:items-center md:justify-between">
-          <div className="flex space-x-6 md:order-2">
-            <div className="ml-4">
-              <Share />
-            </div>
+    <div className="mt-8 border-t border-gray-700 pt-8 md:flex md:items-center md:justify-between">
+        <div className="flex space-x-6 md:order-2">
 
-            <div className="ml-4">
-              <WhatsappShareButton url={shareUrl}>
-                <WhatsappIcon className="w-7 h-7 rounded-full transition-transform hover:scale-125 hover:text-tertiaryOne" />
-              </WhatsappShareButton>
-            </div>
-            <div className="ml-4">
-              <FacebookShareButton url={shareUrl}>
-                <FacebookIcon className="w-7 h-7 rounded-full transition-transform hover:scale-125 hover:text-tertiaryOne" />
-              </FacebookShareButton>
-            </div>
-          </div>
-          <p className="mt-8 text-base text-tertiaryOne md:order-1 md:mt-0">
-           
-          </p>
+        <div className="ml-4">
+          <Share />
         </div>
-        <p className="mt-8 text-base text-gray-400 md:order-1 md:mt-0">
-          &copy; 2022 All rights reserved.
+
+        <div className="ml-4">
+<WhatsappShareButton url={shareUrl}>
+  <WhatsappIcon className="w-7 h-7 rounded-full transition-transform hover:scale-125 hover:text-tertiaryOne" />
+</WhatsappShareButton>
+</div>
+<div className="ml-4">
+
+<FacebookShareButton url={shareUrl}>
+  <FacebookIcon className="w-7 h-7 rounded-full transition-transform hover:scale-125 hover:text-tertiaryOne" />
+</FacebookShareButton>
+</div>
+        </div>
+        <p className="mt-8 text-base text-tertiaryOne md:order-1 md:mt-0">
+        #9 Southwest Mccarthy Hill Accra
+        Post Box OD 1088 Odorkor - Accra
         </p>
       </div>
-    </footer>
+      <p className="mt-8 text-base text-gray-400 md:order-1 md:mt-0">
+
+      &copy; 2022 Ims Ghana Field. All rights reserved.
+        </p>
+</div>
+
+</footer>
   );
 };

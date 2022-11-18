@@ -1,4 +1,5 @@
 // @ts-nocheck
+/* eslint-disable import/no-unresolved */
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Main } from './components/general/Main';

@@ -14,30 +14,30 @@ const categories = [
   {
     name: 'Kakasunanka',
     href: 'gallery',
-    imageSrc: 'https://res.cloudinary.com/dungxxzhh/image/upload/v1663456543/ghf_images/ghf_kakasunanka_redvvd.jpg',
+    imageSrc: 'https://res.cloudinary.com/swed-dev/image/upload/v1663456543/ghf_images/ghf_kakasunanka_redvvd.jpg',
   },
   {
     name: 'Teshie',
     href: 'gallery',
-    imageSrc: 'https://res.cloudinary.com/dungxxzhh/image/upload/v1663456543/ghf_images/ghf_teshie_xy1zvq.jpg',
+    imageSrc: 'https://res.cloudinary.com/swed-dev/image/upload/v1663456543/ghf_images/ghf_teshie_xy1zvq.jpg',
   },
 
   {
     name: 'Atadeka',
     href: '#',
-    imageSrc: 'https://res.cloudinary.com/dungxxzhh/image/upload/v1663458591/ghf_images/PHOTO-2022-09-17-09-00-33_ovt328.jpg',
+    imageSrc: 'https://res.cloudinary.com/swed-dev/image/upload/v1663456541/ghf_images/ghf_atadeka_co0jsw.jpg',
   },
   {
     name: 'Hohoe Camp meeting',
     href: '#',
-    imageSrc: 'https://res.cloudinary.com/dungxxzhh/image/upload/v1663456541/ghf_images/ghf_hohoe_cm_uybaxl.jpg',
+    imageSrc: 'https://res.cloudinary.com/swed-dev/image/upload/v1663456541/ghf_images/ghf_hohoe_cm_uybaxl.jpg',
   },
   {
     name: 'Jericho',
     href: 'gallery',
-     imageSrc: 'https://res.cloudinary.com/swed-dev/image/upload/v1663456542/ghf_images/ghf_jericho_npfheb.jpg' },
+    imageSrc: 'https://res.cloudinary.com/swed-dev/image/upload/v1663456542/ghf_images/ghf_jericho_npfheb.jpg',
+  },
 ];
-
 
 export const Home = () => (
     <>
@@ -46,7 +46,6 @@ export const Home = () => (
       <PostHomePage />
       <Feature />
       <OfficersHome />
-
 
       <div
 className=" bg-white dark:bg-slate-900">
@@ -99,4 +98,4 @@ className=" bg-white dark:bg-slate-900">
         <ContactForm />
       </main>
     </>
-  );
+);

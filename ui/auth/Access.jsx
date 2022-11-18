@@ -18,7 +18,7 @@ export const Access = () => {
     Meteor.loginWithFacebook({ loginStyle: 'redirect' });
   };
   return (
-  <div className="flex flex-col items-center space-y-4">
+  <div className="flex flex-col items-center space-y-7">
     <div>
     <Passwordless
     onEnterToken={onEnterToken}

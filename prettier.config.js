@@ -1,2 +1,2 @@
 // @ts-nocheck
-module.exports = require('@quave/eslint-config-quave/prettier.config');
+export { default } from '@quave/eslint-config-quave/prettier.config';
