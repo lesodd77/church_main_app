@@ -5,7 +5,7 @@ import SimpleSchema from 'simpl-schema';
 export const NotifyEmailsCollection = new Mongo.Collection('notifyemails');
 
 const NotifyEmailsSchema = new SimpleSchema({
-  email: {
+  notifyemail: {
     type: String,
   },
 

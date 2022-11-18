@@ -1,6 +1,3 @@
-/* eslint-disable no-tabs */
-/* eslint-disable import/no-unresolved */
-/* eslint-disable jsx-a11y/alt-text */
 // @ts-nocheck
 import { Meteor } from 'meteor/meteor';
 import React, { Fragment, useEffect, useState } from 'react';
@@ -108,7 +105,75 @@ export const Navbar = () => {
                   {theme === 'dark' ? '🌞' : '🌙'}
                   <span className="sr-only">dark mode switch</span>
                 </button>
-
+               {/* user */}
+               {!isLoadingLoggedUser && loggedUser && (
+                 <div className="space-y-1 px-2 pt-2 pb-3">
+              <Menu
+                as="div"
+                className="relative z-20 inline-block py-3 text-left"
+              >
+                <div>
+                  <Menu.Button className="relative inline-flex  text-white items-center px-3 py-0 font-serif font-bold border border-transparent rounded-full text-md dark:bg-transparent dark:text-white">
+                   <img
+                      src="./img/simon.png"
+                      className="w-6 h-6 ml-2 -mr-1"
+                      aria-hidden="true"
+                    />
+                  </Menu.Button>
+                </div>
+                <Transition
+                  as={Fragment}
+                  enter="transition ease-out duration-100"
+                  enterFrom="transform opacity-0 scale-95"
+                  enterTo="transform opacity-100 scale-100"
+                  leave="transition ease-in duration-75"
+                  leaveFrom="transform opacity-100 scale-100"
+                  leaveTo="transform opacity-0 scale-95"
+                >
+                <Menu.Items className="absolute left-0 z-10 mt-8 w-56 origin-top-right rounded-md bg-primary dark:bg-slate-900 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                    <div onClick={() => setNavbarOpen(!open)} className="py-1">
+                      <Menu.Item>
+                        {({ active }) => (
+                          <a
+                            href="#"
+                            className={classNames(
+                              active
+                                ? 'bg-tertiaryOne rounded-sm text-white'
+                                : 'text-white',
+                              'block px-4 py-2 text-sm',
+                            )}
+                          >
+                          Settings
+                          </a>
+                        )}
+                      </Menu.Item>
+                    </div>
+                    <div className="py-1">
+                      <Menu.Item>
+                        {({ active }) => (
+                         <button
+                             onClick={() => Meteor.logout()}
+                             type='button'
+                            className={classNames(
+                              active
+                                ? 'bg-tertiaryOne rounded-sm text-white'
+                                : 'text-white',
+                              'block w-full px-4 py-2 text-left text-sm',
+                            )}
+                          >
+                           Sign Out
+                          </button>
+                        )}
+                      </Menu.Item>
+                    </div>
+                  </Menu.Items>
+                </Transition>
+              </Menu>
+            </div>
+               )}
+      <div className="flex-auto text-sm font-medium text-white mt-2">
+    {loggedUser?.email}
+     </div>
                 {/* Profile dropdown */}
                 <Menu as="div" className="relative ml-4 flex-shrink-0">
                   <div>
@@ -118,20 +183,11 @@ export const Navbar = () => {
                         <button
                           onClick={() => navigate(RoutePaths.ACCESS)}
                           type="button"
-                          className="inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-2 py-1 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                          className="h-8 w-25 px-4 font-semibold rounded-md bg-cyan-700/75 border text-white shadow-lg"
                         >
-                          <span className="text-lg font-serif font-medium">
+                          <span className="text-lg font-serif font-semibold">
                             Sign-up
                           </span>
-                        </button>
-                      )}
-                      {!isLoadingLoggedUser && loggedUser && (
-                        <button
-                          onClick={() => Meteor.logout()}
-                          type="button"
-                          className="inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-2 py-1 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                        >
-                          Log Out
                         </button>
                       )}
                     </Menu.Button>
@@ -244,7 +300,7 @@ export const Navbar = () => {
                       <Menu.Item>
                         {({ active }) => (
                           <button
-                            onClick={() => navigate(RoutePaths.CONTACT)}
+                            onClick={() => navigate(RoutePaths.CONTACTFORM)}
                             type="button"
                             className={classNames(
                               active
@@ -288,8 +344,9 @@ export const Navbar = () => {
                     <div onClick={() => setNavbarOpen(!open)} className="py-1">
                       <Menu.Item>
                         {({ active }) => (
-                          <a
-                            href="doctrine"
+                           <button
+                           onClick={() => navigate(RoutePaths.DOCTRINE)}
+                           type="button"
                             className={classNames(
                               active
                                 ? 'bg-tertiaryOne rounded-r-full text-white'
@@ -298,15 +355,16 @@ export const Navbar = () => {
                             )}
                           >
                             Doctrine
-                          </a>
+                          </button>
                         )}
                       </Menu.Item>
                     </div>
                     <div className="py-1">
                       <Menu.Item>
                         {({ active }) => (
-                          <a
-                            href="sabbathSchool"
+                          <button
+                          onClick={() => navigate(RoutePaths.SABBATHSCHOOL)}
+                          type="button"
                             className={classNames(
                               active
                                 ? 'bg-tertiaryOne rounded-r-full text-white'
@@ -315,15 +373,16 @@ export const Navbar = () => {
                             )}
                           >
                             Sabbath Sch.
-                          </a>
+                          </button>
                         )}
                       </Menu.Item>
                     </div>
                     <div className="py-1">
                       <Menu.Item>
                         {({ active }) => (
-                          <a
-                            href="videopost"
+                           <button
+                           onClick={() => navigate(RoutePaths.HEALTH)}
+                           type="button"
                             className={classNames(
                               active
                                 ? 'bg-tertiaryOne rounded-r-full text-white'
@@ -332,15 +391,16 @@ export const Navbar = () => {
                             )}
                           >
                             Video
-                          </a>
+                          </button>
                         )}
                       </Menu.Item>
                     </div>
                     <div className="py-1">
                       <Menu.Item>
                         {({ active }) => (
-                          <a
-                            href="health"
+                          <button
+                          onClick={() => navigate(RoutePaths.HEALTH)}
+                          type="button"
                             className={classNames(
                               active
                                 ? 'bg-tertiaryOne rounded-r-full text-white'
@@ -349,7 +409,7 @@ export const Navbar = () => {
                             )}
                           >
                             Books
-                          </a>
+                          </button>
                         )}
                       </Menu.Item>
                     </div>
@@ -383,8 +443,9 @@ export const Navbar = () => {
                     <div onClick={() => setNavbarOpen(!open)} className="py-1">
                       <Menu.Item>
                         {({ active }) => (
-                          <a
-                            href="voluntary"
+                          <button
+                          onClick={() => navigate(RoutePaths.VOLUNTARY)}
+                          type="button"
                             className={classNames(
                               active
                                 ? 'bg-tertiaryOne rounded-r-full text-white'
@@ -393,15 +454,16 @@ export const Navbar = () => {
                             )}
                           >
                             Voluntary
-                          </a>
+                          </button>
                         )}
                       </Menu.Item>
                     </div>
                     <div className="py-1">
                       <Menu.Item>
                         {({ active }) => (
-                          <a
-                            href="health"
+                          <button
+                          onClick={() => navigate(RoutePaths.HEALTH)}
+                          type="button"
                             className={classNames(
                               active
                                 ? 'bg-tertiaryOne rounded-r-full text-white'
@@ -410,7 +472,7 @@ export const Navbar = () => {
                             )}
                           >
                             Health
-                          </a>
+                          </button>
                         )}
                       </Menu.Item>
                     </div>
@@ -418,13 +480,13 @@ export const Navbar = () => {
                 </Transition>
               </Menu>
               <div id="nav" className="flex-shrink-0">
-                <a
-                  href="news"
-                  type="button"
+                <button
+                   onClick={() => navigate(RoutePaths.NEWS)}
+                   type="button"
                   className="relative inline-flex text-white items-center mt-3 px-2 py-0 font-serif font-bold border border-transparent rounded-md backdrop:text-md dark:bg-tertiaryOne dark:text-white hover:bg-tertiaryOne hover:text-white"
                 >
                   <span>News</span>
-                </a>
+                </button>
               </div>
             </nav>
           </div>
@@ -435,13 +497,13 @@ export const Navbar = () => {
             aria-label="Global"
           >
             <div id="nav" className="flex-shrink-0">
-              <a
-                href="/"
-                type="button"
+              <button
+                 onClick={() => navigate(RoutePaths.HOME)}
+                 type="button"
                 className="relative ml-3 mt-4 inline-flex text-white border border-b-white border-transparent items-center px-3 py-0 font-serif font-bold  rounded-r-full bg-transparent backdrop:text-md dark:bg-transparent dark:text-white hover:bg-tertiaryOne hover:text-white"
               >
                 <span>Home</span>
-              </a>
+              </button>
             </div>
             <Menu
               as="div"
@@ -470,8 +532,9 @@ export const Navbar = () => {
                   <div onClick={() => setNavbarOpen(!open)} className="py-3">
                     <Menu.Item>
                       {({ active }) => (
-                        <a
-                          href="about"
+                        <button
+                        onClick={() => navigate(RoutePaths.ABOUT)}
+                        type="button"
                           className={classNames(
                             active
                               ? 'bg-tertiaryOne rounded-r-full text-white'
@@ -480,15 +543,16 @@ export const Navbar = () => {
                           )}
                         >
                           About
-                        </a>
+                        </button>
                       )}
                     </Menu.Item>
                   </div>
                   <div className="py-1">
                     <Menu.Item>
                       {({ active }) => (
-                        <a
-                          href="testimonials"
+                        <button
+                        onClick={() => navigate(RoutePaths.TESTIMONIALS)}
+                        type="button"
                           className={classNames(
                             active
                               ? 'bg-tertiaryOne rounded-r-full text-white'
@@ -497,15 +561,16 @@ export const Navbar = () => {
                           )}
                         >
                           Testimonials
-                        </a>
+                        </button>
                       )}
                     </Menu.Item>
                   </div>
                   <div className="py-1">
                     <Menu.Item>
                       {({ active }) => (
-                        <a
-                          href="gallery"
+                        <button
+                        onClick={() => navigate(RoutePaths.GALLERY)}
+                        type="button"
                           className={classNames(
                             active
                               ? 'bg-tertiaryOne rounded-r-full text-white'
@@ -514,15 +579,16 @@ export const Navbar = () => {
                           )}
                         >
                           Gallery
-                        </a>
+                        </button>
                       )}
                     </Menu.Item>
                   </div>
                   <div className="py-1">
                     <Menu.Item>
                       {({ active }) => (
-                        <a
-                          href="/contact-form"
+                        <button
+                        onClick={() => navigate(RoutePaths.CONTACTFORM)}
+                        type="button"
                           className={classNames(
                             active
                               ? 'bg-tertiaryOne rounded-r-full text-white'
@@ -531,7 +597,7 @@ export const Navbar = () => {
                           )}
                         >
                           Contact
-                        </a>
+                        </button>
                       )}
                     </Menu.Item>
                   </div>
@@ -566,8 +632,9 @@ export const Navbar = () => {
                     <div onClick={() => setNavbarOpen(!open)} className="py-1">
                       <Menu.Item>
                         {({ active }) => (
-                          <a
-                            href="about"
+                          <button
+                          onClick={() => navigate(RoutePaths.DOCTRINE)}
+                          type="button"
                             className={classNames(
                               active
                                 ? 'bg-tertiaryOne rounded-r-full text-white'
@@ -576,15 +643,16 @@ export const Navbar = () => {
                             )}
                           >
                             Doctrine
-                          </a>
+                          </button>
                         )}
                       </Menu.Item>
                     </div>
                     <div className="py-1">
                       <Menu.Item>
                         {({ active }) => (
-                          <a
-                            href="sabbathSchool"
+                          <button
+                          onClick={() => navigate(RoutePaths.SABBATHSCHOOL)}
+                          type="button"
                             className={classNames(
                               active
                                 ? 'bg-tertiaryOne rounded-r-full text-white'
@@ -593,7 +661,7 @@ export const Navbar = () => {
                             )}
                           >
                             Sabbath Sch.
-                          </a>
+                          </button>
                         )}
                       </Menu.Item>
                     </div>
@@ -601,8 +669,9 @@ export const Navbar = () => {
                     <div className="py-1">
                       <Menu.Item>
                         {({ active }) => (
-                          <a
-                            href="videopost"
+                          <button
+                          onClick={() => navigate(RoutePaths.HEALTH)}
+                          type="button"
                             className={classNames(
                               active
                                 ? 'bg-tertiaryOne rounded-r-full text-white'
@@ -611,15 +680,16 @@ export const Navbar = () => {
                             )}
                           >
                             Videos
-                          </a>
+                          </button>
                         )}
                       </Menu.Item>
                     </div>
                     <div className="py-1">
                       <Menu.Item>
                         {({ active }) => (
-                          <a
-                            href="health"
+                          <button
+                          onClick={() => navigate(RoutePaths.HEALTH)}
+                          type="button"
                             className={classNames(
                               active
                                 ? 'bg-tertiaryOne rounded-r-full text-white'
@@ -628,7 +698,7 @@ export const Navbar = () => {
                             )}
                           >
                             Books
-                          </a>
+                          </button>
                         )}
                       </Menu.Item>
                     </div>
@@ -664,8 +734,9 @@ export const Navbar = () => {
                     <div onClick={() => setNavbarOpen(!open)} className="py-1">
                       <Menu.Item>
                         {({ active }) => (
-                          <a
-                            href="voluntary"
+                          <button
+                          onClick={() => navigate(RoutePaths.VOLUNTARY)}
+                          type="button"
                             className={classNames(
                               active
                                 ? 'bg-tertiaryOne rounded-r-full text-white'
@@ -674,15 +745,16 @@ export const Navbar = () => {
                             )}
                           >
                             Voluntary
-                          </a>
+                          </button>
                         )}
                       </Menu.Item>
                     </div>
                     <div className="py-1">
                       <Menu.Item>
                         {({ active }) => (
-                          <a
-                            href="health"
+                          <button
+                          onClick={() => navigate(RoutePaths.HEALTH)}
+                          type="button"
                             className={classNames(
                               active
                                 ? 'bg-tertiaryOne rounded-r-full text-white'
@@ -691,7 +763,7 @@ export const Navbar = () => {
                             )}
                           >
                             Health
-                          </a>
+                          </button>
                         )}
                       </Menu.Item>
                     </div>
@@ -701,13 +773,13 @@ export const Navbar = () => {
             </div>
             <div className="ml-3 flex items-center">
               <div id="nav" className="flex-shrink-0">
-                <a
-                  href="news"
-                  type="button"
+                <button
+                   onClick={() => navigate(RoutePaths.NEWS)}
+                   type="button"
                   className="relative inline-flex text-white border border-b-white items-center px-3 py-0 font-bold border-transparent rounded-md text-md dark:text-white hover:bg-tertiaryOne hover:text-white"
                 >
                   <span>News</span>
-                </a>
+                </button>
               </div>
             </div>
             <div>
@@ -726,22 +798,82 @@ export const Navbar = () => {
                   <button
                     onClick={() => navigate(RoutePaths.ACCESS)}
                     type="button"
-                    className="inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-2 py-1 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                    className="h-8 w-25 px-4 font-semibold rounded-md bg-cyan-700/75 border text-white shadow-lg"
                   >
                     <span className="text-lg font-serif font-medium">
                       Sign-up
                     </span>
                   </button>
                 )}
+                {/* user */}
                 {!isLoadingLoggedUser && loggedUser && (
-                  <button
-                    onClick={() => Meteor.logout()}
-                    type="button"
-                    className="inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-2 py-1 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                  >
-                    Log Out
-                  </button>
+                  <div className="space-y-1 px-2 pt-2 pb-3">
+               <Menu
+                 as="div"
+                 className="relative z-20 inline-block py-3 text-left"
+               >
+                 <div>
+                   <Menu.Button className="relative inline-flex  text-white items-center px-3 py-0 font-serif font-bold border border-transparent rounded-full text-md dark:bg-transparent dark:text-white">
+                    <img
+                       src="./img/simon.png"
+                       className="w-6 h-6 ml-2 -mr-1"
+                       aria-hidden="true"
+                     />
+                   </Menu.Button>
+                 </div>
+                 <Transition
+                   as={Fragment}
+                   enter="transition ease-out duration-100"
+                   enterFrom="transform opacity-0 scale-95"
+                   enterTo="transform opacity-100 scale-100"
+                   leave="transition ease-in duration-75"
+                   leaveFrom="transform opacity-100 scale-100"
+                   leaveTo="transform opacity-0 scale-95"
+                 >
+                 <Menu.Items className="absolute left-0 z-10 mt-8 w-56 origin-top-right rounded-md bg-primary dark:bg-slate-900 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                     <div onClick={() => setNavbarOpen(!open)} className="py-1">
+                       <Menu.Item>
+                         {({ active }) => (
+                           <a
+                             href="#"
+                             className={classNames(
+                               active
+                                 ? 'bg-tertiaryOne rounded-sm text-white'
+                                 : 'text-white',
+                               'block px-4 py-2 text-sm',
+                             )}
+                           >
+                           Settings
+                           </a>
+                         )}
+                       </Menu.Item>
+                     </div>
+                     <div className="py-1">
+                       <Menu.Item>
+                         {({ active }) => (
+                          <button
+                          type='button'
+                              onClick={() => Meteor.logout()}
+                             className={classNames(
+                               active
+                                 ? 'bg-tertiaryOne rounded-sm text-white'
+                                 : 'text-white',
+                               'block w-full px-4 py-2 text-left text-sm',
+                             )}
+                           >
+                            Sign Out
+                           </button>
+                         )}
+                       </Menu.Item>
+                     </div>
+                   </Menu.Items>
+                 </Transition>
+               </Menu>
+             </div>
                 )}
+      <div className="flex-auto text-sm font-medium text-white mt-2">
+    {loggedUser?.email}
+     </div>
               </div>
             </div>
           </Disclosure.Panel>

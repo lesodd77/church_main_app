@@ -4,15 +4,15 @@ import { check } from 'meteor/check';
 import { NotifyEmailsCollection } from '../collections/NotifyEmailsCollection';
 
 Meteor.methods({
-  'notifyemails.insert' ({ email }) {
-    check(email, String);
+  'notifyemails.insert' ({ notifyemail }) {
+    check(notifyemail, String);
 
-    if (!email) {
+    if (!notifyemail) {
       throw new Meteor.Error('Email is required.');
     }
 
     return NotifyEmailsCollection.insert({
-      email,
+      notifyemail,
 
       createdAt: new Date(),
     });

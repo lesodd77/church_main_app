@@ -11,13 +11,11 @@ function getEmailFromUser (user) {
   return user.emails[0].address;
 }
 
-Accounts.onCreateUser((options, user) => {
+Accounts.onCreateUser((_options, user) => {
   const customizedUser = { ...user };
 
   // TODO: Figurue out what we want to insert in the posts collection when a user is created
   // PostsCollection.insert({ userId: user._id, createdAt: new Date() });
-  console.log(user);
-  console.log(options);
   customizedUser.email = getEmailFromUser(user);
   return customizedUser;
 });

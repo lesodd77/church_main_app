@@ -4,7 +4,7 @@ const perks = [
   {
     name: 'Pastor Bernard Condua',
     title: 'President of the Mission field',
-    imageSrc: 'https://res.cloudinary.com/dungxxzhh/image/upload/v1663456542/ghf_images/ghf_p_sialj4.jpg',
+    imageSrc: 'https://res.cloudinary.com/swed-dev/image/upload/v1663456542/ghf_images/ghf_p_sialj4.jpg',
     description:
         'Preach the word of God is our priority.',
 
@@ -12,7 +12,7 @@ const perks = [
   {
     name: 'Elder Richard Dalmeida',
     title: 'Vice President of the Mission field',
-    imageSrc: 'https://res.cloudinary.com/dungxxzhh/image/upload/v1663456541/ghf_images/ghf_vp_n6xscc.jpg',
+    imageSrc: 'https://res.cloudinary.com/swed-dev/image/upload/v1663456541/ghf_images/ghf_vp_n6xscc.jpg',
     description:
           'Preach the word of God is our priority.',
 
@@ -20,7 +20,7 @@ const perks = [
   {
     name: 'Elder Martesin Budu',
     title: 'Secretary of the Mission field',
-    imageSrc: 'https://res.cloudinary.com/dungxxzhh/image/upload/v1663938093/ghf_images/hakuna_bu8afl.jpg',
+    imageSrc: 'https://res.cloudinary.com/swed-dev/image/upload/v1663456541/ghf_images/ghf_secretary_br0nmx.jpg',
     description:
           'Preach the word of God is our priority.',
 

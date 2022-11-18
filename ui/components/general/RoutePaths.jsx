@@ -1,5 +1,4 @@
 export const RoutePaths = {
-  ROOT: '/',
   HOME: '/',
   HERO: 'hero',
   TESTIMONIALS: 'testimonials',

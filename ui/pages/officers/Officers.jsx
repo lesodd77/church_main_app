@@ -4,7 +4,7 @@ const perks = [
   {
     name: 'Pastor Bernard Condua',
     title: 'President of the Mission field',
-    imageSrc: 'https://res.cloudinary.com/dungxxzhh/image/upload/v1663456542/ghf_images/ghf_p_sialj4.jpg',
+    imageSrc: 'https://res.cloudinary.com/swed-dev/image/upload/v1663456542/ghf_images/ghf_p_sialj4.jpg',
     description:
       'Preach the word of God is our priority.',
 
@@ -12,7 +12,7 @@ const perks = [
   {
     name: 'Elder Richard Dalmeida',
     title: 'Vice President of the Mission field',
-    imageSrc: 'https://res.cloudinary.com/dungxxzhh/image/upload/v1663456541/ghf_images/ghf_vp_n6xscc.jpg',
+    imageSrc: 'https://res.cloudinary.com/swed-dev/image/upload/v1663456541/ghf_images/ghf_vp_n6xscc.jpg',
     description:
         'Preach the word of God is our priority.',
 
@@ -20,7 +20,7 @@ const perks = [
   {
     name: 'Elder Martesin Budu',
     title: 'Secretary of the Mission field',
-    imageSrc: 'https://res.cloudinary.com/dungxxzhh/image/upload/v1663938093/ghf_images/hakuna_bu8afl.jpg',
+    imageSrc: 'https://res.cloudinary.com/swed-dev/image/upload/v1663456541/ghf_images/ghf_secretary_br0nmx.jpg',
     description:
         'Preach the word of God is our priority.',
 
@@ -28,7 +28,7 @@ const perks = [
   {
     name: 'Elder Benjamin Teye',
     title: 'Treasure of The Mission Field',
-    imageSrc: 'https://res.cloudinary.com/dungxxzhh/image/upload/v1663458581/ghf_images/PHOTO-2022-09-17-10-31-45_sgrba5.jpg',
+    imageSrc: 'https://res.cloudinary.com/swed-dev/image/upload/v1663458581/ghf_images/PHOTO-2022-09-17-10-31-45_sgrba5.jpg',
     description:
         'Preach the word of God is our priority.',
 
@@ -36,7 +36,7 @@ const perks = [
   {
     name: 'Elder Theophilus Adesu',
     title: 'Missionary Dep. Leader',
-    imageSrc: 'https://res.cloudinary.com/dungxxzhh/image/upload/v1663938044/ghf_images/theo_bhvvxo.jpg',
+    imageSrc: 'https://res.cloudinary.com/swed-dev/image/upload/v1663938044/ghf_images/theo_bhvvxo.jpg',
     description:
           'Preach the word of God is our priority.',
 
@@ -44,7 +44,7 @@ const perks = [
   {
     name: 'Elder Sampson Abukari',
     title: 'Multimedia Dep. Leader',
-    imageSrc: 'https://res.cloudinary.com/dungxxzhh/image/upload/v1663458591/ghf_images/PHOTO-2022-09-17-09-00-33_ovt328.jpg',
+    imageSrc: 'https://res.cloudinary.com/swed-dev/image/upload/v1663458591/ghf_images/PHOTO-2022-09-17-09-00-33_ovt328.jpg',
     description:
           'Preach the word of God is our priority.',
 
@@ -52,7 +52,7 @@ const perks = [
   {
     name: 'Elder Oscar Kroankye',
     title: 'Family Dep. Leader',
-    imageSrc: 'https://res.cloudinary.com/dungxxzhh/image/upload/v1663456540/ghf_images/ghf_fl_p3uzla.jpg',
+    imageSrc: 'https://res.cloudinary.com/swed-dev/image/upload/v1663456540/ghf_images/ghf_fl_p3uzla.jpg',
     description:
           'Preach the word of God is our priority.',
 
@@ -60,7 +60,7 @@ const perks = [
   {
     name: 'Elder Dr. Buadu',
     title: 'Health Dep. Leader',
-    imageSrc: 'https://res.cloudinary.com/dungxxzhh/image/upload/v1664195547/ghf_images/buadu_ue9abv.jpg',
+    imageSrc: 'https://res.cloudinary.com/swed-dev/image/upload/v1664195547/ghf_images/buadu_ue9abv.jpg',
     description:
           'Preach the word of God is our priority.',
 
@@ -68,7 +68,7 @@ const perks = [
   {
     name: 'Elder John Bain',
     title: 'Auditor of the Ghana field',
-    imageSrc: 'https://res.cloudinary.com/dungxxzhh/image/upload/v1664198337/ghf_images/bain_lvz8zr.jpg',
+    imageSrc: 'https://res.cloudinary.com/swed-dev/image/upload/v1664198337/ghf_images/bain_lvz8zr.jpg',
     description:
           'Preach the word of God and accuracy is in reporting is my priority.',
 
@@ -76,7 +76,7 @@ const perks = [
   {
     name: 'Elder Adu Gyemfi',
     title: 'Education Dep. Leader',
-    imageSrc: 'https://res.cloudinary.com/dungxxzhh/image/upload/v1664198398/ghf_images/wisdomman_qwvihg.jpg',
+    imageSrc: 'https://res.cloudinary.com/swed-dev/image/upload/v1664198398/ghf_images/wisdomman_qwvihg.jpg',
     description:
           'Preaching the word of God is our priority.',
 
@@ -84,7 +84,7 @@ const perks = [
   {
     name: 'Mrs. Zipporah Boadu Budu',
     title: 'Good Samaritan Dep. Leader',
-    imageSrc: 'https://res.cloudinary.com/dungxxzhh/image/upload/v1664221647/ghf_images/goodsamaritan_gusqtp.jpg',
+    imageSrc: 'https://res.cloudinary.com/swed-dev/image/upload/v1664221647/ghf_images/goodsamaritan_gusqtp.jpg',
     description:
           'Preaching the word of God through humanitarian work.',
 

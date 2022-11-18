@@ -50,7 +50,7 @@ export const VideoPostForm = () => {
           setImage1Url('');
           setDate('');
           setAuthor('');
-          setMeesage('');
+          setMessage('');
 
           showSuccess({ message: 'Your video Post is published.' });
         }

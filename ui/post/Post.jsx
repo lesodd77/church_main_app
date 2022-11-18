@@ -1,6 +1,5 @@
 /* eslint-disable import/no-unresolved */
 // @ts-nocheck
-/* eslint-disable jsx-a11y/no-redundant-roles */
 import { Meteor } from 'meteor/meteor';
 import React, { memo } from 'react';
 import { PostsCollection } from '../../api/collections/posts.collection';

@@ -1,7 +1,5 @@
-/* eslint-disable no-dupe-keys */
-/* eslint-disable global-require */
 // @ts-nocheck
-
+/* eslint-disable no-dupe-keys */
 module.exports = {
   content: ['./ui/**/*.{js,jsx,ts,tsx}', './client/*.html'],
   darkMode: 'class',
@@ -63,7 +61,7 @@ module.exports = {
       'appearance-none',
       'bg-green-100',
       'bg-green-50',
-      'bg-indigo-600',
+      'bg-cyan-600',
       'bg-red-50',
       'bg-white',
       'block',
@@ -72,17 +70,17 @@ module.exports = {
       'border-transparent',
       'cursor-pointer',
       'flex',
-      'focus:border-indigo-500',
+      'focus:border-cyan-500',
       'focus:outline-none',
       'focus:ring-2',
-      'focus:ring-indigo-500',
+      'focus:ring-cyan-500',
       'focus:ring-offset-2',
       'focus:ring-offset-red-50',
       'focus:ring-red-600',
       'font-medium',
-      'hover:bg-indigo-700',
+      'hover:bg-cyan-700',
       'hover:bg-red-100',
-      'hover:text-indigo-500',
+      'hover:text-cyan-500',
       'inline-flex',
       'justify-center',
       'justify-end',
@@ -114,7 +112,7 @@ module.exports = {
       'text-gray-700',
       'text-green-500',
       'text-green-800',
-      'text-indigo-600',
+      'text-cyan-600',
       'text-red-500',
       'text-red-800',
       'text-sm',

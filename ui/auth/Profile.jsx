@@ -1,5 +1,4 @@
 /* eslint-disable no-undef */
-/* eslint-disable jsx-a11y/no-redundant-roles */
 /* eslint-disable no-shadow */
 // @ts-nocheck
 import React, { memo } from 'react';
