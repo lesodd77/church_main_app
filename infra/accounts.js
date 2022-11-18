@@ -1,6 +1,6 @@
 // @ts-nocheck
 import { Accounts } from 'meteor/accounts-base';
-import { PostsCollection } from '../api/collections/posts.collection';
+// import { PostsCollection } from '../api/collections/posts.collection';
 import { Meteor } from 'meteor/meteor';
 import { ServiceConfiguration } from 'meteor/service-configuration';
 
@@ -15,7 +15,7 @@ Accounts.onCreateUser((_options, user) => {
   const customizedUser = { ...user };
 
   // TODO: Figurue out what we want to insert in the posts collection when a user is created
-  PostsCollection.insert({ userId: user._id, createdAt: new Date() });
+  // PostsCollection.insert({ userId: user._id, createdAt: new Date() });
   customizedUser.email = getEmailFromUser(user);
   return customizedUser;
 });
