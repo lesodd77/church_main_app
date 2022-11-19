@@ -10,8 +10,8 @@ export const NotifyEmail = () => {
   const notifyemails = useFind(() =>
     NotifyEmailsCollection.find(
       { archived: { $ne: true } },
-      { sort: { createdAt: -1 } }
-    )
+      { sort: { createdAt: -1 } },
+    ),
   );
   const removeNotifyEmail = (event, _id) => {
     event.preventDefault();
@@ -69,7 +69,7 @@ export const NotifyEmail = () => {
                 <div className="-mt-px flex divide-x divide-gray-200">
                   <div className="w-0 flex-1 flex">
                     <a
-                      href={`mainotifyemail.email}`}
+                      href={'mainotifyemail.email}'}
                       className="relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-bl-lg hover:text-gray-500"
                     >
                       <img

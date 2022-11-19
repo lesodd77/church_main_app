@@ -1,11 +1,19 @@
-
-  {
-    "public": {
-      "cloudinary_cloud_name": "",
-      "cloudinary_api_key": ""
-    },
-    "cloudinary_api_secret": ""
-    
-  }
-
- 
+{
+  "public": {
+    "cloudinary": {
+      "cloudName": ""
+    }
+  },
+  "cloudinary": {
+    "api_key": "",
+    "api_secret": ""
+  },
+  "packages": {
+    "quave:email-postmark": {
+      "from": "",
+      "apiToken": ""
+    }
+  },
+  "googleClientId": "",
+  "googleSecret": ""
+}

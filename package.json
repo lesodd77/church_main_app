@@ -2,7 +2,7 @@
   "name": "ims-ghana",
   "private": true,
   "scripts": {
-    "start": "meteor run --exclude-archs web.browser.legacy,web.cordova --settings private/env/dev/settings.json",
+    "start": "meteor run --exclude-archs web.browser.legacy,web.cordova --settings settings.json",
     "eslint": "eslint . --fix",
     "prettier": "prettier --write \"**/*.js\"",
     "check": "npm run eslint && npm run prettier",
@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.20.1",
+    "@cloudinary/react": "^1.6.0",
+    "@cloudinary/url-gen": "^1.8.6",
     "@headlessui/react": "^1.7.4",
     "@heroicons/react": "^2.0.13",
     "@react-icons/all-files": "^4.1.0",
@@ -78,8 +80,8 @@
     }
   },
   "lint-staged": {
-    "*.js": [
-      "eslint --fix"
+    "*.{js,jsx}": [
+      "eslint --cache --fix"
     ]
   }
 }

@@ -1,17 +1,12 @@
 // @ts-nocheck
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Meteor } from 'meteor/meteor';
 import { ErrorAlert } from '../../components/alerts/ErrorAlert';
 import { SuccessAlert } from '../../components/alerts/SuccessAlert';
-import { Input } from '../../post/index'
-
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ');
-}
+import { Input } from '../../post/index';
 
 export const GalleryForm = () => {
-  const [branch, setBranch] = useState(''); 
+  const [branch, setBranch] = useState('');
   const [url, setUrl] = useState('');
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
@@ -34,9 +29,10 @@ export const GalleryForm = () => {
   const saveGallery = () => {
     Meteor.call(
       'gallerys.insert',
-      { branch, 
-         url, 
-         },
+      {
+        branch,
+        url,
+      },
       errorResponse => {
         if (errorResponse) {
           showError({ message: errorResponse.error });
@@ -45,7 +41,7 @@ export const GalleryForm = () => {
           setUrl('');
           showSuccess({ message: 'Your photo saved and publish.' });
         }
-      }
+      },
     );
   };
 
@@ -57,13 +53,12 @@ export const GalleryForm = () => {
         <div className="max-w-6xl mx-auto">
           <h2
             className="text-4xl font-bold text-center mt-20 text-primary dark:text-tertiaryOne"
-           
+
           >
             Photo Publish
           </h2>
 
         </div>
-       
 
         <div className="relative max-w-4xl mx-auto shadow-sm shadow-cyan-900/50">
           <div className="relative z-20 bg-primary dark:bg-slate-900 rounded-lg p-8">
@@ -71,7 +66,7 @@ export const GalleryForm = () => {
               {error && <ErrorAlert message={error} />}
               {success && <SuccessAlert message={success} />}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
-      <Input 
+      <Input
        type="url"
        label='Image Url'
        id="url"
@@ -80,9 +75,8 @@ export const GalleryForm = () => {
        containerClassName='mt-4'
        onChange={e => setUrl(e.target.value)}
         />
-      
-        
-       <Input 
+
+       <Input
         id='branch'
         label='branch'
         type='text'
@@ -91,21 +85,20 @@ export const GalleryForm = () => {
         value={branch}
         onChange={e => setBranch(e.target.value)}
         />
-   
+
     </div> <button
           type="button"
-         
+
           onClick={saveGallery}
           data-aos="fade-left"
           className='mt-4 py-2 px-3 font-serif font-medium text-[18px] text-white bg-tertiaryOne rounded-[10px] outline-none hover:text-white hover:bg-opacity-40 transition ease-in-out duration-150'
          ><span>Save Publish</span>
           </button>
-             
+
             </form>
           </div>
         </div>
       </section>
       </>
-  )
-}
-
+  );
+};
