@@ -2,14 +2,14 @@
 import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
 
-export const GallerysCollection = new Mongo.Collection('gallerys');
+export const AlbumsCollection = new Mongo.Collection('albums');
 
-const GallerysSchema = new SimpleSchema({
+const AlbumsSchema = new SimpleSchema({
   branch: {
     type: String,
   },
 
-  url: {
+  image: {
     type: String,
     optional: false,
   },
@@ -23,4 +23,4 @@ const GallerysSchema = new SimpleSchema({
   },
 });
 
-GallerysCollection.attachSchema(GallerysSchema);
+AlbumsCollection.attachSchema(AlbumsSchema);

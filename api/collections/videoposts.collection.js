@@ -8,7 +8,7 @@ const VideoPostsSchema = new SimpleSchema({
   video: {
     type: String,
   },
-  authorImage: {
+  image: {
     type: String,
   },
   author: {

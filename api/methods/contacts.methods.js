@@ -1,7 +1,9 @@
+/* eslint-disable no-undef */
 // @ts-nocheck
 import { Meteor } from 'meteor/meteor';
 import { check } from 'meteor/check';
 import { ContactsCollection } from '../collections/contacts.collection';
+import { PostRoles } from '../../infra/PostRoles';
 
 Meteor.methods({
   'contacts.insert' ({ name, email, agreed, subject, message }) {
@@ -40,19 +42,16 @@ Meteor.methods({
       userId,
     });
   },
-  'contacts.archive' ({ contactId }) {
-    check(contactId, String);
+  'contacts.remove' (postId) {
+    const { userId } = this;
+    if (!userId) {
+      throw new Meteor.Error('Access denied');
+    }
+    check(postId, String);
 
-    ContactsCollection.update({ _id: contactId }, { $set: { archived: true } });
-  },
-  'contacts.remove' ({ contactId }) {
-    check(contactId, String);
-
-    ContactsCollection.remove(contactId);
-  },
-  'contacts.update' ({ contactId }) {
-    check(contactId, String);
-
-    ContactsCollection.update(contactId);
+    if (!Roles.userIsInRole(userId, PostRoles.ADMIN)) {
+      throw new Error('Permision denied');
+    }
+    return ContactsCollection.remove(postId);
   },
 });

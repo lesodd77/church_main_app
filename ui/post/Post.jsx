@@ -30,7 +30,8 @@ export const Post = () => {
   }
 
   const PostItem = memo(({ post }) => {
-    const img = Cloudinary().image(post.image).resize(thumbnail().width(40).height(40)).format('jpg');
+    const img = Cloudinary().image(post.image).resize(thumbnail().width(100).height(72)).format('jpg');
+    const img1 = Cloudinary().image(post.image1).resize(thumbnail().width(100).height(72)).format('jpg');
     return (
       <div className="flex flex-col bg-transparent  rounded-lg shadow-lg">
         <div className="flex flex-col justify-center flex-1 rounded-lg">
@@ -60,10 +61,9 @@ export const Post = () => {
           <div className="grid grid-cols-1">
             <div className="flex-shrink-0">
               <a href="news">
-                <img
-                  className="object-cover w-full h-48 rounded-t-md hover:bg-gray-300 hover:ring-sky-400"
-                  src={post.url}
-                  alt=""
+                <AdvancedImage
+                  className="object-cover w-full h-48 md:h-36  rounded-t-md hover:bg-gray-300 hover:ring-sky-400"
+                  cldImg={img}
                 />
               </a>
             </div>
@@ -81,8 +81,10 @@ export const Post = () => {
               </div>
               <div className="flex items-center mt-6">
                 <div className="flex-shrink-0">
-                  <span className="sr-only">{post.author}</span>
-                  <AdvancedImage className="w-10 h-10 rounded-full" cldImg={img} />
+                <a href='news'>
+                <span className="sr-only">{post.url}</span>
+                <AdvancedImage className="h-10 w-10 rounded-full" cldImg={img1} />
+              </a>
                 </div>
                 <div className="ml-3">
                   <p className="text-sm font-medium text-gray-900">

@@ -12,7 +12,7 @@ import { AdvancedImage } from '@cloudinary/react';
 
 export const PostForm = () => {
   const [title, setTitle] = useState('');
-  const [url, setUrl] = useState('');
+  const [image1, setImage1] = useState('');
   const [image, setImage] = useState('');
   const [author, setAuthor] = useState('');
   const [date, setDate] = useState('');
@@ -42,20 +42,20 @@ export const PostForm = () => {
     Meteor.call(
       'posts.insert',
       {
-        title: 'My post',
-        image: './img/simon.png',
-        description: 'This is my first post',
-        author: 'Simon Agbey',
-        url: 'https://res.cloudinary.com/swed-dev/image/upload/v1664221647/ghf_images/goodsamaritan_gusqtp.jpg',
-        category: 'article',
-        date: '13/11/22',
+        title,
+        image,
+        description,
+        author,
+        image1,
+        category,
+        date,
       },
       errorResponse => {
         if (errorResponse) {
           showError({ message: errorResponse.error });
         } else {
           setTitle('');
-          setUrl('');
+          setImage1('');
           setImage('');
           setDate('');
           setAuthor('');
@@ -68,6 +68,14 @@ export const PostForm = () => {
   };
 
   const handleImage = (files) => {
+    const uploads = Cloudinary.uploadFiles(files);
+    uploads.forEach(async (response) => {
+      const photoData = await response;
+      console.log(photoData);
+      setImage(photoData.public_id);
+    });
+  };
+  const handleImage1 = (files) => {
     const uploads = Cloudinary.uploadFiles(files);
     uploads.forEach(async (response) => {
       const photoData = await response;
@@ -98,13 +106,12 @@ export const PostForm = () => {
               {error && <ErrorAlert description={error} />}
               {success && <SuccessAlert description={success} />}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
-                <input
-                  type="url"
-                  label="Image Url"
-                  id="url"
-                  value={url}
-                  placeholder="Image Url"
-                  onChange={e => setUrl(e.target.value)}
+              <input
+                  type="file"
+                  id="image/*"
+                  accept="image/*, video/*"
+                  onChange={(e) => handleImage(e.target.files)}
+                  placeholder="Image"
                 />
                 <input
                   id="category"
@@ -144,12 +151,11 @@ export const PostForm = () => {
                   onChange={e => setAuthor(e.target.value)}
 
                 />
-
-                <input
+                 <input
                   type="file"
-                  id="image/*"
+                  id="image1/*"
                   accept="image/*, video/*"
-                  onChange={(e) => handleImage(e.target.files)}
+                  onChange={(e) => handleImage1(e.target.files)}
                   placeholder="Image"
                 />
                 <input

@@ -4,6 +4,10 @@ import { VideoPostsCollection } from '../../../api/collections/videoposts.collec
 import { useSubscribe, useFind } from 'meteor/react-meteor-data';
 import { Loading } from '../../components/spinner/Loading';
 import { FacebookShareButton, WhatsappShareButton, FacebookIcon, WhatsappIcon } from 'react-share';
+import { Cloudinary } from 'meteor/socialize:cloudinary';
+import { thumbnail } from '@cloudinary/url-gen/actions/resize';
+import { AdvancedImage, AdvancedVideo } from '@cloudinary/react';
+
 export const VideoPost = () => {
   const shareUrl = 'https://ims-ghanafield.meteorapp.com/videopost';
   const isLoading = useSubscribe('myVideoPosts');
@@ -18,20 +22,18 @@ export const VideoPost = () => {
     return <Loading />;
   }
 
-  const VideoPostItem = memo(({ videopost }) => (
+  const VideoPostItem = memo(({ videopost }) => {
+    const img = Cloudinary().image(videopost.image).resize(thumbnail().width(40).height(40)).format('jpg');
+    const vid = Cloudinary().video(videopost.video).resize(thumbnail().width(40).height(40)).format('mp4');
+
+    return (
     <div className=" bg-transparent dark:bg-slate-900">
       <div className="px-3 relative max-w-lg mx-auto lg:max-w-7xl">
         <div className="relative shadow-xl">
           <div className="bg-transparent dark:bg-slate-900">
             <div className="relative mx-auto max-w-lg px-3 lg:max-w-7xl">
               <div className="lg:aspect-w-16 lg:aspect-h-9 border-2 border-primary bg-opacity-20 rounded-md">
-                <video
-                  loop
-                  controls={true}
-                  className="h-auto w-[100%] rounded-md p-4 px-2 hover:opacity-75"
-                >
-                  <source src={videopost.videoUrl} type="video/mp4" />
-                </video>
+                  <AdvancedVideo className="h-auto w-[100%] rounded-md p-4 px-2 hover:opacity-75" cldVid={vid} />
               </div>
             </div>
           </div>
@@ -58,16 +60,10 @@ export const VideoPost = () => {
           </p>
         </div>
         <div className="px-2 flex items-center mt-4">
-          <div className="flex-shrink-0">
-            <a href="#">
-              <span className="sr-only">{videopost.image1Url}</span>
-              <img
-                className="w-8 h-8 rounded-full shadow-xl"
-                src={videopost.image1Url}
-                alt=""
-              />
-            </a>
-          </div>
+        <div className="flex-shrink-0">
+                  <span className="sr-only">{videopost.author}</span>
+                  <AdvancedImage className="w-10 h-10 rounded-full" cldImg={img} />
+                </div>
           <div className="ml-3">
             <p className="text-sm font-medium text-gray-900 dark:text-tertiaryOne">
               <a href={videopost.href}>
@@ -94,7 +90,9 @@ export const VideoPost = () => {
         </div>
       </div>
     </div>
-  ));
+
+    );
+  });
 
   return (
     <div id="home" className="w-full bg-transparent dark:bg-slate-700">

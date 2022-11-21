@@ -282,7 +282,7 @@ export const Navbar = () => {
                       <Menu.Item>
                         {({ active }) => (
                           <button
-                            onClick={() => navigate(RoutePaths.GALLERY)}
+                            onClick={() => navigate(RoutePaths.ALBUM)}
                             type="button"
                             className={classNames(
                               active
@@ -291,7 +291,7 @@ export const Navbar = () => {
                               'block px-4 py-2 text-sm',
                             )}
                           >
-                            Gallery
+                           Album
                           </button>
                         )}
                       </Menu.Item>
@@ -569,7 +569,7 @@ export const Navbar = () => {
                     <Menu.Item>
                       {({ active }) => (
                         <button
-                        onClick={() => navigate(RoutePaths.GALLERY)}
+                        onClick={() => navigate(RoutePaths.ALBUM)}
                         type="button"
                           className={classNames(
                             active
@@ -578,7 +578,7 @@ export const Navbar = () => {
                             'block px-4 py-2 text-sm',
                           )}
                         >
-                          Gallery
+                         Album
                         </button>
                       )}
                     </Menu.Item>

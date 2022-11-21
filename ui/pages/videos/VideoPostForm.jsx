@@ -1,23 +1,26 @@
+// @ts-nocheck
 import React, { useState } from 'react';
 import { Meteor } from 'meteor/meteor';
 import { ErrorAlert } from '../../components/alerts/ErrorAlert';
 import { SuccessAlert } from '../../components/alerts/SuccessAlert';
-import { Textarea, Input } from '../../post/index';
-
-// function classNames (...classes) {
-//   return classes.filter(Boolean).join(' ');
-// }
+import { Textarea } from '../../post/index';
+import { Cloudinary } from 'meteor/socialize:cloudinary';
+import { scale } from '@cloudinary/url-gen/actions/resize';
+import { useFind } from 'meteor/react-meteor-data';
+import { AdvancedImage, AdvancedVideo } from '@cloudinary/react';
 
 export const VideoPostForm = () => {
   const [title, setTitle] = useState('');
-  const [videoUrl, setVideoUrl] = useState('');
-  const [image1Url, setImage1Url] = useState('');
+  const [video, setVideo] = useState('');
+  const [image, setImage] = useState('');
   const [author, setAuthor] = useState('');
   const [date, setDate] = useState('');
   const [message, setMessage] = useState('');
   const [category, setCategory] = useState('');
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
+
+  const uploads = useFind(() => Cloudinary.collection.find());
 
   const showError = ({ message }) => {
     setError(message);
@@ -36,14 +39,14 @@ export const VideoPostForm = () => {
   const saveVideoPost = () => {
     Meteor.call(
       'videoposts.insert',
-      { title, videoUrl, author, message, image1Url, date, category },
+      { title, video, author, message, image, date, category },
       errorResponse => {
         if (errorResponse) {
           showError({ message: errorResponse.error });
         } else {
           setTitle('');
-          setVideoUrl('');
-          setImage1Url('');
+          setVideo('');
+          setImage('');
           setDate('');
           setAuthor('');
           setMessage('');
@@ -54,6 +57,26 @@ export const VideoPostForm = () => {
     );
   };
 
+  const handleImage = (files) => {
+    const uploads = Cloudinary.uploadFiles(files);
+    uploads.forEach(async (response) => {
+      const photoData = await response;
+      console.log(photoData);
+      setImage(photoData.public_id);
+    });
+  };
+
+  const handleVideo = (files) => {
+    const uploads = Cloudinary.uploadFiles(files);
+    uploads.forEach(async (response) => {
+      const videoData = await response;
+      console.log(videoData);
+      setVideo(videoData.public_id);
+    });
+  };
+
+  const img = Cloudinary().image(image).resize(scale(200, 200)).format('jpg');
+  const vid = Cloudinary().video(video).resize(scale(200, 200)).format('mp4');
   return (
 <>
       <section
@@ -64,7 +87,7 @@ export const VideoPostForm = () => {
             className="text-4xl font-bold text-center mt-20 text-primary dark:text-tertiaryOne"
 
           >
-            Post Form
+         Video Post Form
           </h2>
 
         </div>
@@ -75,75 +98,81 @@ export const VideoPostForm = () => {
               {error && <ErrorAlert message={error} />}
               {success && <SuccessAlert message={success} />}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
-                <Input
-                  type="videoUrl"
-                  label='Video Url'
-                  id="videoUrl"
-                  value={videoUrl}
-                  placeholder='video Url'
-                  containerClassName='mt-4'
-                  onChange={e => setVideoUrl(e.target.value)}
+                <input
+                  type="file"
+                  id="video/*"
+                  accept="video/*, image/*"
+                  onChange={(e) => handleVideo(e.target.files)}
+                  placeholder='video'
                 />
-                <Input
+                <input
                   id='category'
                   label='Category'
                   type='text'
                   placeholder='category'
-                  containerClassName='mt-4'
                   value={category}
                   onChange={e => setCategory(e.target.value)}
                 />
 
-                <Input
+                <input
                   id='title'
-                  label='title'
                   type='text'
                   placeholder='Title'
-                  containerClassName='mt-4'
                   value={title}
                   onChange={e => setTitle(e.target.value)}
                 />
-
+             <div>
                 <Textarea
                   id='message'
                   label='Message'
                   type='message'
                   rows={2}
-                  containerClassName='mt-4'
                   placeholder='Add your Message'
                   value={message}
                   onChange={e => setMessage(e.target.value)}
                 />
-
-                <Input
+                </div>
+                <div>
+                <input
+                  id='date'
+                  type='date'
+                  placeholder='Date'
+                  value={date}
+                  onChange={e => setDate(e.target.value)}
+/>
+</div>
+<input
+                  type="file"
+                  id="image/*"
+                  accept="image/*, video/*"
+                  onChange={(e) => handleImage(e.target.files)}
+                  placeholder='image'
+                />
+                     <input
                   id='author'
-                  label='Author'
                   type='text'
                   placeholder='Author'
-                  containerClassName='mt-4'
                   value={author}
                   onChange={e => setAuthor(e.target.value)}
 
                 />
 
-                <Input
-                  type="url"
-                  label='image 1Url'
-                  id="image1Url"
-                  value={image1Url}
-                  placeholder='image1Url'
-                  containerClassName='mt-4'
-                  onChange={e => setImage1Url(e.target.value)}
-                />
-                <Input
-                  id='date'
-                  label='Date'
-                  type='date'
-                  placeholder='Date'
-                  containerClassName='mt-4'
-                  value={date}
-                  onChange={e => setDate(e.target.value)}
-/>
+<ul>
+                  {uploads.map((upload) => (
+                    <li key={upload._id}>
+                      <img src={upload.preview} className="max-w-10 max-h-10" />
+                      {upload.percent_uploaded}%
+                    </li>
+                  ))}
+                </ul>
+                <ul>
+                  {uploads.map((upload) => (
+                    <li key={upload._id}>
+                    <video src={upload.preview} className="max-w-10 max-h-10" />
+                      {upload.percent_uploaded}%
+                    </li>
+                  ))}
+                </ul>
               </div>
               <button
                 type="button"
@@ -157,6 +186,8 @@ export const VideoPostForm = () => {
             </form>
           </div>
         </div>
+        <AdvancedImage cldImg={img} />
+        <AdvancedVideo cldVid={vid} />
       </section>
     </>
   );

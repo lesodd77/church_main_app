@@ -17,14 +17,14 @@ import { Privacy } from '../privacy/Privacy';
 import { Health } from '../../pages/health/Health';
 import { Voluntary } from '../../pages/voluntary/Voluntary';
 import { Doctrine } from '../../pages/doctrine/Doctrine';
-import { Gallery } from '../../pages/gallery/Gallery';
+import { Album } from '../../pages/album/Album';
 import { SabbathSchool } from '../../pages/sabbathschool/SabbathSchool';
 import { Dashboard } from '../../pages/admin/dashboard/Dashboard';
 import { NotifyEmail } from '../../pages/admin/notifyemail/NotifyEmail';
 import { VideoPost } from '../../pages/videos/VideoPost';
 import { VideoPostForm } from '../../pages/videos/VideoPostForm';
 import { Officers } from '../../pages/officers/Officers';
-import { GalleryForm } from '../../pages/gallery/GalleryForm';
+import { AlbumForm } from '../../pages/album/AlbumForm';
 import { Access } from '../../auth/Access';
 import { AnonymousOnly } from '../../auth/AnonymousOnly';
 import { RemovePost } from '../../auth/RemovePost';
@@ -55,14 +55,14 @@ export const Main = () => (
       />
       <Route
         element={
-          <AdminOnly>
+          <LoggedUserOnly>
             <RemovePost />
-          </AdminOnly>
+          </LoggedUserOnly>
         }
         path={RoutePaths.REMOVE_POST}
       />
       <Route element={<ContactForm />} path={RoutePaths.CONTACTFORM} />
-      <Route element={<GalleryForm />} path={RoutePaths.GALLERYFORM} />
+      <Route element={ <LoggedUserOnly><AlbumForm /></LoggedUserOnly>} path={RoutePaths.ALBUMFORM} />
       <Route element={<About />} path={RoutePaths.ABOUT} />
       <Route element={<Testimonials />} path={RoutePaths.TESTIMONIALS} />
       <Route element={<News />} path={RoutePaths.NEWS} />
@@ -70,7 +70,7 @@ export const Main = () => (
       <Route element={<VideoPost />} path={RoutePaths.VIDEOPOST} />
       <Route element={<Cookie />} path={RoutePaths.COOKIE} />
       <Route element={<SabbathSchool />} path={RoutePaths.SABBATHSCHOOL} />
-      <Route element={<Gallery />} path={RoutePaths.GALLERY} />
+      <Route element={<Album />} path={RoutePaths.ALBUM} />
       <Route element={<Voluntary />} path={RoutePaths.VOLUNTARY} />
       <Route element={<Health />} path={RoutePaths.HEALTH} />
       <Route element={<Privacy />} path={RoutePaths.PRIVACY} />
@@ -83,9 +83,9 @@ export const Main = () => (
       <Route element={<About />} path={RoutePaths.ABOUT} />
       <Route
         element={
-          <AdminOnly>
+          <LoggedUserOnly>
             <ContactList />
-          </AdminOnly>
+          </LoggedUserOnly>
         }
         path={RoutePaths.CONTACTLIST}
       />
@@ -104,9 +104,9 @@ export const Main = () => (
       />
       <Route
         element={
-          <AdminOnly>
+          <LoggedUserOnly>
             <PostForm />
-          </AdminOnly>
+          </LoggedUserOnly>
         }
         path={RoutePaths.POSTFORM}
       />

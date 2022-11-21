@@ -1,7 +1,9 @@
+/* eslint-disable no-undef */
 // @ts-nocheck
 import { Meteor } from 'meteor/meteor';
 import { check } from 'meteor/check';
 import { VideoPostsCollection } from '../collections/videoposts.collection';
+import { PostRoles } from '../../infra/PostRoles';
 
 Meteor.methods({
   'videoposts.insert' ({
@@ -11,7 +13,7 @@ Meteor.methods({
     date,
     category,
     author,
-    authorImage,
+    image,
   }) {
     const { userId } = this;
     if (!userId) {
@@ -19,13 +21,16 @@ Meteor.methods({
     }
     check(title, String);
     check(video, String);
-    check(authorImage, String);
+    check(image, String);
     check(author, String);
     check(category, String);
     check(date, String);
     check(message, String);
 
     if (!video) {
+      throw new Meteor.Error('Video is required.');
+    }
+    if (!image) {
       throw new Meteor.Error('Photo is required.');
     }
     if (!title) {
@@ -54,24 +59,22 @@ Meteor.methods({
       date,
       author,
       message,
-      authorImage,
+      image,
       category,
       createdAt: new Date(),
       userId,
     });
   },
-  'videoposts.archive' ({ videopostId }) {
-    check(videopostId, String);
+  'videoposts.remove' (postId) {
+    const { userId } = this;
+    if (!userId) {
+      throw new Meteor.Error('Access denied');
+    }
+    check(postId, String);
 
-    VideoPostsCollection.update(
-      { _id: videopostId },
-      { $set: { archived: true } },
-    );
-  },
-  'videoposts.remove' ({ videopostId }) {
-    check(videopostId, String);
-  },
-  'videoposts.update' ({ videopostId }) {
-    check(videopostId, String);
+    if (!Roles.userIsInRole(userId, PostRoles.ADMIN)) {
+      throw new Error('Permision denied');
+    }
+    return VideoPostsCollection.remove(postId);
   },
 });

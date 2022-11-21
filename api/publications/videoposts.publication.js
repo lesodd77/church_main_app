@@ -7,5 +7,12 @@ Meteor.publish('myVideoPosts', function publishAllVideoPosts () {
   if (!userId) {
     throw Meteor.Error('Access denied');
   }
-  return VideoPostsCollection.find({ userId });
+  return VideoPostsCollection.find(
+    { userId, archived: { $ne: true } },
+    {
+      fields: {
+        createdAt: false,
+      },
+    },
+  );
 });
