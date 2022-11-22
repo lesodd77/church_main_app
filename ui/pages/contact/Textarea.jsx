@@ -18,7 +18,7 @@ export const Textarea = (props) => {
     <>
       <div className={containerClassName}>
         <div
-          className={`border-dashed border-2 border-tertiaryOne bg-opacity-25 transition duration-150 ease-in-out ${
+          className={` border-tertiaryOne bg-opacity-25 transition duration-150 ease-in-out ${
             error
               ? 'focus-widthin:border-danger border-danger'
               : 'focus-widthin:border-primary'

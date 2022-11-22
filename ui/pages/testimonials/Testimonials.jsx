@@ -50,25 +50,26 @@ const testimonials = [
 ];
 
 export const Testimonials = () => {
+ 
   return (
     <>
-
-        <div className="mt-20 py-10 bg-primary bg-opacity-20 dark:bg-slate-900">
-
+    
+        <div  className="mt-20 py-10 bg-primary bg-opacity-20 dark:bg-slate-900">
+        
        <div className="max-w-6xl mx-auto">
           <h2
             className="mt-6 text-4xl font-bold text-center  text-primary dark:text-tertiaryOne"
-
+           
           >
            Testimonies
           </h2>
 
         </div>
           <ul className="grid max-w-2xl grid-cols-1 gap-6 p-4 mx-auto shadow-md  sm:gap-8 lg:mt-10 lg:max-w-none md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5">
-
+        
             {testimonials.map((column, columnIndex) => (
               <li key={columnIndex}>
-
+                
                 <ul className="space-y-6 rounded-md sm:space-y-8 bg-primary dark:slate-900">
                   {column.map((testimonial, testimonialIndex) => (
                     <li key={testimonialIndex}>
@@ -99,7 +100,7 @@ export const Testimonials = () => {
             ))}
           </ul>
         </div>
-
+     
     </>
   );
 };

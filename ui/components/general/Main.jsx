@@ -28,6 +28,7 @@ import { AlbumForm } from '../../pages/album/AlbumForm';
 import { Access } from '../../auth/Access';
 import { AnonymousOnly } from '../../auth/AnonymousOnly';
 import { RemovePost } from '../../auth/RemovePost';
+import { Admin } from '../../pages/admin/Admin';
 import { AdminOnly } from '../../pages/admin/AdminOnly';
 import { ForgotPassword } from '../../auth/ForgotPassword';
 import { ResetPassword } from '../../auth/ResetPassword';
@@ -80,7 +81,7 @@ export const Main = () => (
       <Route element={<NotifyEmail/>} path={RoutePaths.NOTIFYEMAIL} />
       <Route element={<Officers />} path={RoutePaths.OFFICERS} />
       <Route element={<About />} path={RoutePaths.ABOUT} />
-      <Route element={<About />} path={RoutePaths.ABOUT} />
+      <Route element={<Admin />} path={RoutePaths.ADMIN} />
       <Route
         element={
           <LoggedUserOnly>
@@ -104,9 +105,9 @@ export const Main = () => (
       />
       <Route
         element={
-          <LoggedUserOnly>
+          <AdminOnly>
             <PostForm />
-          </LoggedUserOnly>
+          </AdminOnly>
         }
         path={RoutePaths.POSTFORM}
       />

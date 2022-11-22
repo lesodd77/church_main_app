@@ -5,7 +5,7 @@ import SimpleSchema from 'simpl-schema';
 export const PostsCollection = new Mongo.Collection('posts');
 
 const PostsSchema = new SimpleSchema({
-  url: {
+  image1: {
     type: String,
   },
   image: {

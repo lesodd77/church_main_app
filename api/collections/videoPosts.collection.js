@@ -2,13 +2,13 @@
 import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
 
-export const VideoPostsCollection = new Mongo.Collection('videoposts');
+export const VideoPostsCollection = new Mongo.Collection('videoPosts');
 
 const VideoPostsSchema = new SimpleSchema({
   video: {
     type: String,
   },
-  image: {
+  image2: {
     type: String,
   },
   author: {

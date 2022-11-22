@@ -80,11 +80,11 @@ export const PostForm = () => {
     uploads.forEach(async (response) => {
       const photoData = await response;
       console.log(photoData);
-      setImage(photoData.public_id);
+      setImage1(photoData.public_id);
     });
   };
-
   const img = Cloudinary().image(image).resize(scale(200, 200)).format('jpg');
+  const img1 = Cloudinary().image(image1).resize(scale(200, 200)).format('jpg');
   return (
     <>
       <section
@@ -108,10 +108,10 @@ export const PostForm = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
               <input
                   type="file"
-                  id="image/*"
+                  id="image1/*"
                   accept="image/*, video/*"
-                  onChange={(e) => handleImage(e.target.files)}
-                  placeholder="Image"
+                  onChange={(e) => handleImage1(e.target.files)}
+                  placeholder="Image1"
                 />
                 <input
                   id="category"
@@ -153,9 +153,9 @@ export const PostForm = () => {
                 />
                  <input
                   type="file"
-                  id="image1/*"
+                  id="image/*"
                   accept="image/*, video/*"
-                  onChange={(e) => handleImage1(e.target.files)}
+                  onChange={(e) => handleImage(e.target.files)}
                   placeholder="Image"
                 />
                 <input
@@ -188,6 +188,7 @@ export const PostForm = () => {
           </div>
         </div>
         <AdvancedImage cldImg={img} />
+        <AdvancedImage cldImg={img1} />
       </section>
     </>
   );

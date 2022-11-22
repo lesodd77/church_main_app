@@ -6,13 +6,13 @@ import '../api/collections/albums.collection';
 import '../api/collections/comments.collection';
 import '../api/collections/contacts.collection';
 import '../api/collections/posts.collection';
-import '../api/collections/videoposts.collection';
+import '../api/collections/videoPosts.collection';
 import '../api/collections/NotifyEmailsCollection';
 
 import '../api/methods/albums.methods';
 import '../api/methods/posts.methods';
 import '../api/methods/RolesMethods';
-import '../api/methods/videoposts.methods';
+import '../api/methods/videoPosts.methods';
 import '../api/methods/NotifyEmailsMethods';
 import '../api/methods/contacts.methods';
 import '../api/methods/comments.methods';
@@ -20,7 +20,7 @@ import '../api/methods/comments.methods';
 import '../api/publications/albums.publication';
 import '../api/publications/comments.publication';
 import '../api/publications/posts.publication';
-import '../api/publications/videoposts.publication';
+import '../api/publications/videoPosts.publication';
 import '../api/publications/contacts.publication';
 import '../api/publications/NotifyEmailsPublication';
 

@@ -1,6 +1,6 @@
 // @ts-nocheck
 import { Meteor } from 'meteor/meteor';
-import { VideoPostsCollection } from '../collections/videoposts.collection';
+import { VideoPostsCollection } from '../collections/videoPosts.collection';
 
 Meteor.publish('myVideoPosts', function publishAllVideoPosts () {
   const { userId } = this;

@@ -3,7 +3,8 @@ import React, { memo } from 'react';
 import { PostsCollection } from '../../app/api/collections/posts.collection';
 import { useSubscribe, useFind } from 'meteor/react-meteor-data';
 import { Loading } from '../components/spinner/Loading';
-import { FacebookShareButton, WhatsappShareButton, FacebookIcon, WhatsappIcon } from 'react-share';
+import { FacebookShareButton, WhatsappShareButton } from 'react-share';
+import { FacebookIcon, WhatsappIcon } from 'react-share';
 
 export const Widget = () => {
   const shareUrl = 'https://ims-ghanafield.meteorapp.com/news';
@@ -11,8 +12,8 @@ export const Widget = () => {
   const posts = useFind(() =>
     PostsCollection.find(
       { archived: { $ne: true } },
-      { sort: { createdAt: -1 } },
-    ),
+      { sort: { createdAt: -1 } }
+    )
   );
   if (isLoading()) {
     return <Loading />;

@@ -30,7 +30,7 @@ export const PostHomePage = () => {
       </div>
             <div className="flex flex-col overflow-hidden rounded-lg shadow-sm">
               <div className="flex-shrink-0">
-                <AdvancedImage className="h-48 w-full md:h-36 object-fit" cldImg={img} />
+                <AdvancedImage className="h-48 w-full md:h-36 object-fit" cldImg={img1} />
               </div>
               <div className="flex flex-1 flex-col justify-between bg-white p-6">
                 <div className="flex-1">
@@ -48,7 +48,7 @@ export const PostHomePage = () => {
                   <div className="flex-shrink-0">
                     <a href={post.author.href}>
                       <span className="sr-only">{post.author.name}</span>
-                      <AdvancedImage className="h-10 w-10 rounded-full" cldImg={img1} />
+                      <AdvancedImage className="h-10 w-10 rounded-full" cldImg={img} />
                     </a>
                   </div>
                   <div className="ml-3">

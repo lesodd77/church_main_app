@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useRef } from 'react';
 
 export const Input = (props) => {
@@ -17,7 +18,7 @@ export const Input = (props) => {
     <>
     <div className={containerClassName}>
          <div
-        className={`border-dashed border-2 border-tertiaryOne bg-opacity-75 transition duration-150 ease-in-out ${
+        className={` border-tertiaryOne bg-opacity-75 transition duration-150 ease-in-out ${
           error
           ? 'focus-widthin:border-danger border-danger'
           : 'focus-widthin:border-primary'

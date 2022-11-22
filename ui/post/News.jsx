@@ -31,13 +31,14 @@ export const News = () => {
 
   const PostItem = memo(({ post }) => {
     const img = Cloudinary().image(post.image).format('jpg');
+    const img1 = Cloudinary().image(post.image1).format('jpg');
     return (
       <div className="mb-20 bg-transparent dark:bg-slate-900">
       <div className="">
       <div className="w-[96%] h-auto">
         <AdvancedImage
                   className="object-fit h-auto w-96 md:h-36 "
-                  cldImg={img}
+                  cldImg={img1}
                 />
           </div>
           <a href='news' className="block mt-4">
@@ -56,8 +57,8 @@ export const News = () => {
           <div className="px-2 flex items-center mt-6">
             <div className="flex-shrink-0">
             <a href='news'>
-                <span className="sr-only">{post.url}</span>
-                <img className="w-8 h-8 rounded-full" src={post.url} alt="" />
+                <span className="sr-only">{post.image}</span>
+                <AdvancedImage className="h-10 w-10 rounded-full" cldImg={img} />
               </a>
             </div>
             <div className="ml-3">

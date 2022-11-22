@@ -2,35 +2,28 @@
 // @ts-nocheck
 import { Meteor } from 'meteor/meteor';
 import { check } from 'meteor/check';
-import { VideoPostsCollection } from '../collections/videoposts.collection';
+import { VideoPostsCollection } from '../collections/videoPosts.collection';
 import { PostRoles } from '../../infra/PostRoles';
 
 Meteor.methods({
-  'videoposts.insert' ({
-    title,
-    video,
-    message,
-    date,
-    category,
-    author,
-    image,
-  }) {
+  'videoPosts.insert' ({ title, video, description, date, category, author, image2 }) {
     const { userId } = this;
     if (!userId) {
       throw Meteor.Error('Access denied');
     }
     check(title, String);
     check(video, String);
-    check(image, String);
+    check(image2, String);
     check(author, String);
+    check(description, String);
     check(category, String);
     check(date, String);
-    check(message, String);
 
     if (!video) {
-      throw new Meteor.Error('Video is required.');
+      throw new Meteor.Error('Photo is required.');
     }
-    if (!image) {
+
+    if (!image2) {
       throw new Meteor.Error('Photo is required.');
     }
     if (!title) {
@@ -46,35 +39,33 @@ Meteor.methods({
     if (!author) {
       throw new Meteor.Error('Author is required.');
     }
-    if (!video) {
-      throw new Meteor.Error('Video Content is required.');
-    }
-    if (!message) {
-      throw new Meteor.Error('Video Content is required.');
+    if (!description) {
+      throw new Meteor.Error('Content is required.');
     }
 
     return VideoPostsCollection.insert({
       title,
       video,
       date,
+      description,
       author,
-      message,
-      image,
+      image2,
       category,
       createdAt: new Date(),
       userId,
     });
   },
-  'videoposts.remove' (postId) {
+  'videoPosts.remove' (postId) {
     const { userId } = this;
     if (!userId) {
-      throw new Meteor.Error('Access denied');
+      throw Meteor.Error('Access denied');
     }
     check(postId, String);
 
     if (!Roles.userIsInRole(userId, PostRoles.ADMIN)) {
       throw new Error('Permision denied');
     }
+
     return VideoPostsCollection.remove(postId);
   },
 });

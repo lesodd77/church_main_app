@@ -35,20 +35,6 @@ export const Admin = () => {
                 />
               </div>
               <div>
-                <label htmlFor="user-photo" className="sr-only">
-                  User Photo
-                </label>
-                <input
-                  id="user-photo"
-                  name="user-photo"
-                  type="file"
-                  autoComplete="user-photo"
-                  required
-                  className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                  placeholder="Email address"
-                />
-              </div>
-              <div>
                 <label htmlFor="password" className="sr-only">
                   Password
                 </label>

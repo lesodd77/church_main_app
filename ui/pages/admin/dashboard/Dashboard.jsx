@@ -1,5 +1,6 @@
-import React, { Fragment } from 'react';
-import { Menu, Popover, Transition } from '@headlessui/react';
+import React from 'react'
+import { Fragment } from 'react'
+import { Menu, Popover, Transition } from '@headlessui/react'
 import {
   ChatBubbleLeftEllipsisIcon,
   CodeBracketIcon,
@@ -11,7 +12,7 @@ import {
   PlusIcon,
   ShareIcon,
   StarIcon,
-} from '@heroicons/react/20/solid';
+} from '@heroicons/react/20/solid'
 import {
   ArrowTrendingUpIcon,
   Bars3Icon,
@@ -20,25 +21,25 @@ import {
   HomeIcon,
   UserGroupIcon,
   XMarkIcon,
-} from '@heroicons/react/24/outline';
+} from '@heroicons/react/24/outline'
 
 const user = {
   name: 'Chelsea Hagon',
   email: 'chelsea.hagon@example.com',
   imageUrl:
     'https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-};
+}
 const navigation = [
   { name: 'Home', href: '#', icon: HomeIcon, current: true },
   { name: 'Popular', href: '#', icon: FireIcon, current: false },
   { name: 'Communities', href: '#', icon: UserGroupIcon, current: false },
   { name: 'Trending', href: '#', icon: ArrowTrendingUpIcon, current: false },
-];
+]
 const userNavigation = [
   { name: 'Your Profile', href: '#' },
   { name: 'Settings', href: '#' },
   { name: 'Sign out', href: '#' },
-];
+]
 const communities = [
   { name: 'Movies', href: '#' },
   { name: 'Food', href: '#' },
@@ -48,12 +49,12 @@ const communities = [
   { name: 'Dinosaurs', href: '#' },
   { name: 'Talents', href: '#' },
   { name: 'Gaming', href: '#' },
-];
+]
 const tabs = [
   { name: 'Recent', href: '#', current: true },
   { name: 'Most Liked', href: '#', current: false },
   { name: 'Most Answers', href: '#', current: false },
-];
+]
 const questions = [
   {
     id: '81614',
@@ -76,7 +77,7 @@ const questions = [
     `,
   },
   // More questions...
-];
+]
 const whoToFollow = [
   {
     name: 'Leonard Krasner',
@@ -86,7 +87,7 @@ const whoToFollow = [
       'https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
   },
   // More people...
-];
+]
 const trendingPosts = [
   {
     id: 1,
@@ -99,16 +100,16 @@ const trendingPosts = [
     comments: 291,
   },
   // More posts...
-];
+]
 
-function classNames (...classes) {
-  return classes.filter(Boolean).join(' ');
+function classNames(...classes) {
+  return classes.filter(Boolean).join(' ')
 }
 
-export const Dashboard = () => {
+export const Dashboard = () =>{
   return (
     <>
-
+    
       <div className="min-h-full">
         {/* When the mobile menu is open, add `overflow-hidden` to the `body` element to prevent double scrollbars */}
         <Popover
@@ -116,7 +117,7 @@ export const Dashboard = () => {
           className={({ open }) =>
             classNames(
               open ? 'fixed inset-0 z-40 overflow-y-auto' : '',
-              'bg-white shadow-sm lg:static lg:overflow-y-visible',
+              'bg-white shadow-sm lg:static lg:overflow-y-visible'
             )
           }
         >
@@ -160,13 +161,11 @@ export const Dashboard = () => {
                     {/* Mobile menu button */}
                     <Popover.Button className="-mx-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-rose-500">
                       <span className="sr-only">Open menu</span>
-                      {open
-                        ? (
+                      {open ? (
                         <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
-                          )
-                        : (
+                      ) : (
                         <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
-                          )}
+                      )}
                     </Popover.Button>
                   </div>
                   <div className="hidden lg:flex lg:items-center lg:justify-end xl:col-span-4">
@@ -206,7 +205,7 @@ export const Dashboard = () => {
                                   href={item.href}
                                   className={classNames(
                                     active ? 'bg-gray-100' : '',
-                                    'block py-2 px-4 text-sm text-gray-700',
+                                    'block py-2 px-4 text-sm text-gray-700'
                                   )}
                                 >
                                   {item.name}
@@ -237,7 +236,7 @@ export const Dashboard = () => {
                       aria-current={item.current ? 'page' : undefined}
                       className={classNames(
                         item.current ? 'bg-gray-100 text-gray-900' : 'hover:bg-gray-50',
-                        'block rounded-md py-2 px-3 text-base font-medium',
+                        'block rounded-md py-2 px-3 text-base font-medium'
                       )}
                     >
                       {item.name}
@@ -304,14 +303,14 @@ export const Dashboard = () => {
                       href={item.href}
                       className={classNames(
                         item.current ? 'bg-gray-200 text-gray-900' : 'text-gray-700 hover:bg-gray-50',
-                        'group flex items-center px-3 py-2 text-sm font-medium rounded-md',
+                        'group flex items-center px-3 py-2 text-sm font-medium rounded-md'
                       )}
                       aria-current={item.current ? 'page' : undefined}
                     >
                       <item.icon
                         className={classNames(
                           item.current ? 'text-gray-500' : 'text-gray-400 group-hover:text-gray-500',
-                          'flex-shrink-0 -ml-1 mr-3 h-6 w-6',
+                          'flex-shrink-0 -ml-1 mr-3 h-6 w-6'
                         )}
                         aria-hidden="true"
                       />
@@ -364,7 +363,7 @@ export const Dashboard = () => {
                           tab.current ? 'text-gray-900' : 'text-gray-500 hover:text-gray-700',
                           tabIdx === 0 ? 'rounded-l-lg' : '',
                           tabIdx === tabs.length - 1 ? 'rounded-r-lg' : '',
-                          'group relative min-w-0 flex-1 overflow-hidden bg-white py-4 px-6 text-sm font-medium text-center hover:bg-gray-50 focus:z-10',
+                          'group relative min-w-0 flex-1 overflow-hidden bg-white py-4 px-6 text-sm font-medium text-center hover:bg-gray-50 focus:z-10'
                         )}
                       >
                         <span>{tab.name}</span>
@@ -372,7 +371,7 @@ export const Dashboard = () => {
                           aria-hidden="true"
                           className={classNames(
                             tab.current ? 'bg-rose-500' : 'bg-transparent',
-                            'absolute inset-x-0 bottom-0 h-0.5',
+                            'absolute inset-x-0 bottom-0 h-0.5'
                           )}
                         />
                       </a>
@@ -429,7 +428,7 @@ export const Dashboard = () => {
                                             href="#"
                                             className={classNames(
                                               active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                                              'flex px-4 py-2 text-sm',
+                                              'flex px-4 py-2 text-sm'
                                             )}
                                           >
                                             <StarIcon className="mr-3 h-5 w-5 text-gray-400" aria-hidden="true" />
@@ -443,7 +442,7 @@ export const Dashboard = () => {
                                             href="#"
                                             className={classNames(
                                               active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                                              'flex px-4 py-2 text-sm',
+                                              'flex px-4 py-2 text-sm'
                                             )}
                                           >
                                             <CodeBracketIcon
@@ -460,7 +459,7 @@ export const Dashboard = () => {
                                             href="#"
                                             className={classNames(
                                               active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                                              'flex px-4 py-2 text-sm',
+                                              'flex px-4 py-2 text-sm'
                                             )}
                                           >
                                             <FlagIcon className="mr-3 h-5 w-5 text-gray-400" aria-hidden="true" />
@@ -616,5 +615,5 @@ export const Dashboard = () => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}

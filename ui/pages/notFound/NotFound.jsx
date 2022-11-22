@@ -1,11 +1,11 @@
 /* This example requires Tailwind CSS v2.0+ */
 import React from 'react';
-import { RoutePaths } from '../../components/general/RoutePaths';
+import { RoutePaths } from '/ui/components/general/RoutePaths';
 import { useNavigate } from 'react-router-dom';
 
-export const NotFound = () => {
+export const NotFound = () => { 
   const navigate = useNavigate();
-  return (
+  return( 
   <>
     <div
       className="mt-16 bg-white dark:bg-slate-800 rounded-lg ring-1 ring-slate-900/5 shadow-xl min-h-full px-4 py-16 sm:px-6 sm:py-24 md:grid md:place-items-center lg:px-8"
@@ -126,5 +126,5 @@ export const NotFound = () => {
       </div>
     </div>
   </>
-  );
-};
+);
+  };

@@ -41,7 +41,7 @@ export const CommentForm = () => {
 
           showSuccess({ message: 'Your Post saved and publish.' });
         }
-      },
+      }
     );
   };
   return (
