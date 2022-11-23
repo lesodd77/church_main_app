@@ -26,7 +26,7 @@ export const Album = () => {
       <>
          <div className="relative">
           <div className="relative h-72 w-full overflow-hidden rounded-lg group-hover:opacity-75">
-            <a href="news">
+            <a href="#">
               <AdvancedImage
                 className="h-full w-full object-cover object-center transition-transform hover:scale-125 "
                 cldImg={img}

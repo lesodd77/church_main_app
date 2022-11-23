@@ -4,6 +4,7 @@ module.exports = {
   content: ['./ui/**/*.{js,jsx,ts,tsx}', './client/*.html'],
   darkMode: 'class',
   theme: {
+    animation: {
     extend: {
       colors: {
         white: '#FFFFFF',

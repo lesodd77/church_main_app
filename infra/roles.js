@@ -6,7 +6,7 @@ import { Roles } from 'meteor/alanning:roles';
 Roles.createRole(PostRoles.ADMIN, { unlessExists: true });
 
 Meteor.startup(() => {
-  const user = Meteor.users.findOne({ email: '' });
+  const user = Meteor.users.findOne({ email: 'fadecsolution@gmail.com' });
 
   if (!user || Roles.userIsInRole(user._id, PostRoles.ADMIN)) {
     return;

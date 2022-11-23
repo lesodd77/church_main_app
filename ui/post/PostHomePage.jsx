@@ -26,17 +26,17 @@ export const PostHomePage = () => {
     return (
       <>
         <div className="relative">
-          <div className="relative h-72 w-full overflow-hidden rounded-lg group-hover:opacity-75">
-            <a href="news">
+           <div className="relative h-72 w-full overflow-hidden rounded-lg group-hover:opacity-75">
+            <a href="#">
               <AdvancedImage
-                className="px-10 h-full w-full object-cover object-center rounded-lg transition-transform hover:scale-125 "
+                className="h-auto w-full object-cover object-center transition-transform hover:scale-125 "
                 cldImg={img1}
               />
             </a>
           </div>
           <div className="flex flex-1 flex-col justify-between bg-white p-6">
             <div className="flex-1">
-              <span className="ml-2 mt-2 inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium font-sm bg-primary bg-opacity-75  w-16 h-7 font-serif text-white">
+              <span className="ml-2 mt-2 inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium font-sm bg-primary w-16 h-7 font-serif text-white">
                 <a href={post.category.href} className="hover:underline">
                   {post.category}
                 </a>
@@ -48,7 +48,7 @@ export const PostHomePage = () => {
                 >
                   {post.title}
                 </p>
-                <p id="line-clamp-2" className="mt-3 text-base text-gray-500">
+                <p id="line-clamp-1" className="mt-3 text-base text-gray-500">
                   {post.description}
                 </p>
               </a>
@@ -81,11 +81,11 @@ export const PostHomePage = () => {
   });
 
   return (
-    <div className="bg-white">
+    <div id='home' className="bg-transparent dark:bg-slate-900">
       <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
         <ul
           role="list"
-          className="mt-4 grid grid-cols-1 gap-y-2 sm:grid-cols-2 sm:gap-x-1 lg:grid-cols-4 xl:gap-x-3"
+          className="mt-4 grid grid-cols-1 sm:grid-cols-2 sm:gap-x-1 lg:grid-cols-4 xl:gap-x-3"
         >
           {posts.map((post) => (
             <PostItem key={post._id} post={post} />

@@ -62,10 +62,10 @@ export const Main = () => (
         path={RoutePaths.REMOVE_POST}
       />
       <Route element={<ContactForm />} path={RoutePaths.CONTACTFORM} />
-      <Route element={ <LoggedUserOnly><AlbumForm /></LoggedUserOnly>} path={RoutePaths.ALBUMFORM} />
+      <Route element={<AlbumForm />} path={RoutePaths.ALBUMFORM} />
       <Route element={<About />} path={RoutePaths.ABOUT} />
       <Route element={<Testimonials />} path={RoutePaths.TESTIMONIALS} />
-      <Route element={<AnonymousOnly><News /></AnonymousOnly>} path={RoutePaths.NEWS} />
+      <Route element={<News />} path={RoutePaths.NEWS} />
       <Route element={<VideoPostForm />} path={RoutePaths.VIDEOPOSTFORM} />
       <Route element={<VideoPost />} path={RoutePaths.VIDEOPOST} />
       <Route element={<Cookie />} path={RoutePaths.COOKIE} />
@@ -104,9 +104,7 @@ export const Main = () => (
       />
       <Route
         element={
-          <LoggedUserOnly>
             <PostForm />
-        </LoggedUserOnly>
         }
         path={RoutePaths.POSTFORM}
       />
