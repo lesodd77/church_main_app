@@ -5,21 +5,25 @@ import SimpleSchema from 'simpl-schema';
 export const AlbumsCollection = new Mongo.Collection('albums');
 
 const AlbumsSchema = new SimpleSchema({
-  branch: {
-    type: String,
-  },
-
   image: {
     type: String,
-    optional: false,
   },
-
+  title: {
+    type: String,
+  },
+  date: {
+    type: String,
+  },
   archived: {
     type: Boolean,
     defaultValue: false,
   },
   createdAt: {
     type: Date,
+  },
+  userId: {
+    type: String,
+
   },
 });
 

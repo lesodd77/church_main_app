@@ -1,5 +1,4 @@
 /* eslint-disable no-undef */
-// @ts-nocheck
 import { Meteor } from 'meteor/meteor';
 import { check } from 'meteor/check';
 import { ContactsCollection } from '../collections/contacts.collection';
@@ -9,7 +8,7 @@ Meteor.methods({
   'contacts.insert' ({ name, email, agreed, subject, message }) {
     const { userId } = this;
     if (!userId) {
-      throw Meteor.Error('Access denied');
+      throw new Meteor.Error('Access denied');
     }
     check(name, String);
     check(email, String);
@@ -49,6 +48,7 @@ Meteor.methods({
     }
     check(postId, String);
 
+    // @ts-ignore
     if (!Roles.userIsInRole(userId, PostRoles.ADMIN)) {
       throw new Error('Permision denied');
     }

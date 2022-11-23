@@ -101,7 +101,7 @@ export const PostForm = () => {
         </div>
 
         <div className="relative max-w-4xl mx-auto shadow-sm shadow-cyan-900/50">
-          <div className="relative z-20 bg-primary dark:bg-slate-900 rounded-lg p-8">
+          <div className="relative z-20 bg-transparent dark:bg-slate-900 rounded-lg p-8">
             <form action="">
               {error && <ErrorAlert description={error} />}
               {success && <SuccessAlert description={success} />}

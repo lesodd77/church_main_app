@@ -14,9 +14,9 @@ export const Access = () => {
   const loginWithGoogle = () => {
     Meteor.loginWithGoogle({ loginStyle: 'redirect' });
   };
-  const loginWithFacebook = () => {
-    Meteor.loginWithFacebook({ loginStyle: 'redirect' });
-  };
+  // const loginWithFacebook = () => {
+  //   Meteor.loginWithFacebook({ loginStyle: 'redirect' });
+  // };
   return (
   <div className="flex flex-col items-center space-y-7">
     <div>
@@ -29,11 +29,11 @@ export const Access = () => {
     onClick={loginWithGoogle}>
  Login with google
     </button>
-    <button
+    {/* <button
     className="h-10 w-30 px-6 font-semibold rounded-md bg-cyan-700/75 border text-white shadow-lg"
     onClick={loginWithFacebook}>
  Login with Facebook
-    </button>
+    </button> */}
   </div>
   );
 };

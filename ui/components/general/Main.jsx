@@ -1,6 +1,6 @@
 /* eslint-disable import/no-unresolved */
 import React from 'react';
-import { Routes as ReactRoutes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { RoutePaths } from './RoutePaths';
 import { Hero } from '../../pages/hero/Hero';
 import { Home } from '../../pages/index';
@@ -11,7 +11,7 @@ import { PostForm } from '../../post/PostForm';
 import { News } from '../../post/News';
 import { ContactForm } from '../../pages/contact/ContactForm';
 import { Testimonials } from '../../pages/testimonials/Testimonials';
-import { ContactList } from '../../pages/admin/ContactList';
+import { ContactList } from '../../pages/contact/ContactList';
 import { Cookie } from '../cookie/Cookie';
 import { Privacy } from '../privacy/Privacy';
 import { Health } from '../../pages/health/Health';
@@ -37,13 +37,12 @@ import { Profile } from '../../auth/Profile';
 
 export const Main = () => (
   <>
-    <ReactRoutes>
+    <Routes>
       <Route
         path={RoutePaths.HOME}
         element={
-          <LoggedUserOnly>
-            <Home />
-          </LoggedUserOnly>
+  <Home />
+
         }
       />
       <Route
@@ -66,7 +65,7 @@ export const Main = () => (
       <Route element={ <LoggedUserOnly><AlbumForm /></LoggedUserOnly>} path={RoutePaths.ALBUMFORM} />
       <Route element={<About />} path={RoutePaths.ABOUT} />
       <Route element={<Testimonials />} path={RoutePaths.TESTIMONIALS} />
-      <Route element={<News />} path={RoutePaths.NEWS} />
+      <Route element={<AnonymousOnly><News /></AnonymousOnly>} path={RoutePaths.NEWS} />
       <Route element={<VideoPostForm />} path={RoutePaths.VIDEOPOSTFORM} />
       <Route element={<VideoPost />} path={RoutePaths.VIDEOPOST} />
       <Route element={<Cookie />} path={RoutePaths.COOKIE} />
@@ -105,9 +104,9 @@ export const Main = () => (
       />
       <Route
         element={
-          <AdminOnly>
+          <LoggedUserOnly>
             <PostForm />
-          </AdminOnly>
+        </LoggedUserOnly>
         }
         path={RoutePaths.POSTFORM}
       />
@@ -120,6 +119,6 @@ export const Main = () => (
         path={RoutePaths.POST}
       />
       <Route path="*" element={<NotFound />} />
-      </ReactRoutes>
+      </Routes>
   </>
 );

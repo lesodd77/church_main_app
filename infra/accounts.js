@@ -1,4 +1,5 @@
 // @ts-nocheck
+// @ts-uncheck
 import { Accounts } from 'meteor/accounts-base';
 // import { PostsCollection } from '../api/collections/posts.collection';
 import { Meteor } from 'meteor/meteor';
@@ -14,7 +15,7 @@ function getEmailFromUser (user) {
 Accounts.onCreateUser((_options, user) => {
   const customizedUser = { ...user };
 
-  // TODO: Figurue out what we want to insert in the posts collection when a user is created
+  // TODO: Figure out what we want to insert in the posts collection when a user is created
   // PostsCollection.insert({ userId: user._id, createdAt: new Date() });
   customizedUser.email = getEmailFromUser(user);
   return customizedUser;
@@ -32,7 +33,7 @@ Meteor.startup(() => {
     throw new Error('googleClientId and googleSecret are required');
   }
 
-  // Accounts.config({ restrictedCreateionByEmailDomain: 'swed.com' });
+  // Accounts.config({ restrictedCreationByEmailDomain: 'meteorapp.com' });
 
   ServiceConfiguration.configurations.upsert(
     {
@@ -48,3 +49,25 @@ Meteor.startup(() => {
     },
   );
 });
+
+// Meteor.startup(() => {
+//   if (!settings.facebookAppId || !settings.facebookSecret) {
+//     throw new Error('facebookAppId and facebookSecret are required.');
+//   }
+
+//   // Accounts.config({ restrictedCreationByEmailDomain: 'swed.com' });
+
+//   ServiceConfiguration.configurations.upsert(
+//     {
+//       service: 'facebook',
+//     },
+
+//     {
+//       $set: {
+//         service: 'facebook',
+//         appId: settings.facebookAppId,
+//         secret: settings.facebookSecret,
+//       },
+//     },
+//   );
+// });

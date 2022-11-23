@@ -3,41 +3,42 @@
 import { Meteor } from 'meteor/meteor';
 import { check } from 'meteor/check';
 import { AlbumsCollection } from '../collections/albums.collection';
-import { PostRoles } from '../../infra/PostRoles';
 
 Meteor.methods({
-  'albums.insert' ({ branch, image }) {
-    const { userId } = this;
-    if (!userId) {
-      throw Meteor.Error('Access denied');
-    }
-    check(branch, String);
+  'albums.insert' ({ title, date, image }) {
+    check(title, String);
     check(image, String);
+    check(date, String);
 
-    if (!branch) {
-      throw new Meteor.Error('Branch is required.');
-    }
     if (!image) {
-      throw new Meteor.Error('image is required.');
+      throw new Meteor.Error('Photo is required.');
+    }
+    if (!title) {
+      throw new Meteor.Error('Title is required.');
     }
 
+    if (!date) {
+      throw new Meteor.Error('Date is required.');
+    }
     return AlbumsCollection.insert({
-      branch,
+      title,
+      date,
       image,
       createdAt: new Date(),
       userId,
     });
   },
-  'albums.remove' (postId) {
+  'albums.delete' (albumId) {
     const { userId } = this;
     if (!userId) {
-      throw new Meteor.Error('Access denied');
+      throw Meteor.Error('Access denied');
     }
-    check(postId, String);
+    check(albumId, String);
 
-    if (!Roles.userIsInRole(userId, PostRoles.ADMIN)) {
+    if (Roles.userIsInRole(userId)) {
       throw new Error('Permision denied');
     }
-    return AlbumsCollection.remove(postId);
+
+    return albums.AlbumsCollection.delete(albumId);
   },
 });

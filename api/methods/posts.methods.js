@@ -1,11 +1,10 @@
 /* eslint-disable no-undef */
 /* eslint-disable import/no-unresolved */
-
 // @ts-nocheck
 import { Meteor } from 'meteor/meteor';
 import { check } from 'meteor/check';
 import { PostsCollection } from '../collections/posts.collection';
-import { PostRoles } from '../../infra/PostRoles';
+// import { PostRoles } from '../../infra/PostRoles';
 
 Meteor.methods({
   'posts.insert' ({ title, image1, description, date, category, author, image }) {
@@ -57,17 +56,17 @@ Meteor.methods({
       userId,
     });
   },
-  'posts.remove' (postId) {
+  'posts.delete' (postId) {
     const { userId } = this;
     if (!userId) {
       throw Meteor.Error('Access denied');
     }
     check(postId, String);
 
-    if (!Roles.userIsInRole(userId, PostRoles.ADMIN)) {
+    if (Roles.userIsInRole(userId)) {
       throw new Error('Permision denied');
     }
 
-    return PostsCollection.remove(postId);
+    return PostsCollection.delete(postId);
   },
 });

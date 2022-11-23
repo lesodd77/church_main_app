@@ -98,7 +98,7 @@ export const Officers = () => {
         <div className="bg-white">
         <div aria-hidden="true" className="relative">
           <img
-            src="https://res.cloudinary.com/dungxxzhh/image/upload/v1663456541/ghf_images/ghf_hohoe_cm_uybaxl.jpg"
+            src="https://tailwindui.com/img/ecommerce-images/product-feature-02-full-width.jpg"
             alt=""
             className="h-96 w-full mt-16 object-cover object-center"
           />
